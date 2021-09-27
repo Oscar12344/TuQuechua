@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,9 +30,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Basico_Ejercicio4_Familia extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener {
-    ImageButton btnIniciar4BasicoFamilia;
-    VideoView vvAudio;
+public class Basico_Ejercicio4_Numero extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener {
+    ImageButton btnIniciar;
+    //VideoView vvAudio; video
     Spinner spRespuesta;
     Button btnSiguiente;
     TextView txtPregunta;
@@ -40,17 +41,16 @@ public class Basico_Ejercicio4_Familia extends AppCompatActivity implements  Res
     ImageView campoImagen;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-    int posicion = 0;
-    String []respuestas={"Eliga una opción","Ayllu","Wallpa","Yaku","Challwa","Quwi"};
+   //int posicion = 0; video
+    String []respuestas={"Eliga una opción","Tawa","Wallpa","Yaku","Challwa","Quwi"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basico__ejercicio4__familia);
-        btnIniciar4BasicoFamilia=findViewById(R.id.ibInicio);
+        setContentView(R.layout.activity_basico__ejercicio4__numero);
+        btnIniciar=findViewById(R.id.ibIniciar4numero);
         spRespuesta=findViewById(R.id.spRespuesta);
-        vvAudio= findViewById(R.id.vvAudio);
-        btnSiguiente= findViewById(R.id.btnSiguiente4_familia);
 
+        btnSiguiente= findViewById(R.id.btnSiguiente4_numero);
         txtPregunta= (TextView) findViewById(R.id.txtPregunta);
         campoImagen=(ImageView) findViewById(R.id.imagenId);
         request= Volley.newRequestQueue(this);
@@ -60,7 +60,7 @@ public class Basico_Ejercicio4_Familia extends AppCompatActivity implements  Res
 
 
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+18;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+19;
 
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
@@ -80,17 +80,19 @@ public class Basico_Ejercicio4_Familia extends AppCompatActivity implements  Res
         });
     }
     public void iniciar(View view) {
-        String path = "android.resource://" + getPackageName() + "/" + R.raw.familia;
-        vvAudio.setVideoURI(Uri.parse(path));
-        vvAudio.seekTo(0); vvAudio.start();
+        /*String path = "android.resource://" + getPackageName() + "/" + R.raw.cuatro;
+        vvAudio.setVideoURI(Uri.parse(path)); para video
+        vvAudio.seekTo(0); vvAudio.start();*/
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.cuatro_audio);
+        mp.start();
     }
     public void procesar(String nom)
     {
         switch (nom)
         {
-            case "Ayllu":
+            case "Tawa":
                 Toast.makeText(getApplicationContext(), nom+" Respuesta correcta", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(this, Basico_Ejercicio1_Numero.class);
+                Intent i = new Intent(this, Basico_Ejercicio1_Saludo.class);
                 startActivity(i);
 
                 break;

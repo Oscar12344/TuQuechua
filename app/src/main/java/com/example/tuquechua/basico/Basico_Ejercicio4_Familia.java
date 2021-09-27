@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,9 +30,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener  {
-    ImageButton btnIniciar;
-    VideoView vvAudio;
+public class Basico_Ejercicio4_Familia extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener {
+    ImageButton btnIniciar4BasicoFamilia;
+    //VideoView vvAudio; para video
     Spinner spRespuesta;
     Button btnSiguiente;
     TextView txtPregunta;
@@ -40,15 +41,15 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
     ImageView campoImagen;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-    int posicion = 0;
-    String []respuestas={"Eliga una opción","Kachi","Wallpa","Yaku","Challwa","Quwi"};
+    // int posicion = 0; para video
+    String []respuestas={"Eliga una opción","Ayllu","Wallpa","Yaku","Challwa","Quwi"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basico__ejercicio4__comida);
-        btnIniciar=findViewById(R.id.ibInicio);
+        setContentView(R.layout.activity_basico__ejercicio4__familia);
+        btnIniciar4BasicoFamilia=findViewById(R.id.ibInicio);
         spRespuesta=findViewById(R.id.spRespuesta);
-        vvAudio= findViewById(R.id.vvAudio);
+
         btnSiguiente= findViewById(R.id.btnSiguiente4_familia);
 
         txtPregunta= (TextView) findViewById(R.id.txtPregunta);
@@ -60,31 +61,15 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
 
 
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+17;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+18;
 
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
 
-
         ArrayAdapter<String> adapter1= new
                 ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,respuestas);
         spRespuesta.setAdapter(adapter1);
-        /*spRespuesta.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String r1=spRespuesta.getSelectedItem().toString();
-                procesar(r1);
-
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });*/
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,40 +79,41 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
 
             }
         });
- }
- public void iniciar(View view) {
-        String path = "android.resource://" + getPackageName() + "/" + R.raw.sal;
-        vvAudio.setVideoURI(Uri.parse(path));
-        vvAudio.seekTo(0); vvAudio.start();
-}
-public void procesar(String nom)
-{
-    switch (nom)
-    {
-        case "Kachi":
-            Toast.makeText(getApplicationContext(), nom+" Respuesta correcta", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(this, Basico_Ejercicio1_Familia.class);
-            startActivity(i);
-
-            break;
-        case "Wallpa":
-            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-            break;
-
-
-        case "Yaku":
-            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-            break;
-        case "Challwa":
-            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-            break;
-        case "Quwi":
-            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-            break;
-
     }
-}
+    public void iniciar(View view) {
+        /*String path = "android.resource://" + getPackageName() + "/" + R.raw.familia;
+        vvAudio.setVideoURI(Uri.parse(path)); para video
+        vvAudio.seekTo(0); vvAudio.start();*/
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.familia_audio);
+        mp.start();
+    }
+    public void procesar(String nom)
+    {
+        switch (nom)
+        {
+            case "Ayllu":
+                Toast.makeText(getApplicationContext(), nom+" Respuesta correcta", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this, Basico_Ejercicio1_Numero.class);
+                startActivity(i);
 
+                break;
+            case "Wallpa":
+                Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
+                break;
+
+
+            case "Yaku":
+                Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
+                break;
+            case "Challwa":
+                Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
+                break;
+            case "Quwi":
+                Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
+                break;
+
+        }
+    }
 
     @Override
     public void onErrorResponse(VolleyError error) {
@@ -140,22 +126,22 @@ public void procesar(String nom)
     public void onResponse(JSONObject response) {
         progreso.hide();
         Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
-        Pregunta miPregunta5=new Pregunta();
+        Pregunta miPregunta6=new Pregunta();
         JSONArray json=response.optJSONArray("idpregunta");
         JSONObject jsonObject=null;
         try {
             jsonObject=json.getJSONObject(0);
-            miPregunta5.setPalabra(jsonObject.optString("palabra"));
-            miPregunta5.setPregunta(jsonObject.optString("pregunta"));
-            miPregunta5.setDato(jsonObject.optString("imagen"));
+            miPregunta6.setPalabra(jsonObject.optString("palabra"));
+            miPregunta6.setPregunta(jsonObject.optString("pregunta"));
+            miPregunta6.setDato(jsonObject.optString("imagen"));
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        txtPregunta.setText(miPregunta5.getPregunta()+"");
-        if (miPregunta5.getImagen()!=null){
-            campoImagen.setImageBitmap(miPregunta5.getImagen());
+        txtPregunta.setText(miPregunta6.getPregunta()+"");
+        if (miPregunta6.getImagen()!=null){
+            campoImagen.setImageBitmap(miPregunta6.getImagen());
         }else{
             campoImagen.setImageResource(R.drawable.img_base);
         }
