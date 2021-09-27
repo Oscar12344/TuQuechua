@@ -13,18 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TuQuechua"
         android:usesCleartextTraffic="true">
-        <activity android:name=".consultar_lista_usuario_imagen">
-
-        </activity>
-        <activity android:name=".consultar_lista_usuario">
-
-        </activity>
-        <activity android:name=".consultar_usuario">
-
-        </activity>
-        <activity android:name=".registrar_usuario" >
-
-        </activity>
+        <activity android:name=".Basico_Ejercicio6_Comida"></activity>
+        <activity android:name=".consultar_lista_usuario_imagen"></activity>
+        <activity android:name=".consultar_lista_usuario"></activity>
+        <activity android:name=".consultar_usuario"></activity>
+        <activity android:name=".registrar_usuario"></activity>
         <activity android:name=".agregar_pregunta" />
         <activity android:name=".Basico_Ejercicio4_Saludo" />
         <activity android:name=".Basico_Ejercicio4_Numero" />
@@ -47,8 +40,12 @@
         <activity android:name=".Basico_Ejercicio1_Saludo" />
         <activity android:name=".Basico_Ejercicio1_Numero" />
         <activity android:name=".Basico_Ejercicio1_Familia" />
-        <activity android:name=".Basico_Ejercicio1_Comida" >
+        <activity android:name=".Basico_Ejercicio1_Comida">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
