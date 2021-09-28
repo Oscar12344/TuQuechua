@@ -14,5 +14,6 @@
     <string name="menu_diccionario">Diccionario</string>
     <string name="menu_perfil">Perfil</string>
     <string name="menu_libros">Libros</string>
+	<string name="pruebaramas">Ramas</string>
 
 </resources>
