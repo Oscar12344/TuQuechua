@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Basico_Ejercicio4_Familia"
-    android:background="@drawable/fondobasico">
+    tools:context=".basico.Basico_Ejercicio4_Familia"
+    android:background="@drawable/fondomenu">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -51,23 +51,15 @@
                 android:layout_below="@+id/linearLayout"
                 android:src="@drawable/img_base"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/fondobasico"
-                />
-            <VideoView
-                android:id="@+id/vvAudio"
-
-                android:layout_width="63dp"
-                android:layout_height="44dp"
-                android:background="@drawable/fondobasico"
-                android:visibility="visible"
+                android:background="@drawable/fondomenu"
                 />
 
             <ImageButton
                 android:id="@+id/ibInicio"
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom|left"
-                android:background="@drawable/fondobasico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/fondomenu"
 
                 android:onClick="iniciar"
                 app:srcCompat="@drawable/ic_audio"

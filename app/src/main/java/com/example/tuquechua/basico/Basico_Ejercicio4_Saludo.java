@@ -1,4 +1,4 @@
-package com.example.tuquechua;
+package com.example.tuquechua.basico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tuquechua.R;
 import com.example.tuquechua.entidades.Pregunta;
 
 import org.json.JSONArray;
