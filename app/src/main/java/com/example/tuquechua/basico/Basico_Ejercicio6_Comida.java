@@ -100,6 +100,11 @@ public class Basico_Ejercicio6_Comida extends AppCompatActivity implements  Resp
             jsonObject=json.getJSONObject(0);
 
             miPregunta7.setPregunta(jsonObject.optString("pregunta"));
+            miPregunta7.setOp1(jsonObject.optString("op1"));
+            miPregunta7.setOp2(jsonObject.optString("op2"));
+            miPregunta7.setOp3(jsonObject.optString("op3"));
+            miPregunta7.setOp4(jsonObject.optString("op4"));
+
 
 
 
@@ -109,6 +114,10 @@ public class Basico_Ejercicio6_Comida extends AppCompatActivity implements  Resp
         }
 
         txtPregunta.setText(miPregunta7.getPregunta()+"");
+        btnop1_6comida.setText(miPregunta7.getOp1()+"");
+        btnop2_6comida.setText(miPregunta7.getOp2()+"");
+        btnop3_6comida.setText(miPregunta7.getOp3()+"");
+        btnop4_6comida.setText(miPregunta7.getOp4()+"");
 
     }
 }

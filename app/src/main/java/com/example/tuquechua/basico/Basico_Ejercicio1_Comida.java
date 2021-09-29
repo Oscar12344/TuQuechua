@@ -32,7 +32,7 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
     TextView tvrespuesta;
     Button btnSiguiente1;
     String respuesta;
-
+    String respuesta1;
     TextView txtPalabra,txtPregunta;
 
     ProgressDialog progreso;
@@ -66,7 +66,7 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
 
     @Override
     public void onClick(View v) {
-        String respuesta1;
+
 
         respuesta1= etRespuesta1.getText().toString();
         if(respuesta1.equals("Sal") || respuesta1.equals("sal"))

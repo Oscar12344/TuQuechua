@@ -47,7 +47,7 @@ public class Basico_Ejercicio6_Familia extends AppCompatActivity implements  Res
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+21;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+22;
 
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
@@ -98,6 +98,10 @@ public class Basico_Ejercicio6_Familia extends AppCompatActivity implements  Res
 
             miPregunta8.setPregunta(jsonObject.optString("pregunta"));
 
+            miPregunta8.setOp1(jsonObject.optString("op1"));
+            miPregunta8.setOp2(jsonObject.optString("op2"));
+            miPregunta8.setOp3(jsonObject.optString("op3"));
+            miPregunta8.setOp4(jsonObject.optString("op4"));
 
 
 
@@ -106,5 +110,9 @@ public class Basico_Ejercicio6_Familia extends AppCompatActivity implements  Res
         }
 
         txtPregunta.setText(miPregunta8.getPregunta()+"");
+        btnop1_6familia.setText(miPregunta8.getOp1()+"");
+        btnop2_6familia.setText(miPregunta8.getOp2()+"");
+        btnop3_6familia.setText(miPregunta8.getOp3()+"");
+        btnop4_6familia.setText(miPregunta8.getOp4()+"");
     }
 }

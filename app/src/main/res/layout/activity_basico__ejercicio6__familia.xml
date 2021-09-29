@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="irOpcionCorrecta"
-                android:text="Tayta" />
+               />
 
             <Button
                 android:id="@+id/btnOp2_6familia"
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="irOpcionIncorrecta1"
-                android:text="Mama " />
+                 />
         </LinearLayout>
 
         <LinearLayout
@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="irOpcionIncorrecta2"
-                android:text="Wawa" />
+                />
 
             <Button
                 android:id="@+id/btnOp4_6familia"
@@ -123,7 +123,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Maqta" />
+                 />
         </LinearLayout>
 
 

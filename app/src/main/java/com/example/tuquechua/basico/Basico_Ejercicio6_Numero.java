@@ -47,7 +47,7 @@ public class Basico_Ejercicio6_Numero extends AppCompatActivity implements  Resp
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+21;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+23;
 
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
@@ -98,6 +98,10 @@ public class Basico_Ejercicio6_Numero extends AppCompatActivity implements  Resp
 
             miPregunta9.setPregunta(jsonObject.optString("pregunta"));
 
+            miPregunta9.setOp1(jsonObject.optString("op1"));
+            miPregunta9.setOp2(jsonObject.optString("op2"));
+            miPregunta9.setOp3(jsonObject.optString("op3"));
+            miPregunta9.setOp4(jsonObject.optString("op4"));
 
 
 
@@ -106,5 +110,9 @@ public class Basico_Ejercicio6_Numero extends AppCompatActivity implements  Resp
         }
 
         txtPregunta.setText(miPregunta9.getPregunta()+"");
+        btnop1_6numero.setText(miPregunta9.getOp1()+"");
+        btnop2_6numero.setText(miPregunta9.getOp2()+"");
+        btnop3_6numero.setText(miPregunta9.getOp3()+"");
+        btnop4_6numero.setText(miPregunta9.getOp4()+"");
     }
 }

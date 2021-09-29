@@ -35,13 +35,14 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
     Spinner spRespuesta;
     Button btnSiguiente;
     TextView txtPregunta;
+    String op1,op2,op3,op4;
 
     ProgressDialog progreso;
     ImageView campoImagen;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
     //int posicion = 0; para udio
-    String []respuestas={"Eliga una opción","Kachi","Wallpa","Yaku","Challwa","Quwi"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,14 +64,13 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
         String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+17;
 
 
+
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
+
 
         request.add(jsonObjectRequest);
 
 
-        ArrayAdapter<String> adapter1= new
-                ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,respuestas);
-        spRespuesta.setAdapter(adapter1);
         /*spRespuesta.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -86,15 +86,7 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
 
             }
         });*/
-        btnSiguiente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String r1=spRespuesta.getSelectedItem().toString();
-                procesar(r1);
 
-
-            }
-        });
  }
  public void iniciar(View view) {
         /*String path = "android.resource://" + getPackageName() + "/" + R.raw.sal;
@@ -107,6 +99,7 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
 
 public void procesar(String nom)
 {
+
     switch (nom)
     {
         case "Kachi":
@@ -115,7 +108,7 @@ public void procesar(String nom)
             startActivity(i);
 
             break;
-        case "Wallpa":
+        case "wallpa":
             Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
             break;
 
@@ -150,9 +143,15 @@ public void procesar(String nom)
         JSONObject jsonObject=null;
         try {
             jsonObject=json.getJSONObject(0);
-            miPregunta5.setPalabra(jsonObject.optString("palabra"));
+
             miPregunta5.setPregunta(jsonObject.optString("pregunta"));
+            miPregunta5.setOp1(jsonObject.optString("op1"));
+            miPregunta5.setOp2(jsonObject.optString("op2"));
+            miPregunta5.setOp3(jsonObject.optString("op3"));
+            miPregunta5.setOp4(jsonObject.optString("op4"));
             miPregunta5.setDato(jsonObject.optString("imagen"));
+
+
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -160,10 +159,34 @@ public void procesar(String nom)
 
         txtPregunta.setText(miPregunta5.getPregunta()+"");
 
+
         if (miPregunta5.getImagen()!=null){
             campoImagen.setImageBitmap(miPregunta5.getImagen());
         }else{
             campoImagen.setImageResource(R.drawable.img_base);
         }
+
+        op1=miPregunta5.getOp1().toString();
+        op2=miPregunta5.getOp2().toString();
+        op3=miPregunta5.getOp3().toString();
+        op4=miPregunta5.getOp4().toString();
+
+
+
+
+
+        String []respuestas={"Eliga una opción",op1,op2,op3,op4};
+        ArrayAdapter<String> adapter1= new
+                ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,respuestas);
+        spRespuesta.setAdapter(adapter1);
+        btnSiguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String r1=spRespuesta.getSelectedItem().toString();
+                procesar(r1);
+
+
+            }
+        });
     }
 }

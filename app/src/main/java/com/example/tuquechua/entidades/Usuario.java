@@ -11,6 +11,12 @@ public class Usuario {
     private Bitmap imagen;
     private String profesion;
 
+
+
+
+
+
+
     public String getDato() {
         return dato;
     }

@@ -37,13 +37,14 @@ public class Basico_Ejercicio4_Saludo extends AppCompatActivity implements  Resp
     Spinner spRespuesta;
     Button btnSiguiente;
     TextView txtPregunta;
+    String op1,op2,op3,op4;
 
     ProgressDialog progreso;
     ImageView campoImagen;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
    // int posicion = 0;
-    String []respuestas={"Eliga una opción","Allin Punchaucuna","Wallpa","Yaku","Challwa","Quwi"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,18 +69,7 @@ public class Basico_Ejercicio4_Saludo extends AppCompatActivity implements  Resp
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
 
-        ArrayAdapter<String> adapter1= new
-                ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,respuestas);
-        spRespuesta.setAdapter(adapter1);
-        btnSiguiente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String r1=spRespuesta.getSelectedItem().toString();
-                procesar(r1);
 
-
-            }
-        });
     }
     public void iniciar(View view) {
         /*String path = "android.resource://" + getPackageName() + "/" + R.raw.buenos_dias;
@@ -133,8 +123,12 @@ public class Basico_Ejercicio4_Saludo extends AppCompatActivity implements  Resp
         JSONObject jsonObject=null;
         try {
             jsonObject=json.getJSONObject(0);
-            miPregunta6.setPalabra(jsonObject.optString("palabra"));
+
             miPregunta6.setPregunta(jsonObject.optString("pregunta"));
+            miPregunta6.setOp1(jsonObject.optString("op1"));
+            miPregunta6.setOp2(jsonObject.optString("op2"));
+            miPregunta6.setOp3(jsonObject.optString("op3"));
+            miPregunta6.setOp4(jsonObject.optString("op4"));
             miPregunta6.setDato(jsonObject.optString("imagen"));
 
         } catch (JSONException e) {
@@ -147,5 +141,22 @@ public class Basico_Ejercicio4_Saludo extends AppCompatActivity implements  Resp
         }else{
             campoImagen.setImageResource(R.drawable.img_base);
         }
+        op1=miPregunta6.getOp1().toString();
+        op2=miPregunta6.getOp2().toString();
+        op3=miPregunta6.getOp3().toString();
+        op4=miPregunta6.getOp4().toString();
+        String []respuestas={"Eliga una opción",op1,op2,op3,op4};
+        ArrayAdapter<String> adapter1= new
+                ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,respuestas);
+        spRespuesta.setAdapter(adapter1);
+        btnSiguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String r1=spRespuesta.getSelectedItem().toString();
+                procesar(r1);
+
+
+            }
+        });
     }
 }

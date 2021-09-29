@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="irOpcionIncorrecta1"
-                android:text="Allin p’unchay" />
+               />
 
             <Button
                 android:id="@+id/btnOp2_6saludo"
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="irOpcionIncorrecta2"
-                android:text="Allin sukha" />
+                 />
         </LinearLayout>
 
         <LinearLayout
@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="irOpcionCorrecta"
-                android:text="Allin tuta" />
+                />
 
             <Button
                 android:id="@+id/btnOp4_6saludo"
@@ -123,7 +123,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Allin ch’isi" />
+                 />
         </LinearLayout>
 
 

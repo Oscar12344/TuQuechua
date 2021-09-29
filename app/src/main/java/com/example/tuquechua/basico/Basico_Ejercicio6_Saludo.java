@@ -47,7 +47,7 @@ public class Basico_Ejercicio6_Saludo extends AppCompatActivity implements  Resp
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+21;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+24;
 
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
@@ -98,7 +98,10 @@ public class Basico_Ejercicio6_Saludo extends AppCompatActivity implements  Resp
             jsonObject=json.getJSONObject(0);
 
             miPregunta10.setPregunta(jsonObject.optString("pregunta"));
-
+            miPregunta10.setOp1(jsonObject.optString("op1"));
+            miPregunta10.setOp2(jsonObject.optString("op2"));
+            miPregunta10.setOp3(jsonObject.optString("op3"));
+            miPregunta10.setOp4(jsonObject.optString("op4"));
 
 
 
@@ -107,5 +110,9 @@ public class Basico_Ejercicio6_Saludo extends AppCompatActivity implements  Resp
         }
 
         txtPregunta.setText(miPregunta10.getPregunta()+"");
+        btnop1_6saludo.setText(miPregunta10.getOp1()+"");
+        btnop2_6saludo.setText(miPregunta10.getOp2()+"");
+        btnop3_6saludo.setText(miPregunta10.getOp3()+"");
+        btnop4_6saludo.setText(miPregunta10.getOp4()+"");
     }
 }
