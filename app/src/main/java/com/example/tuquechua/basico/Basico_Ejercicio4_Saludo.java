@@ -32,7 +32,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Basico_Ejercicio4_Saludo extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener  {
-    ImageButton btnIniciar;
+    ImageButton ibIniciar;
     //VideoView vvAudio;
     Spinner spRespuesta;
     Button btnSiguiente;
@@ -48,7 +48,7 @@ public class Basico_Ejercicio4_Saludo extends AppCompatActivity implements  Resp
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basico__ejercicio4__saludo);
-        btnIniciar=findViewById(R.id.ibIniciar4saludo);
+        ibIniciar=findViewById(R.id.ibIniciar4saludo);
         spRespuesta=findViewById(R.id.spRespuesta);
 
         btnSiguiente= findViewById(R.id.btnSiguiente4_saludo);
@@ -95,7 +95,8 @@ public class Basico_Ejercicio4_Saludo extends AppCompatActivity implements  Resp
         {
             case "Allin Punchaucuna":
                 Toast.makeText(getApplicationContext(), nom+" Respuesta correcta", Toast.LENGTH_SHORT).show();
-
+                Intent i = new Intent(this, Basico_Ejercicio6_Comida.class);
+                startActivity(i);
 
                 break;
             case "Wallpa":

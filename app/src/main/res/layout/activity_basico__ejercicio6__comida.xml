@@ -53,13 +53,14 @@
 
 
             <ImageButton
-                android:id="@+id/ibIniciar4saludo"
+                android:id="@+id/ibIniciar6comida"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/fondomenu"
 
 
+                android:onClick="iniciar"
                 app:srcCompat="@drawable/ic_audio"
                 tools:ignore="VectorDrawableCompat" />
 
@@ -76,19 +77,21 @@
 
             <Button
                 android:id="@+id/btnOp1_6comida"
+                style="@style/styleButtonOpciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="T'anta"
-                style="@style/styleButtonOpciones"/>
+                android:onClick="irOpcionIncorrecta1"
+                android:text="T'anta" />
 
             <Button
                 android:id="@+id/btnOp2_6comida"
+                style="@style/styleButtonOpciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Aycha "
-                style="@style/styleButtonOpciones"/>
+                android:onClick="irOpcionCorrecta"
+                android:text="Aycha " />
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="50dp"
@@ -99,19 +102,21 @@
 
             <Button
                 android:id="@+id/btnOp3_6comida"
+                style="@style/styleButtonOpciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Runtu"
-                style="@style/styleButtonOpciones"/>
+                android:onClick="irOpcionIncorrecta2"
+                android:text="Runtu" />
 
             <Button
                 android:id="@+id/btnOp4_6comida"
+                style="@style/styleButtonOpciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Sara"
-                style="@style/styleButtonOpciones"/>
+                android:onClick="irOpcionIncorrecta3"
+                android:text="Sara" />
         </LinearLayout>
 
 

@@ -30,7 +30,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener  {
-    ImageButton btnIniciar;
+    ImageButton ibIniciar;
     //VideoView vvAudio; para video
     Spinner spRespuesta;
     Button btnSiguiente;
@@ -46,7 +46,7 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basico__ejercicio4__comida);
-        btnIniciar=findViewById(R.id.ibInicio);
+        ibIniciar=findViewById(R.id.ibIniciar4comida);
         spRespuesta=findViewById(R.id.spRespuesta);
 
         btnSiguiente= findViewById(R.id.btnSiguiente4_familia);
@@ -64,6 +64,7 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
 
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
+
         request.add(jsonObjectRequest);
 
 
@@ -158,6 +159,7 @@ public void procesar(String nom)
         }
 
         txtPregunta.setText(miPregunta5.getPregunta()+"");
+
         if (miPregunta5.getImagen()!=null){
             campoImagen.setImageBitmap(miPregunta5.getImagen());
         }else{

@@ -29,7 +29,9 @@ import org.json.JSONObject;
 
 public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.OnClickListener,  Response.Listener<JSONObject>,Response.ErrorListener {
     EditText etRespuesta1;
+    TextView tvrespuesta;
     Button btnSiguiente1;
+    String respuesta;
 
     TextView txtPalabra,txtPregunta;
 
@@ -46,6 +48,7 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
         txtPalabra= (TextView) findViewById(R.id.txtPalabra);
         txtPregunta= (TextView) findViewById(R.id.txtPregunta);
         campoImagen=(ImageView) findViewById(R.id.imagenId);
+        tvrespuesta= findViewById(R.id.tvrespuesta);
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
@@ -64,7 +67,7 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
     @Override
     public void onClick(View v) {
         String respuesta1;
-        
+
         respuesta1= etRespuesta1.getText().toString();
         if(respuesta1.equals("Sal") || respuesta1.equals("sal"))
         {
@@ -104,6 +107,10 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
         }
         txtPalabra.setText(miPregunta.getPalabra()+"");
         txtPregunta.setText(miPregunta.getPregunta()+"");
+
+        respuesta= miPregunta.getPalabra();
+        tvrespuesta.setText(respuesta+"");
+
         if (miPregunta.getImagen()!=null){
             campoImagen.setImageBitmap(miPregunta.getImagen());
         }else{
@@ -111,4 +118,5 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
         }
 
     }
+
 }

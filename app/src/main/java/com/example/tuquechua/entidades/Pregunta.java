@@ -2,6 +2,7 @@ package com.example.tuquechua.entidades;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.provider.MediaStore;
 import android.util.Base64;
 
 public class Pregunta {
@@ -10,6 +11,7 @@ public class Pregunta {
     private String dato;
     private Bitmap imagen;
     private String pregunta;
+
 
     public String getPalabra() {
         return palabra;

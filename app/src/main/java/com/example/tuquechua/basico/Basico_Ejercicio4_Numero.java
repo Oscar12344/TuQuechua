@@ -30,7 +30,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Basico_Ejercicio4_Numero extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener {
-    ImageButton btnIniciar;
+    ImageButton ibIniciar;
     //VideoView vvAudio; video
     Spinner spRespuesta;
     Button btnSiguiente;
@@ -46,7 +46,7 @@ public class Basico_Ejercicio4_Numero extends AppCompatActivity implements  Resp
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basico__ejercicio4__numero);
-        btnIniciar=findViewById(R.id.ibIniciar4numero);
+        ibIniciar=findViewById(R.id.ibIniciar4numero);
         spRespuesta=findViewById(R.id.spRespuesta);
 
         btnSiguiente= findViewById(R.id.btnSiguiente4_numero);
