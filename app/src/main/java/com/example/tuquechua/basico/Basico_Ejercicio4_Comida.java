@@ -41,7 +41,8 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
     //int posicion = 0; para udio
-    String []respuestas={"Eliga una opción","Kachi","Wallpa","Yaku","Challwa","Quwi"};
+    String []respuestas={"Elija una opción","Kachi","Wallpa","Yaku","Challwa","Quwi"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +61,7 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
 
 
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+17;
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+17;
 
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
@@ -94,44 +95,40 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
 
             }
         });
- }
- public void iniciar(View view) {
-        /*String path = "android.resource://" + getPackageName() + "/" + R.raw.sal;
-        vvAudio.setVideoURI(Uri.parse(path));
-        vvAudio.seekTo(0); vvAudio.start(); //con el video
-        */
-     MediaPlayer mp= MediaPlayer.create(this, R.raw.sal_audio);
-     mp.start();
-}
+     }
 
-public void procesar(String nom)
-{
-    switch (nom)
-    {
-        case "Kachi":
-            Toast.makeText(getApplicationContext(), nom+" Respuesta correcta", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(this, Basico_Ejercicio1_Familia.class);
-            startActivity(i);
-
-            break;
-        case "Wallpa":
-            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-            break;
-
-
-        case "Yaku":
-            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-            break;
-        case "Challwa":
-            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-            break;
-        case "Quwi":
-            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-            break;
-
+     public void iniciar(View view) {
+            /*String path = "android.resource://" + getPackageName() + "/" + R.raw.sal;
+            vvAudio.setVideoURI(Uri.parse(path));
+            vvAudio.seekTo(0); vvAudio.start(); //con el video
+            */
+         MediaPlayer mp= MediaPlayer.create(this, R.raw.sal_audio);
+         mp.start();
     }
-}
 
+    public void procesar(String nom)
+    {
+        switch (nom)
+        {
+            case "Kachi":
+                Toast.makeText(getApplicationContext(), nom+" Respuesta correcta", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this, Basico_Ejercicio1_Familia.class);
+                startActivity(i);
+                break;
+            case "Wallpa":
+                Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
+                break;
+            case "Yaku":
+                Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
+                break;
+            case "Challwa":
+                Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
+                break;
+            case "Quwi":
+                Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
 
     @Override
     public void onErrorResponse(VolleyError error) {

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -62,7 +60,7 @@ public class Basico_Ejercicio4_Saludo extends AppCompatActivity implements  Resp
 
 
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+20;
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+20;
 
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
@@ -95,14 +93,12 @@ public class Basico_Ejercicio4_Saludo extends AppCompatActivity implements  Resp
         {
             case "Allin Punchaucuna":
                 Toast.makeText(getApplicationContext(), nom+" Respuesta correcta", Toast.LENGTH_SHORT).show();
-
-
+                Intent i = new Intent(this, basico_h009_comida.class);
+                startActivity(i);
                 break;
             case "Wallpa":
                 Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
                 break;
-
-
             case "Yaku":
                 Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
                 break;
@@ -112,7 +108,6 @@ public class Basico_Ejercicio4_Saludo extends AppCompatActivity implements  Resp
             case "Quwi":
                 Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
                 break;
-
         }
     }
 
