@@ -6,46 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".basico.Basico_Ejercicio6_Familia"
     android:background="@drawable/fondomenu">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:onClick="irOpcionIncorrecta3"
         android:orientation="vertical"
-        android:layout_margin="10dp">
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="10dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_margin="10dp"
-            >
+            android:orientation="horizontal">
+
             <TextView
+                style="@style/styleNivel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="NIVEL BASICO"
-                android:gravity="center"
-                android:textSize="20sp"
                 android:layout_marginBottom="20dp"
-                android:textStyle="bold"
-                style="@style/styleNivel"/>
+                android:gravity="center"
+                android:text="NIVEL BASICO"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
             <TextView
+                style="@style/styleNivel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="5 puntos"
-                android:gravity="center"
-                android:textSize="20sp"
                 android:layout_marginBottom="20dp"
-                android:textStyle="bold"
-                style="@style/styleNivel"/>
+                android:gravity="center"
+                android:text="5 puntos"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
+
         <TextView
             android:id="@+id/txtPregunta"
+            style="@style/styleLabel"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginLeft="5dp"
-            android:textSize="20dp"
-            style="@style/styleLabel"/>
+            android:textSize="20dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,65 +61,69 @@
 
 
             <ImageButton
-                android:id="@+id/ibIniciar4saludo"
+                android:id="@+id/ibIniciar6familia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/fondomenu"
 
 
+                android:onClick="iniciar"
                 app:srcCompat="@drawable/ic_audio"
                 tools:ignore="VectorDrawableCompat" />
-
 
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="60dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
             android:orientation="horizontal">
 
 
             <Button
                 android:id="@+id/btnOp1_6familia"
+                style="@style/styleButtonOpciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Tayta"
-                style="@style/styleButtonOpciones"/>
+                android:onClick="irOpcionCorrecta"
+               />
 
             <Button
                 android:id="@+id/btnOp2_6familia"
+                style="@style/styleButtonOpciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Mama "
-                style="@style/styleButtonOpciones"/>
+                android:onClick="irOpcionIncorrecta1"
+                 />
         </LinearLayout>
+
         <LinearLayout
-            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:orientation="horizontal">
 
 
             <Button
                 android:id="@+id/btnOp3_6familia"
+                style="@style/styleButtonOpciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Wawa"
-                style="@style/styleButtonOpciones"/>
+                android:onClick="irOpcionIncorrecta2"
+                />
 
             <Button
                 android:id="@+id/btnOp4_6familia"
+                style="@style/styleButtonOpciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Maqta"
-                style="@style/styleButtonOpciones"/>
+                 />
         </LinearLayout>
 
 

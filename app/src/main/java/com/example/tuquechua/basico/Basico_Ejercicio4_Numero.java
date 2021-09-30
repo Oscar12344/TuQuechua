@@ -30,23 +30,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Basico_Ejercicio4_Numero extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener {
-    ImageButton btnIniciar;
+    ImageButton ibIniciar;
     //VideoView vvAudio; video
     Spinner spRespuesta;
     Button btnSiguiente;
     TextView txtPregunta;
+    String op1,op2,op3,op4;
 
     ProgressDialog progreso;
     ImageView campoImagen;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
    //int posicion = 0; video
-    String []respuestas={"Eliga una opción","Tawa","Wallpa","Yaku","Challwa","Quwi"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basico__ejercicio4__numero);
-        btnIniciar=findViewById(R.id.ibIniciar4numero);
+        ibIniciar=findViewById(R.id.ibIniciar4numero);
         spRespuesta=findViewById(R.id.spRespuesta);
 
         btnSiguiente= findViewById(R.id.btnSiguiente4_numero);
@@ -65,18 +66,7 @@ public class Basico_Ejercicio4_Numero extends AppCompatActivity implements  Resp
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
 
-        ArrayAdapter<String> adapter1= new
-                ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,respuestas);
-        spRespuesta.setAdapter(adapter1);
-        btnSiguiente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String r1=spRespuesta.getSelectedItem().toString();
-                procesar(r1);
 
-
-            }
-        });
     }
     public void iniciar(View view) {
         /*String path = "android.resource://" + getPackageName() + "/" + R.raw.cuatro;
@@ -124,24 +114,45 @@ public class Basico_Ejercicio4_Numero extends AppCompatActivity implements  Resp
     public void onResponse(JSONObject response) {
         progreso.hide();
         Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
-        Pregunta miPregunta6=new Pregunta();
+        Pregunta miPregunta7=new Pregunta();
         JSONArray json=response.optJSONArray("idpregunta");
         JSONObject jsonObject=null;
         try {
             jsonObject=json.getJSONObject(0);
-            miPregunta6.setPalabra(jsonObject.optString("palabra"));
-            miPregunta6.setPregunta(jsonObject.optString("pregunta"));
-            miPregunta6.setDato(jsonObject.optString("imagen"));
+
+            miPregunta7.setPregunta(jsonObject.optString("pregunta"));
+            miPregunta7.setOp1(jsonObject.optString("op1"));
+            miPregunta7.setOp2(jsonObject.optString("op2"));
+            miPregunta7.setOp3(jsonObject.optString("op3"));
+            miPregunta7.setOp4(jsonObject.optString("op4"));
+            miPregunta7.setDato(jsonObject.optString("imagen"));
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        txtPregunta.setText(miPregunta6.getPregunta()+"");
-        if (miPregunta6.getImagen()!=null){
-            campoImagen.setImageBitmap(miPregunta6.getImagen());
+        txtPregunta.setText(miPregunta7.getPregunta()+"");
+        if (miPregunta7.getImagen()!=null){
+            campoImagen.setImageBitmap(miPregunta7.getImagen());
         }else{
             campoImagen.setImageResource(R.drawable.img_base);
         }
+        op1=miPregunta7.getOp1().toString();
+        op2=miPregunta7.getOp2().toString();
+        op3=miPregunta7.getOp3().toString();
+        op4=miPregunta7.getOp4().toString();
+        String []respuestas={"Eliga una opción",op1,op2,op3,op4};
+        ArrayAdapter<String> adapter1= new
+                ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,respuestas);
+        spRespuesta.setAdapter(adapter1);
+        btnSiguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String r1=spRespuesta.getSelectedItem().toString();
+                procesar(r1);
+
+
+            }
+        });
     }
 }

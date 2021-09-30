@@ -53,13 +53,14 @@
 
 
             <ImageButton
-                android:id="@+id/ibIniciar4saludo"
+                android:id="@+id/ibIniciar6numero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/fondomenu"
 
 
+                android:onClick="iniciar"
                 app:srcCompat="@drawable/ic_audio"
                 tools:ignore="VectorDrawableCompat" />
 
@@ -76,19 +77,21 @@
 
             <Button
                 android:id="@+id/btnOp1_6numero"
+                style="@style/styleButtonOpciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Huk"
-                style="@style/styleButtonOpciones"/>
+                android:onClick="irOpcionCorrecta"
+                 />
 
             <Button
                 android:id="@+id/btnOp2_6numero"
+                style="@style/styleButtonOpciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Iskay"
-                style="@style/styleButtonOpciones"/>
+                android:onClick="irOpcionIncorrecta1"
+               />
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="50dp"
@@ -99,19 +102,21 @@
 
             <Button
                 android:id="@+id/btnOp3_6numero"
+                style="@style/styleButtonOpciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Kimsa"
-                style="@style/styleButtonOpciones"/>
+                android:onClick="irOpcionIncorrecta2"
+                 />
 
             <Button
                 android:id="@+id/btnOp4_6numero"
+                style="@style/styleButtonOpciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Suqta"
-                style="@style/styleButtonOpciones"/>
+                android:onClick="irOpcionIncorrecta3"
+                 />
         </LinearLayout>
 
 
