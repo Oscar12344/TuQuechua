@@ -13,16 +13,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TuQuechua"
         android:usesCleartextTraffic="true">
-        <activity android:name=".procesarBasicoComida"></activity>
         <activity
-            android:name=".activity_basico_h009_comida"
+            android:name=".basico.Basico_H011_Familia"
             android:exported="true" />
+        <activity
+            android:name=".basico.Basico_H011_Saludo"
+            android:exported="true" />
+        <activity
+            android:name=".basico.Basico_H011_Comida"
+            android:exported="true" />
+        <activity
+            android:name=".basico.Basico_H009_Familia"
+            android:exported="true" />
+        <activity
+            android:name=".basico.Basico_H009_Saludo"
+            android:exported="true" />
+        <activity
+            android:name=".basico.Basico_H009_Numero"
+            android:exported="true" />
+        <activity android:name=".procesarBasicoComida" />
+        <activity
+            android:name=".basico.basico_h009_comida"
+            android:exported="true" />
+        <activity android:name=".basico.Basico_H011_Numero" />
         <activity android:name=".basico.Basico_Ejercicio6_Saludo" />
         <activity android:name=".basico.Basico_Ejercicio6_Numero" />
         <activity android:name=".basico.Basico_Ejercicio6_Familia" />
-        <activity android:name=".basico.Basico_Ejercicio6_Comida" >
-
-        </activity>
+        <activity android:name=".basico.Basico_Ejercicio6_Comida" />
         <activity android:name=".consultar_lista_usuario_imagen" />
         <activity android:name=".consultar_lista_usuario" />
         <activity android:name=".consultar_usuario" />
@@ -34,7 +51,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.TuQuechua.NoActionBar"></activity>
+            android:theme="@style/Theme.TuQuechua.NoActionBar" />
         <activity android:name=".basico.Basico_Ejercicio4_Comida" />
         <activity android:name=".basico.Basico_Ejercicio1_Saludo" />
         <activity android:name=".basico.Basico_Ejercicio1_Numero" />
@@ -45,7 +62,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 
