@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".basico.Basico_H011_Numero"
+    tools:context=".basico.Basico_H011_Familia"
     android:background="@drawable/fondomenu">
 
     <LinearLayout
@@ -56,14 +56,14 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvPalabraENumero"
+        app:layout_constraintEnd_toStartOf="@+id/tvPalabraEFamilia"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.02" />
 
     <TextView
-        android:id="@+id/tvPalabraENumero"
+        android:id="@+id/tvPalabraEFamilia"
         style="@style/styleLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -133,6 +133,33 @@
         app:layout_constraintTop_toBottomOf="@+id/ibOp2"
         app:layout_constraintVertical_bias="0.0" />
 
+    <ImageButton
+        android:id="@+id/ibOp4"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ibOp3"
+        app:layout_constraintTop_toBottomOf="@+id/tvOp2"
+        app:layout_constraintVertical_bias="0.1"
+        app:srcCompat="@drawable/img_base" />
+
+    <TextView
+        android:id="@+id/tvOp4"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvOp3"
+        app:layout_constraintTop_toBottomOf="@+id/ibOp4"
+        app:layout_constraintVertical_bias="0.0" />
+
     <TextView
         android:id="@+id/tvOp3"
         android:layout_width="150dp"
@@ -161,32 +188,5 @@
         app:layout_constraintTop_toBottomOf="@+id/tvOp1"
         app:layout_constraintVertical_bias="0.1"
         app:srcCompat="@drawable/img_base" />
-
-    <ImageButton
-        android:id="@+id/ibOp4"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ibOp3"
-        app:layout_constraintTop_toBottomOf="@+id/tvOp2"
-        app:layout_constraintVertical_bias="0.1"
-        app:srcCompat="@drawable/img_base" />
-
-    <TextView
-        android:id="@+id/tvOp4"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvOp3"
-        app:layout_constraintTop_toBottomOf="@+id/ibOp4"
-        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -150,9 +150,6 @@ public void procesar(String nom)
             miPregunta5.setOp3(jsonObject.optString("op3"));
             miPregunta5.setOp4(jsonObject.optString("op4"));
             miPregunta5.setDato(jsonObject.optString("imagen"));
-
-
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -171,10 +168,6 @@ public void procesar(String nom)
         op3=miPregunta5.getOp3().toString();
         op4=miPregunta5.getOp4().toString();
 
-
-
-
-
         String []respuestas={"Eliga una opción",op1,op2,op3,op4};
         ArrayAdapter<String> adapter1= new
                 ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,respuestas);
@@ -184,8 +177,6 @@ public void procesar(String nom)
             public void onClick(View v) {
                 String r1=spRespuesta.getSelectedItem().toString();
                 procesar(r1);
-
-
             }
         });
     }

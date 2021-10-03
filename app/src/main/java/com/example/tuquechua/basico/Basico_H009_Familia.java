@@ -27,7 +27,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class basico_h009_comida extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener{
+public class Basico_H009_Familia extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
     Spinner spOpciones;
     Button btnSiguiente;
     TextView txtPregunta, txtPalabraQ;
@@ -38,20 +38,15 @@ public class basico_h009_comida extends AppCompatActivity implements  Response.L
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
-    /*prueba random id
-    int id = getRandomNumber(30, 39);
-    para probar que numero sale: (en "elija una opcion")
-    String ids = String.valueOf(id);*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basico_h009_comida);
+        setContentView(R.layout.activity_basico_h009_familia);
         btnSiguiente = findViewById(R.id.btnSiguiente);
         spOpciones = findViewById(R.id.spOpc);
         txtPregunta = findViewById(R.id.tvPregunta);
-        txtPalabraQ = findViewById(R.id.tvPalabraQComida);
-        campoImagen = findViewById(R.id.imgViewH009Comida);
+        txtPalabraQ = findViewById(R.id.tvPalabraQFamilia);
+        campoImagen = findViewById(R.id.imgViewH009Familia);
         request = Volley.newRequestQueue(this);
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultando...");
@@ -64,16 +59,16 @@ public class basico_h009_comida extends AppCompatActivity implements  Response.L
             }
         });
 
-        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+300;
+        String url = "http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id=" + 100;
 
-        jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         request.add(jsonObjectRequest);
     }
 
     @Override
     public void onErrorResponse(VolleyError error) {
         progreso.hide();
-        Toast.makeText(getApplicationContext(), "No se pudo consultar "+error.toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "No se pudo consultar " + error.toString(), Toast.LENGTH_SHORT).show();
         Log.i("Error", error.toString());
     }
 
@@ -82,10 +77,10 @@ public class basico_h009_comida extends AppCompatActivity implements  Response.L
         progreso.hide();
         //Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
         Pregunta miPreguntaH009C = new Pregunta();
-        JSONArray json=response.optJSONArray("idpregunta");
-        JSONObject jsonObject=null;
+        JSONArray json = response.optJSONArray("idpregunta");
+        JSONObject jsonObject = null;
         try {
-            jsonObject=json.getJSONObject(0);
+            jsonObject = json.getJSONObject(0);
             miPreguntaH009C.setPalabra(jsonObject.optString("palabra"));
             miPreguntaH009C.setPregunta(jsonObject.optString("pregunta"));
             miPreguntaH009C.setOp1(jsonObject.optString("op1"));
@@ -98,23 +93,23 @@ public class basico_h009_comida extends AppCompatActivity implements  Response.L
             e.printStackTrace();
         }
 
-        txtPregunta.setText(miPreguntaH009C.getPregunta()+"");
+        txtPregunta.setText(miPreguntaH009C.getPregunta() + "");
         txtPalabraQ.setText(miPreguntaH009C.getPalabra());
 
-        if (miPreguntaH009C.getImagen()!=null){
+        if (miPreguntaH009C.getImagen() != null) {
             campoImagen.setImageBitmap(miPreguntaH009C.getImagen());
-        }else{
+        } else {
             campoImagen.setImageResource(R.drawable.img_base);
         }
 
-        op1=miPreguntaH009C.getOp1().toString();
-        op2=miPreguntaH009C.getOp2().toString();
-        op3=miPreguntaH009C.getOp3().toString();
-        op4=miPreguntaH009C.getOp4().toString();
+        op1 = miPreguntaH009C.getOp1().toString();
+        op2 = miPreguntaH009C.getOp2().toString();
+        op3 = miPreguntaH009C.getOp3().toString();
+        op4 = miPreguntaH009C.getOp4().toString();
 
-        String []respuestas = {"Elija una opción",op1,op2,op3,op4};
-        ArrayAdapter<String> adapter1= new
-                ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,respuestas);
+        String[] respuestas = {"Elija una opción", op1, op2, op3, op4};
+        ArrayAdapter<String> adapter1 = new
+                ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, respuestas);
         spOpciones.setAdapter(adapter1);
         /*imgFile = new File("http://192.168.1.7:80/pregunta/recursos/imagenes/papa.png");
         if(imgFile.exists()){
@@ -125,27 +120,16 @@ public class basico_h009_comida extends AppCompatActivity implements  Response.L
         }*/
     }
 
-    public void procesar(String opcion)
-    {
-        Intent i = new Intent(this, Basico_H009_Numero.class);
-        if (opcion.equals(rptaCorrecta)){
-            Toast.makeText(getApplicationContext(), opcion+", Respuesta correcta", Toast.LENGTH_SHORT).show();
-            //i.putExtra("puntaje", 5);
+    public void procesar(String opcion) {
+        Intent i = new Intent(this, Basico_H011_Numero.class);
+        if (opcion.equals(rptaCorrecta)) {
+            Toast.makeText(getApplicationContext(), opcion + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
             startActivity(i);
-        }
-        else if (opcion.equals("Elija una opción")){
+        } else if (opcion.equals("Elija una opción")) {
             Toast.makeText(getApplicationContext(), "Elija una opción", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-            //i.putExtra("puntaje", 0);
             startActivity(i);
         }
-        //i.putExtra("puntaje", puntaje);
     }
-
-    /*prueba random id
-    public int getRandomNumber(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
-    }*/
 }

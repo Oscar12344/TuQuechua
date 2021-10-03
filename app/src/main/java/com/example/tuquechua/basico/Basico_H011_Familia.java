@@ -1,18 +1,12 @@
 package com.example.tuquechua.basico;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,18 +23,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Basico_H011_Numero extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener {
-    TextView tvPregunta, tvPalabraENum, tvOp1, tvOp2, tvOp3, tvOp4;
-    ImageButton ibtnOp1, ibtnOp2, ibtnOp3, ibtnOp4;
-    String respuesta, rptaCorrecta;
-    ProgressDialog progreso;
-    RequestQueue request;
-    JsonObjectRequest jsonObjectRequest;
+public class Basico_H011_Familia extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
+        TextView tvPregunta, tvPalabraENum, tvOp1, tvOp2, tvOp3, tvOp4;
+        ImageButton ibtnOp1, ibtnOp2, ibtnOp3, ibtnOp4;
+        String respuesta, rptaCorrecta;
+        ProgressDialog progreso;
+        RequestQueue request;
+        JsonObjectRequest jsonObjectRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bbasico_h011_numero);
+        setContentView(R.layout.activity_basico_h011_familia);
         ibtnOp1 = findViewById(R.id.ibOp1);
         ibtnOp2 = findViewById(R.id.ibOp2);
         ibtnOp3 = findViewById(R.id.ibOp3);
@@ -50,14 +44,14 @@ public class Basico_H011_Numero extends AppCompatActivity implements  Response.L
         tvOp3 = findViewById(R.id.tvOp3);
         tvOp4 = findViewById(R.id.tvOp4);
         tvPregunta = findViewById(R.id.tvPregunta);
-        tvPalabraENum = findViewById(R.id.tvPalabraENumero);
+        tvPalabraENum = findViewById(R.id.tvPalabraEFamilia);
 
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+410;
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+110;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -72,21 +66,21 @@ public class Basico_H011_Numero extends AppCompatActivity implements  Response.L
         ibtnOp2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                respuesta = tvOp2.getText().toString();
+                respuesta = findViewById(R.id.tvOp2).toString();
                 procesar(respuesta);
             }
         });
         ibtnOp3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                respuesta = tvOp3.getText().toString();
+                respuesta = findViewById(R.id.tvOp3).toString();
                 procesar(respuesta);
             }
         });
         ibtnOp4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                respuesta = tvOp4.getText().toString();
+                respuesta = findViewById(R.id.tvOp4).toString();
                 procesar(respuesta);
             }
         });
@@ -99,8 +93,8 @@ public class Basico_H011_Numero extends AppCompatActivity implements  Response.L
         else
             Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
 
-        Intent i = new Intent(this, Basico_H011_Comida.class);
-        startActivity(i);
+        /*Intent i = new Intent(this, Basico_H011_Saludo.class);
+        startActivity(i);*/
     }
 
     @Override
