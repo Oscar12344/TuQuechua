@@ -6,4 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".procesarBasicoComida">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="101dp"
+        tools:layout_editor_absoluteY="98dp">
+
+        <TextView
+            android:id="@+id/tvrpta1comida"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="rpta1BasicoComida" />
+
+        <TextView
+            android:id="@+id/tvrpta1familia"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="rpta1BasicoFamilia" />
+
+        <TextView
+            android:id="@+id/tvrpta1numero"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="rpta1Basiconumero" />
+
+        <TextView
+            android:id="@+id/tvrpta1saludo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="rpta1Basicosaludo" />
+
+        <TextView
+            android:id="@+id/tvrpta3Comida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="rpta3BasicoComida" />
+
+        <TextView
+            android:id="@+id/tvrpta5Comida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="rpta5BasicoComida" />
+
+        <TextView
+            android:id="@+id/tvopmensaje1"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="rptabuttonop1" />
+
+        <TextView
+            android:id="@+id/tvopmensaje2"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="rptabutton2" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -66,21 +66,21 @@ public class Basico_H011_Familia extends AppCompatActivity implements Response.L
         ibtnOp2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                respuesta = findViewById(R.id.tvOp2).toString();
+                respuesta = tvOp2.getText().toString();
                 procesar(respuesta);
             }
         });
         ibtnOp3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                respuesta = findViewById(R.id.tvOp3).toString();
+                respuesta = tvOp3.getText().toString();
                 procesar(respuesta);
             }
         });
         ibtnOp4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                respuesta = findViewById(R.id.tvOp4).toString();
+                respuesta = tvOp4.getText().toString();
                 procesar(respuesta);
             }
         });

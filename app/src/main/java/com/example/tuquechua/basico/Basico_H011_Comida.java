@@ -24,6 +24,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
 import com.example.tuquechua.entidades.Pregunta;
+import com.example.tuquechua.procesarBasicoComida;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -99,7 +100,10 @@ public class Basico_H011_Comida extends AppCompatActivity implements  Response.L
         else
             Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
 
-        Intent i = new Intent(this, Basico_H011_Saludo.class);
+        //Intent i = new Intent(this, Basico_H011_Saludo.class);
+        Intent i = new Intent(this, procesarBasicoComida.class);
+        i.putExtra("rpta5Comida", rpta);
+        i.putExtra("puntaje", 5);
         startActivity(i);
     }
 
