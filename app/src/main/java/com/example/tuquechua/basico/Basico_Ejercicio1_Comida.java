@@ -67,8 +67,7 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
         {
             Toast.makeText(this, "La respuesta es correcta", Toast.LENGTH_SHORT).show();
             //Intent i = new Intent(this, Basico_Ejercicio4_Comida.class);
-            //Intent i = new Intent(this, basico_h009_comida.class);
-            Intent i = new Intent(this, Basico_H011_Comida.class);
+            Intent i = new Intent(this, Basico_Ejercicio3_Comida.class);
             startActivity(i);
         }else
         {
