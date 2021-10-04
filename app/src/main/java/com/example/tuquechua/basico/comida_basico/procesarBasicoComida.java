@@ -1,9 +1,11 @@
-package com.example.tuquechua;
+package com.example.tuquechua.basico.comida_basico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.tuquechua.R;
 
 public class procesarBasicoComida extends AppCompatActivity {
     TextView tvrpta1comida,tvrpta1familia,tvop1comida,tvop1familia,tvopbutton1,tvopbutton2,tvop3Comida,tvop5Comida;

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".basico.Basico_Ejercicio4_Saludo"
+    tools:context=".basico.saludo_basico.Basico_Ejercicio4_Saludo"
     android:background="@drawable/fondomenu">
     <LinearLayout
         android:layout_width="match_parent"

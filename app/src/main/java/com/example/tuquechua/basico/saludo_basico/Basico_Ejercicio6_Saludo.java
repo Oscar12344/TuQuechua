@@ -1,4 +1,4 @@
-package com.example.tuquechua.basico;
+package com.example.tuquechua.basico.saludo_basico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,9 +26,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Basico_Ejercicio6_Numero extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener  {
+public class Basico_Ejercicio6_Saludo extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener {
     ImageButton ibIniciar;
-    Button btnop1_6numero,btnop2_6numero,btnop3_6numero,btnop4_6numero;
+    Button btnop1_6saludo,btnop2_6saludo,btnop3_6saludo,btnop4_6saludo;
     TextView txtPregunta;
     ProgressDialog progreso;
     RequestQueue request;
@@ -36,28 +36,29 @@ public class Basico_Ejercicio6_Numero extends AppCompatActivity implements  Resp
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basico__ejercicio6__numero);
-        ibIniciar=findViewById(R.id.ibIniciar6numero);
-        btnop1_6numero=findViewById(R.id.btnOp1_6numero);
-        btnop2_6numero=findViewById(R.id.btnOp2_6numero);
+        setContentView(R.layout.activity_basico__ejercicio6__saludo);
+        ibIniciar=findViewById(R.id.ibIniciar6saludo);
+        btnop1_6saludo=findViewById(R.id.btnOp1_6saludo);
+        btnop2_6saludo=findViewById(R.id.btnOp2_6saludo);
+        btnop3_6saludo=findViewById(R.id.btnOp3_6saludo);
         txtPregunta= findViewById(R.id.txtPregunta);
-        btnop3_6numero=findViewById(R.id.btnOp3_6numero);
-        btnop4_6numero=findViewById(R.id.btnOp4_6numero);
+        btnop4_6saludo=findViewById(R.id.btnOp4_6saludo);
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+23;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+24;
 
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
+
     }
     public void iniciar(View view) {
         /*String path = "android.resource://" + getPackageName() + "/" + R.raw.buenos_dias;
         vvAudio.setVideoURI(Uri.parse(path)); para video
         vvAudio.seekTo(0); vvAudio.start();*/
-        MediaPlayer mp= MediaPlayer.create(this, R.raw.juc_one);
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.allintuuta_buenasnoches);
         mp.start();
 
     }
@@ -90,18 +91,17 @@ public class Basico_Ejercicio6_Numero extends AppCompatActivity implements  Resp
     public void onResponse(JSONObject response) {
         progreso.hide();
         Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
-        Pregunta miPregunta9=new Pregunta();
+        Pregunta miPregunta10=new Pregunta();
         JSONArray json=response.optJSONArray("idpregunta");
         JSONObject jsonObject=null;
         try {
             jsonObject=json.getJSONObject(0);
 
-            miPregunta9.setPregunta(jsonObject.optString("pregunta"));
-
-            miPregunta9.setOp1(jsonObject.optString("op1"));
-            miPregunta9.setOp2(jsonObject.optString("op2"));
-            miPregunta9.setOp3(jsonObject.optString("op3"));
-            miPregunta9.setOp4(jsonObject.optString("op4"));
+            miPregunta10.setPregunta(jsonObject.optString("pregunta"));
+            miPregunta10.setOp1(jsonObject.optString("op1"));
+            miPregunta10.setOp2(jsonObject.optString("op2"));
+            miPregunta10.setOp3(jsonObject.optString("op3"));
+            miPregunta10.setOp4(jsonObject.optString("op4"));
 
 
 
@@ -109,10 +109,10 @@ public class Basico_Ejercicio6_Numero extends AppCompatActivity implements  Resp
             e.printStackTrace();
         }
 
-        txtPregunta.setText(miPregunta9.getPregunta()+"");
-        btnop1_6numero.setText(miPregunta9.getOp1()+"");
-        btnop2_6numero.setText(miPregunta9.getOp2()+"");
-        btnop3_6numero.setText(miPregunta9.getOp3()+"");
-        btnop4_6numero.setText(miPregunta9.getOp4()+"");
+        txtPregunta.setText(miPregunta10.getPregunta()+"");
+        btnop1_6saludo.setText(miPregunta10.getOp1()+"");
+        btnop2_6saludo.setText(miPregunta10.getOp2()+"");
+        btnop3_6saludo.setText(miPregunta10.getOp3()+"");
+        btnop4_6saludo.setText(miPregunta10.getOp4()+"");
     }
 }

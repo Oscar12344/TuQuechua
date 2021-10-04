@@ -1,4 +1,4 @@
-package com.example.tuquechua.basico;
+package com.example.tuquechua.basico.familia_basico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,13 +21,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
+import com.example.tuquechua.basico.numero_basico.Basico_Ejercicio5_Numero;
 import com.example.tuquechua.entidades.Pregunta;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Basico_H009_Saludo extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
+public class Basico_Ejercicio3_Familia extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
     Spinner spOpciones;
     Button btnSiguiente;
     TextView txtPregunta, txtPalabraQ;
@@ -41,12 +42,12 @@ public class Basico_H009_Saludo extends AppCompatActivity implements Response.Li
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basico_h009_saludo);
+        setContentView(R.layout.activity_basico_h009_familia);
         btnSiguiente = findViewById(R.id.btnSiguiente);
         spOpciones = findViewById(R.id.spOpc);
-        txtPregunta = (TextView) findViewById(R.id.tvPregunta);
-        txtPalabraQ = (TextView) findViewById(R.id.tvPalabraQSaludo);
-        campoImagen = (ImageView) findViewById(R.id.imgViewH009Saludo);
+        txtPregunta = findViewById(R.id.tvPregunta);
+        txtPalabraQ = findViewById(R.id.tvPalabraQFamilia);
+        campoImagen = findViewById(R.id.imgViewH009Familia);
         request = Volley.newRequestQueue(this);
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultando...");
@@ -59,7 +60,7 @@ public class Basico_H009_Saludo extends AppCompatActivity implements Response.Li
             }
         });
 
-        String url = "http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id=" + 200;
+        String url = "http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id=" + 100;
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         request.add(jsonObjectRequest);
@@ -121,7 +122,7 @@ public class Basico_H009_Saludo extends AppCompatActivity implements Response.Li
     }
 
     public void procesar(String opcion) {
-        Intent i = new Intent(this, Basico_H009_Familia.class);
+        Intent i = new Intent(this, Basico_Ejercicio5_Numero.class);
         if (opcion.equals(rptaCorrecta)) {
             Toast.makeText(getApplicationContext(), opcion + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
             startActivity(i);

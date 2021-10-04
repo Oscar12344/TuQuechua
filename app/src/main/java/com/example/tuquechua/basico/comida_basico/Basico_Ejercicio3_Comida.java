@@ -1,11 +1,9 @@
-package com.example.tuquechua.basico;
+package com.example.tuquechua.basico.comida_basico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,13 +21,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
+import com.example.tuquechua.basico.numero_basico.Basico_Ejercicio3_Numero;
 import com.example.tuquechua.entidades.Pregunta;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Basico_H009_Numero extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener{
+public class Basico_Ejercicio3_Comida extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener{
     Spinner spOpciones;
     Button btnSiguiente;
     TextView txtPregunta, txtPalabraQ;
@@ -40,15 +39,20 @@ public class Basico_H009_Numero extends AppCompatActivity implements Response.Li
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
+    /*prueba random id
+    int id = getRandomNumber(30, 39);
+    para probar que numero sale: (en "elija una opcion")
+    String ids = String.valueOf(id);*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basico_h009_numero);
+        setContentView(R.layout.activity_basico_h009_comida);
         btnSiguiente = findViewById(R.id.btnSiguiente);
         spOpciones = findViewById(R.id.spOpc);
-        txtPregunta = (TextView) findViewById(R.id.tvPregunta);
-        txtPalabraQ = (TextView) findViewById(R.id.tvPalabraQNumero);
-        campoImagen =(ImageView) findViewById(R.id.imgViewH009Numero);
+        txtPregunta = findViewById(R.id.tvPregunta);
+        txtPalabraQ = findViewById(R.id.tvPalabraQComida);
+        campoImagen = findViewById(R.id.imgViewH009Comida);
         request = Volley.newRequestQueue(this);
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultando...");
@@ -56,12 +60,12 @@ public class Basico_H009_Numero extends AppCompatActivity implements Response.Li
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String r1=spOpciones.getSelectedItem().toString();
+                String r1 = spOpciones.getSelectedItem().toString();
                 procesar(r1);
             }
         });
 
-        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+400;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+300;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -109,7 +113,7 @@ public class Basico_H009_Numero extends AppCompatActivity implements Response.Li
         op3=miPreguntaH009C.getOp3().toString();
         op4=miPreguntaH009C.getOp4().toString();
 
-        String []respuestas={"Elija una opción",op1,op2,op3,op4};
+        String []respuestas = {"Elija una opción",op1,op2,op3,op4};
         ArrayAdapter<String> adapter1= new
                 ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,respuestas);
         spOpciones.setAdapter(adapter1);
@@ -124,17 +128,25 @@ public class Basico_H009_Numero extends AppCompatActivity implements Response.Li
 
     public void procesar(String opcion)
     {
-        Intent i = new Intent(this, Basico_H009_Saludo.class);
+        Intent i = new Intent(this, Basico_Ejercicio3_Numero.class);
         if (opcion.equals(rptaCorrecta)){
             Toast.makeText(getApplicationContext(), opcion+", Respuesta correcta", Toast.LENGTH_SHORT).show();
+            //i.putExtra("puntaje", 5);
             startActivity(i);
         }
         else if (opcion.equals("Elija una opción")){
             Toast.makeText(getApplicationContext(), "Elija una opción", Toast.LENGTH_SHORT).show();
         }
         else {
-            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta "+opcion, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
+            //i.putExtra("puntaje", 0);
             startActivity(i);
         }
+        //i.putExtra("puntaje", puntaje);
     }
+
+    /*prueba random id
+    public int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
+    }*/
 }

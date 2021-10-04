@@ -1,8 +1,8 @@
-package com.example.tuquechua.basico;
+package com.example.tuquechua.basico.saludo_basico;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,24 +17,25 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
+import com.example.tuquechua.basico.familia_basico.Basico_Ejercicio5_Familia;
 import com.example.tuquechua.entidades.Pregunta;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Basico_H011_Familia extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
-        TextView tvPregunta, tvPalabraENum, tvOp1, tvOp2, tvOp3, tvOp4;
-        ImageButton ibtnOp1, ibtnOp2, ibtnOp3, ibtnOp4;
-        String respuesta, rptaCorrecta;
-        ProgressDialog progreso;
-        RequestQueue request;
-        JsonObjectRequest jsonObjectRequest;
+public class Basico_Ejercicio5_Saludo extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
+    TextView tvPregunta, tvPalabraENum, tvOp1, tvOp2, tvOp3, tvOp4;
+    ImageButton ibtnOp1, ibtnOp2, ibtnOp3, ibtnOp4;
+    String respuesta, rptaCorrecta;
+    ProgressDialog progreso;
+    RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basico_h011_familia);
+        setContentView(R.layout.activity_basico_h011_saludo);
         ibtnOp1 = findViewById(R.id.ibOp1);
         ibtnOp2 = findViewById(R.id.ibOp2);
         ibtnOp3 = findViewById(R.id.ibOp3);
@@ -44,14 +45,14 @@ public class Basico_H011_Familia extends AppCompatActivity implements Response.L
         tvOp3 = findViewById(R.id.tvOp3);
         tvOp4 = findViewById(R.id.tvOp4);
         tvPregunta = findViewById(R.id.tvPregunta);
-        tvPalabraENum = findViewById(R.id.tvPalabraEFamilia);
+        tvPalabraENum = findViewById(R.id.tvPalabraESaludo);
 
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+110;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+210;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -93,8 +94,8 @@ public class Basico_H011_Familia extends AppCompatActivity implements Response.L
         else
             Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
 
-        /*Intent i = new Intent(this, Basico_H011_Saludo.class);
-        startActivity(i);*/
+        Intent i = new Intent(this, Basico_Ejercicio5_Familia.class);
+        startActivity(i);
     }
 
     @Override
