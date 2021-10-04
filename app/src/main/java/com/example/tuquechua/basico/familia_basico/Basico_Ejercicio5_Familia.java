@@ -3,6 +3,7 @@ package com.example.tuquechua.basico.familia_basico;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -51,7 +52,7 @@ public class Basico_Ejercicio5_Familia extends AppCompatActivity implements Resp
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+110;
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+110;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -93,8 +94,11 @@ public class Basico_Ejercicio5_Familia extends AppCompatActivity implements Resp
         else
             Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
 
-        /*Intent i = new Intent(this, Basico_H011_Saludo.class);
-        startActivity(i);*/
+        Intent i = new Intent(this, Basico_Ejercicio6_Familia.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
+        punt = punt + 5;
+        i.putExtra("puntaje", punt);
+        startActivity(i);
     }
 
     @Override

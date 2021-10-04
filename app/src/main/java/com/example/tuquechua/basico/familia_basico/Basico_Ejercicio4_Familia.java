@@ -59,15 +59,10 @@ public class Basico_Ejercicio4_Familia extends AppCompatActivity implements  Res
         progreso.setMessage("Consultando...");
         progreso.show();
 
-
-
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+18;
-
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+18;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
-
-
     }
     public void iniciar(View view) {
         /*String path = "android.resource://" + getPackageName() + "/" + R.raw.familia;
@@ -82,15 +77,15 @@ public class Basico_Ejercicio4_Familia extends AppCompatActivity implements  Res
         {
             case "Ayllu":
                 Toast.makeText(getApplicationContext(), nom+" Respuesta correcta", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(this, Basico_Ejercicio1_Numero.class);
+                Intent i = new Intent(this, Basico_Ejercicio5_Familia.class);
+                int punt = getIntent().getIntExtra("puntaje",0);
+                punt = punt + 5;
+                i.putExtra("puntaje", punt);
                 startActivity(i);
-
                 break;
             case "Wallpa":
                 Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
                 break;
-
-
             case "Yaku":
                 Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
                 break;
@@ -100,7 +95,6 @@ public class Basico_Ejercicio4_Familia extends AppCompatActivity implements  Res
             case "Quwi":
                 Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
                 break;
-
         }
     }
 
@@ -151,8 +145,6 @@ public class Basico_Ejercicio4_Familia extends AppCompatActivity implements  Res
             public void onClick(View v) {
                 String r1=spRespuesta.getSelectedItem().toString();
                 procesar(r1);
-
-
             }
         });
     }

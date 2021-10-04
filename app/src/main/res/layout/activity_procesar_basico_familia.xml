@@ -4,19 +4,202 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".basico.familia_basico.procesarBasicoFamilia">
+    tools:context=".basico.familia_basico.procesarBasicoFamilia"
+    android:background="@color/primaryColor">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="148dp">
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="146dp" >
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvFraseResultado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="seccion familia" />
+            android:text="Resultado"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:textColor="@color/primaryTextColor" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Sección"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="@color/primaryTextColor" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp" >
+
+            <ImageView
+                android:layout_width="184dp"
+                android:layout_height="match_parent"
+                android:textColor="@color/primaryTextColor"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Familia"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                style="@style/styleNivel"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Nivel"
+            android:textSize="20dp"
+            android:gravity="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp" >
+
+            <ImageView
+                android:layout_width="87dp"
+                android:layout_height="match_parent"
+                tools:srcCompat="@drawable/ic_basico" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Básico"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                style="@style/styleNivel" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Puntaje"
+            android:textSize="20dp"
+            android:gravity="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="80dp">
+
+            <TextView
+                android:id="@+id/tvPuntajeResultante"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="puntaje"
+                android:gravity="right"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                style="@style/styleNivel" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="/30p"
+                android:gravity="left"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                style="@style/styleNivel" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Respuestas"
+            android:textSize="20dp"
+            android:gravity="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="80dp">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Correctas: "
+                android:gravity="right"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                style="@style/styleNivel" />
+
+            <TextView
+                android:id="@+id/tvNumRespCorrectas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="calcular"
+                android:gravity="left"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                style="@style/styleNivel" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="80dp">
+
+            <TextView
+                style="@style/styleNivel"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="right"
+                android:text="Incorrectas: "
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvNumRespIncorrectas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="calcular"
+                android:gravity="left"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                style="@style/styleNivel" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="OK" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

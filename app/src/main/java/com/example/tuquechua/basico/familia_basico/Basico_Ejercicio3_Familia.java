@@ -60,7 +60,7 @@ public class Basico_Ejercicio3_Familia extends AppCompatActivity implements Resp
             }
         });
 
-        String url = "http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id=" + 100;
+        String url = "http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id=" + 100;
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         request.add(jsonObjectRequest);
@@ -122,14 +122,19 @@ public class Basico_Ejercicio3_Familia extends AppCompatActivity implements Resp
     }
 
     public void procesar(String opcion) {
-        Intent i = new Intent(this, Basico_Ejercicio5_Numero.class);
+        Intent i = new Intent(this, Basico_Ejercicio4_Familia.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
+
         if (opcion.equals(rptaCorrecta)) {
             Toast.makeText(getApplicationContext(), opcion + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
+            punt = punt + 5;
+            i.putExtra("puntaje", punt);
             startActivity(i);
         } else if (opcion.equals("Elija una opción")) {
             Toast.makeText(getApplicationContext(), "Elija una opción", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt);
             startActivity(i);
         }
     }

@@ -55,7 +55,8 @@ public class Basico_Ejercicio2_Familia extends AppCompatActivity implements Resp
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+26;
+
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+26;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -71,7 +72,10 @@ public class Basico_Ejercicio2_Familia extends AppCompatActivity implements Resp
 
     @Override
     public void onClick(View v) {
-        Intent im= new Intent(this, Basico_Ejercicio2_Numero.class);
+        Intent im= new Intent(this, Basico_Ejercicio3_Familia.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
+        punt = punt + 5;
+        im.putExtra("puntaje", punt);
         startActivity(im);
     }
 

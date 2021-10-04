@@ -55,14 +55,10 @@ public class Basico_Ejercicio1_Familia extends AppCompatActivity implements View
         progreso.setMessage("Consultando...");
         progreso.show();
 
-
-
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+14;
-
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+14;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
-
 
         btnSiguiente1.setOnClickListener(this);
     }
@@ -74,7 +70,8 @@ public class Basico_Ejercicio1_Familia extends AppCompatActivity implements View
         respuesta1 = etRespuesta1.getText().toString();
         if (respuesta1.equals("Familia") || respuesta1.equals("familia")) {
             Toast.makeText(this, "La respuesta es correcta", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(this, Basico_Ejercicio4_Familia.class);
+            Intent i = new Intent(this, Basico_Ejercicio2_Familia.class);
+            i.putExtra("puntaje", 5);
             startActivity(i);
         } else {
             Toast.makeText(this, "La respuesta incorrecta", Toast.LENGTH_SHORT).show();

@@ -17,7 +17,7 @@ TextView tv1,tv2,tv3,tv4,tv5,tv6;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_procesar_basico_comida);
-        tvrpta1comida= findViewById(R.id.tvrpta1comida);
+        /*tvrpta1comida= findViewById(R.id.tvrpta1comida);
         tvrpta1familia=findViewById(R.id.tvrpta1familia);
         tvop1comida=findViewById(R.id.tvrpta1numero);
         tvop1familia=findViewById(R.id.tvrpta1saludo);
@@ -41,6 +41,6 @@ TextView tv1,tv2,tv3,tv4,tv5,tv6;
         tvopbutton2.setText(rpta_button_familia);
 
         String rpta_basico_comida5= getIntent().getStringExtra("rpta5Comida");
-        tvop5Comida.setText(rpta_basico_comida5+"");
+        tvop5Comida.setText(rpta_basico_comida5+"");*/
     }
 }
