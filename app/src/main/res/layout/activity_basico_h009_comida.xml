@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".basico.basico_h009_comida"
+    tools:context=".basico.comida_basico.Basico_Ejercicio3_Comida"
     android:background="@drawable/fondomenu">
 
     <LinearLayout

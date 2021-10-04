@@ -13,50 +13,57 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TuQuechua"
         android:usesCleartextTraffic="true">
+        <activity android:name=".basico.saludo_basico.procesarBasicoSaludo"></activity>
+        <activity android:name=".basico.numero_basico.procesarBasicoNumero" />
+        <activity android:name=".basico.familia_basico.procesarBasicoFamilia" />
+        <activity android:name=".basico.saludo_basico.Basico_Ejercicio2_Saludo" />
+        <activity android:name=".basico.numero_basico.Basico_Ejercicio2_Numero" />
+        <activity android:name=".basico.comida_basico.Basico_Ejercicio2_Comida" />
+        <activity android:name=".basico.familia_basico.Basico_Ejercicio2_Familia" />
         <activity
-            android:name=".basico.Basico_H011_Familia"
+            android:name=".basico.familia_basico.Basico_Ejercicio5_Familia"
             android:exported="true" />
         <activity
-            android:name=".basico.Basico_H011_Saludo"
+            android:name=".basico.saludo_basico.Basico_Ejercicio5_Saludo"
             android:exported="true" />
         <activity
-            android:name=".basico.Basico_H011_Comida"
+            android:name=".basico.comida_basico.Basico_Ejercicio5_Comida"
             android:exported="true" />
         <activity
-            android:name=".basico.Basico_H009_Familia"
+            android:name=".basico.familia_basico.Basico_Ejercicio3_Familia"
             android:exported="true" />
         <activity
-            android:name=".basico.Basico_H009_Saludo"
+            android:name=".basico.saludo_basico.Basico_Ejercicio3_Saludo"
             android:exported="true" />
         <activity
-            android:name=".basico.Basico_H009_Numero"
+            android:name=".basico.numero_basico.Basico_Ejercicio3_Numero"
             android:exported="true" />
-        <activity android:name=".procesarBasicoComida" />
+        <activity android:name=".basico.comida_basico.procesarBasicoComida" />
         <activity
-            android:name=".basico.basico_h009_comida"
+            android:name=".basico.comida_basico.Basico_Ejercicio3_Comida"
             android:exported="true" />
-        <activity android:name=".basico.Basico_H011_Numero" />
-        <activity android:name=".basico.Basico_Ejercicio6_Saludo" />
-        <activity android:name=".basico.Basico_Ejercicio6_Numero" />
-        <activity android:name=".basico.Basico_Ejercicio6_Familia" />
-        <activity android:name=".basico.Basico_Ejercicio6_Comida" />
+        <activity android:name=".basico.numero_basico.Basico_Ejercicio5_Numero" />
+        <activity android:name=".basico.saludo_basico.Basico_Ejercicio6_Saludo" />
+        <activity android:name=".basico.numero_basico.Basico_Ejercicio6_Numero" />
+        <activity android:name=".basico.familia_basico.Basico_Ejercicio6_Familia" />
+        <activity android:name=".basico.comida_basico.Basico_Ejercicio6_Comida" />
         <activity android:name=".consultar_lista_usuario_imagen" />
         <activity android:name=".consultar_lista_usuario" />
         <activity android:name=".consultar_usuario" />
         <activity android:name=".registrar_usuario" />
         <activity android:name=".agregar_pregunta" />
-        <activity android:name=".basico.Basico_Ejercicio4_Saludo" />
-        <activity android:name=".basico.Basico_Ejercicio4_Numero" />
-        <activity android:name=".basico.Basico_Ejercicio4_Familia" />
+        <activity android:name=".basico.saludo_basico.Basico_Ejercicio4_Saludo" />
+        <activity android:name=".basico.numero_basico.Basico_Ejercicio4_Numero" />
+        <activity android:name=".basico.familia_basico.Basico_Ejercicio4_Familia" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.TuQuechua.NoActionBar" />
-        <activity android:name=".basico.Basico_Ejercicio4_Comida" />
-        <activity android:name=".basico.Basico_Ejercicio1_Saludo" />
-        <activity android:name=".basico.Basico_Ejercicio1_Numero" />
-        <activity android:name=".basico.Basico_Ejercicio1_Familia" />
-        <activity android:name=".basico.Basico_Ejercicio1_Comida">
+        <activity android:name=".basico.comida_basico.Basico_Ejercicio4_Comida" />
+        <activity android:name=".basico.saludo_basico.Basico_Ejercicio1_Saludo" />
+        <activity android:name=".basico.numero_basico.Basico_Ejercicio1_Numero" />
+        <activity android:name=".basico.familia_basico.Basico_Ejercicio1_Familia" />
+        <activity android:name=".basico.comida_basico.Basico_Ejercicio1_Comida">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.tuquechua.basico;
+package com.example.tuquechua.basico.numero_basico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -52,7 +52,7 @@ public class Basico_Ejercicio1_Numero extends AppCompatActivity implements View.
 
 
 
-        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+15;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+15;
 
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);

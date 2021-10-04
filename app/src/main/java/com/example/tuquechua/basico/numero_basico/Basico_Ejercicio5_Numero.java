@@ -1,18 +1,12 @@
-package com.example.tuquechua.basico;
+package com.example.tuquechua.basico.numero_basico;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,13 +17,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
+import com.example.tuquechua.basico.comida_basico.Basico_Ejercicio5_Comida;
 import com.example.tuquechua.entidades.Pregunta;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Basico_H011_Numero extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener {
+public class Basico_Ejercicio5_Numero extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener {
     TextView tvPregunta, tvPalabraENum, tvOp1, tvOp2, tvOp3, tvOp4;
     ImageButton ibtnOp1, ibtnOp2, ibtnOp3, ibtnOp4;
     String respuesta, rptaCorrecta;
@@ -57,7 +52,7 @@ public class Basico_H011_Numero extends AppCompatActivity implements  Response.L
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+410;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+410;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -99,7 +94,7 @@ public class Basico_H011_Numero extends AppCompatActivity implements  Response.L
         else
             Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
 
-        Intent i = new Intent(this, Basico_H011_Comida.class);
+        Intent i = new Intent(this, Basico_Ejercicio5_Comida.class);
         startActivity(i);
     }
 

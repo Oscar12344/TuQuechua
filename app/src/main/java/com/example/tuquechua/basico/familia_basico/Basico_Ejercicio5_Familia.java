@@ -1,4 +1,4 @@
-package com.example.tuquechua.basico;
+package com.example.tuquechua.basico.familia_basico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,7 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Basico_H011_Familia extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
+public class Basico_Ejercicio5_Familia extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
         TextView tvPregunta, tvPalabraENum, tvOp1, tvOp2, tvOp3, tvOp4;
         ImageButton ibtnOp1, ibtnOp2, ibtnOp3, ibtnOp4;
         String respuesta, rptaCorrecta;
@@ -51,7 +51,7 @@ public class Basico_H011_Familia extends AppCompatActivity implements Response.L
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+110;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+110;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);

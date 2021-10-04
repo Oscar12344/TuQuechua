@@ -1,8 +1,10 @@
-package com.example.tuquechua;
+package com.example.tuquechua.basico.comida_basico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.tuquechua.R;
 
 public class procesarBasicoComida extends AppCompatActivity {
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".basico.Basico_Ejercicio1_Comida"
+    tools:context=".basico.comida_basico.Basico_Ejercicio1_Comida"
     android:background="@drawable/fondomenu">
 
  <LinearLayout
@@ -50,7 +50,7 @@
          style="@style/styleLabel"
          android:layout_marginBottom="10dp"/>
      <ImageView
-         android:id="@+id/imagenId"
+         android:id="@+id/imagenId2comida"
          android:layout_width="250dp"
          android:layout_height="250dp"
          android:layout_gravity="center"
@@ -87,11 +87,7 @@
          style="@style/styleButton"
          />
 
-     <TextView
-         android:id="@+id/tvrespuesta"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:text="TextView" />
+
 
 
  </LinearLayout>
