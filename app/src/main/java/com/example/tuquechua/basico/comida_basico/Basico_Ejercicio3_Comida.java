@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,7 +22,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
-import com.example.tuquechua.basico.numero_basico.Basico_Ejercicio3_Numero;
 import com.example.tuquechua.entidades.Pregunta;
 
 import org.json.JSONArray;
@@ -48,7 +48,7 @@ public class Basico_Ejercicio3_Comida extends AppCompatActivity implements  Resp
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basico_h009_comida);
+        setContentView(R.layout.activity_basico__ejercicio3__comida);
         btnSiguiente = findViewById(R.id.btnSiguiente);
         spOpciones = findViewById(R.id.spOpc);
         txtPregunta = findViewById(R.id.tvPregunta);
@@ -117,13 +117,28 @@ public class Basico_Ejercicio3_Comida extends AppCompatActivity implements  Resp
             @Override
             public void onClick(View v) {
                 respuesta3comida=spOpciones.getSelectedItem().toString();
-                r1anterior= getIntent().getStringExtra("rpta1comida_anterior1");
-                r2anterior= getIntent().getStringExtra("rpta2comida");
-                lanzarProcesarCalculo(respuesta3comida, r1anterior,r2anterior);
+                if(!respuesta3comida.equals("Elija una opción"))
+                {
+                    r1anterior= getIntent().getStringExtra("rpta1comida_anterior1");
+                    r2anterior= getIntent().getStringExtra("rpta2comida");
+                    lanzarProcesarCalculo(respuesta3comida, r1anterior,r2anterior);
+                }
+                else
+                {
+                    //Toast.makeText(this,"Seleccione una opcion",Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(getApplicationContext(), "Seleccione una opción",Toast.LENGTH_SHORT).show();
+                }
+
 
             }
         });
 
+    }
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 
     public void lanzarProcesarCalculo(String respuesta3comida, String r1anterior, String r2anterior) {

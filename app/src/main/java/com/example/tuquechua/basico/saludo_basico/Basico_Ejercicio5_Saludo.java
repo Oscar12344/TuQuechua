@@ -35,7 +35,7 @@ public class Basico_Ejercicio5_Saludo extends AppCompatActivity implements Respo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basico_h011_saludo);
+        setContentView(R.layout.activity_basico__ejercicio5__saludo);
         ibtnOp1 = findViewById(R.id.ibOp1);
         ibtnOp2 = findViewById(R.id.ibOp2);
         ibtnOp3 = findViewById(R.id.ibOp3);

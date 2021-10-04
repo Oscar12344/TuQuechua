@@ -64,7 +64,7 @@ public class Basico_Ejercicio6_Familia extends AppCompatActivity implements  Res
     }
     public void irOpcionCorrecta(View v)
     {
-        Intent i = new Intent(this, Basico_Ejercicio6_Numero.class);
+        Intent i = new Intent(this, procesarBasicoFamilia.class);
         startActivity(i);
     }
     public void irOpcionIncorrecta1(View v)

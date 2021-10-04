@@ -98,7 +98,11 @@ String respuesta4comida;
      MediaPlayer mp= MediaPlayer.create(this, R.raw.sal_audio);
      mp.start();
 }
-
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
+    }
 public void procesar(String nom)
 {
 
@@ -139,7 +143,7 @@ public void procesar(String nom)
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-        Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
         Pregunta miPregunta5=new Pregunta();
         JSONArray json=response.optJSONArray("idpregunta");
         JSONObject jsonObject=null;
@@ -178,10 +182,17 @@ public void procesar(String nom)
             @Override
             public void onClick(View v) {
                 respuesta4comida=spRespuesta.getSelectedItem().toString();
-                r1anterior= getIntent().getStringExtra("rpta1_comida");
-                r2anterior= getIntent().getStringExtra("rpta2_comida");
-                r3anterior= getIntent().getStringExtra("op3_comida");
-                lanzarProcesarCalculo(respuesta4comida,r1anterior,r2anterior,r3anterior);
+                if(!respuesta4comida.equals("Eliga una opción"))
+                {
+                    r1anterior= getIntent().getStringExtra("rpta1_comida");
+                    r2anterior= getIntent().getStringExtra("rpta2_comida");
+                    r3anterior= getIntent().getStringExtra("op3_comida");
+                    lanzarProcesarCalculo(respuesta4comida,r1anterior,r2anterior,r3anterior);
+                }else
+                {
+                    Toast.makeText(getApplicationContext(), "Seleccione una opción",Toast.LENGTH_SHORT).show();
+                }
+
               //  procesar(r1);
             }
         });

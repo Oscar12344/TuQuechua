@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".basico.numero_basico.Basico_Ejercicio1_Numero"
-    android:background="@drawable/fondomenu">
+    android:background="@color/primaryColor">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -56,13 +56,15 @@
         android:layout_below="@+id/linearLayout"
         android:src="@drawable/img_base"
         android:layout_centerHorizontal="true"/>
-    <TextView
-        android:id="@+id/txtPregunta"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="5dp"
-        android:textSize="20dp"
-        style="@style/styleLabel"/>
+
+        <TextView
+            android:id="@+id/txtPregunta"
+            style="@style/styleLabel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:maxLength="30"
+            android:textSize="20dp" />
     <EditText
 
         android:id="@+id/etRespuesta1_basica_numero"

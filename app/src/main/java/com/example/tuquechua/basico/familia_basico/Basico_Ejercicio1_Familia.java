@@ -74,7 +74,7 @@ public class Basico_Ejercicio1_Familia extends AppCompatActivity implements View
         respuesta1 = etRespuesta1.getText().toString();
         if (respuesta1.equals("Familia") || respuesta1.equals("familia")) {
             Toast.makeText(this, "La respuesta es correcta", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(this, Basico_Ejercicio4_Familia.class);
+            Intent i = new Intent(this, Basico_Ejercicio2_Familia.class);
             startActivity(i);
         } else {
             Toast.makeText(this, "La respuesta incorrecta", Toast.LENGTH_SHORT).show();

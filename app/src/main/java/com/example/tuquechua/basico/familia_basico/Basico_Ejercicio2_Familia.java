@@ -71,7 +71,7 @@ public class Basico_Ejercicio2_Familia extends AppCompatActivity implements Resp
 
     @Override
     public void onClick(View v) {
-        Intent im= new Intent(this, Basico_Ejercicio2_Numero.class);
+        Intent im= new Intent(this, Basico_Ejercicio3_Familia.class);
         startActivity(im);
     }
 

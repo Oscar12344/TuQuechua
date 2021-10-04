@@ -82,7 +82,7 @@ public class Basico_Ejercicio4_Familia extends AppCompatActivity implements  Res
         {
             case "Ayllu":
                 Toast.makeText(getApplicationContext(), nom+" Respuesta correcta", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(this, Basico_Ejercicio1_Numero.class);
+                Intent i = new Intent(this, Basico_Ejercicio5_Familia.class);
                 startActivity(i);
 
                 break;

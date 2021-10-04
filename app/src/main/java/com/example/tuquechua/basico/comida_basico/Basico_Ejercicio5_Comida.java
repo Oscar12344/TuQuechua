@@ -17,7 +17,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
-import com.example.tuquechua.basico.saludo_basico.Basico_Ejercicio5_Saludo;
 import com.example.tuquechua.entidades.Pregunta;
 
 import org.json.JSONArray;
@@ -36,7 +35,7 @@ public class Basico_Ejercicio5_Comida extends AppCompatActivity implements  Resp
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basico_h011_comida);
+        setContentView(R.layout.activity_basico__ejercicio5__comida);
         ibtnOp1 = findViewById(R.id.ibOp1);
         ibtnOp2 = findViewById(R.id.ibOp2);
         ibtnOp3 = findViewById(R.id.ibOp3);
@@ -70,6 +69,11 @@ public class Basico_Ejercicio5_Comida extends AppCompatActivity implements  Resp
 
         Intent i = new Intent(this, Basico_Ejercicio6_Comida.class);
         startActivity(i);
+    }
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 
     @Override

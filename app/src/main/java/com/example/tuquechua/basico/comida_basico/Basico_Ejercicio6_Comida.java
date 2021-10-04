@@ -68,7 +68,11 @@ public class Basico_Ejercicio6_Comida extends AppCompatActivity implements  Resp
         mp.start();
 
     }
-
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     public void onErrorResponse(VolleyError error) {
@@ -80,7 +84,7 @@ public class Basico_Ejercicio6_Comida extends AppCompatActivity implements  Resp
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-        Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
         Pregunta miPregunta7=new Pregunta();
         JSONArray json=response.optJSONArray("idpregunta");
         JSONObject jsonObject=null;
