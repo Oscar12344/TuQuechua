@@ -61,6 +61,7 @@
 
                 android:background="@drawable/fondomenu"
 
+                android:onClick="iniciar"
                 app:srcCompat="@drawable/ic_audio"
                 tools:ignore="VectorDrawableCompat" />
         </LinearLayout>

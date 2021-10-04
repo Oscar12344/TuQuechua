@@ -33,7 +33,8 @@ public class Basico_Ejercicio3_Comida extends AppCompatActivity implements  Resp
     Button btnSiguiente;
     TextView txtPregunta, txtPalabraQ;
     String op1, op2, op3, op4, rptaCorrecta;
-
+    String respuesta3comida;
+    String r2anterior, r1anterior;
     ProgressDialog progreso;
     ImageView campoImagen;
     RequestQueue request;
@@ -56,14 +57,9 @@ public class Basico_Ejercicio3_Comida extends AppCompatActivity implements  Resp
         request = Volley.newRequestQueue(this);
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultando...");
+
         progreso.show();
-        btnSiguiente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String r1 = spOpciones.getSelectedItem().toString();
-                procesar(r1);
-            }
-        });
+
 
         String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+300;
 
@@ -117,18 +113,30 @@ public class Basico_Ejercicio3_Comida extends AppCompatActivity implements  Resp
         ArrayAdapter<String> adapter1= new
                 ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,respuestas);
         spOpciones.setAdapter(adapter1);
-        /*imgFile = new File("http://192.168.1.7:80/pregunta/recursos/imagenes/papa.png");
-        if(imgFile.exists()){
+        btnSiguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                respuesta3comida=spOpciones.getSelectedItem().toString();
+                r1anterior= getIntent().getStringExtra("rpta1comida_anterior1");
+                r2anterior= getIntent().getStringExtra("rpta2comida");
+                lanzarProcesarCalculo(respuesta3comida, r1anterior,r2anterior);
 
-            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-            //campoImagen.setImageResource(R.drawable.papa);
-            campoImagen.setImageBitmap(myBitmap);
-        }*/
+            }
+        });
+
+    }
+
+    public void lanzarProcesarCalculo(String respuesta3comida, String r1anterior, String r2anterior) {
+        Intent i = new Intent(this, Basico_Ejercicio4_Comida.class);
+        i.putExtra("rpta1_comida", r1anterior);
+        i.putExtra("rpta2_comida", r2anterior);
+        i.putExtra("op3_comida", respuesta3comida);
+        startActivity(i);
     }
 
     public void procesar(String opcion)
     {
-        Intent i = new Intent(this, Basico_Ejercicio3_Numero.class);
+        Intent i = new Intent(this, Basico_Ejercicio4_Comida.class);
         if (opcion.equals(rptaCorrecta)){
             Toast.makeText(getApplicationContext(), opcion+", Respuesta correcta", Toast.LENGTH_SHORT).show();
             //i.putExtra("puntaje", 5);

@@ -34,6 +34,9 @@ public class Basico_Ejercicio6_Comida extends AppCompatActivity implements  Resp
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+    String opbuttoncomida1,opbuttoncomida2,opbuttoncomida3,opbuttoncomida4;
+
+    String r1anterior, r2anterior, r3anterior,r4anterior,r5anterior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,23 +68,7 @@ public class Basico_Ejercicio6_Comida extends AppCompatActivity implements  Resp
         mp.start();
 
     }
-    public void irOpcionCorrecta(View v)
-    {
-        Intent i = new Intent(this, Basico_Ejercicio6_Familia.class);
-        startActivity(i);
-    }
-    public void irOpcionIncorrecta1(View v)
-    {
-        Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-    }
-    public void irOpcionIncorrecta2(View v)
-    {
-        Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-    }
-    public void irOpcionIncorrecta3(View v)
-    {
-        Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-    }
+
 
     @Override
     public void onErrorResponse(VolleyError error) {
@@ -119,6 +106,54 @@ public class Basico_Ejercicio6_Comida extends AppCompatActivity implements  Resp
         btnop2_6comida.setText(miPregunta7.getOp2()+"");
         btnop3_6comida.setText(miPregunta7.getOp3()+"");
         btnop4_6comida.setText(miPregunta7.getOp4()+"");
+        opbuttoncomida1=miPregunta7.getOp1().toString();
+        opbuttoncomida2=miPregunta7.getOp2().toString();
+        opbuttoncomida3=miPregunta7.getOp3().toString();
+        opbuttoncomida4=miPregunta7.getOp4().toString();
+        r1anterior= getIntent().getStringExtra("rpta_1comida");
+        r2anterior= getIntent().getStringExtra("rpta_2comida");
+        r3anterior= getIntent().getStringExtra("rpta_3comida");
+        r4anterior= getIntent().getStringExtra("rpta_4comida");
+        r5anterior= getIntent().getStringExtra("op5_comida");
+        btnop1_6comida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                lanzarProcesarCalculo(opbuttoncomida1,r1anterior,r2anterior,r3anterior,r4anterior,r5anterior);
+
+            }
+        });
+        btnop2_6comida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lanzarProcesarCalculo(opbuttoncomida2,r1anterior,r2anterior,r3anterior,r4anterior,r5anterior);
+            }
+        });
+        btnop3_6comida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lanzarProcesarCalculo(opbuttoncomida3,r1anterior,r2anterior,r3anterior,r4anterior,r5anterior);
+            }
+        });
+        btnop4_6comida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lanzarProcesarCalculo(opbuttoncomida4,r1anterior,r2anterior,r3anterior,r4anterior,r5anterior);
+            }
+        });
+
+
+    }
+
+    public void lanzarProcesarCalculo(String opbuttoncomida1, String r1anterior, String r2anterior, String r3anterior, String r4anterior, String r5anterior) {
+        Intent i = new Intent(this, procesarBasicoComida.class);
+        i.putExtra("r_1comida", r1anterior);
+        i.putExtra("r_2comida", r2anterior);
+        i.putExtra("r_3comida", r3anterior);
+        i.putExtra("r_4comida", r4anterior);
+        i.putExtra("r_5comida", r5anterior);
+        i.putExtra("op6_comida", opbuttoncomida1);
+        startActivity(i);
 
     }
 }

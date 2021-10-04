@@ -31,7 +31,8 @@ public class Basico_Ejercicio5_Comida extends AppCompatActivity implements  Resp
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-
+    String r1anterior, r2anterior, r3anterior,r4anterior;
+    String op1,op2,op3,op4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,34 +58,7 @@ public class Basico_Ejercicio5_Comida extends AppCompatActivity implements  Resp
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
 
-        ibtnOp1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                respuesta = tvOp1.getText().toString();
-                procesar(respuesta);
-            }
-        });
-        ibtnOp2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                respuesta = tvOp2.getText().toString();
-                procesar(respuesta);
-            }
-        });
-        ibtnOp3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                respuesta = tvOp3.getText().toString();
-                procesar(respuesta);
-            }
-        });
-        ibtnOp4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                respuesta = tvOp4.getText().toString();
-                procesar(respuesta);
-            }
-        });
+
     }
 
     public void procesar(String rpta)
@@ -94,7 +68,7 @@ public class Basico_Ejercicio5_Comida extends AppCompatActivity implements  Resp
         else
             Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
 
-        Intent i = new Intent(this, Basico_Ejercicio5_Saludo.class);
+        Intent i = new Intent(this, Basico_Ejercicio6_Comida.class);
         startActivity(i);
     }
 
@@ -157,5 +131,50 @@ public class Basico_Ejercicio5_Comida extends AppCompatActivity implements  Resp
         }else{
             ibtnOp1.setImageResource(R.drawable.img_base);
         }
+        op1=miPreguntaH011N.getOp1().toString();
+        op2=miPreguntaH011N.getOp2().toString();
+        op3=miPreguntaH011N.getOp3().toString();
+        op4=miPreguntaH011N.getOp4().toString();
+        r1anterior=getIntent().getStringExtra("rpta_1_comida");
+        r2anterior=getIntent().getStringExtra("rpta_2_comida");
+        r3anterior=getIntent().getStringExtra("rpta_3_comida");
+        r4anterior=getIntent().getStringExtra("op4_comida");
+
+        ibtnOp1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lanzarProcesarCalculo(op1,r1anterior,r2anterior,r3anterior,r4anterior);
+            }
+        });
+        ibtnOp2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lanzarProcesarCalculo(op2,r1anterior,r2anterior,r3anterior,r4anterior);
+            }
+        });
+        ibtnOp3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lanzarProcesarCalculo(op3,r1anterior,r2anterior,r3anterior,r4anterior);
+            }
+        });
+
+        ibtnOp4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lanzarProcesarCalculo(op4,r1anterior,r2anterior,r3anterior,r4anterior);
+            }
+        });
+    }
+
+    public void lanzarProcesarCalculo(String op1, String r1anterior, String r2anterior, String r3anterior, String r4anterior) {
+        Intent i = new Intent(this, Basico_Ejercicio6_Comida.class);
+        i.putExtra("rpta_1comida", r1anterior);
+        i.putExtra("rpta_2comida", r2anterior);
+        i.putExtra("rpta_3comida", r3anterior);
+        i.putExtra("rpta_4comida", r4anterior);
+        i.putExtra("op5_comida", op1);
+        startActivity(i);
+
     }
 }

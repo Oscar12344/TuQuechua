@@ -4,62 +4,201 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".procesarBasicoComida">
+    tools:context=".basico.comida_basico.procesarBasicoComida"
+    android:background="@drawable/fondomenu">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="98dp">
-
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="146dp"
+        >
         <TextView
-            android:id="@+id/tvrpta1comida"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="rpta1BasicoComida" />
+            android:text="Resultado"
+            android:textSize="20dp"
+            android:gravity="center"
+            >
 
+
+        </TextView>
         <TextView
-            android:id="@+id/tvrpta1familia"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="rpta1BasicoFamilia" />
-
-        <TextView
-            android:id="@+id/tvrpta1numero"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="rpta1Basiconumero" />
-
-        <TextView
-            android:id="@+id/tvrpta1saludo"
+            android:text="Sección"
+            android:textSize="20dp"
+            android:gravity="center"
+            >
+        </TextView>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="rpta1Basicosaludo" />
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            >
 
-        <TextView
-            android:id="@+id/tvrpta3Comida"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="rpta3BasicoComida" />
+            <ImageView
+                android:layout_width="184dp"
+                android:layout_height="match_parent"
 
-        <TextView
-            android:id="@+id/tvrpta5Comida"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="rpta5BasicoComida" />
+                android:visibility="visible" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Comida"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                style="@style/styleNivel"/>
+
+        </LinearLayout>
         <TextView
-            android:id="@+id/tvopmensaje1"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="rptabuttonop1" />
+            android:text="Nivel"
+            android:textSize="20dp"
+            android:gravity="center"
+            >
+        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            >
 
+            <ImageView
+                android:layout_width="87dp"
+                android:layout_height="match_parent"
+
+
+                tools:srcCompat="@drawable/ic_basico" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Básico"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                style="@style/styleNivel"/>
+
+        </LinearLayout>
         <TextView
-            android:id="@+id/tvopmensaje2"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="rptabutton2" />
+            android:text="Puntaje"
+            android:textSize="20dp"
+            android:gravity="center"
+            >
+        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            >
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="puntaje"
+                android:gravity="left"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                style="@style/styleNivel"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="/30p"
+                android:gravity="left"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                style="@style/styleNivel"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Respuestas"
+            android:textSize="20dp"
+            android:gravity="center"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            >
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Correctas:"
+                android:gravity="left"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                style="@style/styleNivel"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="calcular"
+                android:gravity="left"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                style="@style/styleNivel"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+
+            >
+
+            <TextView
+                style="@style/styleNivel"
+                android:layout_width="121dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="left"
+                android:text="Incorrectas:"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="calcular"
+                android:gravity="left"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                style="@style/styleNivel"/>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="OK" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

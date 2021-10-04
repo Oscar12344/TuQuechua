@@ -11,6 +11,8 @@ public class procesarBasicoComida extends AppCompatActivity {
     TextView tvrpta1comida,tvrpta1familia,tvop1comida,tvop1familia,tvopbutton1,tvopbutton2,tvop3Comida,tvop5Comida;
     int contator=0;
 
+String r1_comida, r2_comida, r3_comida,r4_comida,r5_comida,r6_comida;
+TextView tv1,tv2,tv3,tv4,tv5,tv6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

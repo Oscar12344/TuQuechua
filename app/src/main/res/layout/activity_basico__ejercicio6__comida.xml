@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="irOpcionIncorrecta1"
+
                  />
 
             <Button
@@ -90,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="irOpcionCorrecta"
+
                  />
         </LinearLayout>
         <LinearLayout
@@ -106,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="irOpcionIncorrecta2"
+
                 />
 
             <Button
@@ -115,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="irOpcionIncorrecta3"
+
                />
         </LinearLayout>
 
