@@ -37,7 +37,8 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
     Button btnSiguiente;
     TextView txtPregunta;
     String op1,op2,op3,op4;
-
+String r1anterior, r2anterior, r3anterior;
+String respuesta4comida;
     ProgressDialog progreso;
     ImageView campoImagen;
     RequestQueue request;
@@ -105,7 +106,7 @@ public void procesar(String nom)
     {
         case "Kachi":
             Toast.makeText(getApplicationContext(), nom+" Respuesta correcta", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(this, Basico_Ejercicio1_Familia.class);
+            Intent i = new Intent(this, Basico_Ejercicio5_Comida.class);
             startActivity(i);
 
             break;
@@ -176,9 +177,23 @@ public void procesar(String nom)
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String r1=spRespuesta.getSelectedItem().toString();
-                procesar(r1);
+                respuesta4comida=spRespuesta.getSelectedItem().toString();
+                r1anterior= getIntent().getStringExtra("rpta1_comida");
+                r2anterior= getIntent().getStringExtra("rpta2_comida");
+                r3anterior= getIntent().getStringExtra("op3_comida");
+                lanzarProcesarCalculo(respuesta4comida,r1anterior,r2anterior,r3anterior);
+              //  procesar(r1);
             }
         });
+    }
+
+    public void lanzarProcesarCalculo(String respuesta4comida, String r1anterior, String r2anterior, String r3anterior) {
+        Intent i = new Intent(this, Basico_Ejercicio5_Comida.class);
+        i.putExtra("rpta_1_comida", r1anterior);
+        i.putExtra("rpta_2_comida", r2anterior);
+        i.putExtra("rpta_3_comida", r3anterior);
+        i.putExtra("op4_comida", respuesta4comida);
+        startActivity(i);
+
     }
 }
