@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primaryColor"
     tools:context=".basico.familia_basico.Basico_Ejercicio2_Familia">
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,7 +51,7 @@
                 android:layout_below="@+id/linearLayout"
                 android:src="@drawable/img_base"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/fondomenu"
+
                 />
 
             <ImageButton
@@ -59,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
 
-                android:background="@drawable/fondomenu"
+                android:background="@color/primaryColor"
 
 
                 android:onClick="iniciar"
@@ -73,18 +74,19 @@
             android:layout_marginLeft="5dp"
             android:textSize="20dp"
             style="@style/styleLabel"/>
+
         <EditText
 
             android:id="@+id/etRespuesta2_basica_familia"
-            android:layout_width="190dp"
-
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-
             style="@style/styleEditText"
 
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
 
-            />
+            android:layout_gravity="center"
+
+
+            android:maxLength="30" />
 
         <Button
             android:id="@+id/btnSiguiente2_familia"

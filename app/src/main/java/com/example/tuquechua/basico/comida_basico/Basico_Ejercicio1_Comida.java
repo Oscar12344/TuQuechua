@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethod;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -39,7 +41,7 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basico__ejercicio1);
+        setContentView(R.layout.activity_basico__ejercicio1_comida);
         etRespuesta1=findViewById(R.id.etRespuesta1_basica_saludo);
         btnSiguiente1=findViewById(R.id.btnSiguiente1);
         txtPalabra= (TextView) findViewById(R.id.txtPalabra);
@@ -61,15 +63,33 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
     public void onClick(View v) {
 
         respuesta1comida= etRespuesta1.getText().toString();
+        if(!respuesta1comida.equals(""))
+        {
+            lanzarProcesarCalculo(v, respuesta1comida);
+        }
+        else
+        {
+            Toast.makeText(this,"Escriba su respuesta",Toast.LENGTH_SHORT).show();
+            etRespuesta1.requestFocus();
+            InputMethodManager imm= (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(etRespuesta1, InputMethodManager.SHOW_IMPLICIT);
+
+        }
 
 
-        lanzarProcesarCalculo(v, respuesta1comida);
+
+    }
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 
     public void lanzarProcesarCalculo(View v, String respuesta1comida) {
         Intent i = new Intent(this,Basico_Ejercicio2_Comida.class);
         i.putExtra("rpta1Comida", respuesta1comida);
         startActivity(i);
+        finish();
 
     }
 
@@ -83,7 +103,7 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-        Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
         Pregunta miPregunta=new Pregunta();
         JSONArray json=response.optJSONArray("idpregunta");
         JSONObject jsonObject=null;

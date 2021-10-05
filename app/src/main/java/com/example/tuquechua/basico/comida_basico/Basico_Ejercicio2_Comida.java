@@ -8,6 +8,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -81,7 +82,7 @@ public class Basico_Ejercicio2_Comida extends AppCompatActivity implements Respo
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-        Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
         Pregunta miPregunta10=new Pregunta();
         JSONArray json=response.optJSONArray("idpregunta");
         JSONObject jsonObject=null;
@@ -108,8 +109,24 @@ public class Basico_Ejercicio2_Comida extends AppCompatActivity implements Respo
     public void onClick(View v) {
 
         respuesta2comida = edtrespuesta.getText().toString();
+        if(!respuesta2comida.equals(""))
+        {
+            lanzarProcesarCalculo(v, respuesta2comida, rpta1anterior);
+        }
+        else
+        {
+            Toast.makeText(this,"Escriba su respuesta",Toast.LENGTH_SHORT).show();
+            edtrespuesta.requestFocus();
+            InputMethodManager imm= (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(edtrespuesta, InputMethodManager.SHOW_IMPLICIT);
 
-        lanzarProcesarCalculo(v, respuesta2comida, rpta1anterior);
+        }
+
+    }
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 
     public void lanzarProcesarCalculo(View v, String respuesta2comida, String rpta1anterior) {

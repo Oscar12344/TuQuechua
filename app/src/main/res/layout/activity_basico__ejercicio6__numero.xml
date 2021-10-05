@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primaryColor"
     tools:context=".basico.numero_basico.Basico_Ejercicio6_Numero"
-    android:background="@drawable/fondomenu">
+   >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -57,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/fondomenu"
+                android:background="@color/primaryColor"
 
 
                 android:onClick="iniciar"

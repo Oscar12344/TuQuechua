@@ -21,7 +21,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
-import com.example.tuquechua.basico.numero_basico.Basico_Ejercicio5_Numero;
 import com.example.tuquechua.entidades.Pregunta;
 
 import org.json.JSONArray;
@@ -42,7 +41,7 @@ public class Basico_Ejercicio3_Familia extends AppCompatActivity implements Resp
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basico_h009_familia);
+        setContentView(R.layout.activity_basico__ejercicio3__familia);
         btnSiguiente = findViewById(R.id.btnSiguiente);
         spOpciones = findViewById(R.id.spOpc);
         txtPregunta = findViewById(R.id.tvPregunta);

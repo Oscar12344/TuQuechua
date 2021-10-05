@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".basico.comida_basico.Basico_Ejercicio1_Comida"
-    android:background="@drawable/fondomenu">
+    android:background="@color/primaryColor">
 
  <LinearLayout
      android:layout_width="match_parent"
@@ -49,33 +49,37 @@
          android:gravity="center"
          style="@style/styleLabel"
          android:layout_marginBottom="10dp"/>
+
      <ImageView
          android:id="@+id/imagenId1comida"
          android:layout_width="250dp"
          android:layout_height="250dp"
-         android:layout_gravity="center"
          android:layout_below="@+id/linearLayout"
-         android:src="@drawable/img_base"
-         android:layout_centerHorizontal="true"/>
+         android:layout_centerHorizontal="true"
+         android:layout_gravity="center"
+         android:src="@drawable/img_base" />
+
      <TextView
          android:id="@+id/txtPregunta"
+         style="@style/styleLabel"
          android:layout_width="match_parent"
          android:layout_height="50dp"
          android:layout_marginLeft="5dp"
-         android:textSize="20dp"
-         style="@style/styleLabel"/>
+         android:maxLength="30"
+         android:textSize="20dp" />
+
      <EditText
 
          android:id="@+id/etRespuesta1_basica_saludo"
-         android:layout_width="190dp"
-
-         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-
          style="@style/styleEditText"
 
+         android:layout_width="190dp"
+         android:layout_height="wrap_content"
 
-         />
+         android:layout_gravity="center"
+
+
+         android:maxLength="30" />
 
      <Button
          android:id="@+id/btnSiguiente1"
@@ -98,4 +102,4 @@
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

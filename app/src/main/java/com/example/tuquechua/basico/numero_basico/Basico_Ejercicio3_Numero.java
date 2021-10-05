@@ -42,7 +42,7 @@ public class Basico_Ejercicio3_Numero extends AppCompatActivity implements Respo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basico_h009_numero);
+        setContentView(R.layout.activity_basico__ejercicio3__numero);
         btnSiguiente = findViewById(R.id.btnSiguiente);
         spOpciones = findViewById(R.id.spOpc);
         txtPregunta = (TextView) findViewById(R.id.tvPregunta);

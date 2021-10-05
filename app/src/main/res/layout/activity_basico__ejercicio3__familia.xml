@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".basico.comida_basico.Basico_Ejercicio3_Comida"
-    android:background="@drawable/fondomenu">
+    android:background="@color/primaryColor"
+    tools:context=".basico.familia_basico.Basico_Ejercicio3_Familia"
+   >
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -48,7 +49,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imgViewH009Comida"
+        android:id="@+id/imgViewH009Familia"
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -62,7 +63,7 @@
     </ImageView>
 
     <TextView
-        android:id="@+id/tvPalabraQComida"
+        android:id="@+id/tvPalabraQFamilia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -71,7 +72,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toEndOf="@+id/imgViewH009Comida"
+        app:layout_constraintStart_toEndOf="@+id/imgViewH009Familia"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.2" />
 
@@ -88,7 +89,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgViewH009Comida"
+        app:layout_constraintTop_toBottomOf="@+id/imgViewH009Familia"
         app:layout_constraintVertical_bias="0.089" />
 
     <Spinner

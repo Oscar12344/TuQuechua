@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".basico.numero_basico.Basico_Ejercicio3_Numero"
-    android:background="@drawable/fondomenu">
+    tools:context=".basico.comida_basico.Basico_Ejercicio3_Comida"
+    android:background="@color/primaryColor">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -48,7 +48,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imgViewH009Numero"
+        android:id="@+id/imgViewH009Comida"
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,11 +57,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.1"
-        app:srcCompat="@drawable/img_base">
+        app:srcCompat="@drawable/img_base"
+
+        >
+
     </ImageView>
 
     <TextView
-        android:id="@+id/tvPalabraQNumero"
+        android:id="@+id/tvPalabraQComida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -70,7 +73,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toEndOf="@+id/imgViewH009Numero"
+        app:layout_constraintStart_toEndOf="@+id/imgViewH009Comida"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.2" />
 
@@ -87,7 +90,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgViewH009Numero"
+        app:layout_constraintTop_toBottomOf="@+id/imgViewH009Comida"
         app:layout_constraintVertical_bias="0.089" />
 
     <Spinner

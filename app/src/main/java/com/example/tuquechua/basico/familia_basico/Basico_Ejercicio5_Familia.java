@@ -35,7 +35,7 @@ public class Basico_Ejercicio5_Familia extends AppCompatActivity implements Resp
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basico_h011_familia);
+        setContentView(R.layout.activity_basico__ejercicio5__familia);
         ibtnOp1 = findViewById(R.id.ibOp1);
         ibtnOp2 = findViewById(R.id.ibOp2);
         ibtnOp3 = findViewById(R.id.ibOp3);
