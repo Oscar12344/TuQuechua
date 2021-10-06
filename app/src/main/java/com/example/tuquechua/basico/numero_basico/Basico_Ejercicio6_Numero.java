@@ -64,7 +64,7 @@ public class Basico_Ejercicio6_Numero extends AppCompatActivity implements  Resp
     }
     public void irOpcionCorrecta(View v)
     {
-        Intent i = new Intent(this, Basico_Ejercicio6_Saludo.class);
+        Intent i = new Intent(this, procesarBasicoNumero.class);
         startActivity(i);
     }
     public void irOpcionIncorrecta1(View v)

@@ -122,7 +122,7 @@ public class Basico_Ejercicio3_Saludo extends AppCompatActivity implements Respo
     }
 
     public void procesar(String opcion) {
-        Intent i = new Intent(this, Basico_Ejercicio3_Familia.class);
+        Intent i = new Intent(this, Basico_Ejercicio4_Saludo.class);
         if (opcion.equals(rptaCorrecta)) {
             Toast.makeText(getApplicationContext(), opcion + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
             startActivity(i);

@@ -8,6 +8,7 @@
     android:background="@color/primaryColor"
 
     >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -59,6 +60,8 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:src="@drawable/img_base" />
+
+
         <TextView
             android:id="@+id/txtPregunta"
             android:layout_width="match_parent"
@@ -89,6 +92,7 @@
 
             style="@style/styleButton"
             />
+
 
 
     </LinearLayout>

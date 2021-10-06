@@ -94,7 +94,7 @@ public class Basico_Ejercicio5_Numero extends AppCompatActivity implements  Resp
         else
             Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
 
-        Intent i = new Intent(this, Basico_Ejercicio5_Comida.class);
+        Intent i = new Intent(this, Basico_Ejercicio6_Numero.class);
         startActivity(i);
     }
 

@@ -68,7 +68,7 @@ public class Basico_Ejercicio1_Numero extends AppCompatActivity implements View.
         if(respuesta1.equals("cuatro") || respuesta1.equals("Cuatro"))
         {
             Toast.makeText(this, "La respuesta es correcta", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(this, Basico_Ejercicio4_Numero.class);
+            Intent i = new Intent(this, Basico_Ejercicio2_Numero.class);
             startActivity(i);
         }
         else

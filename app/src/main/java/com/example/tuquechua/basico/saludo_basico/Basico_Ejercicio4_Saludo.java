@@ -94,7 +94,7 @@ public class Basico_Ejercicio4_Saludo extends AppCompatActivity implements  Resp
         {
             case "Allin Punchaucuna":
                 Toast.makeText(getApplicationContext(), nom+" Respuesta correcta", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(this, Basico_Ejercicio3_Comida.class);
+                Intent i = new Intent(this, Basico_Ejercicio5_Saludo.class);
                 startActivity(i);
                 break;
             case "Wallpa":

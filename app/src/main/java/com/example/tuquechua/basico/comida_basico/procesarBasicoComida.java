@@ -2,17 +2,32 @@ package com.example.tuquechua.basico.comida_basico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
 
-public class procesarBasicoComida extends AppCompatActivity {
+import org.json.JSONObject;
+
+public class procesarBasicoComida extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
 String r1_comida, r2_comida, r3_comida,r4_comida,r5_comida,r6_comida;
 TextView tv1,tv2,tv3,tv4,tv5,tv6;
 int puntaje1=0, puntaje2=0,puntaje3=0,puntaje4=0,puntaje5=0,puntaje6=0,pacumu;
 int rptacorrecta1=0,rptacorrecta2=0,rptacorrecta3=0,rptacorrecta4=0,rptacorrecta5=0,rptacorrecta6=0, rptacorracumu;
 int rptaincorrecta1=0,rptaincorrecta2=0,rptaincorrecta3=0,rptaincorrecta4=0,rptaincorrecta5=0,rptaincorrecta6=0, rptaincorracumu;
+ProgressDialog progreso;
+RequestQueue request;
+JsonObjectRequest jsonObjectRequest;
 
 
 TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;
@@ -24,13 +39,26 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;
        tvresultado=findViewById(R.id.tvResultado);
         tvcorrecta=findViewById(R.id.tvcorrecta);
         tvincorrecta=findViewById(R.id.tvincorrecta);
-
+        request= Volley.newRequestQueue(this);
         r1_comida=getIntent().getStringExtra("r_1comida");
         r2_comida=getIntent().getStringExtra("r_2comida");
         r3_comida=getIntent().getStringExtra("r_3comida");
         r4_comida=getIntent().getStringExtra("r_4comida");
         r5_comida=getIntent().getStringExtra("r_5comida");
         r6_comida=getIntent().getStringExtra("op6_comida");
+        progreso = new ProgressDialog(this);
+        progreso.setMessage("Consultando");
+        progreso.show();
+        String url="http://192.168.1.195:85/pregunta/registroRptaBasicoComida.php?rpta1_comida_basico="+r1_comida+
+                "&rpta2_comida_basico="+r2_comida+
+                "&rpta3_comida_basico="+r3_comida+"&rpta4_comida_basico="+r4_comida+"&rpta5_comida_basico="+r5_comida+
+                "&rpta6_comida_basico="+r6_comida;
+
+
+        //idserie se debe optener desde el spinner serie
+        url=url.replace(" ","%20");
+        jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
+        request.add(jsonObjectRequest);
 
       if(r1_comida!=null)
        {
@@ -182,4 +210,16 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;
 
     }
 
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        progreso.hide();
+        Toast.makeText(this, "Error de registro", Toast.LENGTH_SHORT).show();
+        Log.i("Error", error.toString());
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+        Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+
+    }
 }

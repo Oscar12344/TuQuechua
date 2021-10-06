@@ -38,6 +38,7 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
     ImageView campoImagen;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +64,7 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
     public void onClick(View v) {
 
         respuesta1comida= etRespuesta1.getText().toString();
+
         if(!respuesta1comida.equals(""))
         {
             lanzarProcesarCalculo(v, respuesta1comida);

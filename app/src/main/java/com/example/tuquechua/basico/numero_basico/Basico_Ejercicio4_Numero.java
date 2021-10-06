@@ -82,7 +82,7 @@ public class Basico_Ejercicio4_Numero extends AppCompatActivity implements  Resp
         {
             case "Tawa":
                 Toast.makeText(getApplicationContext(), nom+" Respuesta correcta", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(this, Basico_Ejercicio1_Saludo.class);
+                Intent i = new Intent(this, Basico_Ejercicio5_Numero.class);
                 startActivity(i);
 
                 break;
