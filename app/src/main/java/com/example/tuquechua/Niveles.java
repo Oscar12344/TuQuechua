@@ -55,7 +55,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarNivel.php?idnivel="+1;
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarNivel.php?idnivel="+1;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -68,8 +68,8 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                     startActivity(i);
                 }
             });
-
         }
+
         if(seccfamilia!=null)
         {
             campoImagen1.setOnClickListener(new View.OnClickListener() {
@@ -100,11 +100,6 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                 }
             });
         }
-
-
-
-
-
     }
 
     @Override
@@ -117,7 +112,6 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-        //Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
         Nivel minivel=new Nivel();
         JSONArray json=response.optJSONArray("niveles");
         JSONObject jsonObject=null;
@@ -126,8 +120,6 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
             minivel.setNomnivel1(jsonObject.optString("nomnivel1"));
             minivel.setNomnivel2(jsonObject.optString("nomnivel2"));
             minivel.setNomnivel3(jsonObject.optString("nomnivel3"));
-
-
             minivel.setDato1(jsonObject.optString("imagennivel1"));
             minivel.setDato2(jsonObject.optString("imagennivel2"));
             minivel.setDato3(jsonObject.optString("imagennivel3"));
@@ -139,8 +131,6 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
         nivel1.setText(minivel.getNomnivel1()+"");
         nivel2.setText(minivel.getNomnivel2()+"");
         nivel3.setText(minivel.getNomnivel3()+"");
-
-
 
         if (minivel.getImagennivel1()!=null){
             campoImagen1.setImageBitmap(minivel.getImagennivel1());
@@ -157,6 +147,5 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
         }else{
             campoImagen3.setImageResource(R.drawable.img_base);
         }
-
     }
 }

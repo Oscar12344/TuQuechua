@@ -50,14 +50,14 @@ public class Basico_Ejercicio6_Saludo extends AppCompatActivity implements  Resp
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+24;
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+24;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
     }
 
     public void iniciar(View view) {
-        MediaPlayer mp= MediaPlayer.create(this, R.raw.aycha_carne); //allin muyun buen dia
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.buen_dia_allin_muyun);
         mp.start();
     }
 

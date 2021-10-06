@@ -56,7 +56,6 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
             }
         });
 
-
         /*r1_comida=getIntent().getStringExtra("r_1comida");
         r2_comida=getIntent().getStringExtra("r_2comida");
         r3_comida=getIntent().getStringExtra("r_3comida");
