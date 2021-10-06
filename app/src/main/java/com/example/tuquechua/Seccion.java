@@ -26,7 +26,7 @@ public class Seccion extends AppCompatActivity implements View.OnClickListener, 
     ProgressDialog progreso;
     RequestQueue request;
     TextView seccion1, seccion2,seccion3,seccion4;
-    JsonObjectRequest jsonObjectRequest;
+    JsonObjectRequest jsonObjectRequest, jsonObjectRequest2, jsonObjectRequest3, jsonObjectRequest4;
     ImageView campoImagen1,campoImagen2,campoImagen3,campoImagen4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class Seccion extends AppCompatActivity implements View.OnClickListener, 
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarSeccion.php?idseccion="+1;
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarSeccion.php?idseccion="+1;
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
     }
@@ -57,7 +57,6 @@ public class Seccion extends AppCompatActivity implements View.OnClickListener, 
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-        //Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
         com.example.tuquechua.entidades.Seccion miseccion=new com.example.tuquechua.entidades.Seccion();
         JSONArray json=response.optJSONArray("secciones");
         JSONObject jsonObject=null;
@@ -108,34 +107,32 @@ public class Seccion extends AppCompatActivity implements View.OnClickListener, 
                 Intent im= new Intent (getApplication(), Niveles.class);
                 im.putExtra("secc_comida",miseccion.getNomsecc1().toString());
                 startActivity(im);
-
-
             }
         });
-      campoImagen2.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              Intent im= new Intent (getApplication(), Niveles.class);
-              im.putExtra("secc_familia",miseccion.getNomsecc2().toString());
-              startActivity(im);
-          }
-      });
-      campoImagen3.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              Intent im= new Intent (getApplication(), Niveles.class);
-              im.putExtra("secc_numero",miseccion.getNomsecc3().toString());
-              startActivity(im);
-          }
-      });
-      campoImagen4.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              Intent im= new Intent (getApplication(), Niveles.class);
-              im.putExtra("secc_saludo",miseccion.getNomsecc4().toString());
-              startActivity(im);
-          }
-      });
+        campoImagen2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent im= new Intent (getApplication(), Niveles.class);
+                im.putExtra("secc_familia",miseccion.getNomsecc2().toString());
+                startActivity(im);
+            }
+        });
+        campoImagen3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent im= new Intent (getApplication(), Niveles.class);
+                im.putExtra("secc_numero",miseccion.getNomsecc3().toString());
+                startActivity(im);
+            }
+        });
+        campoImagen4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent im= new Intent (getApplication(), Niveles.class);
+                im.putExtra("secc_saludo",miseccion.getNomsecc4().toString());
+                startActivity(im);
+            }
+        });
     }
 
     @Override

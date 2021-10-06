@@ -55,7 +55,7 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+17;
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+17;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -76,7 +76,7 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
         /*String path = "android.resource://" + getPackageName() + "/" + R.raw.sal;
         vvAudio.setVideoURI(Uri.parse(path));
         vvAudio.seekTo(0); vvAudio.start(); //con el video*/
-        MediaPlayer mp= MediaPlayer.create(this, R.raw.sal_audio);
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.cachi_sal);
         mp.start();
     }
 

@@ -53,7 +53,7 @@ public class Basico_Ejercicio1_Familia extends AppCompatActivity implements View
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+14;
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+14;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -74,12 +74,14 @@ public class Basico_Ejercicio1_Familia extends AppCompatActivity implements View
         }else if (respuestaUsuario.equalsIgnoreCase(rptaCorrecta)){
             i.putExtra("puntaje", 5);
             Toast.makeText(this, rptaCorrecta+", Respuesta correcta",Toast.LENGTH_SHORT).show();
+            startActivity(i);
+            finish();
         }else{
             i.putExtra("puntaje", 0);
             Toast.makeText(this,"Respuesta incorrecta, *"+rptaCorrecta,Toast.LENGTH_SHORT).show();
+            startActivity(i);
+            finish();
         }
-        startActivity(i);
-        finish();
     }
 
     @Override

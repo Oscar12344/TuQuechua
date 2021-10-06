@@ -55,7 +55,7 @@ public class Basico_Ejercicio2_Numero extends AppCompatActivity implements Respo
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+27;
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+27;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -63,7 +63,7 @@ public class Basico_Ejercicio2_Numero extends AppCompatActivity implements Respo
         edtrespuesta.requestFocus();
     }
     public void iniciar(View view) {
-        MediaPlayer mp= MediaPlayer.create(this, R.raw.cuatro_audio); //quechua
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.cuatro_tawa);
         mp.start();
     }
 
