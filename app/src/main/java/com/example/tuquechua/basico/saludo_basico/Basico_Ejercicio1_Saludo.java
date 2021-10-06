@@ -64,7 +64,6 @@ public class Basico_Ejercicio1_Saludo extends AppCompatActivity implements View.
         Intent i = new Intent(this, Basico_Ejercicio2_Saludo.class);
         if(respuestaUsuario.equals(""))
         {
-            //que sucede aqui
             Toast.makeText(this,"Escriba su respuesta",Toast.LENGTH_SHORT).show();
             etRespuesta.requestFocus();
             InputMethodManager imm= (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
@@ -72,12 +71,14 @@ public class Basico_Ejercicio1_Saludo extends AppCompatActivity implements View.
         }else if (respuestaUsuario.equalsIgnoreCase(rptaCorrecta)){
             i.putExtra("puntaje", 5);
             Toast.makeText(this, rptaCorrecta+", Respuesta correcta",Toast.LENGTH_SHORT).show();
+            startActivity(i);
+            finish();
         }else{
             i.putExtra("puntaje", 0);
             Toast.makeText(this,"Respuesta incorrecta, *"+rptaCorrecta,Toast.LENGTH_SHORT).show();
+            startActivity(i);
+            finish();
         }
-        startActivity(i);
-        finish();
     }
 
     @Override

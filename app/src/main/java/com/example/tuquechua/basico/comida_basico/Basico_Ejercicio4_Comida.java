@@ -76,7 +76,7 @@ public class Basico_Ejercicio4_Comida extends AppCompatActivity implements  Resp
         /*String path = "android.resource://" + getPackageName() + "/" + R.raw.sal;
         vvAudio.setVideoURI(Uri.parse(path));
         vvAudio.seekTo(0); vvAudio.start(); //con el video*/
-        MediaPlayer mp= MediaPlayer.create(this, R.raw.sal_audio);
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.cachi_sal);
         mp.start();
     }
 
