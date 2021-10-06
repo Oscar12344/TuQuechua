@@ -215,17 +215,4 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
     {
         Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
-
-    @Override
-    public void onErrorResponse(VolleyError error) {
-        progreso.hide();
-        Toast.makeText(this, "Error de registro", Toast.LENGTH_SHORT).show();
-        Log.i("Error", error.toString());
-    }
-
-    @Override
-    public void onResponse(JSONObject response) {
-        Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
-
-    }
 }
