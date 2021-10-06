@@ -60,7 +60,7 @@ public class Basico_Ejercicio3_Saludo extends AppCompatActivity implements Respo
             }
         });
 
-        String url = "http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id=" + 200;
+        String url = "http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id=" + 200;
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         request.add(jsonObjectRequest);

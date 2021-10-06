@@ -174,13 +174,17 @@ public class Seccion extends AppCompatActivity implements View.OnClickListener, 
       campoImagen3.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-
+              Intent im= new Intent (getApplication(), Niveles.class);
+              im.putExtra("secc_numero",miseccion.getNomsecc3().toString());
+              startActivity(im);
           }
       });
       campoImagen4.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-
+              Intent im= new Intent (getApplication(), Niveles.class);
+              im.putExtra("secc_saludo",miseccion.getNomsecc4().toString());
+              startActivity(im);
           }
       });*/
     }
