@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="styleButton">
-        <item name="android:textColor">@color/textoColor1</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">14dp</item>
-        <item name="android:backgroundTint">@color/fondoColor3</item>
-        <item name="android:textAllCaps">false</item>
-    </style>
 </resources>

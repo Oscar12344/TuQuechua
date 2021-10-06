@@ -45,14 +45,14 @@ public class Basico_Ejercicio5_Numero extends AppCompatActivity implements  Resp
         tvOp3 = findViewById(R.id.tvOp3);
         tvOp4 = findViewById(R.id.tvOp4);
         tvPregunta = findViewById(R.id.tvPregunta);
-        tvPalabraENum = findViewById(R.id.tvPalabraENumero);
+        tvPalabraENum = findViewById(R.id.tvPalabraE);
 
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+410;
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+410;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -108,52 +108,51 @@ public class Basico_Ejercicio5_Numero extends AppCompatActivity implements  Resp
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-        //Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
-        Pregunta miPreguntaH011N = new Pregunta();
+        Pregunta miPregunta = new Pregunta();
         JSONArray json = response.optJSONArray("idpregunta");
         JSONObject jsonObject = null;
         try {
             jsonObject=json.getJSONObject(0);
-            miPreguntaH011N.setPalabraEsp(jsonObject.optString("palabraEspanol")+"");
-            miPreguntaH011N.setPregunta(jsonObject.optString("pregunta"));
-            miPreguntaH011N.setDato1(jsonObject.optString("op1Imagen"));
-            miPreguntaH011N.setDato2(jsonObject.optString("op2Imagen"));
-            miPreguntaH011N.setDato3(jsonObject.optString("op3Imagen"));
-            miPreguntaH011N.setDato4(jsonObject.optString("op4Imagen"));
-            miPreguntaH011N.setOp1(jsonObject.optString("op1"));
-            miPreguntaH011N.setOp2(jsonObject.optString("op2"));
-            miPreguntaH011N.setOp3(jsonObject.optString("op3"));
-            miPreguntaH011N.setOp4(jsonObject.optString("op4"));
+            miPregunta.setPalabraEsp(jsonObject.optString("palabraEspanol")+"");
+            miPregunta.setPregunta(jsonObject.optString("pregunta"));
+            miPregunta.setDato1(jsonObject.optString("op1Imagen"));
+            miPregunta.setDato2(jsonObject.optString("op2Imagen"));
+            miPregunta.setDato3(jsonObject.optString("op3Imagen"));
+            miPregunta.setDato4(jsonObject.optString("op4Imagen"));
+            miPregunta.setOp1(jsonObject.optString("op1"));
+            miPregunta.setOp2(jsonObject.optString("op2"));
+            miPregunta.setOp3(jsonObject.optString("op3"));
+            miPregunta.setOp4(jsonObject.optString("op4"));
 
             this.rptaCorrecta = jsonObject.optString("palabra");
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        tvPregunta.setText(miPreguntaH011N.getPregunta()+"");
-        tvPalabraENum.setText(miPreguntaH011N.getPalabraEsp());
-        tvOp1.setText(miPreguntaH011N.getOp1());
-        tvOp2.setText(miPreguntaH011N.getOp2());
-        tvOp3.setText(miPreguntaH011N.getOp3());
-        tvOp4.setText(miPreguntaH011N.getOp4());
+        tvPregunta.setText(miPregunta.getPregunta()+"");
+        tvPalabraENum.setText(miPregunta.getPalabraEsp());
+        tvOp1.setText(miPregunta.getOp1());
+        tvOp2.setText(miPregunta.getOp2());
+        tvOp3.setText(miPregunta.getOp3());
+        tvOp4.setText(miPregunta.getOp4());
 
-        if (miPreguntaH011N.getOp1Imagen()!=null){
-            ibtnOp1.setImageBitmap(miPreguntaH011N.getOp1Imagen());
+        if (miPregunta.getOp1Imagen()!=null){
+            ibtnOp1.setImageBitmap(miPregunta.getOp1Imagen());
         }else{
             ibtnOp1.setImageResource(R.drawable.img_base);
         }
-        if (miPreguntaH011N.getOp2Imagen()!=null){
-            ibtnOp2.setImageBitmap(miPreguntaH011N.getOp2Imagen());
+        if (miPregunta.getOp2Imagen()!=null){
+            ibtnOp2.setImageBitmap(miPregunta.getOp2Imagen());
         }else{
             ibtnOp1.setImageResource(R.drawable.img_base);
         }
-        if (miPreguntaH011N.getOp3Imagen()!=null){
-            ibtnOp3.setImageBitmap(miPreguntaH011N.getOp3Imagen());
+        if (miPregunta.getOp3Imagen()!=null){
+            ibtnOp3.setImageBitmap(miPregunta.getOp3Imagen());
         }else{
             ibtnOp1.setImageResource(R.drawable.img_base);
         }
-        if (miPreguntaH011N.getOp4Imagen()!=null){
-            ibtnOp4.setImageBitmap(miPreguntaH011N.getOp4Imagen());
+        if (miPregunta.getOp4Imagen()!=null){
+            ibtnOp4.setImageBitmap(miPregunta.getOp4Imagen());
         }else{
             ibtnOp1.setImageResource(R.drawable.img_base);
         }

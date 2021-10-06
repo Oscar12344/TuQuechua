@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryColor"
-    tools:context=".basico.familia_basico.Basico_Ejercicio3_Familia"
-   >
+    tools:context=".basico.familia_basico.Basico_Ejercicio3_Familia">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -24,7 +23,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            style="@style/styleNivel"
+            style="@style/styleTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -36,11 +35,12 @@
             android:textStyle="bold" />
 
         <TextView
-            style="@style/styleNivel"
+            style="@style/styleTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginEnd="40dp"
             android:gravity="center"
             android:text="5 puntos"
             android:textSize="20sp"
@@ -49,7 +49,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imgViewH009Familia"
+        android:id="@+id/imgView"
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -59,11 +59,10 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.1"
         app:srcCompat="@drawable/img_base">
-
     </ImageView>
 
     <TextView
-        android:id="@+id/tvPalabraQFamilia"
+        android:id="@+id/tvPalabraQ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -72,31 +71,24 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toEndOf="@+id/imgViewH009Familia"
+        app:layout_constraintStart_toEndOf="@+id/imgView"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.2" />
 
     <TextView
         android:id="@+id/tvPregunta"
-        style="@style/styleLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        style="@style/styleSubtitulo"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text=""
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgViewH009Familia"
-        app:layout_constraintVertical_bias="0.089" />
+        app:layout_constraintTop_toBottomOf="@+id/imgView"
+        app:layout_constraintVertical_bias="0.09" />
 
     <Spinner
         android:id="@+id/spOpc"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
         style="@style/spinner_style"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -105,13 +97,11 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPregunta"
-        app:layout_constraintVertical_bias="0.087" />
+        app:layout_constraintVertical_bias="0.1" />
 
     <Button
         android:id="@+id/btnSiguiente"
         style="@style/styleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="Siguiente"

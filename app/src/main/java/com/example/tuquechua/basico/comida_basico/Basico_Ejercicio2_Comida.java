@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +23,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
-import com.example.tuquechua.basico.familia_basico.Basico_Ejercicio2_Familia;
 import com.example.tuquechua.entidades.Pregunta;
 
 import org.json.JSONArray;
@@ -33,44 +31,44 @@ import org.json.JSONObject;
 
 public class Basico_Ejercicio2_Comida extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener, View.OnClickListener {
     ImageButton ibIniciar;
-    //VideoView vvAudio; para video
-    Spinner spRespuesta;
     Button btnSiguiente;
     TextView txtPregunta;
-    String respuesta2comida, rpta1anterior;
+    String respuestaUsuario, rptaCorrecta;
     EditText edtrespuesta;
     ProgressDialog progreso;
     ImageView campoImagen;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basico__ejercicio2__comida);
-        ibIniciar=findViewById(R.id.ibIniciar2comida);
+        ibIniciar=findViewById(R.id.ibIniciar);
         txtPregunta= findViewById(R.id.txtPregunta);
-        btnSiguiente=findViewById(R.id.btnSiguiente2_comida);
+        btnSiguiente=findViewById(R.id.btnSiguiente);
         campoImagen=findViewById(R.id.imagenId);
-        edtrespuesta=findViewById(R.id.etRespuesta2_basica_comida);
+        edtrespuesta=findViewById(R.id.etRespuesta);
         request= Volley.newRequestQueue(this);
-        rpta1anterior= getIntent().getStringExtra("rpta1Comida");
+        //rpta1anterior= getIntent().getStringExtra("rpta1Comida");
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+25;
+
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+25;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
         btnSiguiente.setOnClickListener(this);
-
-
+        edtrespuesta.requestFocus();
     }
     public void iniciar(View view) {
-
+        /*String path = "android.resource://" + getPackageName() + "/" + R.raw.familia;
+        vvAudio.setVideoURI(Uri.parse(path)); para video
+        vvAudio.seekTo(0); vvAudio.start();*/
         MediaPlayer mp= MediaPlayer.create(this, R.raw.sal_audio);
         mp.start();
     }
-
 
     @Override
     public void onErrorResponse(VolleyError error) {
@@ -82,24 +80,25 @@ public class Basico_Ejercicio2_Comida extends AppCompatActivity implements Respo
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-       // Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
-        Pregunta miPregunta10=new Pregunta();
+        //Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
+        Pregunta miPregunta=new Pregunta();
         JSONArray json=response.optJSONArray("idpregunta");
         JSONObject jsonObject=null;
         try {
             jsonObject=json.getJSONObject(0);
 
-            miPregunta10.setPregunta(jsonObject.optString("pregunta"));
-            miPregunta10.setDato(jsonObject.optString("imagen"));
+            miPregunta.setPregunta(jsonObject.optString("pregunta"));
+            miPregunta.setDato(jsonObject.optString("imagen"));
+            miPregunta.setPalabra(jsonObject.optString("palabra"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
+        txtPregunta.setText(miPregunta.getPregunta()+"");
+        this.rptaCorrecta = miPregunta.getPalabra();
 
-        txtPregunta.setText(miPregunta10.getPregunta()+"");
-
-        if (miPregunta10.getImagen()!=null){
-            campoImagen.setImageBitmap(miPregunta10.getImagen());
+        if (miPregunta.getImagen()!=null){
+            campoImagen.setImageBitmap(miPregunta.getImagen());
         }else{
             campoImagen.setImageResource(R.drawable.img_base);
         }
@@ -107,32 +106,33 @@ public class Basico_Ejercicio2_Comida extends AppCompatActivity implements Respo
 
     @Override
     public void onClick(View v) {
+        respuestaUsuario = edtrespuesta.getText().toString();
+        Intent i = new Intent(this,Basico_Ejercicio3_Comida.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
 
-        respuesta2comida = edtrespuesta.getText().toString();
-        if(!respuesta2comida.equals(""))
+        if(respuestaUsuario.equals(""))
         {
-            lanzarProcesarCalculo(v, respuesta2comida, rpta1anterior);
-        }
-        else
-        {
+            //que hace
             Toast.makeText(this,"Escriba su respuesta",Toast.LENGTH_SHORT).show();
             edtrespuesta.requestFocus();
             InputMethodManager imm= (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
             imm.showSoftInput(edtrespuesta, InputMethodManager.SHOW_IMPLICIT);
-
+        }else if (respuestaUsuario.equalsIgnoreCase(rptaCorrecta)){
+            i.putExtra("puntaje", punt+5);
+            Toast.makeText(getApplicationContext(), rptaCorrecta+", Respuesta correcta", Toast.LENGTH_SHORT).show();
+            startActivity(i);
+            finish();
+        }else{
+            i.putExtra("puntaje", punt);
+            Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
+            startActivity(i);
+            finish();
         }
-
     }
+
     @Override
     public void onBackPressed()
     {
         Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
-    }
-
-    public void lanzarProcesarCalculo(View v, String respuesta2comida, String rpta1anterior) {
-        Intent i = new Intent(this,Basico_Ejercicio3_Comida.class);
-        i.putExtra("rpta2comida", respuesta2comida);
-        i.putExtra("rpta1comida_anterior1", rpta1anterior);
-        startActivity(i);
     }
 }

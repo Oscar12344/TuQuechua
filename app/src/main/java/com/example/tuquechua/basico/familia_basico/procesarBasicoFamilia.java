@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tuquechua.R;
 
@@ -17,26 +18,32 @@ public class procesarBasicoFamilia extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_procesar_basico_familia);
-        tvFraseResult = findViewById(R.id.tvFraseResultado);
-        tvPuntResul = findViewById(R.id.tvPuntajeResultante);
-        tvNumRespCorrect = findViewById(R.id.tvNumRespCorrectas);
-        tvNumRespIncorr = findViewById(R.id.tvNumRespIncorrectas);
-        ok = findViewById(R.id.ok);
+        tvFraseResult=findViewById(R.id.tvResultado);
+        tvPuntResul=findViewById(R.id.tvpuntaje);
+        tvNumRespCorrect=findViewById(R.id.tvcorrecta);
+        tvNumRespIncorr=findViewById(R.id.tvincorrecta);
+        ok = findViewById(R.id.btnOk);
 
-        int puntajeFinal = getIntent().getIntExtra("puntaje",0);
-        tvPuntResul.setText(String.valueOf(puntajeFinal));
+        int puntFinal = getIntent().getIntExtra("puntaje",0);
+        tvPuntResul.setText(String.valueOf(puntFinal));
 
-        int numCorr = puntajeFinal/5;
-        int numIncorr = 6 - numCorr;
+        int numCorr = puntFinal/5;
+        int numIncorrect = 6 - numCorr;
         tvNumRespCorrect.setText(String.valueOf(numCorr));
-        tvNumRespIncorr.setText(String.valueOf(numIncorr));
+        tvNumRespIncorr.setText(String.valueOf(numIncorrect));
 
-        if (puntajeFinal <= 10) {
-            tvFraseResult.setText("¡Sigamos practicando!");
-        }else if (puntajeFinal <= 20){
+        if (puntFinal <= 10) {
+            tvFraseResult.setText("¡No te rindas!");
+        }else if (puntFinal <= 20){
             tvFraseResult.setText("¡Bien hecho!");
         }else{
             tvFraseResult.setText("¡Excelente trabajo!");
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }

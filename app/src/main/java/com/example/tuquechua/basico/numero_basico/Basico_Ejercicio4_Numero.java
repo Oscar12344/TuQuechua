@@ -23,7 +23,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
-import com.example.tuquechua.basico.saludo_basico.Basico_Ejercicio1_Saludo;
 import com.example.tuquechua.entidades.Pregunta;
 
 import org.json.JSONArray;
@@ -32,26 +31,22 @@ import org.json.JSONObject;
 
 public class Basico_Ejercicio4_Numero extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener {
     ImageButton ibIniciar;
-    //VideoView vvAudio; video
     Spinner spRespuesta;
     Button btnSiguiente;
     TextView txtPregunta;
-    String op1,op2,op3,op4;
-
+    String op1,op2,op3,op4,rptaCorrecta;
     ProgressDialog progreso;
     ImageView campoImagen;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-   //int posicion = 0; video
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basico__ejercicio4__numero);
-        ibIniciar=findViewById(R.id.ibIniciar4numero);
+        ibIniciar=findViewById(R.id.ibIniciar);
         spRespuesta=findViewById(R.id.spRespuesta);
-
-        btnSiguiente= findViewById(R.id.btnSiguiente4_numero);
+        btnSiguiente= findViewById(R.id.btnSiguiente);
         txtPregunta= (TextView) findViewById(R.id.txtPregunta);
         campoImagen=(ImageView) findViewById(R.id.imagenId);
         request= Volley.newRequestQueue(this);
@@ -59,48 +54,33 @@ public class Basico_Ejercicio4_Numero extends AppCompatActivity implements  Resp
         progreso.setMessage("Consultando...");
         progreso.show();
 
-
-
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+19;
-
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+19;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
-
-
     }
     public void iniciar(View view) {
-        /*String path = "android.resource://" + getPackageName() + "/" + R.raw.cuatro;
-        vvAudio.setVideoURI(Uri.parse(path)); para video
-        vvAudio.seekTo(0); vvAudio.start();*/
-        MediaPlayer mp= MediaPlayer.create(this, R.raw.cuatro_audio);
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.sal_audio);
         mp.start();
     }
+
     public void procesar(String nom)
     {
-        switch (nom)
-        {
-            case "Tawa":
-                Toast.makeText(getApplicationContext(), nom+" Respuesta correcta", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(this, Basico_Ejercicio1_Saludo.class);
-                startActivity(i);
+        Intent i = new Intent(this, Basico_Ejercicio5_Numero.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
 
-                break;
-            case "Wallpa":
-                Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-                break;
-
-
-            case "Yaku":
-                Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-                break;
-            case "Challwa":
-                Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-                break;
-            case "Quwi":
-                Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-                break;
-
+        if (nom.equalsIgnoreCase(rptaCorrecta)){
+            Toast.makeText(getApplicationContext(), rptaCorrecta+", Respuesta correcta", Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt+5);
+            startActivity(i);
+            finish();
+        } else if (nom.equals("Elija una opción")){
+            Toast.makeText(getApplicationContext(), "Elija una opción", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt);
+            startActivity(i);
+            finish();
         }
     }
 
@@ -114,35 +94,38 @@ public class Basico_Ejercicio4_Numero extends AppCompatActivity implements  Resp
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-        Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
-        Pregunta miPregunta7=new Pregunta();
+        Pregunta miPregunta=new Pregunta();
         JSONArray json=response.optJSONArray("idpregunta");
         JSONObject jsonObject=null;
         try {
             jsonObject=json.getJSONObject(0);
 
-            miPregunta7.setPregunta(jsonObject.optString("pregunta"));
-            miPregunta7.setOp1(jsonObject.optString("op1"));
-            miPregunta7.setOp2(jsonObject.optString("op2"));
-            miPregunta7.setOp3(jsonObject.optString("op3"));
-            miPregunta7.setOp4(jsonObject.optString("op4"));
-            miPregunta7.setDato(jsonObject.optString("imagen"));
-
+            miPregunta.setPregunta(jsonObject.optString("pregunta"));
+            miPregunta.setOp1(jsonObject.optString("op1"));
+            miPregunta.setOp2(jsonObject.optString("op2"));
+            miPregunta.setOp3(jsonObject.optString("op3"));
+            miPregunta.setOp4(jsonObject.optString("op4"));
+            miPregunta.setDato(jsonObject.optString("imagen"));
+            miPregunta.setPalabra(jsonObject.optString("palabra"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        txtPregunta.setText(miPregunta7.getPregunta()+"");
-        if (miPregunta7.getImagen()!=null){
-            campoImagen.setImageBitmap(miPregunta7.getImagen());
+        txtPregunta.setText(miPregunta.getPregunta()+"");
+        this.rptaCorrecta = miPregunta.getPalabra();
+
+        if (miPregunta.getImagen()!=null){
+            campoImagen.setImageBitmap(miPregunta.getImagen());
         }else{
             campoImagen.setImageResource(R.drawable.img_base);
         }
-        op1=miPregunta7.getOp1().toString();
-        op2=miPregunta7.getOp2().toString();
-        op3=miPregunta7.getOp3().toString();
-        op4=miPregunta7.getOp4().toString();
-        String []respuestas={"Eliga una opción",op1,op2,op3,op4};
+
+        op1=miPregunta.getOp1().toString();
+        op2=miPregunta.getOp2().toString();
+        op3=miPregunta.getOp3().toString();
+        op4=miPregunta.getOp4().toString();
+
+        String []respuestas={"Elija una opción",op1,op2,op3,op4};
         ArrayAdapter<String> adapter1= new
                 ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,respuestas);
         spRespuesta.setAdapter(adapter1);
@@ -151,9 +134,13 @@ public class Basico_Ejercicio4_Numero extends AppCompatActivity implements  Resp
             public void onClick(View v) {
                 String r1=spRespuesta.getSelectedItem().toString();
                 procesar(r1);
-
-
             }
         });
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }

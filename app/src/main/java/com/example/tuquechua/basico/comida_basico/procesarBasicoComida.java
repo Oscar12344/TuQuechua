@@ -3,29 +3,49 @@ package com.example.tuquechua.basico.comida_basico;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tuquechua.R;
 
 public class procesarBasicoComida extends AppCompatActivity {
-String r1_comida, r2_comida, r3_comida,r4_comida,r5_comida,r6_comida;
+    TextView tvFraseResult, tvPuntResul, tvNumRespCorrect, tvNumRespIncorr;
+    Button ok;
+/*String r1_comida, r2_comida, r3_comida,r4_comida,r5_comida,r6_comida;
 TextView tv1,tv2,tv3,tv4,tv5,tv6;
 int puntaje1=0, puntaje2=0,puntaje3=0,puntaje4=0,puntaje5=0,puntaje6=0,pacumu;
 int rptacorrecta1=0,rptacorrecta2=0,rptacorrecta3=0,rptacorrecta4=0,rptacorrecta5=0,rptacorrecta6=0, rptacorracumu;
 int rptaincorrecta1=0,rptaincorrecta2=0,rptaincorrecta3=0,rptaincorrecta4=0,rptaincorrecta5=0,rptaincorrecta6=0, rptaincorracumu;
+TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
 
-
-TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_procesar_basico_comida);
-        tvpuntaje=findViewById(R.id.tvpuntaje);
-       tvresultado=findViewById(R.id.tvResultado);
-        tvcorrecta=findViewById(R.id.tvcorrecta);
-        tvincorrecta=findViewById(R.id.tvincorrecta);
+        tvFraseResult=findViewById(R.id.tvResultado);
+        tvPuntResul=findViewById(R.id.tvpuntaje);
+        tvNumRespCorrect=findViewById(R.id.tvcorrecta);
+        tvNumRespIncorr=findViewById(R.id.tvincorrecta);
+        ok = findViewById(R.id.btnOk);
 
-        r1_comida=getIntent().getStringExtra("r_1comida");
+        int puntFinal = getIntent().getIntExtra("puntaje",0);
+        tvPuntResul.setText(String.valueOf(puntFinal));
+
+        int numCorr = puntFinal/5;
+        int numIncorrect = 6 - numCorr;
+        tvNumRespCorrect.setText(String.valueOf(numCorr));
+        tvNumRespIncorr.setText(String.valueOf(numIncorrect));
+
+        if (puntFinal <= 10) {
+            tvFraseResult.setText("¡No te rindas!");
+        }else if (puntFinal <= 20){
+            tvFraseResult.setText("¡Bien hecho!");
+        }else{
+            tvFraseResult.setText("¡Excelente trabajo!");
+        }
+
+        /*r1_comida=getIntent().getStringExtra("r_1comida");
         r2_comida=getIntent().getStringExtra("r_2comida");
         r3_comida=getIntent().getStringExtra("r_3comida");
         r4_comida=getIntent().getStringExtra("r_4comida");
@@ -173,13 +193,13 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;
         }
         tvpuntaje.setText(pacumu+"");
         tvcorrecta.setText(rptacorracumu+"");
-        tvincorrecta.setText(rptaincorracumu+"");
+        tvincorrecta.setText(rptaincorracumu+"");*/
+    }
 
-
-
-
-
-
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 
 }

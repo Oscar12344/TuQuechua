@@ -8,6 +8,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -23,7 +24,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
-import com.example.tuquechua.basico.saludo_basico.Basico_Ejercicio2_Saludo;
 import com.example.tuquechua.entidades.Pregunta;
 
 import org.json.JSONArray;
@@ -32,40 +32,38 @@ import org.json.JSONObject;
 
 public class Basico_Ejercicio2_Numero extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener, View.OnClickListener {
     ImageButton ibIniciar;
-    //VideoView vvAudio; para video
-    Spinner spRespuesta;
     Button btnSiguiente;
     TextView txtPregunta;
-
+    String respuestaUsuario, rptaCorrecta;
     EditText edtrespuesta;
     ProgressDialog progreso;
     ImageView campoImagen;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basico__ejercicio2__numero);
-        ibIniciar=findViewById(R.id.ibIniciar2numero);
+        ibIniciar=findViewById(R.id.ibIniciar);
         txtPregunta= findViewById(R.id.txtPregunta);
-        btnSiguiente=findViewById(R.id.btnSiguiente2_numero);
-        campoImagen=findViewById(R.id.imagenId2numero);
-        edtrespuesta=findViewById(R.id.etRespuesta2_basica_numero);
+        btnSiguiente=findViewById(R.id.btnSiguiente);
+        campoImagen=findViewById(R.id.imagenId);
+        edtrespuesta=findViewById(R.id.etRespuesta);
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+27;
+
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+27;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
         btnSiguiente.setOnClickListener(this);
+        edtrespuesta.requestFocus();
     }
     public void iniciar(View view) {
-        /*String path = "android.resource://" + getPackageName() + "/" + R.raw.cuatro;
-        vvAudio.setVideoURI(Uri.parse(path)); para video
-        vvAudio.seekTo(0); vvAudio.start();*/
-        MediaPlayer mp= MediaPlayer.create(this, R.raw.cuatro_audio);
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.sal_audio);
         mp.start();
     }
 
@@ -79,24 +77,24 @@ public class Basico_Ejercicio2_Numero extends AppCompatActivity implements Respo
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-        Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
-        Pregunta miPregunta12=new Pregunta();
+        Pregunta miPregunta=new Pregunta();
         JSONArray json=response.optJSONArray("idpregunta");
         JSONObject jsonObject=null;
         try {
             jsonObject=json.getJSONObject(0);
 
-            miPregunta12.setPregunta(jsonObject.optString("pregunta"));
-            miPregunta12.setDato(jsonObject.optString("imagen"));
+            miPregunta.setPregunta(jsonObject.optString("pregunta"));
+            miPregunta.setDato(jsonObject.optString("imagen"));
+            miPregunta.setPalabra(jsonObject.optString("palabra"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
+        txtPregunta.setText(miPregunta.getPregunta()+"");
+        this.rptaCorrecta = miPregunta.getPalabra();
 
-        txtPregunta.setText(miPregunta12.getPregunta()+"");
-
-        if (miPregunta12.getImagen()!=null){
-            campoImagen.setImageBitmap(miPregunta12.getImagen());
+        if (miPregunta.getImagen()!=null){
+            campoImagen.setImageBitmap(miPregunta.getImagen());
         }else{
             campoImagen.setImageResource(R.drawable.img_base);
         }
@@ -104,7 +102,32 @@ public class Basico_Ejercicio2_Numero extends AppCompatActivity implements Respo
 
     @Override
     public void onClick(View v) {
-        Intent im= new Intent(this, Basico_Ejercicio2_Saludo.class);
-        startActivity(im);
+        respuestaUsuario = edtrespuesta.getText().toString();
+        Intent i = new Intent(this, Basico_Ejercicio3_Numero.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
+
+        if(respuestaUsuario.equals(""))
+        {
+            Toast.makeText(this,"Escriba su respuesta",Toast.LENGTH_SHORT).show();
+            edtrespuesta.requestFocus();
+            InputMethodManager imm= (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(edtrespuesta, InputMethodManager.SHOW_IMPLICIT);
+        }else if (respuestaUsuario.equalsIgnoreCase(rptaCorrecta)){
+            i.putExtra("puntaje", punt+5);
+            Toast.makeText(getApplicationContext(), rptaCorrecta+", Respuesta correcta", Toast.LENGTH_SHORT).show();
+            startActivity(i);
+            finish();
+        }else{
+            i.putExtra("puntaje", punt);
+            Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
+            startActivity(i);
+            finish();
+        }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }
