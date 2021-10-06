@@ -2,6 +2,7 @@ package com.example.tuquechua.basico.comida_basico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -51,6 +52,19 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
         r4_comida=getIntent().getStringExtra("r_4comida");
         r5_comida=getIntent().getStringExtra("r_5comida");
         r6_comida=getIntent().getStringExtra("op6_comida");
+        progreso = new ProgressDialog(this);
+        progreso.setMessage("Consultando");
+        progreso.show();
+        String url="http://192.168.1.195:85/pregunta/registroRptaBasicoComida.php?rpta1_comida_basico="+r1_comida+
+                "&rpta2_comida_basico="+r2_comida+
+                "&rpta3_comida_basico="+r3_comida+"&rpta4_comida_basico="+r4_comida+"&rpta5_comida_basico="+r5_comida+
+                "&rpta6_comida_basico="+r6_comida;
+
+
+        //idserie se debe optener desde el spinner serie
+        url=url.replace(" ","%20");
+        jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
+        request.add(jsonObjectRequest);
 
       if(r1_comida!=null)
        {
@@ -202,4 +216,16 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
         Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        progreso.hide();
+        Toast.makeText(this, "Error de registro", Toast.LENGTH_SHORT).show();
+        Log.i("Error", error.toString());
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+        Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+
+    }
 }

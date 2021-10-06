@@ -1,5 +1,9 @@
 <resources>
+
     <string name="app_name">TuQuechua</string>
+    <string name="facebook_app_id">920014315531949</string>
+    <string name="fb_login_protocol_scheme">fb920014315531949</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Aprende Quechua</string>

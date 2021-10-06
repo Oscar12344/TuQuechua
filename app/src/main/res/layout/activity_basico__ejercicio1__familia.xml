@@ -74,6 +74,7 @@
             style="@style/styleButton"
             android:text="Siguiente"/>
 
+
     </LinearLayout>
 
 </RelativeLayout>

@@ -104,12 +104,7 @@ public class Pregunta {
         try {
             byte[] byteCode= Base64.decode(dato1,Base64.DEFAULT);
             this.op1Imagen= BitmapFactory.decodeByteArray(byteCode,0,byteCode.length);
-            //bajar la resolucion
-            /*int alto=100;//alto en pixeles
-            int ancho=150;//ancho en pixeles
 
-            Bitmap foto=BitmapFactory.decodeByteArray(byteCode,0,byteCode.length);
-            this.imagen=Bitmap.createScaledBitmap(foto,alto,ancho,true);*/
         }catch (Exception e){
             e.printStackTrace();
         }
