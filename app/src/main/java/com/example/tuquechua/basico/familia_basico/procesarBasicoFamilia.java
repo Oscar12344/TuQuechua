@@ -2,13 +2,16 @@ package com.example.tuquechua.basico.familia_basico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tuquechua.R;
+import com.example.tuquechua.Seccion;
 
 public class procesarBasicoFamilia extends AppCompatActivity {
     TextView tvFraseResult, tvPuntResul, tvNumRespCorrect, tvNumRespIncorr;
@@ -39,6 +42,13 @@ public class procesarBasicoFamilia extends AppCompatActivity {
         }else{
             tvFraseResult.setText("¡Excelente trabajo!");
         }
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplication(), Seccion.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
