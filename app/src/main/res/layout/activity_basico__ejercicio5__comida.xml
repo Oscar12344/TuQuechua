@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryColor"
-    tools:context=".basico.comida_basico.Basico_Ejercicio5_Comida"
-    >
+    tools:context=".basico.comida_basico.Basico_Ejercicio5_Comida">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -24,7 +23,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            style="@style/styleNivel"
+            style="@style/styleTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -36,11 +35,12 @@
             android:textStyle="bold" />
 
         <TextView
-            style="@style/styleNivel"
+            style="@style/styleTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginEnd="40dp"
             android:gravity="center"
             android:text="5 puntos"
             android:textSize="20sp"
@@ -57,14 +57,14 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvPalabraEComida"
+        app:layout_constraintEnd_toStartOf="@+id/tvPalabraE"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.02" />
 
     <TextView
-        android:id="@+id/tvPalabraEComida"
+        android:id="@+id/tvPalabraE"
         style="@style/styleLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

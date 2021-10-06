@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
+import com.example.tuquechua.basico.comida_basico.procesarBasicoComida;
 import com.example.tuquechua.basico.numero_basico.Basico_Ejercicio6_Numero;
 import com.example.tuquechua.entidades.Pregunta;
 
@@ -29,55 +30,37 @@ import org.json.JSONObject;
 
 public class Basico_Ejercicio6_Familia extends AppCompatActivity implements  Response.Listener<JSONObject>,Response.ErrorListener {
     ImageButton ibIniciar;
-    Button btnop1_6familia,btnop2_6familia,btnop3_6familia,btnop4_6familia;
+    Button btnop1, btnop2, btnop3, btnop4;
     TextView txtPregunta;
+    String opbtn1, opbtn2, opbtn3, opbtn4, rptaCorrecta;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basico__ejercicio6__familia);
-        ibIniciar=findViewById(R.id.ibIniciar6familia);
-        btnop1_6familia=findViewById(R.id.btnOp1_6familia);
-        btnop2_6familia=findViewById(R.id.btnOp2_6familia);
-        btnop3_6familia=findViewById(R.id.btnOp3_6familia);
+        ibIniciar=findViewById(R.id.ibIniciar);
+        btnop1=findViewById(R.id.btnOp1);
+        btnop2=findViewById(R.id.btnOp2);
+        btnop3=findViewById(R.id.btnOp3);
+        btnop4=findViewById(R.id.btnOp4);
         txtPregunta= findViewById(R.id.txtPregunta);
-        btnop4_6familia=findViewById(R.id.btnOp4_6familia);
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+22;
 
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+22;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
     }
+
     public void iniciar(View view) {
-        /*String path = "android.resource://" + getPackageName() + "/" + R.raw.buenos_dias;
-        vvAudio.setVideoURI(Uri.parse(path)); para video
-        vvAudio.seekTo(0); vvAudio.start();*/
         MediaPlayer mp= MediaPlayer.create(this, R.raw.tayta_padre);
         mp.start();
-
-    }
-    public void irOpcionCorrecta(View v)
-    {
-        Intent i = new Intent(this, procesarBasicoFamilia.class);
-        startActivity(i);
-    }
-    public void irOpcionIncorrecta1(View v)
-    {
-        Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-    }
-    public void irOpcionIncorrecta2(View v)
-    {
-        Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
-    }
-    public void irOpcionIncorrecta3(View v)
-    {
-        Toast.makeText(getApplicationContext(), "Respuesta Incorrecta", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -90,30 +73,77 @@ public class Basico_Ejercicio6_Familia extends AppCompatActivity implements  Res
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-        Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
-        Pregunta miPregunta8=new Pregunta();
+        Pregunta miPregunta=new Pregunta();
         JSONArray json=response.optJSONArray("idpregunta");
         JSONObject jsonObject=null;
         try {
             jsonObject=json.getJSONObject(0);
 
-            miPregunta8.setPregunta(jsonObject.optString("pregunta"));
-
-            miPregunta8.setOp1(jsonObject.optString("op1"));
-            miPregunta8.setOp2(jsonObject.optString("op2"));
-            miPregunta8.setOp3(jsonObject.optString("op3"));
-            miPregunta8.setOp4(jsonObject.optString("op4"));
-
-
-
+            miPregunta.setPregunta(jsonObject.optString("pregunta"));
+            miPregunta.setOp1(jsonObject.optString("op1"));
+            miPregunta.setOp2(jsonObject.optString("op2"));
+            miPregunta.setOp3(jsonObject.optString("op3"));
+            miPregunta.setOp4(jsonObject.optString("op4"));
+            miPregunta.setPalabra(jsonObject.optString("palabra"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        txtPregunta.setText(miPregunta8.getPregunta()+"");
-        btnop1_6familia.setText(miPregunta8.getOp1()+"");
-        btnop2_6familia.setText(miPregunta8.getOp2()+"");
-        btnop3_6familia.setText(miPregunta8.getOp3()+"");
-        btnop4_6familia.setText(miPregunta8.getOp4()+"");
+        txtPregunta.setText(miPregunta.getPregunta()+"");
+        btnop1.setText(miPregunta.getOp1()+"");
+        btnop2.setText(miPregunta.getOp2()+"");
+        btnop3.setText(miPregunta.getOp3()+"");
+        btnop4.setText(miPregunta.getOp4()+"");
+        opbtn1 =miPregunta.getOp1().toString();
+        opbtn2 =miPregunta.getOp2().toString();
+        opbtn3 =miPregunta.getOp3().toString();
+        opbtn4 =miPregunta.getOp4().toString();
+        this.rptaCorrecta=miPregunta.getPalabra();
+
+        btnop1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lanzarProcesarCalculo(opbtn1);
+            }
+        });
+        btnop2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lanzarProcesarCalculo(opbtn2);
+            }
+        });
+        btnop3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lanzarProcesarCalculo(opbtn3);
+            }
+        });
+        btnop4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lanzarProcesarCalculo(opbtn4);
+            }
+        });
+    }
+
+    public void lanzarProcesarCalculo(String opbuttoncomida1) {
+        Intent i = new Intent(this, procesarBasicoFamilia.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
+
+        if(opbuttoncomida1.equalsIgnoreCase(this.rptaCorrecta)) {
+            Toast.makeText(getApplicationContext(), rptaCorrecta + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt+5);
+        }else {
+            Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *" + rptaCorrecta, Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt);
+        }
+        startActivity(i);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }

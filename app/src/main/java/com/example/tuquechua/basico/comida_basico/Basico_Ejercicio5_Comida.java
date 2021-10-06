@@ -30,8 +30,7 @@ public class Basico_Ejercicio5_Comida extends AppCompatActivity implements  Resp
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-    String r1anterior, r2anterior, r3anterior,r4anterior;
-    String op1,op2,op3,op4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,35 +44,62 @@ public class Basico_Ejercicio5_Comida extends AppCompatActivity implements  Resp
         tvOp3 = findViewById(R.id.tvOp3);
         tvOp4 = findViewById(R.id.tvOp4);
         tvPregunta = findViewById(R.id.tvPregunta);
-        tvPalabraENum = findViewById(R.id.tvPalabraEComida);
+        tvPalabraENum = findViewById(R.id.tvPalabraE);
 
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+310;
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+310;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
 
-
+        ibtnOp1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                respuesta = tvOp1.getText().toString();
+                procesar(respuesta);
+            }
+        });
+        ibtnOp2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                respuesta = tvOp2.getText().toString();
+                procesar(respuesta);
+            }
+        });
+        ibtnOp3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                respuesta = tvOp3.getText().toString();
+                procesar(respuesta);
+            }
+        });
+        ibtnOp4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                respuesta = tvOp4.getText().toString();
+                procesar(respuesta);
+            }
+        });
     }
 
     public void procesar(String rpta)
     {
-        if(rpta.equals(this.rptaCorrecta))
-            Toast.makeText(getApplicationContext(), rptaCorrecta+", Respuesta correcta", Toast.LENGTH_SHORT).show();
-        else
-            Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
-
         Intent i = new Intent(this, Basico_Ejercicio6_Comida.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
+
+        if(rpta.equalsIgnoreCase(this.rptaCorrecta)) {
+            Toast.makeText(getApplicationContext(), rptaCorrecta + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt+5);
+        }else {
+            Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *" + rptaCorrecta, Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt);
+        }
         startActivity(i);
-    }
-    @Override
-    public void onBackPressed()
-    {
-        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     @Override
@@ -86,99 +112,59 @@ public class Basico_Ejercicio5_Comida extends AppCompatActivity implements  Resp
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-        //Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
-        Pregunta miPreguntaH011N = new Pregunta();
+        Pregunta miPregunta = new Pregunta();
         JSONArray json = response.optJSONArray("idpregunta");
         JSONObject jsonObject = null;
         try {
             jsonObject=json.getJSONObject(0);
-            miPreguntaH011N.setPalabraEsp(jsonObject.optString("palabraEspanol")+"");
-            miPreguntaH011N.setPregunta(jsonObject.optString("pregunta"));
-            miPreguntaH011N.setDato1(jsonObject.optString("op1Imagen"));
-            miPreguntaH011N.setDato2(jsonObject.optString("op2Imagen"));
-            miPreguntaH011N.setDato3(jsonObject.optString("op3Imagen"));
-            miPreguntaH011N.setDato4(jsonObject.optString("op4Imagen"));
-            miPreguntaH011N.setOp1(jsonObject.optString("op1"));
-            miPreguntaH011N.setOp2(jsonObject.optString("op2"));
-            miPreguntaH011N.setOp3(jsonObject.optString("op3"));
-            miPreguntaH011N.setOp4(jsonObject.optString("op4"));
+            miPregunta.setPalabraEsp(jsonObject.optString("palabraEspanol")+"");
+            miPregunta.setPregunta(jsonObject.optString("pregunta"));
+            miPregunta.setDato1(jsonObject.optString("op1Imagen"));
+            miPregunta.setDato2(jsonObject.optString("op2Imagen"));
+            miPregunta.setDato3(jsonObject.optString("op3Imagen"));
+            miPregunta.setDato4(jsonObject.optString("op4Imagen"));
+            miPregunta.setOp1(jsonObject.optString("op1"));
+            miPregunta.setOp2(jsonObject.optString("op2"));
+            miPregunta.setOp3(jsonObject.optString("op3"));
+            miPregunta.setOp4(jsonObject.optString("op4"));
 
             this.rptaCorrecta = jsonObject.optString("palabra");
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        tvPregunta.setText(miPreguntaH011N.getPregunta()+"");
-        tvPalabraENum.setText(miPreguntaH011N.getPalabraEsp());
-        tvOp1.setText(miPreguntaH011N.getOp1());
-        tvOp2.setText(miPreguntaH011N.getOp2());
-        tvOp3.setText(miPreguntaH011N.getOp3());
-        tvOp4.setText(miPreguntaH011N.getOp4());
+        tvPregunta.setText(miPregunta.getPregunta()+"");
+        tvPalabraENum.setText(miPregunta.getPalabraEsp());
+        tvOp1.setText(miPregunta.getOp1());
+        tvOp2.setText(miPregunta.getOp2());
+        tvOp3.setText(miPregunta.getOp3());
+        tvOp4.setText(miPregunta.getOp4());
 
-        if (miPreguntaH011N.getOp1Imagen()!=null){
-            ibtnOp1.setImageBitmap(miPreguntaH011N.getOp1Imagen());
+        if (miPregunta.getOp1Imagen()!=null){
+            ibtnOp1.setImageBitmap(miPregunta.getOp1Imagen());
         }else{
             ibtnOp1.setImageResource(R.drawable.img_base);
         }
-        if (miPreguntaH011N.getOp2Imagen()!=null){
-            ibtnOp2.setImageBitmap(miPreguntaH011N.getOp2Imagen());
+        if (miPregunta.getOp2Imagen()!=null){
+            ibtnOp2.setImageBitmap(miPregunta.getOp2Imagen());
         }else{
             ibtnOp1.setImageResource(R.drawable.img_base);
         }
-        if (miPreguntaH011N.getOp3Imagen()!=null){
-            ibtnOp3.setImageBitmap(miPreguntaH011N.getOp3Imagen());
+        if (miPregunta.getOp3Imagen()!=null){
+            ibtnOp3.setImageBitmap(miPregunta.getOp3Imagen());
         }else{
             ibtnOp1.setImageResource(R.drawable.img_base);
         }
-        if (miPreguntaH011N.getOp4Imagen()!=null){
-            ibtnOp4.setImageBitmap(miPreguntaH011N.getOp4Imagen());
+        if (miPregunta.getOp4Imagen()!=null){
+            ibtnOp4.setImageBitmap(miPregunta.getOp4Imagen());
         }else{
             ibtnOp1.setImageResource(R.drawable.img_base);
         }
-        op1=miPreguntaH011N.getOp1().toString();
-        op2=miPreguntaH011N.getOp2().toString();
-        op3=miPreguntaH011N.getOp3().toString();
-        op4=miPreguntaH011N.getOp4().toString();
-        r1anterior=getIntent().getStringExtra("rpta_1_comida");
-        r2anterior=getIntent().getStringExtra("rpta_2_comida");
-        r3anterior=getIntent().getStringExtra("rpta_3_comida");
-        r4anterior=getIntent().getStringExtra("op4_comida");
-
-        ibtnOp1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                lanzarProcesarCalculo(op1,r1anterior,r2anterior,r3anterior,r4anterior);
-            }
-        });
-        ibtnOp2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                lanzarProcesarCalculo(op2,r1anterior,r2anterior,r3anterior,r4anterior);
-            }
-        });
-        ibtnOp3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                lanzarProcesarCalculo(op3,r1anterior,r2anterior,r3anterior,r4anterior);
-            }
-        });
-
-        ibtnOp4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                lanzarProcesarCalculo(op4,r1anterior,r2anterior,r3anterior,r4anterior);
-            }
-        });
     }
 
-    public void lanzarProcesarCalculo(String op1, String r1anterior, String r2anterior, String r3anterior, String r4anterior) {
-        Intent i = new Intent(this, Basico_Ejercicio6_Comida.class);
-        i.putExtra("rpta_1comida", r1anterior);
-        i.putExtra("rpta_2comida", r2anterior);
-        i.putExtra("rpta_3comida", r3anterior);
-        i.putExtra("rpta_4comida", r4anterior);
-        i.putExtra("op5_comida", op1);
-        startActivity(i);
-
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }

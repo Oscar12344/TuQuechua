@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryColor"
-    tools:context=".basico.saludo_basico.Basico_Ejercicio5_Saludo"
-    >
+    tools:context=".basico.saludo_basico.Basico_Ejercicio5_Saludo">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -24,7 +23,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            style="@style/styleNivel"
+            style="@style/styleTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -36,7 +35,7 @@
             android:textStyle="bold" />
 
         <TextView
-            style="@style/styleNivel"
+            style="@style/styleTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -57,23 +56,21 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvPalabraESaludo"
+        app:layout_constraintEnd_toStartOf="@+id/tvPalabraE"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.02" />
 
     <TextView
-        android:id="@+id/tvPalabraESaludo"
+        android:id="@+id/tvPalabraE"
         style="@style/styleLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:gravity="left"
         android:text="ejemplo"
-        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/tvPregunta"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.02" />

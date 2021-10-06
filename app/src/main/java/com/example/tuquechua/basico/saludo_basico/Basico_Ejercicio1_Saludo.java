@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,21 +28,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Basico_Ejercicio1_Saludo extends AppCompatActivity implements View.OnClickListener,  Response.Listener<JSONObject>,Response.ErrorListener  {
-    EditText etRespuesta1;
-    Button btnSiguiente1;
+    EditText etRespuesta;
+    Button btnSiguiente;
+    String respuestaUsuario, rptaCorrecta;
     TextView txtPalabra,txtPregunta;
-
     ProgressDialog progreso;
     ImageView campoImagen;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basico__ejercicio1__saludo);
-        etRespuesta1=findViewById(R.id.etRespuesta1_basica_saludo);
-        btnSiguiente1=findViewById(R.id.btnSiguiente1);
-
+        etRespuesta =findViewById(R.id.etRespuesta);
+        btnSiguiente =findViewById(R.id.btnSiguiente);
         txtPalabra= (TextView) findViewById(R.id.txtPalabra);
         txtPregunta= (TextView) findViewById(R.id.txtPregunta);
         campoImagen=(ImageView) findViewById(R.id.imagenId);
@@ -50,63 +51,72 @@ public class Basico_Ejercicio1_Saludo extends AppCompatActivity implements View.
         progreso.setMessage("Consultando...");
         progreso.show();
 
-
-
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+16;
-
+        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+16;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
-        btnSiguiente1.setOnClickListener(this);
-
+        btnSiguiente.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        String respuesta1;
-
-        respuesta1= etRespuesta1.getText().toString();
-        if(respuesta1.equals("Buenos Dias") || respuesta1.equals("buenos dias"))
+        respuestaUsuario = etRespuesta.getText().toString();
+        Intent i = new Intent(this, Basico_Ejercicio2_Saludo.class);
+        if(respuestaUsuario.equals(""))
         {
-            Toast.makeText(this, "La respuesta es correcta", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(this, Basico_Ejercicio2_Saludo.class);
-            startActivity(i);
+            //que sucede aqui
+            Toast.makeText(this,"Escriba su respuesta",Toast.LENGTH_SHORT).show();
+            etRespuesta.requestFocus();
+            InputMethodManager imm= (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(etRespuesta, InputMethodManager.SHOW_IMPLICIT);
+        }else if (respuestaUsuario.equalsIgnoreCase(rptaCorrecta)){
+            i.putExtra("puntaje", 5);
+            Toast.makeText(this, rptaCorrecta+", Respuesta correcta",Toast.LENGTH_SHORT).show();
+        }else{
+            i.putExtra("puntaje", 0);
+            Toast.makeText(this,"Respuesta incorrecta, *"+rptaCorrecta,Toast.LENGTH_SHORT).show();
         }
-        else
-        {
-            Toast.makeText(this, "La respuesta incorrecta", Toast.LENGTH_SHORT).show();
-        }
+        startActivity(i);
+        finish();
     }
 
     @Override
     public void onErrorResponse(VolleyError error) {
         progreso.hide();
-        Toast.makeText(getApplicationContext(), "No se pudo consultar"+error.toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "No se pudo consultar "+error.toString(), Toast.LENGTH_SHORT).show();
         Log.i("Error", error.toString());
     }
 
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-        Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
-        Pregunta miPregunta4=new Pregunta();
+        Pregunta miPregunta=new Pregunta();
         JSONArray json=response.optJSONArray("idpregunta");
         JSONObject jsonObject=null;
         try {
             jsonObject=json.getJSONObject(0);
-            miPregunta4.setPalabra(jsonObject.optString("palabra"));
-            miPregunta4.setPregunta(jsonObject.optString("pregunta"));
-            miPregunta4.setDato(jsonObject.optString("imagen"));
-
+            miPregunta.setPalabra(jsonObject.optString("palabra"));
+            miPregunta.setPregunta(jsonObject.optString("pregunta"));
+            miPregunta.setDato(jsonObject.optString("imagen"));
+            miPregunta.setPalabraEsp(jsonObject.optString("palabraEspanol"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        txtPalabra.setText(miPregunta4.getPalabra()+"");
-        txtPregunta.setText(miPregunta4.getPregunta()+"");
-        if (miPregunta4.getImagen()!=null){
-            campoImagen.setImageBitmap(miPregunta4.getImagen());
+
+        txtPalabra.setText(miPregunta.getPalabra()+"");
+        txtPregunta.setText(miPregunta.getPregunta()+"");
+        this.rptaCorrecta = miPregunta.getPalabraEsp();
+
+        if (miPregunta.getImagen()!=null){
+            campoImagen.setImageBitmap(miPregunta.getImagen());
         }else{
             campoImagen.setImageResource(R.drawable.img_base);
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }
