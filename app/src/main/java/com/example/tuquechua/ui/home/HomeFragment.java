@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,12 +34,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class HomeFragment extends Fragment implements Response.Listener<JSONObject>,Response.ErrorListener {
-    ProgressDialog progreso;
-    RequestQueue request;
-    TextView seccion1, seccion2,seccion3,seccion4;
-    JsonObjectRequest jsonObjectRequest;
-    ImageView campoImagen1,campoImagen2,campoImagen3,campoImagen4;
+public class HomeFragment extends Fragment  {
+    private Button irSeccion;
+
     private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -53,87 +51,21 @@ public class HomeFragment extends Fragment implements Response.Listener<JSONObje
                 //textView.setText(s);
             }
         });*/
-        campoImagen1=root.findViewById(R.id.ivseccion1);
-        campoImagen2=root.findViewById(R.id.ivseccion2);
-        campoImagen3=root.findViewById(R.id.ivseccion3);
-        campoImagen4=root.findViewById(R.id.ivseccion4);
-        seccion1=root.findViewById(R.id.tvseccion1);
-        seccion2=root.findViewById(R.id.tvseccion2);
-        seccion3=root.findViewById(R.id.tvseccion3);
-        seccion4=root.findViewById(R.id.tvseccion4);
-        request= Volley.newRequestQueue(getContext());
-        progreso=new ProgressDialog(getContext());
-        progreso.setMessage("Consultando...");
-        progreso.show();
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarSeccion.php?idseccion="+2;
-        jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
-        request.add(jsonObjectRequest);
 
 
-        campoImagen1.setOnClickListener(new View.OnClickListener() {
+        irSeccion=root.findViewById(R.id.btnSeccion);
+        irSeccion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplication(), Niveles.class);
+                Intent intent = new Intent(getActivity().getApplication(), Seccion.class);
                 startActivity(intent);
             }
         });
+
+
         return root;
     }
 
-    @Override
-    public void onErrorResponse(VolleyError error) {
-        progreso.hide();
-        Toast.makeText(getContext(), "No se pudo consultar "+error.toString(), Toast.LENGTH_SHORT).show();
-        Log.i("Error", error.toString());
-    }
-
-    @Override
-    public void onResponse(JSONObject response) {
-        progreso.hide();
-        //Toast.makeText(this, "Mensaje: "+response,Toast.LENGTH_SHORT).show();
-        Seccion miseccion=new Seccion();
-        JSONArray json=response.optJSONArray("secciones");
-        JSONObject jsonObject=null;
-        try {
-            jsonObject=json.getJSONObject(0);
-            miseccion.setNomsecc1(jsonObject.optString("nomsecc1"));
-            miseccion.setNomsecc2(jsonObject.optString("nomsecc2"));
-            miseccion.setNomsecc3(jsonObject.optString("nomsecc3"));
-            miseccion.setNomsecc4(jsonObject.optString("nomsecc4"));
-
-            miseccion.setDato1(jsonObject.optString("imagensecc1"));
-            miseccion.setDato2(jsonObject.optString("imagensecc2"));
-            miseccion.setDato3(jsonObject.optString("imagensecc3"));
-            miseccion.setDato4(jsonObject.optString("imagensecc4"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        seccion1.setText(miseccion.getNomsecc1()+"");
-        seccion2.setText(miseccion.getNomsecc2()+"");
-        seccion3.setText(miseccion.getNomsecc3()+"");
-        seccion4.setText(miseccion.getNomsecc4()+"");
 
 
-        if (miseccion.getImagensecc1()!=null){
-            campoImagen1.setImageBitmap(miseccion.getImagensecc1());
-        }else{
-            campoImagen1.setImageResource(R.drawable.img_base);
-        }
-        if (miseccion.getImagensecc2()!=null){
-            campoImagen2.setImageBitmap(miseccion.getImagensecc2());
-        }else{
-            campoImagen2.setImageResource(R.drawable.img_base);
-        }
-        if (miseccion.getImagensecc3()!=null){
-            campoImagen3.setImageBitmap(miseccion.getImagensecc3());
-        }else{
-            campoImagen3.setImageResource(R.drawable.img_base);
-        }
-        if (miseccion.getImagensecc4()!=null){
-            campoImagen4.setImageBitmap(miseccion.getImagensecc4());
-        }else{
-            campoImagen4.setImageResource(R.drawable.img_base);
-        }
-    }
 }

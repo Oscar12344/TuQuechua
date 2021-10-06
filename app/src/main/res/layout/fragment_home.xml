@@ -1,164 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.home.HomeFragment"
     android:background="@color/primaryColor">
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-        android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bienvenido"
-            style="@style/styleLabel"
-            android:gravity="center"
-            >
 
-        </TextView>
-
-    </LinearLayout>
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        style="@style/styleLabel"
+        android:text="Nosotros"
+        android:gravity="center"
+       />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/styleLabel"
+        android:text="............................................."
+        android:gravity="center"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/styleLabel"
+        android:text="........................."
+        android:gravity="center">
 
 
-        <ImageView
-            android:id="@+id/ivseccion1"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="20dp"
+    </TextView>
 
+    <Button
+        android:id="@+id/btnSeccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-            app:srcCompat="@drawable/img_base" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            >
-
-            <TextView
-                style="@style/styleLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvseccion1"
-
-                android:text="Seccion1">
-
-            </TextView>
-        </LinearLayout>
-    </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-            <ImageView
-                android:id="@+id/ivseccion2"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="20dp"
-
-
-                app:srcCompat="@drawable/img_base" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                >
-
-                <TextView
-                    style="@style/styleLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvseccion2"
-                    android:text="Seccion2">
-
-                </TextView>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-            <ImageView
-                android:id="@+id/ivseccion3"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="20dp"
-
-
-                app:srcCompat="@drawable/img_base" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                >
-
-                <TextView
-                    style="@style/styleLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvseccion3"
-                    android:text="Seccion3">
-
-                </TextView>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-            <ImageView
-                android:id="@+id/ivseccion4"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="20dp"
-
-
-                app:srcCompat="@drawable/img_base" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                >
-
-                <TextView
-                    style="@style/styleLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvseccion4"
-                    android:text="Seccion4">
-
-                </TextView>
-            </LinearLayout>
-        </LinearLayout>
-        
-
-
-    </LinearLayout>
-
-
-
-
-</RelativeLayout>
+        android:text="Ir secciones" />
+</LinearLayout>

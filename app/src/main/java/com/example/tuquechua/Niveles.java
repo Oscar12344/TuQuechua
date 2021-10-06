@@ -19,6 +19,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.basico.comida_basico.Basico_Ejercicio1_Comida;
 import com.example.tuquechua.basico.comida_basico.Basico_Ejercicio2_Comida;
+import com.example.tuquechua.basico.familia_basico.Basico_Ejercicio1_Familia;
 import com.example.tuquechua.entidades.Nivel;
 import com.example.tuquechua.entidades.Seccion;
 
@@ -32,6 +33,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
     JsonObjectRequest jsonObjectRequest;
     TextView nivel1, nivel2,nivel3;
     ImageView campoImagen1,campoImagen2,campoImagen3;
+    String secccomida, seccfamilia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,20 +46,37 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
         campoImagen3=findViewById(R.id.ivnivel3);
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
+        secccomida= getIntent().getStringExtra("secc_comida");
+        seccfamilia= getIntent().getStringExtra("secc_comida");
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarNivel.php?idnivel="+2;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarNivel.php?idnivel="+1;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
-        campoImagen1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Basico_Ejercicio1_Comida.class);
-                startActivity(i);
-            }
-        });
+        if(secccomida!=null)
+        {
+            campoImagen1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i= new Intent(getApplication(), Basico_Ejercicio1_Comida.class);
+                    startActivity(i);
+                }
+            });
+
+        }
+        if(seccfamilia!=null)
+        {
+            campoImagen1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i= new Intent(getApplication(), Basico_Ejercicio1_Familia.class);
+                    startActivity(i);
+                }
+            });
+        }
+
 
 
 
