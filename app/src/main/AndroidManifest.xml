@@ -67,13 +67,15 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.TuQuechua.NoActionBar" />
         <activity android:name=".basico.comida_basico.Basico_Ejercicio4_Comida" />
-        <activity android:name=".basico.saludo_basico.Basico_Ejercicio1_Saludo" />
-        <activity android:name=".basico.numero_basico.Basico_Ejercicio1_Numero" >
+        <activity android:name=".basico.saludo_basico.Basico_Ejercicio1_Saludo" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".basico.numero_basico.Basico_Ejercicio1_Numero" >
+
         </activity>
         <activity android:name=".basico.familia_basico.Basico_Ejercicio1_Familia" >
 

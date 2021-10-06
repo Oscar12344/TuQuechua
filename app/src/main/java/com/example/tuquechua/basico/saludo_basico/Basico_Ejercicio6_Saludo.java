@@ -57,7 +57,7 @@ public class Basico_Ejercicio6_Saludo extends AppCompatActivity implements  Resp
     }
 
     public void iniciar(View view) {
-        MediaPlayer mp= MediaPlayer.create(this, R.raw.aycha_carne);
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.aycha_carne); //allin muyun buen dia
         mp.start();
     }
 

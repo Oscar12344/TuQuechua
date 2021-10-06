@@ -5,130 +5,106 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryColor"
-    tools:context=".basico.saludo_basico.Basico_Ejercicio6_Saludo"
-   >
+    tools:context=".basico.saludo_basico.Basico_Ejercicio6_Saludo">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:onClick="irOpcionIncorrecta3"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="10dp">
+        android:layout_margin="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
-
             <TextView
                 style="@style/styleTitulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:text="NIVEL BASICO"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
 
             <TextView
                 style="@style/styleTitulo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="5 puntos"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-
         </LinearLayout>
 
         <TextView
             android:id="@+id/txtPregunta"
-            style="@style/styleLabel"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginLeft="5dp"
-            android:textSize="20dp" />
+            android:text="pregunta"
+            style="@style/styleSubtitulo"
+            android:layout_marginTop="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-
             <ImageButton
-                android:id="@+id/ibIniciar6saludo"
+                android:id="@+id/ibIniciar"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:background="@color/primaryColor"
-
-
+                android:background="@android:color/transparent"
                 android:onClick="iniciar"
                 app:srcCompat="@drawable/ic_audio"
                 tools:ignore="VectorDrawableCompat" />
-
-
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
             android:orientation="horizontal">
-
+            <Button
+                android:id="@+id/btnOp1"
+                android:layout_width="100dp"
+                android:layout_height="75dp"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                style="@style/styleButtonOpciones" />
 
             <Button
-                android:id="@+id/btnOp1_6saludo"
+                android:id="@+id/btnOp2"
                 style="@style/styleButtonOpciones"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="irOpcionIncorrecta1"
-               />
-
-            <Button
-                android:id="@+id/btnOp2_6saludo"
-                style="@style/styleButtonOpciones"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="irOpcionIncorrecta2"
-                 />
+                android:layout_width="100dp"
+                android:layout_height="75dp"
+                android:layout_margin="15dp"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:orientation="horizontal">
-
+            <Button
+                android:id="@+id/btnOp3"
+                style="@style/styleButtonOpciones"
+                android:layout_width="100dp"
+                android:layout_height="75dp"
+                android:layout_margin="15dp"
+                android:layout_weight="1" />
 
             <Button
-                android:id="@+id/btnOp3_6saludo"
+                android:id="@+id/btnOp4"
                 style="@style/styleButtonOpciones"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="irOpcionCorrecta"
-                />
-
-            <Button
-                android:id="@+id/btnOp4_6saludo"
-                style="@style/styleButtonOpciones"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                 />
+                android:layout_width="100dp"
+                android:layout_height="75dp"
+                android:layout_margin="15dp"
+                android:layout_weight="1" />
         </LinearLayout>
-
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -60,7 +60,7 @@ public class Basico_Ejercicio4_Familia extends AppCompatActivity implements  Res
         request.add(jsonObjectRequest);
     }
     public void iniciar(View view) {
-        MediaPlayer mp= MediaPlayer.create(this, R.raw.sal_audio);
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.familia_audio); //quechua
         mp.start();
     }
 

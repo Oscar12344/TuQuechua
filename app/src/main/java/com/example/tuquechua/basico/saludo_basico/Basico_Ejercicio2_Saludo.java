@@ -62,7 +62,7 @@ public class Basico_Ejercicio2_Saludo extends AppCompatActivity implements Respo
         edtrespuesta.requestFocus();
     }
     public void iniciar(View view) {
-        MediaPlayer mp= MediaPlayer.create(this, R.raw.sal_audio);
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.allinwaala_buenosdias);
         mp.start();
     }
 

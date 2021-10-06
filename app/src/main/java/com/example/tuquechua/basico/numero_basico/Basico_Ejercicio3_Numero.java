@@ -21,7 +21,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
-import com.example.tuquechua.basico.saludo_basico.Basico_Ejercicio3_Saludo;
 import com.example.tuquechua.entidades.Pregunta;
 
 import org.json.JSONArray;
@@ -115,7 +114,7 @@ public class Basico_Ejercicio3_Numero extends AppCompatActivity implements Respo
 
     public void procesar(String opcion)
     {
-        Intent i = new Intent(this, Basico_Ejercicio3_Saludo.class);
+        Intent i = new Intent(this, Basico_Ejercicio4_Numero.class);
         if (opcion.equals(rptaCorrecta)){
             Toast.makeText(getApplicationContext(), opcion+", Respuesta correcta", Toast.LENGTH_SHORT).show();
             startActivity(i);
@@ -125,7 +124,7 @@ public class Basico_Ejercicio3_Numero extends AppCompatActivity implements Respo
             Toast.makeText(getApplicationContext(), "Elija una opción", Toast.LENGTH_SHORT).show();
         }
         else {
-            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta "+opcion, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta, *"+opcion, Toast.LENGTH_SHORT).show();
             startActivity(i);
             finish();
         }

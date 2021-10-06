@@ -89,13 +89,18 @@ public class Basico_Ejercicio5_Numero extends AppCompatActivity implements  Resp
 
     public void procesar(String rpta)
     {
-        if(rpta.equals(this.rptaCorrecta))
-            Toast.makeText(getApplicationContext(), rptaCorrecta+", Respuesta correcta", Toast.LENGTH_SHORT).show();
-        else
-            Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this, Basico_Ejercicio6_Numero.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
 
-        Intent i = new Intent(this, Basico_Ejercicio5_Comida.class);
+        if(rpta.equals(this.rptaCorrecta)) {
+            Toast.makeText(getApplicationContext(), rptaCorrecta + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt+5);
+        }else {
+            Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *" + rptaCorrecta, Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt);
+        }
         startActivity(i);
+        finish();
     }
 
     @Override
@@ -156,5 +161,11 @@ public class Basico_Ejercicio5_Numero extends AppCompatActivity implements  Resp
         }else{
             ibtnOp1.setImageResource(R.drawable.img_base);
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }

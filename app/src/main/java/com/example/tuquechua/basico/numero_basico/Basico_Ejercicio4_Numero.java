@@ -60,7 +60,7 @@ public class Basico_Ejercicio4_Numero extends AppCompatActivity implements  Resp
         request.add(jsonObjectRequest);
     }
     public void iniciar(View view) {
-        MediaPlayer mp= MediaPlayer.create(this, R.raw.sal_audio);
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.cuatro_audio); //quechua
         mp.start();
     }
 

@@ -63,7 +63,7 @@ public class Basico_Ejercicio2_Numero extends AppCompatActivity implements Respo
         edtrespuesta.requestFocus();
     }
     public void iniciar(View view) {
-        MediaPlayer mp= MediaPlayer.create(this, R.raw.sal_audio);
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.cuatro_audio); //quechua
         mp.start();
     }
 
