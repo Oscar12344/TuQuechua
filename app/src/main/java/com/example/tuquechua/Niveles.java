@@ -55,7 +55,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarNivel.php?idnivel="+1;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarNivel.php?idnivel="+1;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);

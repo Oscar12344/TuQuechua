@@ -1,15 +1,22 @@
 package com.example.tuquechua;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -20,7 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
-
+    FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
     private AppBarConfiguration mAppBarConfiguration;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -41,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setBackgroundColor(getResources().getColor(R.color.fondoColor2));
         navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.textoColor1)));
+        updateNavHeader();
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -66,4 +74,25 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+    public void updateNavHeader() {
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = headerView.findViewById(R.id.nav_username);
+        TextView navUserMail = headerView.findViewById(R.id.nav_user_mail);
+        ImageView navUserPhot = headerView.findViewById(R.id.nav_user_photo);
+        if(user!=null){
+            String name=user.getDisplayName();
+            String gmail=user.getEmail();
+            navUsername.setText(name);
+            navUserMail.setText(gmail);
+            Picasso.get().load(user.getPhotoUrl()).placeholder(R.drawable.ic_launcher_background).into(navUserPhot);
+        }else{
+            getApplicationContext();
+        }
+
+
+
+    }
+
+
 }

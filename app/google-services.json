@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "692909388858",
+    "project_id": "quechua-f4d13",
+    "storage_bucket": "quechua-f4d13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692909388858:android:d61849225f37ca6bbcb103",
+        "android_client_info": {
+          "package_name": "com.example.tuquechua"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692909388858-5j657b6orti8d8v3udpk05akv1qh1muk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tuquechua",
+            "certificate_hash": "0e775298ee8f4a36e708f543ad761980bbf49f34"
+          }
+        },
+        {
+          "client_id": "692909388858-oneekglsbubvk856pe18r58rdmts4n67.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5TmHKhGzAFdQEk81JYAlo5jriKPDZc-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692909388858-oneekglsbubvk856pe18r58rdmts4n67.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
