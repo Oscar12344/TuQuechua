@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.navigation.NavController;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setBackgroundColor(getResources().getColor(R.color.fondoColor2));
-        navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.textoColor1)));
+        navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.purple_500)));
         updateNavHeader();
 
         // Passing each menu ID as a set of Ids because each
@@ -73,6 +75,20 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+        if(id==R.id.action_salir)
+        {
+            FirebaseAuth.getInstance().signOut();
+            Intent loginActivity = new Intent(this, Loguearse.class);
+            startActivity(loginActivity);
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
     public void updateNavHeader() {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);

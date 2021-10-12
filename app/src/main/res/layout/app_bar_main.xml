@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/fondoColor5"
+            android:background="@color/primaryColor"
             android:layout_gravity="center"
             app:popupTheme="@style/Theme.TuQuechua.PopupOverlay" />
 
