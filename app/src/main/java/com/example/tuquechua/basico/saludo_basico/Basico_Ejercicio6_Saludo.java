@@ -50,7 +50,7 @@ public class Basico_Ejercicio6_Saludo extends AppCompatActivity implements  Resp
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id="+24;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+24;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
