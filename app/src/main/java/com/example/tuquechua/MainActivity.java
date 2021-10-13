@@ -1,15 +1,24 @@
 package com.example.tuquechua;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -28,7 +37,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity {
+import org.json.JSONObject;
+
+public class MainActivity extends AppCompatActivity implements  Response.ErrorListener, Response.Listener<JSONObject> {
+    ProgressDialog progreso;
+    RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
+
     FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
     private AppBarConfiguration mAppBarConfiguration;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -38,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        request= Volley.newRequestQueue(this);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setBackgroundColor(getResources().getColor(R.color.fondoColor2));
         navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.purple_500)));
         updateNavHeader();
-
+        llamarWebService();
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -109,6 +125,39 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    public void llamarWebService() {
+        FirebaseUser users =  FirebaseAuth.getInstance().getCurrentUser();
+        if(users!=null){
+            String nombres=users.getDisplayName();
+            String correos=users.getEmail();
+            progreso = new ProgressDialog(this);
+            progreso.setMessage("Consultando");
+            progreso.show();
+            String url="http://192.168.1.195:85/pregunta/registroUsuario.php?nombre="+nombres+"&correo="+correos;
+
+            //idserie se debe optener desde el spinner serie
+            url=url.replace(" ","%20");
+            jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
+            request.add(jsonObjectRequest);
 
 
+        }else{
+            getApplicationContext();
+        }
+
+    }
+
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        progreso.hide();
+        Toast.makeText(this, "Error de registro", Toast.LENGTH_SHORT).show();
+        Log.i("Error", error.toString());
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+        Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+        progreso.hide();
+    }
 }

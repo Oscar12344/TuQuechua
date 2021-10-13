@@ -3,12 +3,19 @@ package com.example.tuquechua;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -21,10 +28,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.squareup.picasso.Picasso;
 
-public class Loguearse extends AppCompatActivity {
+import org.json.JSONObject;
+
+public class Loguearse extends AppCompatActivity  {
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
+
 
 
     // [START declare_auth]
@@ -38,10 +49,14 @@ public class Loguearse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loguearse);
+
+
         findViewById(R.id.btnlogin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 login();
+
             }
         });
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -107,6 +122,7 @@ public class Loguearse extends AppCompatActivity {
         FirebaseUser users =  FirebaseAuth.getInstance().getCurrentUser();
         if (users != null) {
             // User is signed in
+
             Intent intent = new Intent(Loguearse.this, MainActivity.class);
             startActivity(intent);
             finish();
@@ -117,8 +133,12 @@ public class Loguearse extends AppCompatActivity {
         }
     }
 
+
+
     private void login() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
+
+
 }

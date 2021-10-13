@@ -13,16 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TuQuechua"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Loguearse">
+        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio2_Saludo"></activity>
+        <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio2_Numero" />
+        <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio2_Familia" />
+        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio2_Comida" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login"></activity>
-        <activity android:name=".LoginUsuario"></activity>
-        <activity android:name=".Seccion"></activity>
+        <activity android:name=".Loguearse">
+
+        </activity>
+        <activity android:name=".Login" />
+        <activity android:name=".LoginUsuario" />
+        <activity android:name=".Seccion" />
         <activity android:name=".Niveles" />
         <activity android:name=".basico.saludo_basico.procesarBasicoSaludo" />
         <activity android:name=".basico.numero_basico.procesarBasicoNumero" />
@@ -69,9 +75,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.TuQuechua.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.TuQuechua.NoActionBar" />
         <!--
 <activity
             android:name="com.facebook.FacebookActivity"
