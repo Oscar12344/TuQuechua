@@ -20,6 +20,32 @@ public class Pregunta {
     private String avPre1Rpta,avPre2Rpta,avPre3Rpta;
     private String op5,op6,op7,op8,op9,op10,op11,op12;
 
+    public String getVidUrl2() {
+        return vidUrl2;
+    }
+
+    public void setVidUrl2(String vidUrl2) {
+        this.vidUrl2 = vidUrl2;
+    }
+
+    public String getVidUrl3() {
+        return vidUrl3;
+    }
+
+    public void setVidUrl3(String vidUrl3) {
+        this.vidUrl3 = vidUrl3;
+    }
+
+    public String getVidUrl4() {
+        return vidUrl4;
+    }
+
+    public void setVidUrl4(String vidUrl4) {
+        this.vidUrl4 = vidUrl4;
+    }
+
+    private String vidUrl2,vidUrl3,vidUrl4;
+
     public String getOp1() {
         return op1;
     }

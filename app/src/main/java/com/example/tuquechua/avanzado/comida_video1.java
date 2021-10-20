@@ -3,9 +3,11 @@ package com.example.tuquechua.avanzado;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -53,6 +55,10 @@ import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
+import at.huber.youtubeExtractor.VideoMeta;
+import at.huber.youtubeExtractor.YouTubeExtractor;
+import at.huber.youtubeExtractor.YtFile;
+
 public class comida_video1 extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
     SimpleExoPlayer player;
     PlayerView playerView;
@@ -86,10 +92,6 @@ public class comida_video1 extends AppCompatActivity implements Response.Listene
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
-
-        player = new SimpleExoPlayer.Builder(this).build();
-        // Bind the player to the view.
-        playerView.setPlayer(player);
     }
 
     @Override
@@ -105,8 +107,6 @@ public class comida_video1 extends AppCompatActivity implements Response.Listene
         miPregunta=new Pregunta();
         JSONArray json=response.optJSONArray("avanVideo");
         JSONObject jsonObject=null;
-
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         try {
             jsonObject=json.getJSONObject(0);
@@ -126,16 +126,46 @@ public class comida_video1 extends AppCompatActivity implements Response.Listene
             miPregunta.setAvPre1Rpta(jsonObject.optString("avPre1Rpta"));
             miPregunta.setAvPre2Rpta(jsonObject.optString("avPre2Rpta"));
             miPregunta.setAvPre3Rpta(jsonObject.optString("avPre3Rpta"));
+            miPregunta.setVidUrl2(jsonObject.optString("avURL2"));
+            miPregunta.setVidUrl3(jsonObject.optString("avURL3"));
+            miPregunta.setVidUrl4(jsonObject.optString("avURL4"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        this.rptaCorrecta = miPregunta.getAvPre1Rpta();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        player = new SimpleExoPlayer.Builder(this).build();
+        // Bind the player to the view.
+        playerView.setPlayer(player);
         //"https://storage.googleapis.com/exoplayer-test-media-0/BigBuckBunny_320x180.mp4"
-        Uri videoUri = Uri.parse(miPregunta.getVidUrl());
 
-        InitializeVideo(videoUri);
+        String vidurl = miPregunta.getVidUrl();
+        String parte = "1";
+
+        InitializeVideo(vidurl,parte);
+    }
+
+    private void InitializeVideo(String videUri, String parte){
+        Uri vidurl = Uri.parse(videUri);//"https://imgur.com/a/4bh8rKw")
+        /*new YouTubeExtractor(this) {
+            @Override
+            public void onExtractionComplete(SparseArray<YtFile> ytFiles, VideoMeta vMeta) {
+                if (ytFiles != null) {
+                    int itag = 22;
+                    String downloadUrl = ytFiles.get(itag).getUrl();
+                }
+            }
+        }.extract(videUri);*/
+
+        // Build the media item.
+        MediaItem mediaItem = MediaItem.fromUri(vidurl);
+        // Set the media item to be played.
+        player.setMediaItem(mediaItem);
+        // Prepare the player.
+        player.prepare();
+        // Start the playback.
+        player.play();
 
         player.addListener(new Player.Listener() {
             @Override
@@ -144,69 +174,110 @@ public class comida_video1 extends AppCompatActivity implements Response.Listene
                     progressBar.setVisibility(View.VISIBLE);
                 }else if (playbackState == Player.STATE_READY){
                     progressBar.setVisibility(View.GONE);
-                }else*/ if (playbackState == Player.STATE_ENDED){
-                    MostrarOpciones();
+                }else*/
+                if (playbackState == Player.STATE_ENDED){
+                    MostrarOpciones(parte);
                 }
             }
         });
     }
 
-    private void InitializeVideo(Uri videUri){
-        // Build the media item.
-        MediaItem mediaItem = MediaItem.fromUri(videUri);
-        // Set the media item to be played.
-        player.setMediaItem(mediaItem);
-        // Prepare the player.
-        player.prepare();
-        // Start the playback.
-        player.play();
+    private void MostrarOpciones(String parte) {
+        switch (parte){
+            case "1":
+                btnOp1.setText(miPregunta.getOp1());
+                btnOp2.setText(miPregunta.getOp2());
+                btnOp3.setText(miPregunta.getOp3());
+                btnOp4.setText(miPregunta.getOp4());
+                HabilitarClicks(parte);
+                break;
+            case "2":
+                btnOp1.setText(miPregunta.getOp5());
+                btnOp2.setText(miPregunta.getOp6());
+                btnOp3.setText(miPregunta.getOp7());
+                btnOp4.setText(miPregunta.getOp8());
+                HabilitarClicks(parte);
+                break;
+            case "3":
+                btnOp1.setText(miPregunta.getOp9());
+                btnOp2.setText(miPregunta.getOp10());
+                btnOp3.setText(miPregunta.getOp11());
+                btnOp4.setText(miPregunta.getOp12());
+                HabilitarClicks(parte);
+                break;
+            case "4":
+                procesarRespuesta(null,"4");
+                break;
+        }
     }
 
-    private void MostrarOpciones(){
-        btnOp1.setText(miPregunta.getOp1());
-        btnOp2.setText(miPregunta.getOp2());
-        btnOp3.setText(miPregunta.getOp3());
-        btnOp4.setText(miPregunta.getOp4());
-        //rptaCorrecta = miPregunta.getAvPre1Rpta();
+    private void HabilitarClicks(String parte){
         btnOp1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 rpta = btnOp1.getText().toString();
-                procesarRespuesta(rpta, rptaCorrecta);
+                procesarRespuesta(rpta, parte);
             }
         });
         btnOp2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 rpta = btnOp2.getText().toString();
-                procesarRespuesta(rpta, rptaCorrecta);
+                procesarRespuesta(rpta, parte);
             }
         });
         btnOp3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 rpta = btnOp3.getText().toString();
-                procesarRespuesta(rpta, rptaCorrecta);
+                procesarRespuesta(rpta, parte);
             }
         });
         btnOp4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 rpta = btnOp4.getText().toString();
-                procesarRespuesta(rpta, rptaCorrecta);
+                procesarRespuesta(rpta, parte);
             }
         });
     }
 
-    private void procesarRespuesta(String rptaUsu, String rptaCorr){
-        if (rptaUsu.equalsIgnoreCase(rptaCorr)){
-            //player.release();
-            Toast.makeText(this, rptaCorr+", Respuesta correcta",Toast.LENGTH_SHORT).show();
-            String exampleurl = "https://i.imgur.com/7bMqysJ.mp4";//"https://youtu.be/8Oj7Ppxfegw";
-            Uri sigVidUrl = Uri.parse(exampleurl);
-            InitializeVideo(sigVidUrl);
-        } else {
-            Toast.makeText(this, rptaUsu+", Respuesta incorrecta",Toast.LENGTH_SHORT).show();
+    private void procesarRespuesta(String rptaUsu, String parte){
+        switch (parte){
+            case "1":
+                this.rptaCorrecta = miPregunta.getAvPre1Rpta();
+                if (rptaUsu.equalsIgnoreCase(this.rptaCorrecta)){
+                    Toast.makeText(this, this.rptaCorrecta+", Respuesta correcta",Toast.LENGTH_SHORT).show();
+                    String url = miPregunta.getVidUrl2();
+                    InitializeVideo(url,parte="2");
+                } else {
+                    Toast.makeText(this, rptaUsu+", Respuesta incorrecta",Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case "2":
+                this.rptaCorrecta = miPregunta.getAvPre2Rpta();
+                if (rptaUsu.equalsIgnoreCase(this.rptaCorrecta)){
+                    Toast.makeText(this, this.rptaCorrecta+", Respuesta correcta",Toast.LENGTH_SHORT).show();
+                    String url = miPregunta.getVidUrl3();
+                    InitializeVideo(url,parte="3");
+                } else {
+                    Toast.makeText(this, rptaUsu+", Respuesta incorrecta",Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case "3":
+                this.rptaCorrecta = miPregunta.getAvPre3Rpta();
+                if (rptaUsu.equalsIgnoreCase(this.rptaCorrecta)){
+                    Toast.makeText(this, this.rptaCorrecta+", Respuesta correcta",Toast.LENGTH_SHORT).show();
+                    String url = miPregunta.getVidUrl4();
+                    InitializeVideo(url,parte="4");
+                } else {
+                    Toast.makeText(this, rptaUsu+", Respuesta incorrecta",Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case "4":
+                player.release();
+                //Intent = new Intent
+                break;
         }
     }
 

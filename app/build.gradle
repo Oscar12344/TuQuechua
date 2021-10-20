@@ -59,6 +59,8 @@ dependencies {
     //implementation 'com.android.volley:volley:1.1.1'
     //implementation 'com.google.android.gms:play-services-auth:19.2.0'
     implementation 'com.google.android.exoplayer:exoplayer:2.15.1'
+    //youtube extractor
+    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
 
 }
 apply plugin: 'com.android.application'
