@@ -13,6 +13,7 @@ import com.example.tuquechua.entidades.Pregunta;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -64,6 +65,12 @@ public class Intermedio_Ejercicio4_Saludo extends AppCompatActivity implements  
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
     }
+    public void iniciar(View view) {
+
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.cachi_sal);
+        mp.start();
+    }
+
     public void procesar(String r1) {
     }
 

@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/styleTitulo"
-        android:text="Lista de numeros > 20"
+        android:text="Lista de numeros"
         />
     <Button
         android:layout_width="wrap_content"

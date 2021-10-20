@@ -26,7 +26,9 @@
         <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio4_Saludo" />
         <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio4_Numero" />
         <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio4_Familia" />
-        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio4_Comida" />
+        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio4_Comida" >
+
+        </activity>
         <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio1_Saludo" />
         <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio1_Numero" />
         <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio1_Familia" />

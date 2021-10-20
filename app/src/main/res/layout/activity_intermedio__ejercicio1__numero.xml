@@ -107,6 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Opcion 1"
+            android:layout_margin="10dp"
             android:textSize="20dp" />
 
         <RadioButton
@@ -114,6 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Opcion 2"
+            android:layout_margin="10dp"
             android:textSize="20dp" />
 
         <RadioButton
@@ -121,6 +123,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Opcion 3"
+            android:layout_margin="10dp"
             android:textSize="20dp"
 
 
@@ -131,6 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Opcion 4"
+            android:layout_margin="10dp"
             android:textSize="20dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
