@@ -11,13 +11,14 @@ public class Pregunta {
     private String dato;
     private Bitmap imagen;
     private String pregunta;
-    private String op1;
-    private String op2;
-    private String op3;
-    private String op4;
+    private String op1,op2,op3,op4;
     private String dato1, dato2, dato3, dato4;
     private Bitmap op1Imagen, op2Imagen, op3Imagen, op4Imagen;
     private String palabraEsp;
+
+    private String vidUrl;
+    private String avPre1Rpta,avPre2Rpta,avPre3Rpta;
+    private String op5,op6,op7,op8,op9,op10,op11,op12;
 
     public String getOp1() {
         return op1;
@@ -197,4 +198,52 @@ public class Pregunta {
     public void setPalabraEsp(String palabraEsp) {
         this.palabraEsp = palabraEsp;
     }
+
+    public String getVidUrl() { return vidUrl; }
+
+    public void setVidUrl(String vidUrl) {        this.vidUrl = vidUrl;    }
+
+    public String getAvPre1Rpta() {        return avPre1Rpta;    }
+
+    public void setAvPre1Rpta(String avPre1Rpta) {        this.avPre1Rpta = avPre1Rpta;    }
+
+    public String getAvPre2Rpta() {        return avPre2Rpta;    }
+
+    public void setAvPre2Rpta(String avPre2Rpta) {        this.avPre2Rpta = avPre2Rpta;    }
+
+    public String getAvPre3Rpta() {        return avPre3Rpta;    }
+
+    public void setAvPre3Rpta(String avPre3Rpta) {        this.avPre3Rpta = avPre3Rpta;    }
+
+    public String getOp5() {        return op5;    }
+
+    public void setOp5(String op5) {        this.op5 = op5;    }
+
+    public String getOp6() {        return op6;    }
+
+    public void setOp6(String op6) {        this.op6 = op6;    }
+
+    public String getOp7() {        return op7;    }
+
+    public void setOp7(String op7) {        this.op7 = op7;    }
+
+    public String getOp8() {        return op8;    }
+
+    public void setOp8(String op8) {        this.op8 = op8;    }
+
+    public String getOp9() {        return op9;    }
+
+    public void setOp9(String op9) {        this.op9 = op9;    }
+
+    public String getOp10() {        return op10;    }
+
+    public void setOp10(String op10) {        this.op10 = op10;    }
+
+    public String getOp11() {        return op11;    }
+
+    public void setOp11(String op11) {        this.op11 = op11;    }
+
+    public String getOp12() {        return op12;    }
+
+    public void setOp12(String op12) {        this.op12 = op12;    }
 }

@@ -53,7 +53,7 @@ public class Basico_Ejercicio1_Familia extends AppCompatActivity implements View
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+14;
+        String url=getString(R.string.urlBasico)+14;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);

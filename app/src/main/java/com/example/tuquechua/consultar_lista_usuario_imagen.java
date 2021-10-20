@@ -54,7 +54,7 @@ public class consultar_lista_usuario_imagen extends AppCompatActivity implements
 
 
 
-        String url="http://192.168.1.195:85/ejemploBDRemota/wsJSONConsultarListaImagenes.php";
+        String url=getString(R.string.urlIP)+"ejemploBDRemota/wsJSONConsultarListaImagenes.php";
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
        // VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(jsonObjectRequest);

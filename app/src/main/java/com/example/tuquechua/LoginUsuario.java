@@ -40,17 +40,13 @@ public class LoginUsuario extends AppCompatActivity implements  Response.ErrorLi
                 llamarWebService();
             }
         });
-
-
-
     }
 
     public void llamarWebService() {
-
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultando");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/registroUser.php?id="+edtCorreo.getText().toString()+"&nombre="+edtContra.getText().toString();
+        String url=getString(R.string.urlIP)+"pregunta/registroUser.php?id="+edtCorreo.getText().toString()+"&nombre="+edtContra.getText().toString();
 
         //idserie se debe optener desde el spinner serie
         url=url.replace(" ","%20");

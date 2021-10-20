@@ -19,5 +19,9 @@
     <string name="menu_libros">Libros</string>
     <string name="pruebaramas">Ramas</string>
     <string name="menu_home">Home</string>
+    <string name="urlIP">http://192.168.1.7:80/</string>
+    <string name="urlBasico">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id=</string>
+    <string name="urlIntermedio">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaIntermedio.php?id=</string>
+    <string name="urlAvVid">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaAvanzadoVideo.php?id=</string>
 
 </resources>

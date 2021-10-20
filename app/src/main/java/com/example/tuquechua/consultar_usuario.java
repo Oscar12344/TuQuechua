@@ -59,7 +59,7 @@ public class consultar_usuario extends AppCompatActivity implements Response.Lis
 
 
 
-        String url="http://192.168.1.195:85/ejemploBDRemota/wsJSONConsultarUsuarioImagen.php?documento="
+        String url=getString(R.string.urlIP)+"ejemploBDRemota/wsJSONConsultarUsuarioImagen.php?documento="
                 +campoDocumento.getText().toString();
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);

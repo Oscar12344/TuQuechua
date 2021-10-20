@@ -18,25 +18,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp">
-
     </com.google.android.gms.common.SignInButton>
-
-
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="120dp"
-        android:layout_height="94dp"
-        android:gravity="center"
+        style="@style/styleTitulo"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:text="LOGIN"
         android:textColor="#FB0707"
-        android:textSize="36sp"
         android:textStyle="bold|italic"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.163" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button2"

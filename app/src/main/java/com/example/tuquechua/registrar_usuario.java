@@ -56,7 +56,7 @@ public class registrar_usuario extends AppCompatActivity implements Response.Lis
         progreso= new ProgressDialog(this);
         progreso.setMessage("Cargando....");
         progreso.show();
-        String url="http://192.168.1.195:85/ejemploBDRemota/wsJSONRegistro.php?documento="+campoDocumento.getText().toString()+
+        String url=getString(R.string.urlIP)+"ejemploBDRemota/wsJSONRegistro.php?documento="+campoDocumento.getText().toString()+
                 "&nombre="+campoNombre.getText().toString()+
         "&profesion="+campoProfesion.getText().toString();
         url=url.replace(" ","%20");

@@ -48,7 +48,7 @@ public class Intermedio_Ejercicio2_Saludo extends AppCompatActivity implements R
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+4;
+        String url=getString(R.string.urlIntermedio)+4;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);

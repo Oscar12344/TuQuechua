@@ -26,12 +26,14 @@
                 android:id="@+id/btnOp1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                style="@style/styleButtonOpciones"
                 android:layout_weight="1"
                 android:text="OPCION 1"/>
             <Button
                 android:id="@+id/btnOp2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/styleButtonOpciones"
                 android:layout_weight="1"
                 android:text="OPCION 2"/>
         </LinearLayout>
@@ -52,6 +54,7 @@
                 android:id="@+id/btnOp4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/styleButtonOpciones"
                 android:layout_weight="1"
                 android:text="OPCION 4"/>
         </LinearLayout>
