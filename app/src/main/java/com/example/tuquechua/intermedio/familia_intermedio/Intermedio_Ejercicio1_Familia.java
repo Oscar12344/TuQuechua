@@ -10,7 +10,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
 import com.example.tuquechua.entidades.Pregunta;
-import com.example.tuquechua.intermedio.numero_intermedio.Intermedio_Ejercicio2_Numero;
+import com.example.tuquechua.intermedio.numero_intermedio.Intermedio_Frase_Numero;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -26,7 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Intermedio_Ejercicio2_Familia extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
+public class Intermedio_Ejercicio1_Familia extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
     TextView tvPregunta;
     ImageView ivimagen1,ivimagen2;
     RadioButton rbop1,rbop2,rbop3,rbop4;
@@ -36,7 +36,7 @@ public class Intermedio_Ejercicio2_Familia extends AppCompatActivity implements 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_intermedio__ejercicio2__familia);
+        setContentView(R.layout.activity_intermedio__ejercicio1__familia);
         tvPregunta = findViewById(R.id.tvPregunta);
         ivimagen1 = findViewById(R.id.ivOp1);
         ivimagen2 = findViewById(R.id.ivOp2);
@@ -56,7 +56,7 @@ public class Intermedio_Ejercicio2_Familia extends AppCompatActivity implements 
         rbop1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplication(), Intermedio_Ejercicio2_Numero.class);
+                Intent i = new Intent(getApplication(), Intermedio_Frase_Numero.class);
                 startActivity(i);
             }
         });

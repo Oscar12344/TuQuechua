@@ -1,4 +1,4 @@
-package com.example.tuquechua.intermedio.comida_intermedio;
+package com.example.tuquechua.intermedio.numero_intermedio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +12,6 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -20,26 +19,24 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
-import com.example.tuquechua.basico.familia_basico.Basico_Ejercicio6_Familia;
 import com.example.tuquechua.entidades.Pregunta;
-import com.example.tuquechua.intermedio.familia_intermedio.Intermedio_Ejercicio2_Familia;
+import com.example.tuquechua.intermedio.saludo_intermedio.Intermedio_Frase_Saludo;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Intermedio_Ejercicio2_Comida extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
+public class Intermedio_Ejercicio1_Numero extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
     TextView tvPregunta;
     ImageView ivimagen1,ivimagen2;
     RadioButton rbop1,rbop2,rbop3,rbop4;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_intermedio__ejercicio2__comida);
+        setContentView(R.layout.activity_intermedio__ejercicio1__numero);
         tvPregunta = findViewById(R.id.tvPregunta);
         ivimagen1 = findViewById(R.id.ivOp1);
         ivimagen2 = findViewById(R.id.ivOp2);
@@ -52,18 +49,17 @@ public class Intermedio_Ejercicio2_Comida extends AppCompatActivity implements R
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+1;
+        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+3;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
         rbop1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplication(), Intermedio_Ejercicio2_Familia.class);
+                Intent i = new Intent(getApplication(), Intermedio_Frase_Saludo.class);
                 startActivity(i);
             }
         });
-
     }
 
     @Override
@@ -75,7 +71,6 @@ public class Intermedio_Ejercicio2_Comida extends AppCompatActivity implements R
 
     @Override
     public void onResponse(JSONObject response) {
-
         progreso.hide();
         Pregunta miPregunta = new Pregunta();
         JSONArray json = response.optJSONArray("intermedios");
@@ -112,6 +107,5 @@ public class Intermedio_Ejercicio2_Comida extends AppCompatActivity implements R
         }else{
             ivimagen2.setImageResource(R.drawable.img_base);
         }
-
     }
 }
