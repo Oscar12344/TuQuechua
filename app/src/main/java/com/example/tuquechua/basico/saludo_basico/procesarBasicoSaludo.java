@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tuquechua.R;
-import com.example.tuquechua.Seccion;
+import com.example.tuquechua.Secciones;
 
 public class procesarBasicoSaludo extends AppCompatActivity {
     TextView tvFraseResult, tvPuntResul, tvNumRespCorrect, tvNumRespIncorr;
@@ -43,7 +43,7 @@ public class procesarBasicoSaludo extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplication(), Seccion.class);
+                Intent i = new Intent(getApplication(), Secciones.class);
                 startActivity(i);
             }
         });

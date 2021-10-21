@@ -2,7 +2,6 @@ package com.example.tuquechua.basico.comida_basico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tuquechua.R;
-import com.example.tuquechua.Seccion;
+import com.example.tuquechua.Secciones;
 
 public class procesarBasicoComida extends AppCompatActivity {
     TextView tvFraseResult, tvPuntResul, tvNumRespCorrect, tvNumRespIncorr;
@@ -51,7 +50,7 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplication(), Seccion.class);
+                Intent i = new Intent(getApplication(), Secciones.class);
                 startActivity(i);
             }
         });

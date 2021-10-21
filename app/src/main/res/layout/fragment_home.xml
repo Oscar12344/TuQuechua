@@ -12,27 +12,12 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
         style="@style/styleLabel"
-        android:text="Nosotros"
+        android:text="TuQuechua :) Proximamente...........
+"
         android:gravity="center"
        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/styleLabel"
-        android:text="............................................."
-        android:gravity="center"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/styleLabel"
-        android:text="........................."
-        android:gravity="center">
-
-
-    </TextView>
 
     <Button
         android:id="@+id/btnSeccion"

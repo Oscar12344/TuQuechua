@@ -33,8 +33,10 @@
         <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio1_Numero" />
         <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio1_Familia" />
         <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio1_Comida" />
-        <activity android:name=".Loguearse" />
-        <activity android:name=".Seccion" />
+        <activity android:name=".Loguearse" >
+
+        </activity>
+        <activity android:name=".Secciones" />
         <activity android:name=".Niveles" />
         <activity android:name=".basico.saludo_basico.procesarBasicoSaludo" />
         <activity android:name=".basico.numero_basico.procesarBasicoNumero" />

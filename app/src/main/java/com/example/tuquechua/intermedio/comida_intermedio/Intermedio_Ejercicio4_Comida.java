@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
+import com.example.tuquechua.basico.comida_basico.Basico_Ejercicio4_Comida;
 import com.example.tuquechua.entidades.Pregunta;
 import com.example.tuquechua.intermedio.familia_intermedio.Intermedio_Ejercicio1_Familia;
 import com.example.tuquechua.intermedio.familia_intermedio.Intermedio_Ejercicio4_Familia;
@@ -34,6 +35,7 @@ public class Intermedio_Ejercicio4_Comida extends AppCompatActivity implements  
     TextView pregunta, oracion;
     ImageView imagen, imgsonido;
     Spinner spop;
+    String  rptaCorrecta;
     Button btnSiguiente;
     String op1, op2, op3, op4;
     ProgressDialog progreso;
@@ -53,13 +55,20 @@ public class Intermedio_Ejercicio4_Comida extends AppCompatActivity implements  
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
-        btnSiguiente.setOnClickListener(new View.OnClickListener() {
+     /*   btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String r1 = spop.getSelectedItem().toString();
                 procesar(r1);
                 Intent i = new Intent(getApplication(), Intermedio_Ejercicio4_Familia.class);
                 startActivity(i);
+            }
+        });*/
+        btnSiguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String r1 = spop.getSelectedItem().toString();
+                procesar(r1);
             }
         });
 
@@ -71,11 +80,30 @@ public class Intermedio_Ejercicio4_Comida extends AppCompatActivity implements  
     }
     public void iniciar(View view) {
 
-        MediaPlayer mp= MediaPlayer.create(this, R.raw.cachi_sal);
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.cocina_mama);
         mp.start();
     }
 
-    public void procesar(String r1) {
+    public void procesar(String opcion) {
+
+        Intent i = new Intent(this,  Intermedio_Ejercicio4_Familia.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
+
+        if (opcion.equalsIgnoreCase(rptaCorrecta)){
+            Toast.makeText(getApplicationContext(), rptaCorrecta+", Respuesta correcta", Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt+5);
+            startActivity(i);
+            finish();
+        }
+        else if (opcion.equals("Elija una opción")){
+            Toast.makeText(getApplicationContext(), "Elija una opción", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt);
+            startActivity(i);
+            finish();
+        }
     }
 
     @Override
@@ -101,7 +129,7 @@ public class Intermedio_Ejercicio4_Comida extends AppCompatActivity implements  
             miPregunta.setOp2(jsonObject.optString("op2"));
             miPregunta.setOp3(jsonObject.optString("op3"));
             miPregunta.setOp4(jsonObject.optString("op4"));
-
+            this.rptaCorrecta = jsonObject.optString("palabraEspanol");
 
         } catch (JSONException e) {
             e.printStackTrace();

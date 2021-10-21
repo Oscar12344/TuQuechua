@@ -32,6 +32,7 @@ public class Intermedio_Ejercicio4_Saludo extends AppCompatActivity implements  
     TextView pregunta, oracion;
     ImageView imagen, imgsonido;
     Spinner spop;
+    String  rptaCorrecta;
     Button btnSiguiente;
     String op1, op2, op3, op4;
     ProgressDialog progreso;
@@ -56,8 +57,6 @@ public class Intermedio_Ejercicio4_Saludo extends AppCompatActivity implements  
             public void onClick(View v) {
                 String r1 = spop.getSelectedItem().toString();
                 procesar(r1);
-                Intent i = new Intent(getApplication(), Intermedio_Ejercicio4_Saludo.class);
-                startActivity(i);
             }
         });
         String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+8;
@@ -67,11 +66,29 @@ public class Intermedio_Ejercicio4_Saludo extends AppCompatActivity implements  
     }
     public void iniciar(View view) {
 
-        MediaPlayer mp= MediaPlayer.create(this, R.raw.cachi_sal);
+        MediaPlayer mp= MediaPlayer.create(this, R.raw.saludable);
         mp.start();
     }
 
-    public void procesar(String r1) {
+    public void procesar(String opcion) {
+        Intent i = new Intent(this,  Intermedio_Ejercicio4_Saludo.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
+
+        if (opcion.equalsIgnoreCase(rptaCorrecta)){
+            Toast.makeText(getApplicationContext(), rptaCorrecta+", Respuesta correcta", Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt+5);
+            startActivity(i);
+            finish();
+        }
+        else if (opcion.equals("Elija una opción")){
+            Toast.makeText(getApplicationContext(), "Elija una opción", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt);
+            startActivity(i);
+            finish();
+        }
     }
 
     @Override
@@ -96,6 +113,8 @@ public class Intermedio_Ejercicio4_Saludo extends AppCompatActivity implements  
             miPregunta.setOp2(jsonObject.optString("op2"));
             miPregunta.setOp3(jsonObject.optString("op3"));
             miPregunta.setOp4(jsonObject.optString("op4"));
+            this.rptaCorrecta = jsonObject.optString("palabraEspanol");
+
 
 
         } catch (JSONException e) {

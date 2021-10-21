@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
+import com.example.tuquechua.basico.comida_basico.procesarBasicoComida;
 import com.example.tuquechua.entidades.Pregunta;
 import com.example.tuquechua.intermedio.familia_intermedio.Intermedio_Frase_Familia;
 
@@ -29,8 +30,10 @@ import org.json.JSONObject;
 
 public class Intermedio_Ejercicio1_Comida extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
     TextView tvPregunta;
+ String rptaCorrecta;
     ImageView ivimagen1,ivimagen2;
     RadioButton rbop1,rbop2,rbop3,rbop4;
+    String opbtn1, opbtn2, opbtn3, opbtn4;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -55,15 +58,18 @@ public class Intermedio_Ejercicio1_Comida extends AppCompatActivity implements R
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
-        rbop1.setOnClickListener(new View.OnClickListener() {
+        /*rbop1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplication(), Intermedio_Frase_Familia.class);
                 startActivity(i);
             }
-        });
+        });*/
 
     }
+
+
+
 
     @Override
     public void onErrorResponse(VolleyError error) {
@@ -89,6 +95,7 @@ public class Intermedio_Ejercicio1_Comida extends AppCompatActivity implements R
             miPregunta.setOp2(jsonObject.optString("op2"));
             miPregunta.setOp3(jsonObject.optString("op3"));
             miPregunta.setOp4(jsonObject.optString("op4"));
+            miPregunta.setPalabra(jsonObject.optString("palabra"));
 
 
         } catch (JSONException e) {
@@ -100,6 +107,11 @@ public class Intermedio_Ejercicio1_Comida extends AppCompatActivity implements R
         rbop2.setText(miPregunta.getOp2());
         rbop3.setText(miPregunta.getOp3());
         rbop4.setText(miPregunta.getOp4());
+        opbtn1 =miPregunta.getOp1().toString();
+        opbtn2 =miPregunta.getOp2().toString();
+        opbtn3 =miPregunta.getOp3().toString();
+        opbtn4 =miPregunta.getOp4().toString();
+        this.rptaCorrecta=miPregunta.getPalabra();
 
         if (miPregunta.getOp1Imagen()!=null){
             ivimagen1.setImageBitmap(miPregunta.getOp1Imagen());
@@ -111,6 +123,46 @@ public class Intermedio_Ejercicio1_Comida extends AppCompatActivity implements R
         }else{
             ivimagen2.setImageResource(R.drawable.img_base);
         }
+        rbop1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                procesar(opbtn1);
+            }
+        });
+        rbop2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                procesar(opbtn2);
+            }
+        });
+        rbop3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                procesar(opbtn3);
+            }
+        });
+        rbop4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                procesar(opbtn4);
+            }
+        });
 
+    }
+
+    public void procesar(String opbutton) {
+
+        Intent i = new Intent(this, Intermedio_Frase_Familia.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
+
+        if(opbutton.equalsIgnoreCase(this.rptaCorrecta)) {
+            Toast.makeText(getApplicationContext(), rptaCorrecta + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt+5);
+        }else {
+            Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *" + rptaCorrecta, Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt);
+        }
+        startActivity(i);
+        finish();
     }
 }

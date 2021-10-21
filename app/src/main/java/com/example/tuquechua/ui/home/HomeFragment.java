@@ -26,6 +26,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.Niveles;
 import com.example.tuquechua.R;
+import com.example.tuquechua.Secciones;
 import com.example.tuquechua.basico.comida_basico.Basico_Ejercicio1_Comida;
 import com.example.tuquechua.entidades.Pregunta;
 import com.example.tuquechua.entidades.Seccion;
@@ -57,8 +58,8 @@ public class HomeFragment extends Fragment  {
         irSeccion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplication(), Seccion.class);
-                startActivity(intent);
+                Intent i = new Intent(getActivity(), Secciones.class);
+                startActivity(i);
             }
         });
 
