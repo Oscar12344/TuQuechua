@@ -26,6 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.example.tuquechua.Seccion;
 import com.example.tuquechua.entidades.Pregunta;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.Player;
@@ -147,6 +148,11 @@ public class comida_video1 extends AppCompatActivity implements Response.Listene
     }
 
     private void InitializeVideo(String videUri, String parte){
+        btnOp1.setText("");
+        btnOp2.setText("");
+        btnOp3.setText("");
+        btnOp4.setText("");
+
         Uri vidurl = Uri.parse(videUri);//"https://imgur.com/a/4bh8rKw")
         /*new YouTubeExtractor(this) {
             @Override
@@ -276,9 +282,21 @@ public class comida_video1 extends AppCompatActivity implements Response.Listene
                 break;
             case "4":
                 player.release();
-                //Intent = new Intent
+                this.finish();
+                Intent i = new Intent(this, Avanzado_Ejercicio2_Comida.class);
+                startActivity(i);
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        player.release();
+        Toast.makeText(this,"No se guardó el progreso",Toast.LENGTH_SHORT).show();
+        this.finish();
+        Intent i = new Intent(getApplication(), Seccion.class);
+        startActivity(i);
     }
 
         /*LoadControl loadControl = new DefaultLoadControl();

@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tuquechua.avanzado.comida_video1;
 import com.example.tuquechua.basico.comida_basico.Basico_Ejercicio1_Comida;
 import com.example.tuquechua.basico.comida_basico.Basico_Ejercicio2_Comida;
 import com.example.tuquechua.basico.familia_basico.Basico_Ejercicio1_Familia;
@@ -65,6 +66,14 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Basico_Ejercicio1_Comida.class);
+                    startActivity(i);
+                }
+            });
+
+            campoImagen3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i= new Intent(getApplication(), comida_video1.class);
                     startActivity(i);
                 }
             });

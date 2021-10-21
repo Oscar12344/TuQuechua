@@ -3,7 +3,7 @@
     package="com.example.tuquechua">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -14,7 +14,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TuQuechua"
         android:usesCleartextTraffic="true">
-        <activity android:name=".avanzado.comida_video1"
+        <activity
+            android:name=".avanzado.Avanzado_Video_Saludos"
+            android:exported="false" />
+        <activity
+            android:name=".avanzado.Avanzado_Video_Familia"
+            android:exported="false" />
+        <activity
+            android:name=".avanzado.Avanzado_Video_Numeros"
+            android:exported="false" />
+        <activity
+            android:name=".avanzado.Avanzado_Ejercicio2_Comida"
+            android:exported="false" />
+        <activity
+            android:name=".avanzado.comida_video1"
+            android:exported="true" />
+        <activity
+            android:name=".Seccion"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,16 +38,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Seccion"/>
-        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio2_Saludo"></activity>
+        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio2_Saludo" />
         <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio2_Numero" />
         <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio2_Familia" />
-        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio2_Comida" >
-
-        </activity>
-        <activity android:name=".Loguearse">
-
-        </activity>
+        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio2_Comida" />
+        <activity android:name=".Loguearse" />
         <activity android:name=".Login" />
         <activity android:name=".LoginUsuario" />
         <activity android:name=".Niveles" />
@@ -95,7 +106,7 @@
         <activity android:name=".basico.saludo_basico.Basico_Ejercicio1_Saludo" />
         <activity android:name=".basico.numero_basico.Basico_Ejercicio1_Numero" />
         <activity android:name=".basico.familia_basico.Basico_Ejercicio1_Familia" />
-        <activity android:name=".basico.comida_basico.Basico_Ejercicio1_Comida" ></activity>
+        <activity android:name=".basico.comida_basico.Basico_Ejercicio1_Comida" />
     </application>
 
 </manifest>
