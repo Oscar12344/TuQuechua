@@ -11,14 +11,13 @@ public class Pregunta {
     private String dato;
     private Bitmap imagen;
     private String pregunta;
-    private String op1,op2,op3,op4;
+    private String op1,op2,op3,op4,op5,op6,op7,op8,op9,op10,op11,op12;
     private String dato1, dato2, dato3, dato4;
     private Bitmap op1Imagen, op2Imagen, op3Imagen, op4Imagen;
     private String palabraEsp;
 
     private String vidUrl;
     private String avPre1Rpta,avPre2Rpta,avPre3Rpta;
-    private String op5,op6,op7,op8,op9,op10,op11,op12;
 
     public String getVidUrl2() {
         return vidUrl2;
