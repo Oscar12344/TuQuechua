@@ -1,15 +1,14 @@
-package com.example.tuquechua.intermedio.comida_intermedio;
+package com.example.tuquechua;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -18,9 +17,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.tuquechua.R;
 import com.example.tuquechua.adapter.ComidaImagenAdapter;
+import com.example.tuquechua.adapter.ComidaRankingAdapter;
 import com.example.tuquechua.entidades.Pregunta;
+import com.example.tuquechua.entidades.Ranking;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,40 +28,35 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Intermedio_Frase_Comida extends AppCompatActivity  implements Response.Listener<JSONObject>, Response.ErrorListener{
-    RecyclerView recyclerViewComidas;
-    ArrayList<Pregunta> listaComida;
+public class RankingGeneral extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
+
+    RecyclerView recyclerViewRankingComidas;
+    ArrayList<Ranking> listaRankingComida;
     Button btnSiguiente;
 
     ProgressDialog progress;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_intermedio__frase__comida);
-        listaComida = new ArrayList<>();
-        recyclerViewComidas=(RecyclerView)findViewById(R.id.idRecyclerListaComidaImagen);
-        recyclerViewComidas.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
-        btnSiguiente=findViewById(R.id.btnSiguiente);
-        recyclerViewComidas.setHasFixedSize(true);
+        setContentView(R.layout.activity_ranking_general);
+        listaRankingComida = new ArrayList<>();
+        recyclerViewRankingComidas=(RecyclerView)findViewById(R.id.idRecyclerListaRankingComida);
+        recyclerViewRankingComidas.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
+
+        recyclerViewRankingComidas.setHasFixedSize(true);
         request= Volley.newRequestQueue(this);
         llamarwebservice();
-        btnSiguiente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplication(), Intermedio_Ejercicio3_Comida.class);
 
-                startActivity(i);
-            }
-        });
     }
 
     public void llamarwebservice() {
         progress = new ProgressDialog(this);
-        progress.setMessage("Consultando Comidas");
+        progress.setMessage("Consultando Rank Comidas");
         progress.show();
-        String url="http://192.168.1.195:85/pregunta/ConsultarListaFraseComida.php?";
+        String url="http://192.168.1.195:85/pregunta/ConsultarRankingComida.php?";
 
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
@@ -78,26 +73,27 @@ public class Intermedio_Frase_Comida extends AppCompatActivity  implements Respo
 
     @Override
     public void onResponse(JSONObject response) {
-        Pregunta pregunta=null;
+        Ranking ranking=null;
 
-        JSONArray json=response.optJSONArray("frasecomida");
+        JSONArray json=response.optJSONArray("rank_comida");
 
         try {
 
             for (int i=0;i<json.length();i++){
-                pregunta=new Pregunta();
+                ranking=new Ranking();
                 JSONObject jsonObject=null;
                 jsonObject=json.getJSONObject(i);
 
-                pregunta.setPalabra(jsonObject.optString("palabra"));
-                pregunta.setPalabraEsp(jsonObject.optString("palabraEspanol"));
+                ranking.setIdrank(jsonObject.optInt("idrank"));
+                ranking.setNombre(jsonObject.optString("nombre"));
+                ranking.setPuntaje(jsonObject.optInt("puntaje"));
 
-                pregunta.setDato(jsonObject.optString("imagen"));
-                listaComida.add(pregunta);
+
+                listaRankingComida.add(ranking);
             }
             progress.hide();
-            ComidaImagenAdapter adapter=new ComidaImagenAdapter(listaComida);
-            recyclerViewComidas.setAdapter(adapter);
+            ComidaRankingAdapter adapter=new ComidaRankingAdapter(listaRankingComida);
+            recyclerViewRankingComidas.setAdapter(adapter);
 
         } catch ( JSONException e) {
             e.printStackTrace();

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryColor"
+    tools:context=".intermedio.comida_intermedio.Intermedio_Ejercicio3_Comida">
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            style="@style/styleTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="NIVEL INTERMEDIO"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/styleTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="40dp"
+            android:gravity="center"
+            android:text="5 puntos"
+            android:textSize="20sp"
+
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tvPregunta"
+        style="@style/styleLabel"
+        android:layout_width="382dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        android:text="Pregunta"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <ImageView
+        android:id="@+id/ivImagen"
+        android:layout_width="278dp"
+        android:layout_height="170dp"
+        android:src="@drawable/img_base"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPregunta"
+        app:layout_constraintVertical_bias="0.088" />
+
+    <EditText
+        android:id="@+id/etPalabra1"
+        style="@style/styleEditText"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+
+        android:editable="true"
+        android:enabled="false"
+        android:maxLength="1"
+        android:text="M"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivImagen"
+        app:layout_constraintVertical_bias="0.168" />
+
+    <EditText
+        android:id="@+id/etPalabra2"
+        style="@style/styleEditText"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_marginStart="20dp"
+
+        android:enabled="false"
+        android:maxLength="1"
+        android:text="U"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etPalabra1"
+        app:layout_constraintTop_toBottomOf="@+id/ivImagen"
+        app:layout_constraintVertical_bias="0.17" />
+    <EditText
+        android:id="@+id/etRespuesta1"
+        style="@style/styleEditText"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_marginStart="20dp"
+
+        android:maxLength="1"
+        android:hint="-"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etPalabra2"
+        app:layout_constraintTop_toBottomOf="@+id/ivImagen"
+        app:layout_constraintVertical_bias="0.17" />
+    <EditText
+        android:id="@+id/etRespuesta2"
+        style="@style/styleEditText"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_marginStart="20dp"
+
+        android:maxLength="1"
+        android:hint="-"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etRespuesta1"
+        app:layout_constraintTop_toBottomOf="@+id/ivImagen"
+        app:layout_constraintVertical_bias="0.17" />
+    <EditText
+        android:id="@+id/etRespuesta3"
+        style="@style/styleEditText"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_marginStart="20dp"
+
+        android:maxLength="1"
+        android:hint="-"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etRespuesta2"
+        app:layout_constraintTop_toBottomOf="@+id/ivImagen"
+        app:layout_constraintVertical_bias="0.17" />
+    <EditText
+        android:id="@+id/etRespuesta4"
+        style="@style/styleEditText"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_marginStart="20dp"
+
+        android:maxLength="1"
+        android:hint="-"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etRespuesta3"
+        app:layout_constraintTop_toBottomOf="@+id/ivImagen"
+        app:layout_constraintVertical_bias="0.17" />
+
+    <EditText
+        android:id="@+id/etPalabra3"
+        style="@style/styleEditText"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="156dp"
+        android:enabled="false"
+        android:maxLength="1"
+        android:text="G"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etRespuesta1"
+        app:layout_constraintVertical_bias="0.085" />
+
+    <EditText
+        android:id="@+id/etPalabra4"
+        style="@style/styleEditText"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:enabled="false"
+        android:maxLength="1"
+        android:text="U"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etPalabra3"
+        app:layout_constraintTop_toBottomOf="@+id/etRespuesta2"
+        app:layout_constraintVertical_bias="0.085" />
+
+    <Button
+        android:id="@+id/btnSiguiente"
+        style="@style/styleButton"
+        android:layout_marginBottom="92dp"
+        android:text="Siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnRecurso"
+        style="@style/styleButton"
+        android:layout_marginBottom="44dp"
+        android:onClick="IrRecurso"
+        android:text="Ver Recurso"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

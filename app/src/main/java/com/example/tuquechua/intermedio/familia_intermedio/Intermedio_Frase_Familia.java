@@ -52,7 +52,7 @@ public class Intermedio_Frase_Familia extends AppCompatActivity implements Respo
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplication(), Intermedio_Ejercicio1_Familia.class);
+                Intent i = new Intent(getApplication(), Intermedio_Ejercicio3_Familia.class);
 
                 startActivity(i);
             }

@@ -10,6 +10,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
 import com.example.tuquechua.entidades.Pregunta;
+import com.example.tuquechua.intermedio.comida_intermedio.Intermedio_Frase_Comida;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -71,7 +72,7 @@ public class Intermedio_Ejercicio4_Saludo extends AppCompatActivity implements  
     }
 
     public void procesar(String opcion) {
-        Intent i = new Intent(this,  Intermedio_Ejercicio4_Saludo.class);
+        Intent i = new Intent(this,  Intermedio_Frase_Comida.class);
         int punt = getIntent().getIntExtra("puntaje",0);
 
         if (opcion.equalsIgnoreCase(rptaCorrecta)){

@@ -13,22 +13,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TuQuechua"
         android:usesCleartextTraffic="true">
-        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Frase_Saludo"></activity>
-        <activity android:name=".intermedio.numero_intermedio.Intermedio_Frase_Numero" />
-        <activity android:name=".intermedio.familia_intermedio.Intermedio_Frase_Familia" />
-        <activity android:name=".intermedio.comida_intermedio.Intermedio_Frase_Comida">
+        <activity android:name=".RankingGeneral">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio4_Saludo" />
-        <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio4_Numero" />
-        <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio4_Familia" />
-        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio4_Comida" >
+        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio3_Saludo"></activity>
+        <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio3_Numero"></activity>
+        <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio3_Familia"></activity>
+        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio3_Comida"></activity>
+        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Frase_Saludo" />
+        <activity android:name=".intermedio.numero_intermedio.Intermedio_Frase_Numero" />
+        <activity android:name=".intermedio.familia_intermedio.Intermedio_Frase_Familia" />
+        <activity android:name=".intermedio.comida_intermedio.Intermedio_Frase_Comida"></activity>
+        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio4_Saludo">
 
         </activity>
+        <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio4_Numero" />
+        <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio4_Familia" />
+        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio4_Comida"></activity>
         <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio1_Saludo" />
         <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio1_Numero" />
         <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio1_Familia" />
@@ -63,7 +69,9 @@
         <activity
             android:name=".basico.numero_basico.Basico_Ejercicio3_Numero"
             android:exported="true" />
-        <activity android:name=".basico.comida_basico.procesarBasicoComida" />
+        <activity android:name=".basico.comida_basico.procesarBasicoComida" >
+
+        </activity>
         <activity
             android:name=".basico.comida_basico.Basico_Ejercicio3_Comida"
             android:exported="true" />
@@ -94,7 +102,7 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
         -->
-        <activity android:name=".basico.comida_basico.Basico_Ejercicio4_Comida" />
+        <activity android:name=".basico.comida_basico.Basico_Ejercicio4_Comida"></activity>
         <activity android:name=".basico.saludo_basico.Basico_Ejercicio1_Saludo" />
         <activity android:name=".basico.numero_basico.Basico_Ejercicio1_Numero" />
         <activity android:name=".basico.familia_basico.Basico_Ejercicio1_Familia" />

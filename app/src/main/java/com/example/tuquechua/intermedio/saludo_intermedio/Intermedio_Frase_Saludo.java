@@ -53,7 +53,7 @@ public class Intermedio_Frase_Saludo extends AppCompatActivity implements Respon
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplication(), Intermedio_Ejercicio1_Saludo.class);
+                Intent i = new Intent(getApplication(), Intermedio_Ejercicio3_Saludo.class);
 
                 startActivity(i);
             }

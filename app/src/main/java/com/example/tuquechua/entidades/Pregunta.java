@@ -19,6 +19,7 @@ public class Pregunta {
     private Bitmap op1Imagen, op2Imagen, op3Imagen, op4Imagen;
     private String palabraEsp;
 
+
     public String getOp1() {
         return op1;
     }
