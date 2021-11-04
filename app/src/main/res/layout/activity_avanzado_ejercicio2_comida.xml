@@ -66,26 +66,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPregunta"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.06" />
 
     <ImageView
         android:id="@+id/imgOra"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtOracionOrdenada"
         app:layout_constraintVertical_bias="0.05"
-        app:srcCompat="@drawable/img_base" />
+        app:srcCompat="@drawable/audio" />
 
     <EditText
         android:id="@+id/txtOracionUsuario"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/secondaryLightColor"
         android:ems="10"
+        android:focusable="false"
         android:inputType="textPersonName"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,42 +102,39 @@
 
     <Button
         android:id="@+id/btnPalabra1"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Palab1"
+        android:text="Palabra1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnPalabra2"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtOracionUsuario"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintVertical_bias="0.08" />
 
     <Button
         android:id="@+id/btnPalabra2"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Palabra2"
-        android:textSize="10sp"
-        android:autoSizeMinTextSize="10dp"
-        android:autoSizeMaxTextSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnPalabra3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toEndOf="@+id/btnPalabra1"
         app:layout_constraintTop_toBottomOf="@+id/txtOracionUsuario"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintVertical_bias="0.08" />
 
     <Button
         android:id="@+id/btnPalabra3"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Palab3"
+        android:text="Palabra3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnPalabra2"
-        app:layout_constraintTop_toBottomOf="@+id/txtOracionUsuario"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPalabra1"
+        app:layout_constraintVertical_bias="0.08" />
 
     <Button
         android:id="@+id/btnPalabra4"
@@ -139,11 +142,11 @@
         android:layout_height="wrap_content"
         android:text="Palabra4"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnPalabra5"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPalabra1"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnPalabra3"
+        app:layout_constraintTop_toBottomOf="@+id/btnPalabra2"
+        app:layout_constraintVertical_bias="0.08" />
 
     <Button
         android:id="@+id/btnPalabra5"
@@ -152,9 +155,9 @@
         android:text="Palabra5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toEndOf="@+id/btnPalabra4"
-        app:layout_constraintTop_toBottomOf="@+id/btnPalabra2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPalabra3"
         app:layout_constraintVertical_bias="0.05" />
 
     <Button
@@ -164,6 +167,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPalabra4" />
+        app:layout_constraintTop_toBottomOf="@+id/btnPalabra5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
