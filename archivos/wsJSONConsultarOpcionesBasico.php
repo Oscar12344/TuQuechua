@@ -11,7 +11,7 @@ $json=array();
 				
 		$conexion = mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
 
-		$consulta="select * from opbasico where idbasico= '{$idbasico}'";
+		$consulta="select * from opbasico where idbasico= '{$idbasico}' ";
 		$resultado=mysqli_query($conexion,$consulta);
 			
 		if($registro=mysqli_fetch_array($resultado)){

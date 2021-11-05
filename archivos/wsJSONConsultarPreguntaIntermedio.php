@@ -26,6 +26,7 @@ $json=array();
 			$result["op2"]=$registro['op2'];
 			$result["op3"]=$registro['op3'];
 			$result["op4"]=$registro['op4'];
+			$result["palabraEspanol"]=$registro['palabraEspanol'];
 			$json['intermedios'][]=$result;
 		}else{
 			$resultar["id"]=0;
@@ -39,6 +40,7 @@ $json=array();
 			$resultar["op2"]='no registra';
 			$resultar["op3"]='no registra';
 			$resultar["op4"]='no registra';
+			$result["palabraEspanol"]=$registro['no registra'];
 			$json['intermedios'][]=$resultar;
 		}
 		

@@ -3,14 +3,12 @@ package com.example.tuquechua.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tuquechua.R;
-import com.example.tuquechua.entidades.Pregunta;
 import com.example.tuquechua.entidades.Ranking;
 
 import java.util.List;

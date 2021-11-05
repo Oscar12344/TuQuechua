@@ -17,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.adapter.ComidaRankingAdapter;
+import com.example.tuquechua.adapter.SaludoRankingAdapter;
 import com.example.tuquechua.entidades.Ranking;
 
 import org.json.JSONArray;
@@ -25,35 +26,32 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class RankingGeneral extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
-
-    RecyclerView recyclerViewRankingComidas;
-    ArrayList<Ranking> listaRankingComida;
+public class RankingSaludo extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
+    RecyclerView recyclerViewRankingSaludos;
+    ArrayList<Ranking> listaRankingSaludo;
     Button btnSiguiente;
 
     ProgressDialog progress;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ranking_general);
-        listaRankingComida = new ArrayList<>();
-        recyclerViewRankingComidas=(RecyclerView)findViewById(R.id.idRecyclerListaRankingComida);
-        recyclerViewRankingComidas.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
+        setContentView(R.layout.activity_ranking_saludo);
+        listaRankingSaludo = new ArrayList<>();
+        recyclerViewRankingSaludos=(RecyclerView)findViewById(R.id.idRecyclerListaRankingSaludo);
+        recyclerViewRankingSaludos.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
 
-        recyclerViewRankingComidas.setHasFixedSize(true);
+        recyclerViewRankingSaludos.setHasFixedSize(true);
         request= Volley.newRequestQueue(this);
         llamarwebservice();
-
     }
 
     public void llamarwebservice() {
         progress = new ProgressDialog(this);
-        progress.setMessage("Consultando Rank Comidas");
+        progress.setMessage("Consultando Rank Saludos");
         progress.show();
-        String url="http://192.168.1.195:85/pregunta/ConsultarRankingComida.php?";
+        String url="http://192.168.1.195:85/pregunta/ConsultarRankingSaludo.php?";
 
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
@@ -72,7 +70,7 @@ public class RankingGeneral extends AppCompatActivity implements Response.Listen
     public void onResponse(JSONObject response) {
         Ranking ranking=null;
 
-        JSONArray json=response.optJSONArray("rank_comida");
+        JSONArray json=response.optJSONArray("rank_saludo");
 
         try {
 
@@ -86,11 +84,11 @@ public class RankingGeneral extends AppCompatActivity implements Response.Listen
                 ranking.setPuntaje(jsonObject.optInt("puntaje"));
 
 
-                listaRankingComida.add(ranking);
+                listaRankingSaludo.add(ranking);
             }
             progress.hide();
-            ComidaRankingAdapter adapter=new ComidaRankingAdapter(listaRankingComida);
-            recyclerViewRankingComidas.setAdapter(adapter);
+            SaludoRankingAdapter adapter=new SaludoRankingAdapter(listaRankingSaludo);
+            recyclerViewRankingSaludos.setAdapter(adapter);
 
         } catch ( JSONException e) {
             e.printStackTrace();
