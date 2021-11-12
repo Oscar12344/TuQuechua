@@ -46,7 +46,9 @@
             android:exported="true" />
         <activity
             android:name=".Seccion"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
         <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio2_Saludo" />
         <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio2_Numero" />
         <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio2_Familia" />

@@ -103,7 +103,7 @@
 
     <TextView
         android:id="@+id/textView15"
-        android:text=" puntos de 30"
+        android:text=" puntos de 40"
         android:textColor="#FD0500"
         style="@style/styleLabel"
         app:layout_constraintBottom_toBottomOf="parent"

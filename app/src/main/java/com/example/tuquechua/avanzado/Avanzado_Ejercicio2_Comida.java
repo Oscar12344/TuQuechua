@@ -231,19 +231,22 @@ public class Avanzado_Ejercicio2_Comida extends AppCompatActivity implements Res
 
     private void procesarRespuesta(){
         String rpta = txtOraUsu.getText().toString();
+
+        int punt = getIntent().getIntExtra("puntaje",0);
         Intent i = new Intent(this, Avanzado_Ejercicio3.class);
+
         if(rpta.equals(""))
         {
             Toast.makeText(this,"Rellene su respuesta",Toast.LENGTH_SHORT).show();
             txtOraUsu.requestFocus();
         }else if (rpta.equalsIgnoreCase(oraCorrQue)){
-            i.putExtra("puntaje", 5);
             Toast.makeText(this, oraCorrQue+", Respuesta correcta",Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt+5);
             startActivity(i);
             finish();
         }else {
-            i.putExtra("puntaje", 0);
             Toast.makeText(this,"Respuesta incorrecta, *"+oraCorrQue,Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt);
             startActivity(i);
             finish();
         }

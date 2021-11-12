@@ -21,6 +21,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
 import com.example.tuquechua.entidades.Pregunta;
+import com.example.tuquechua.procesar_resultado;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -138,21 +139,34 @@ public class Avanzado_Ejercicio3 extends AppCompatActivity implements Response.E
         respUsu3 = rdg3.getCheckedRadioButtonId();
         respUsu4 = rdg4.getCheckedRadioButtonId();
 
-        Intent i = new Intent(this, Avanzado_Ejercicio3.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
+        Intent i = new Intent(this, procesar_resultado.class);
 
         if (respUsu1 == -1 || respUsu2 == -1 || respUsu3 == -1 || respUsu4 == -1)
             Toast.makeText(this, "Elija V o F. "+respUsu1+respUsu2+respUsu3+respUsu4,Toast.LENGTH_SHORT).show();
         else{
             Toast.makeText(this, "aea: "+respUsu1,Toast.LENGTH_SHORT).show();
 
+            if (respUsu1 == rpCorr1)
+                punt = punt + 5;
+
+            if (respUsu2 == rpCorr2)
+                punt = punt + 5;
+
+            if (respUsu3 == rpCorr3)
+                punt = punt + 5;
+
+            if (respUsu4 == rpCorr4)
+                punt = punt + 5;
+
             if (respUsu1 == rpCorr1 && respUsu2 == rpCorr2 && respUsu3 == rpCorr3 && respUsu4 == rpCorr4){
-                i.putExtra("puntaje", 5);
                 Toast.makeText(this, vf1+", "+vf2+", "+vf3+", "+vf4+", Respuestas correctas",Toast.LENGTH_SHORT).show();
+                i.putExtra("puntaje", punt);
                 startActivity(i);
                 finish();
             }else {
-                i.putExtra("puntaje", 0);
                 Toast.makeText(this,"Incorrecta, *"+vf1+", "+vf2+", "+vf3+", "+vf4,Toast.LENGTH_SHORT).show();
+                i.putExtra("puntaje", punt);
                 startActivity(i);
                 finish();
             }
