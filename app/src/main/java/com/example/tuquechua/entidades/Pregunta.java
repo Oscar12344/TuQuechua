@@ -18,6 +18,7 @@ public class Pregunta {
 
     private String vidUrl;
     private String avPre1Rpta,avPre2Rpta,avPre3Rpta;
+    private Boolean resp1, resp2, resp3, resp4;
 
     public String getVidUrl2() {
         return vidUrl2;
@@ -271,4 +272,20 @@ public class Pregunta {
     public String getOp12() {        return op12;    }
 
     public void setOp12(String op12) {        this.op12 = op12;    }
+
+    public Boolean getResp1() {return resp1;}
+
+    public void setResp1(Boolean resp1) {this.resp1 = resp1;}
+
+    public Boolean getResp2() {return resp2;}
+
+    public void setResp2(Boolean resp2) {this.resp2 = resp2;}
+
+    public Boolean getResp3() {return resp3;}
+
+    public void setResp3(Boolean resp3) {this.resp3 = resp3;}
+
+    public Boolean getResp4() {return resp4;}
+
+    public void setResp4(Boolean resp4) {this.resp4 = resp4;}
 }

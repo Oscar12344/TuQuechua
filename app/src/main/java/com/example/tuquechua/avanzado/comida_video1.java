@@ -249,11 +249,14 @@ public class comida_video1 extends AppCompatActivity implements Response.Listene
     }
 
     private void procesarRespuesta(String rptaUsu, String parte){
+        Integer puntaje = 0;
+
         switch (parte){
             case "1":
                 this.rptaCorrecta = miPregunta.getAvPre1Rpta();
                 if (rptaUsu.equalsIgnoreCase(this.rptaCorrecta)){
                     Toast.makeText(this, this.rptaCorrecta+", Respuesta correcta",Toast.LENGTH_SHORT).show();
+                    puntaje = puntaje + 5;
                     String url = miPregunta.getVidUrl2();
                     InitializeVideo(url,parte="2");
                 } else {
@@ -264,6 +267,7 @@ public class comida_video1 extends AppCompatActivity implements Response.Listene
                 this.rptaCorrecta = miPregunta.getAvPre2Rpta();
                 if (rptaUsu.equalsIgnoreCase(this.rptaCorrecta)){
                     Toast.makeText(this, this.rptaCorrecta+", Respuesta correcta",Toast.LENGTH_SHORT).show();
+                    puntaje = puntaje + 5;
                     String url = miPregunta.getVidUrl3();
                     InitializeVideo(url,parte="3");
                 } else {
@@ -274,6 +278,7 @@ public class comida_video1 extends AppCompatActivity implements Response.Listene
                 this.rptaCorrecta = miPregunta.getAvPre3Rpta();
                 if (rptaUsu.equalsIgnoreCase(this.rptaCorrecta)){
                     Toast.makeText(this, this.rptaCorrecta+", Respuesta correcta",Toast.LENGTH_SHORT).show();
+                    puntaje = puntaje + 5;
                     String url = miPregunta.getVidUrl4();
                     InitializeVideo(url,parte="4");
                 } else {
@@ -284,6 +289,7 @@ public class comida_video1 extends AppCompatActivity implements Response.Listene
                 player.release();
                 this.finish();
                 Intent i = new Intent(this, Avanzado_Ejercicio2_Comida.class);
+                i.putExtra("puntaje", puntaje);
                 startActivity(i);
                 break;
         }

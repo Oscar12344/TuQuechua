@@ -22,6 +22,7 @@
     <string name="urlIP">http://192.168.1.7:80/</string>
     <string name="urlBasico">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id=</string>
     <string name="urlIntermedio">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaIntermedio.php?id=</string>
+    <string name="urlIntermedioVF">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaIntermedioVF.php?id=</string>
     <string name="urlAvVid">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaAvanzadoVideo.php?id=</string>
     <string name="urlAvReord">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaAvanzadoReordenar.php?id=</string>
     <string name="urlAvOrInc">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaAvanzadoOracionesIncompletas.php?id=</string>

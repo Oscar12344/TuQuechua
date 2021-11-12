@@ -5,7 +5,7 @@
       <map>
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/drawable/rounded_layout.xml" value="0.2703125" />
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_avanzado_ejercicio2_comida.xml" value="0.25416666666666665" />
-        <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_avanzado_ejercicio3.xml" value="0.25416666666666665" />
+        <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_avanzado_ejercicio3.xml" value="0.264" />
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_avanzado_video_familia.xml" value="0.25416666666666665" />
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_avanzado_video_numeros.xml" value="0.25416666666666665" />
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_avanzado_video_saludos.xml" value="0.25416666666666665" />
@@ -47,11 +47,13 @@
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_intermedio__ejercicio2__comida.xml" value="0.25416666666666665" />
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_intermedio_ejercicio_r15_comida.xml" value="0.23731884057971014" />
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_loguearse.xml" value="0.25416666666666665" />
+        <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_niveles.xml" value="0.25416666666666665" />
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_procesar_basico_comida.xml" value="0.264" />
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_procesar_basico_familia.xml" value="0.25416666666666665" />
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_procesar_basico_numero.xml" value="0.25416666666666665" />
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_procesar_basico_saludo.xml" value="0.25416666666666665" />
+        <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_procesar_resultado.xml" value="0.25416666666666665" />
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/activity_seccion.xml" value="0.25416666666666665" />
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
         <entry key="..\:/TuQuechua/GitHub/TuQuechua/app/src/main/res/layout/intermedio_ejercicio_r15_popup.xml" value="0.23550724637681159" />
