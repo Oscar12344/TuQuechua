@@ -26,7 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.example.tuquechua.Seccion;
+import com.example.tuquechua.Secciones;
 import com.example.tuquechua.entidades.Pregunta;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.Player;
@@ -301,7 +301,7 @@ public class comida_video1 extends AppCompatActivity implements Response.Listene
         player.release();
         Toast.makeText(this,"No se guardó el progreso",Toast.LENGTH_SHORT).show();
         this.finish();
-        Intent i = new Intent(getApplication(), Seccion.class);
+        Intent i = new Intent(getApplication(), Secciones.class);
         startActivity(i);
     }
 

@@ -19,7 +19,7 @@ public class procesar_resultado extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplication(), Seccion.class);
+                Intent i = new Intent(getApplication(), Secciones.class);
                 startActivity(i);
             }
         });

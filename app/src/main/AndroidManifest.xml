@@ -22,13 +22,10 @@
             android:exported="true"></activity>
         <activity
             android:name=".avanzado.Avanzado_Ejercicio3"
+            android:exported="true"/>
+        <activity android:name=".RankingSaludo"
             android:exported="true">
-        <activity android:name=".RankingSaludo">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".avanzado.Avanzado_Video_Saludos"
@@ -45,18 +42,7 @@
         <activity
             android:name=".avanzado.comida_video1"
             android:exported="true" />
-        <activity
-            android:name=".Seccion"
-            android:exported="true" >
-
-        </activity>
-        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio2_Saludo" />
-        <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio2_Numero" />
-        <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio2_Familia" />
-        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio2_Comida" />
         <activity android:name=".Loguearse" />
-        <activity android:name=".Login" />
-        <activity android:name=".LoginUsuario" />
         <activity android:name=".RankingNumero" >
 
         </activity>
@@ -80,9 +66,7 @@
         <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio1_Numero" />
         <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio1_Familia" />
         <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio1_Comida" />
-        <activity android:name=".Loguearse">
 
-        </activity>
         <activity android:name=".Secciones" />
         <activity android:name=".Niveles" />
         <activity android:name=".basico.saludo_basico.procesarBasicoSaludo" />
@@ -132,7 +116,14 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.TuQuechua.NoActionBar" />
+            android:theme="@style/Theme.TuQuechua.NoActionBar"
+            android:exported="true">
+                <intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
+
+                        <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+        </activity>
         <!--
 <activity
             android:name="com.facebook.FacebookActivity"
