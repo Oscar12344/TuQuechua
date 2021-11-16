@@ -1,5 +1,7 @@
 package com.example.tuquechua.ui.libros;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.tuquechua.R;
 
@@ -16,7 +20,8 @@ import com.example.tuquechua.R;
  * create an instance of this fragment.
  */
 public class LibrosFragment extends Fragment {
-
+    ImageView iv1, iv2,iv3,iv4;
+    TextView tv1,tv2,tv3,tv4;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -51,6 +56,7 @@ public class LibrosFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -61,6 +67,71 @@ public class LibrosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_libros, container, false);
+        View vista= inflater.inflate(R.layout.fragment_libros, container, false);
+        iv1= vista.findViewById(R.id.iv1);
+        iv2= vista.findViewById(R.id.iv2);
+        iv3= vista.findViewById(R.id.iv3);
+        iv4= vista.findViewById(R.id.iv4);
+        tv1=vista.findViewById(R.id.tv1);
+        tv2=vista.findViewById(R.id.tv2);
+        tv3=vista.findViewById(R.id.tv3);
+        tv4=vista.findViewById(R.id.tv4);
+        iv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoUrl("https://drive.google.com/file/d/1xf9KLXegxP5ojZvElUc4ROhDDnRUHLZl/view?usp=sharing");
+            }
+        });
+        iv2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoUrl("https://drive.google.com/file/d/1TmFKXMBWYWYCW2Cgs1hGDNTGbBVaC7lh/view?usp=sharing");
+            }
+        });
+        iv3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoUrl("https://drive.google.com/file/d/1enqTyTGSzGX8hbKky0Os1hg5gRP8g34N/view?usp=sharing");
+            }
+        });
+        iv4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        tv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoUrl("https://drive.google.com/file/d/1xf9KLXegxP5ojZvElUc4ROhDDnRUHLZl/view?usp=sharing");
+            }
+        });
+        tv2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoUrl("https://drive.google.com/file/d/1TmFKXMBWYWYCW2Cgs1hGDNTGbBVaC7lh/view?usp=sharing");
+            }
+        });
+        tv3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoUrl("https://drive.google.com/file/d/1enqTyTGSzGX8hbKky0Os1hg5gRP8g34N/view?usp=sharing");
+            }
+        });
+        tv4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        return vista;
+    }
+
+    public void gotoUrl(String s) {
+        Uri uri = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
+
+
     }
 }

@@ -25,6 +25,7 @@
             android:exported="true"/>
         <activity android:name=".RankingSaludo"
             android:exported="true">
+        <activity android:name=".RankingSaludo">
 
         </activity>
         <activity
