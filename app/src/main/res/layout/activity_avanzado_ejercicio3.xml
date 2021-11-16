@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="5 puntos"
+                android:text="20 puntos"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -72,7 +72,7 @@
                     android:layout_width="match_parent"
                     android:layout_weight="1"
                     android:background="@color/secondaryColor"
-                    android:text="Pregunta1 aaaaa aaaaa aaaaa aaaaa aaaa aaaa aaaa aaaa aaaa aaa aaaa aaa" />
+                    android:text="Pregunta1" />
                 <RadioGroup
                     android:id="@+id/rdg1"
                     android:layout_width="wrap_content"
@@ -84,14 +84,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="V "
-                        android:background="@drawable/rounded_layout"/>
+                        android:background="#4dd0e1"/>
                     <RadioButton
                         android:id="@+id/rbtnPre1F"
                         android:textSize="20sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="F "
-                        android:background="@drawable/rounded_layout"/>
+                        android:background="#ff8a65"/>
                 </RadioGroup>
             </LinearLayout>
 
@@ -111,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Pregunta2 aaaaa aaaaa aaaaa aaaaa aaaa aaaa aaa aaaa aaa" />
+                    android:text="Pregunta2" />
 
                 <RadioGroup
                     android:id="@+id/rdg2"
@@ -140,11 +140,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/primaryDarkColor"
+                android:background="@color/secondaryColor"
                 android:layout_margin="8dp">
                 <TextView
                     android:id="@+id/txtPreguntaVF3"
                     style="@style/styleLabel"
+                    android:textSize="18sp"
                     android:maxLines="2"
                     android:layout_width="match_parent"
                     android:layout_weight="1"
@@ -182,6 +183,7 @@
                 <TextView
                     android:id="@+id/txtPreguntaVF4"
                     style="@style/styleLabel"
+                    android:textSize="18sp"
                     android:maxLines="2"
                     android:layout_width="match_parent"
                     android:layout_weight="1"
@@ -196,7 +198,7 @@
                         android:id="@+id/rbtnPre4V"
                         style="@style/styleLabel"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="V "
                         android:background="#4dd0e1"/>

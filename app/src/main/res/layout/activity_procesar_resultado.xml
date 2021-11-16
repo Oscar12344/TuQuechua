@@ -66,7 +66,7 @@
 
     <TextView
         android:id="@+id/tvpuntaje"
-        android:text="Puntaje"
+        android:text="20"
         android:textColor="#FD0500"
         android:textStyle="bold"
         style="@style/styleLabel"
@@ -115,7 +115,7 @@
 
     <TextView
         android:id="@+id/tvcorrecta"
-        android:text="correcta"
+        android:text="4"
         android:textColor="#FD0500"
         android:textStyle="bold"
         style="@style/styleLabel"
@@ -128,7 +128,7 @@
 
     <TextView
         android:id="@+id/tvincorrecta"
-        android:text="incorrecta"
+        android:text="4"
         android:textColor="#FD0500"
         android:textStyle="bold"
         style="@style/styleLabel"
@@ -185,7 +185,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintVertical_bias="0.5"
-        app:srcCompat="@drawable/uno" />
+        app:srcCompat="@drawable/nivel_imagennivel3" />
 
     <Button
         android:id="@+id/btnOk"

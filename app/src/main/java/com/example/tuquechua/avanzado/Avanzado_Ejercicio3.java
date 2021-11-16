@@ -31,10 +31,10 @@ public class Avanzado_Ejercicio3 extends AppCompatActivity implements Response.E
     private TextView txtOra1, txtOra2, txtOra3, txtOra4;
     private Button btnSiguiente;
     private RadioGroup rdg1, rdg2, rdg3, rdg4;
-    private RadioButton rbtn1V, rbtn1F;
+    private RadioButton rbtn1V, rbtn1F, rbtn2V, rbtn2F, rbtn3V, rbtn3F, rbtn4V, rbtn4F;
     private Boolean respCorr1, respCorr2, respCorr3, respCorr4;
     private Integer respUsu1, respUsu2, respUsu3, respUsu4, rpCorr1, rpCorr2, rpCorr3, rpCorr4;
-    private Character vf1, vf2, vf3, vf4;
+    private Character vf1, vf2, vf3, vf4, rptaUsu1, rptaUsu2, rptaUsu3, rptaUsu4;
     private ProgressDialog progreso;
     private RequestQueue request;
     private JsonObjectRequest jsonObjectRequest;
@@ -53,6 +53,12 @@ public class Avanzado_Ejercicio3 extends AppCompatActivity implements Response.E
         rdg4 = findViewById(R.id.rdg4);
         rbtn1V = findViewById(R.id.rbtnPre1V);
         rbtn1F = findViewById(R.id.rbtnPre1F);
+        rbtn2V = findViewById(R.id.rbtnPre2V);
+        rbtn2F = findViewById(R.id.rbtnPre2F);
+        rbtn3V = findViewById(R.id.rbtnPre3V);
+        rbtn3F = findViewById(R.id.rbtnPre3F);
+        rbtn4V = findViewById(R.id.rbtnPre4V);
+        rbtn4F = findViewById(R.id.rbtnPre4F);
         btnSiguiente = findViewById(R.id.btnSiguiente);
 
         request= Volley.newRequestQueue(this);
@@ -60,7 +66,7 @@ public class Avanzado_Ejercicio3 extends AppCompatActivity implements Response.E
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url = getString(R.string.urlIntermedioVF)+100;
+        String url = getString(R.string.urlAvanzadoVF)+100;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -107,27 +113,27 @@ public class Avanzado_Ejercicio3 extends AppCompatActivity implements Response.E
         respCorr2 = miPregunta.getResp2();
         respCorr3 = miPregunta.getResp3();
         respCorr4 = miPregunta.getResp4();
-        rpCorr1 = respCorr1 ? 1:0;
-        rpCorr2 = respCorr2 ? 1:0;
-        rpCorr3 = respCorr3 ? 1:0;
-        rpCorr4 = respCorr4 ? 1:0;
+        rpCorr1 = respCorr1 ? 0 : 1;
+        rpCorr2 = respCorr2 ? 0 : 1;
+        rpCorr3 = respCorr3 ? 0 : 1;
+        rpCorr4 = respCorr4 ? 0 : 1;
 
-        if (respCorr1 == true)
+        if (rpCorr1.equals(1))
             vf1 = 'V';
         else
             vf1 = 'F';
 
-        if (respCorr2 == true)
+        if (rpCorr2.equals(1))
             vf2 = 'V';
         else
             vf2 = 'F';
 
-        if (respCorr3 == true)
+        if (rpCorr3.equals(1))
             vf3 = 'V';
         else
             vf3 = 'F';
 
-        if (respCorr4 == true)
+        if (rpCorr4.equals(1))
             vf4 = 'V';
         else
             vf4 = 'F';
@@ -143,9 +149,9 @@ public class Avanzado_Ejercicio3 extends AppCompatActivity implements Response.E
         Intent i = new Intent(this, procesar_resultado.class);
 
         if (respUsu1 == -1 || respUsu2 == -1 || respUsu3 == -1 || respUsu4 == -1)
-            Toast.makeText(this, "Elija V o F. "+respUsu1+respUsu2+respUsu3+respUsu4,Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Elija V o F",Toast.LENGTH_SHORT).show();
         else{
-            Toast.makeText(this, "aea: "+respUsu1,Toast.LENGTH_SHORT).show();
+            //if (rbtn1V.isSelected()) respUsu1=1;
 
             if (respUsu1 == rpCorr1)
                 punt = punt + 5;
@@ -165,7 +171,7 @@ public class Avanzado_Ejercicio3 extends AppCompatActivity implements Response.E
                 startActivity(i);
                 finish();
             }else {
-                Toast.makeText(this,"Incorrecta, *"+vf1+", "+vf2+", "+vf3+", "+vf4,Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Incorrecta, *V, "+vf2+", "+vf3+", F",Toast.LENGTH_SHORT).show();
                 i.putExtra("puntaje", punt);
                 startActivity(i);
                 finish();

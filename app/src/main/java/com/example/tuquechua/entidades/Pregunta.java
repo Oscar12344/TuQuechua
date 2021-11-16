@@ -19,6 +19,43 @@ public class Pregunta {
     private String vidUrl;
     private String avPre1Rpta,avPre2Rpta,avPre3Rpta;
     private Boolean resp1, resp2, resp3, resp4;
+    private Integer rpta1;
+    private Integer rpta2;
+    private Integer rpta3;
+
+    public Integer getRpta1() {
+        return rpta1;
+    }
+
+    public void setRpta1(Integer rpta1) {
+        this.rpta1 = rpta1;
+    }
+
+    public Integer getRpta2() {
+        return rpta2;
+    }
+
+    public void setRpta2(Integer rpta2) {
+        this.rpta2 = rpta2;
+    }
+
+    public Integer getRpta3() {
+        return rpta3;
+    }
+
+    public void setRpta3(Integer rpta3) {
+        this.rpta3 = rpta3;
+    }
+
+    public Integer getRpta4() {
+        return rpta4;
+    }
+
+    public void setRpta4(Integer rpta4) {
+        this.rpta4 = rpta4;
+    }
+
+    private Integer rpta4;
 
     public String getVidUrl2() {
         return vidUrl2;
