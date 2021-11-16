@@ -2,19 +2,37 @@ package com.example.tuquechua.basico.numero_basico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
-import com.example.tuquechua.Seccion;
+import com.example.tuquechua.RankingGeneral;
+import com.example.tuquechua.RankingNumero;
+import com.example.tuquechua.Secciones;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class procesarBasicoNumero extends AppCompatActivity {
+import org.json.JSONObject;
+
+public class procesarBasicoNumero extends AppCompatActivity implements  Response.ErrorListener, Response.Listener<JSONObject> {
     TextView tvFraseResult, tvPuntResul, tvNumRespCorrect, tvNumRespIncorr;
     Button ok;
+    Button irRanking;
+    ProgressDialog progreso;
+    RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +43,11 @@ public class procesarBasicoNumero extends AppCompatActivity {
         tvNumRespCorrect=findViewById(R.id.tvcorrecta);
         tvNumRespIncorr=findViewById(R.id.tvincorrecta);
         ok = findViewById(R.id.btnOk);
+        irRanking= findViewById(R.id.irRanking);
 
         int puntFinal = getIntent().getIntExtra("puntaje",0);
+        request= Volley.newRequestQueue(this);
+        llamarWebService();
         tvPuntResul.setText(String.valueOf(puntFinal));
 
         int numCorr = puntFinal/5;
@@ -41,18 +62,63 @@ public class procesarBasicoNumero extends AppCompatActivity {
         }else{
             tvFraseResult.setText("¡Excelente trabajo!");
         }
+        irRanking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplication(), RankingNumero.class);
+
+                startActivity(i);
+
+
+            }
+        });
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplication(), Seccion.class);
+                Intent i = new Intent(getApplication(), Secciones.class);
                 startActivity(i);
             }
         });
+    }
+
+    public void llamarWebService() {
+        FirebaseUser users =  FirebaseAuth.getInstance().getCurrentUser();
+        if(users!=null){
+            String nombres=users.getDisplayName();
+            int puntFinal = getIntent().getIntExtra("puntaje",0);
+
+            progreso = new ProgressDialog(this);
+            progreso.setMessage("Consultando");
+            progreso.show();
+            String url="http://192.168.1.195:85/pregunta/registroRankingNumero.php?nombre="+nombres+"&puntaje="+puntFinal;
+
+            //idserie se debe optener desde el spinner serie
+            url=url.replace(" ","%20");
+            jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
+            request.add(jsonObjectRequest);
+
+
+        }else{
+            getApplicationContext();
+        }
     }
 
     @Override
     public void onBackPressed()
     {
         Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        progreso.hide();
+        Toast.makeText(this, "Error de registro", Toast.LENGTH_SHORT).show();
+        Log.i("Error", error.toString());
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+        Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+        progreso.hide();
     }
 }

@@ -63,9 +63,7 @@ public class Basico_Ejercicio2_Comida extends AppCompatActivity implements Respo
         edtrespuesta.requestFocus();
     }
     public void iniciar(View view) {
-        /*String path = "android.resource://" + getPackageName() + "/" + R.raw.familia;
-        vvAudio.setVideoURI(Uri.parse(path)); para video
-        vvAudio.seekTo(0); vvAudio.start();*/
+
         MediaPlayer mp= MediaPlayer.create(this, R.raw.cachi_sal);
         mp.start();
     }

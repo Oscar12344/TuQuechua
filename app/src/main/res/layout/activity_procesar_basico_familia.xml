@@ -193,12 +193,26 @@
 
     <Button
         android:id="@+id/btnOk"
-        android:text="OK"
         style="@style/styleButton"
+        android:text="OK"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.167"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvincorrecta"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.075" />
+
+    <Button
+        android:id="@+id/irRanking"
+        style="@style/styleButton"
+
+        android:layout_marginStart="104dp"
+        android:text="Ir Ranking"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnOk"
+        app:layout_constraintTop_toBottomOf="@+id/tvincorrecta"
+        app:layout_constraintVertical_bias="0.075" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-<?PHP
+	<?PHP
 $hostname_localhost ="localhost";
 $database_localhost ="pregunta";
 $username_localhost ="root";
@@ -19,12 +19,30 @@ $json=array();
 			$result["palabra"]=$registro['palabra'];
 			$result["pregunta"]=$registro['pregunta'];
 			$result["imagen"]=base64_encode($registro['imagen']);
+			$result["op1"]=$registro['op1'];
+			$result["op2"]=$registro['op2'];
+			$result["op3"]=$registro['op3'];
+			$result["op4"]=$registro['op4'];
+			$result["op1Imagen"]=base64_encode($registro['op1Imagen']);
+			$result["op2Imagen"]=base64_encode($registro['op2Imagen']);
+			$result["op3Imagen"]=base64_encode($registro['op3Imagen']);
+			$result["op4Imagen"]=base64_encode($registro['op4Imagen']);
+			$result["palabraEspanol"]=$registro['palabraEspanol'];
 			$json['idpregunta'][]=$result;
 		}else{
 			$resultar["id"]=0;
 			$resultar["palabra"]='no registra';
 			$resultar["pregunta"]='no registra';
 			$resultar["imagen"]='no registra';
+			$resultar["op1"]='no registra';
+			$resultar["op2"]='no registra';
+			$resultar["op3"]='no registra';
+			$resultar["op4"]='no registra';
+			$result["op1Imagen"]='no registra';
+			$result["op2Imagen"]='no registra';
+			$result["op3Imagen"]='no registra';
+			$result["op4Imagen"]='no registra';
+			$result["palabraEspanol"]='no registra';
 			$json['idpregunta'][]=$resultar;
 		}
 		

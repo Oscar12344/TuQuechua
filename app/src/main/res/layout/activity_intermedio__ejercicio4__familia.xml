@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/primaryColor"
+    android:layout_height="match_parent"
+    tools:context=".intermedio.familia_intermedio.Intermedio_Ejercicio4_Familia">
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            style="@style/styleTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="NIVEL INTERMEDIO"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/styleTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="40dp"
+            android:gravity="center"
+            android:text="5 puntos"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tvPregunta"
+        style="@style/styleLabel"
+        android:layout_width="382dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:text="Pregunta"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <ImageView
+        android:id="@+id/ivSonido"
+        android:layout_width="51dp"
+        android:layout_height="337dp"
+        android:layout_gravity="center"
+        android:background="@color/primaryColor"
+
+
+        android:onClick="iniciar"
+        android:scrollbarSize="4dp"
+        android:src="@drawable/audio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPregunta"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <TextView
+        android:id="@+id/txtPalabra"
+        style="@style/styleOracion"
+        android:layout_width="265dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="40dp"
+        android:text="oracion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.689"
+        app:layout_constraintStart_toEndOf="@+id/ibIniciar"
+        app:layout_constraintTop_toBottomOf="@+id/tvPregunta"
+        app:layout_constraintVertical_bias="0.072" />
+
+    <ImageView
+        android:id="@+id/ivImagen"
+        android:layout_width="268dp"
+        android:layout_height="226dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+
+        app:layout_constraintTop_toBottomOf="@+id/txtPalabra"
+        app:layout_constraintVertical_bias="0.12"
+        app:srcCompat="@drawable/img_base" />
+
+    <Spinner
+        android:id="@+id/spOpc"
+        style="@style/spinner_style"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivImagen"
+        app:layout_constraintVertical_bias="0.217" />
+
+    <Button
+        android:id="@+id/btnSiguiente"
+        style="@style/styleButton"
+        android:text="Siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spOpc"
+        app:layout_constraintVertical_bias="0.34" />
+</androidx.constraintlayout.widget.ConstraintLayout>

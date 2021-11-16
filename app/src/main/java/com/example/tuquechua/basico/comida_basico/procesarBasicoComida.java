@@ -5,17 +5,35 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
-import com.example.tuquechua.Seccion;
+import com.example.tuquechua.RankingGeneral;
+import com.example.tuquechua.Secciones;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class procesarBasicoComida extends AppCompatActivity {
+import org.json.JSONObject;
+
+public class procesarBasicoComida extends AppCompatActivity implements  Response.ErrorListener, Response.Listener<JSONObject> {
     TextView tvFraseResult, tvPuntResul, tvNumRespCorrect, tvNumRespIncorr;
     Button ok;
+    Button irRanking;
+    ProgressDialog progreso;
+    RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
+
+
 /*String r1_comida, r2_comida, r3_comida,r4_comida,r5_comida,r6_comida;
 TextView tv1,tv2,tv3,tv4,tv5,tv6;
 int puntaje1=0, puntaje2=0,puntaje3=0,puntaje4=0,puntaje5=0,puntaje6=0,pacumu;
@@ -32,9 +50,18 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
         tvNumRespCorrect=findViewById(R.id.tvcorrecta);
         tvNumRespIncorr=findViewById(R.id.tvincorrecta);
         ok = findViewById(R.id.btnOk);
+        irRanking= findViewById(R.id.irRanking);
 
         int puntFinal = getIntent().getIntExtra("puntaje",0);
+        request= Volley.newRequestQueue(this);
+        llamarWebService();
+
+
+
+
+
         tvPuntResul.setText(String.valueOf(puntFinal));
+
 
         int numCorr = puntFinal/5;
         int numIncorrect = 6 - numCorr;
@@ -48,10 +75,28 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
         }else{
             tvFraseResult.setText("¡Excelente trabajo!");
         }
+        irRanking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplication(), RankingGeneral.class);
+                String seccion="COMIDA";
+                int puntFinal = getIntent().getIntExtra("puntaje",0);
+
+
+                i.putExtra("nombre", seccion);
+                i.putExtra("puntaje", puntFinal);
+                startActivity(i);
+
+
+            }
+        });
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplication(), Seccion.class);
+
+
+
+                Intent i = new Intent(getApplication(), Secciones.class);
                 startActivity(i);
             }
         });
@@ -220,9 +265,44 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
         tvincorrecta.setText(rptaincorracumu+"");*/
     }
 
+    public void llamarWebService() {
+        FirebaseUser users =  FirebaseAuth.getInstance().getCurrentUser();
+        if(users!=null){
+            String nombres=users.getDisplayName();
+            int puntFinal = getIntent().getIntExtra("puntaje",0);
+
+            progreso = new ProgressDialog(this);
+            progreso.setMessage("Consultando");
+            progreso.show();
+            String url="http://192.168.1.195:85/pregunta/registroRankingComida.php?nombre="+nombres+"&puntaje="+puntFinal;
+
+            //idserie se debe optener desde el spinner serie
+            url=url.replace(" ","%20");
+            jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
+            request.add(jsonObjectRequest);
+
+
+        }else{
+            getApplicationContext();
+        }
+    }
+
     @Override
     public void onBackPressed()
     {
         Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        progreso.hide();
+        Toast.makeText(this, "Error de registro", Toast.LENGTH_SHORT).show();
+        Log.i("Error", error.toString());
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+        Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+        progreso.hide();
     }
 }
