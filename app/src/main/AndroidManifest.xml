@@ -14,11 +14,7 @@
         android:theme="@style/Theme.TuQuechua"
         android:usesCleartextTraffic="true">
         <activity android:name=".RankingSaludo">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".RankingNumero" >
 
@@ -95,7 +91,13 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.TuQuechua.NoActionBar" />
+            android:theme="@style/Theme.TuQuechua.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!--
 <activity
             android:name="com.facebook.FacebookActivity"
