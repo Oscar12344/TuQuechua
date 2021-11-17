@@ -46,6 +46,7 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
         txtPalabra= (TextView) findViewById(R.id.txtPalabra);
         txtPregunta= (TextView) findViewById(R.id.txtPregunta);
         campoImagen=(ImageView) findViewById(R.id.imagenId);
+
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
@@ -61,6 +62,8 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
     @Override
     public void onClick(View v) {
         respuestaUsuario = etRespuesta.getText().toString();
+
+        //char seccion = getIntent().getCharExtra("seccion", 'c');
         Intent i = new Intent(this,Basico_Ejercicio2_Comida.class);
         if(respuestaUsuario.equals(""))
         {

@@ -12,7 +12,6 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -54,7 +53,7 @@ public class Intermedio_Ejercicio1_Comida extends AppCompatActivity implements R
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url=getString(R.string.urlIntermedio)+1;
+        String url = getString(R.string.urlIntermedio)+1;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -65,11 +64,7 @@ public class Intermedio_Ejercicio1_Comida extends AppCompatActivity implements R
                 startActivity(i);
             }
         });*/
-
     }
-
-
-
 
     @Override
     public void onErrorResponse(VolleyError error) {
@@ -152,8 +147,11 @@ public class Intermedio_Ejercicio1_Comida extends AppCompatActivity implements R
 
     public void procesar(String opbutton) {
 
-        Intent i = new Intent(this, Intermedio_Frase_Familia.class);
-        int punt = getIntent().getIntExtra("puntaje",0);
+        int punt = 0;
+        char seccion = getIntent().getCharExtra("seccion", '0');
+
+        Intent i = new Intent(this, Intermedio_Ejercicio2.class);
+        i.putExtra("seccion", 'c');
 
         if(opbutton.equalsIgnoreCase(this.rptaCorrecta)) {
             Toast.makeText(getApplicationContext(), rptaCorrecta + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
@@ -164,5 +162,11 @@ public class Intermedio_Ejercicio1_Comida extends AppCompatActivity implements R
         }
         startActivity(i);
         finish();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }

@@ -47,7 +47,7 @@
         style="@style/styleSubtitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Traduce y ordene la ora:"
+        android:text="@string/pregunta_avanzado_ordenar"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

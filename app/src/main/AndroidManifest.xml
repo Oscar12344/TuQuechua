@@ -16,17 +16,16 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".procesar_resultado"
-            android:exported="false" />
+            android:exported="true" >
+        </activity>
         <activity
-            android:name=".intermedio.comida_intermedio.Intermedio_EjercicioR15_Comida"
+            android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio2"
             android:exported="true"></activity>
         <activity
             android:name=".avanzado.Avanzado_Ejercicio3"
             android:exported="true"/>
         <activity android:name=".RankingSaludo"
             android:exported="true">
-        <activity android:name=".RankingSaludo">
-
         </activity>
         <activity
             android:name=".avanzado.Avanzado_Video_Saludos"
@@ -39,9 +38,11 @@
             android:exported="true" />
         <activity
             android:name=".avanzado.Avanzado_Ejercicio2_Comida"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
         <activity
-            android:name=".avanzado.comida_video1"
+            android:name=".avanzado.Avanzado_Video"
             android:exported="true" />
         <activity android:name=".Loguearse" />
         <activity android:name=".RankingNumero" >
@@ -119,11 +120,11 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.TuQuechua.NoActionBar"
             android:exported="true">
-                <intent-filter>
-                        <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                        <category android:name="android.intent.category.LAUNCHER" />
-                </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <!--
 <activity

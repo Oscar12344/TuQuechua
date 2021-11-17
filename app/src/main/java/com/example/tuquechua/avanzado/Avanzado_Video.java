@@ -60,7 +60,7 @@ import at.huber.youtubeExtractor.VideoMeta;
 import at.huber.youtubeExtractor.YouTubeExtractor;
 import at.huber.youtubeExtractor.YtFile;
 
-public class comida_video1 extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
+public class Avanzado_Video extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
     SimpleExoPlayer player;
     PlayerView playerView;
     ProgressBar progressBar;
@@ -290,7 +290,9 @@ public class comida_video1 extends AppCompatActivity implements Response.Listene
                 this.finish();
                 Intent i = new Intent(this, Avanzado_Ejercicio2_Comida.class);
                 i.putExtra("puntaje", puntaje);
+                i.putExtra("seccion", '0');
                 startActivity(i);
+                finish();
                 break;
         }
     }
@@ -303,6 +305,7 @@ public class comida_video1 extends AppCompatActivity implements Response.Listene
         this.finish();
         Intent i = new Intent(getApplication(), Secciones.class);
         startActivity(i);
+        finish();
     }
 
         /*LoadControl loadControl = new DefaultLoadControl();
@@ -311,7 +314,7 @@ public class comida_video1 extends AppCompatActivity implements Response.Listene
 
         TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
 
-        simplePlayer = ExoPlayerFactory.newSimpleInstance(comida_video1.this,trackSelector,loadControl);
+        simplePlayer = ExoPlayerFactory.newSimpleInstance(Avanzado_Video.this,trackSelector,loadControl);
 
         DefaultHttpDataSourceFactory factory = new DefaultHttpDataSourceFactory("exoplayer_video");
 

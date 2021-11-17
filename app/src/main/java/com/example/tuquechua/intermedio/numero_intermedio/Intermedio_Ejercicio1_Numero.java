@@ -141,8 +141,10 @@ public class Intermedio_Ejercicio1_Numero extends AppCompatActivity implements R
     }
 
     public void procesar(String opbutton) {
-        Intent i = new Intent(this, Intermedio_Frase_Saludo.class);
-        int punt = getIntent().getIntExtra("puntaje",0);
+        int punt = 0; //getIntent().getIntExtra("puntaje",0);
+        char seccion = getIntent().getCharExtra("seccion", '0');
+
+        Intent i = new Intent(this, Intermedio_Frase_Numero.class);
 
         if(opbutton.equalsIgnoreCase(this.rptaCorrecta)) {
             Toast.makeText(getApplicationContext(), rptaCorrecta + ", Respuesta correcta", Toast.LENGTH_SHORT).show();

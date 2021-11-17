@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".intermedio.comida_intermedio.Intermedio_EjercicioR15_Comida"
+    tools:context=".intermedio.comida_intermedio.Intermedio_Ejercicio2"
     android:background="@color/primaryColor">
 
     <LinearLayout

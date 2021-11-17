@@ -60,20 +60,44 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvpuntaje"
+        app:layout_constraintTop_toBottomOf="@+id/tvPuntajeObtenido"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_bias="0.02" />
 
     <TextView
-        android:id="@+id/tvpuntaje"
-        android:text="20"
+        android:id="@+id/tvPuntajeObtenido"
+        android:text=""
         android:textColor="#FD0500"
         android:textStyle="bold"
         style="@style/styleLabel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintHorizontal_bias="0.345"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:text=" puntos de "
+        android:textColor="#FD0500"
+        style="@style/styleLabel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvPuntajeObtenido"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <TextView
+        android:id="@+id/tvPuntajeTotal"
+        android:text="total"
+        android:textColor="#FD0500"
+        style="@style/styleLabel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:layout_constraintVertical_bias="0.02" />
 
@@ -102,20 +126,8 @@
         app:layout_constraintHorizontal_bias="0.415" />
 
     <TextView
-        android:id="@+id/textView15"
-        android:text=" puntos de 40"
-        android:textColor="#FD0500"
-        style="@style/styleLabel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvpuntaje"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.02" />
-
-    <TextView
-        android:id="@+id/tvcorrecta"
-        android:text="4"
+        android:id="@+id/tvCorrectas"
+        android:text=""
         android:textColor="#FD0500"
         android:textStyle="bold"
         style="@style/styleLabel"
@@ -127,32 +139,20 @@
         app:layout_constraintHorizontal_bias="0.0" />
 
     <TextView
-        android:id="@+id/tvincorrecta"
-        android:text="4"
+        android:id="@+id/tvIncorrectas"
+        android:text=""
         android:textColor="#FD0500"
         android:textStyle="bold"
         style="@style/styleLabel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView19"
-        app:layout_constraintTop_toBottomOf="@+id/tvcorrecta"
+        app:layout_constraintTop_toBottomOf="@+id/tvCorrectas"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintVertical_bias="0.02"/>
 
-    <TextView
-        android:id="@+id/tvNivel"
-        android:text="Avanzado"
-        android:textColor="#0D30F6"
-        style="@style/styleLabel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
-        app:layout_constraintVertical_bias="0.064" />
-
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imgvSeccion"
         android:layout_width="70dp"
         android:layout_height="70dp"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
@@ -161,31 +161,43 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintVertical_bias="0.5"
-        app:srcCompat="@drawable/comida_2" />
+        app:srcCompat="@drawable/img_base" />
 
     <TextView
         android:id="@+id/tvSeccion"
         style="@style/styleLabel"
-        android:text="Comida"
+        android:text=""
         android:textColor="#0D30F6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/imgvSeccion"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:layout_constraintVertical_bias="0.05" />
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:id="@+id/imgvNivel"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintVertical_bias="0.5"
-        app:srcCompat="@drawable/nivel_imagennivel3" />
+        app:srcCompat="@drawable/img_base" />
+
+    <TextView
+        android:id="@+id/tvNivel"
+        android:text=""
+        android:textColor="#0D30F6"
+        style="@style/styleLabel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toEndOf="@+id/imgvNivel"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.064" />
 
     <Button
         android:id="@+id/btnOk"
@@ -194,7 +206,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvincorrecta"
+        app:layout_constraintTop_toBottomOf="@+id/tvIncorrectas"
         app:layout_constraintVertical_bias="0.05" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

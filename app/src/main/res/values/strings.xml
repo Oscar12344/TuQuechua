@@ -25,8 +25,10 @@
     <string name="urlAvanzadoVF">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaAvanzadoVF.php?id=</string>
     <string name="urlAvVid">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaAvanzadoVideo.php?id=</string>
     <string name="urlAvReord">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaAvanzadoReordenar.php?id=</string>
-    <string name="urlAvOrInc">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaAvanzadoOracionesIncompletas.php?id=</string>
+    <string name="urlIntOrInc">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaIntermedioOracionesIncompletas.php?id=</string>
 
     <string name="avanzado_pregunta_oraciones_incompletas">Complete las frases:</string>
+
+    <string name="pregunta_avanzado_ordenar">Traduce y ordene la oración:</string>
 
 </resources>

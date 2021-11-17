@@ -17,14 +17,16 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.tuquechua.avanzado.comida_video1;
+import com.example.tuquechua.avanzado.Avanzado_Video;
 import com.example.tuquechua.basico.comida_basico.Basico_Ejercicio1_Comida;
-import com.example.tuquechua.basico.comida_basico.Basico_Ejercicio2_Comida;
 import com.example.tuquechua.basico.familia_basico.Basico_Ejercicio1_Familia;
 import com.example.tuquechua.basico.numero_basico.Basico_Ejercicio1_Numero;
 import com.example.tuquechua.basico.saludo_basico.Basico_Ejercicio1_Saludo;
 import com.example.tuquechua.entidades.Nivel;
-import com.example.tuquechua.entidades.Seccion;
+import com.example.tuquechua.intermedio.comida_intermedio.Intermedio_Ejercicio1_Comida;
+import com.example.tuquechua.intermedio.familia_intermedio.Intermedio_Ejercicio1_Familia;
+import com.example.tuquechua.intermedio.numero_intermedio.Intermedio_Ejercicio1_Numero;
+import com.example.tuquechua.intermedio.saludo_intermedio.Intermedio_Ejercicio1_Saludo;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -66,6 +68,16 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Basico_Ejercicio1_Comida.class);
+                    i.putExtra("seccion", 'c');
+                    startActivity(i);
+                }
+            });
+
+            campoImagen2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i= new Intent(getApplication(), Intermedio_Ejercicio1_Comida.class);
+                    i.putExtra("seccion", 'c');
                     startActivity(i);
                 }
             });
@@ -73,7 +85,8 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
             campoImagen3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i= new Intent(getApplication(), comida_video1.class);
+                    Intent i= new Intent(getApplication(), Avanzado_Video.class);
+                    i.putExtra("seccion", 'c');
                     startActivity(i);
                 }
             });
@@ -98,6 +111,15 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                     startActivity(i);
                 }
             });
+
+            campoImagen2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i= new Intent(getApplication(), Intermedio_Ejercicio1_Numero.class);
+                    i.putExtra("seccion", 'n');
+                    startActivity(i);
+                }
+            });
         }
         if(seccsaludo!=null)
         {
@@ -105,6 +127,15 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Basico_Ejercicio1_Saludo.class);
+                    startActivity(i);
+                }
+            });
+
+            campoImagen2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i= new Intent(getApplication(), Intermedio_Ejercicio1_Saludo.class);
+                    i.putExtra("seccion", 's');
                     startActivity(i);
                 }
             });
