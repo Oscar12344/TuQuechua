@@ -10,6 +10,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
 import com.example.tuquechua.entidades.Pregunta;
+import com.example.tuquechua.intermedio.comida_intermedio.Intermedio_Ejercicio2;
 import com.example.tuquechua.intermedio.numero_intermedio.Intermedio_Frase_Numero;
 
 import android.app.ProgressDialog;
@@ -35,6 +36,7 @@ public class Intermedio_Ejercicio1_Familia extends AppCompatActivity implements 
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -144,9 +146,10 @@ public class Intermedio_Ejercicio1_Familia extends AppCompatActivity implements 
     }
 
     public void procesar(String opbutton) {
+        int punt = 0;
+        char sec = getIntent().getCharExtra("seccion", '0');
 
-        Intent i = new Intent(this, Intermedio_Frase_Numero.class);
-        int punt = getIntent().getIntExtra("puntaje",0);
+        Intent i = new Intent(this, Intermedio_Ejercicio2.class);
 
         if(opbutton.equalsIgnoreCase(this.rptaCorrecta)) {
             Toast.makeText(getApplicationContext(), rptaCorrecta + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
@@ -155,6 +158,7 @@ public class Intermedio_Ejercicio1_Familia extends AppCompatActivity implements 
             Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *" + rptaCorrecta, Toast.LENGTH_SHORT).show();
             i.putExtra("puntaje", punt);
         }
+        i.putExtra("seccion", sec);
         startActivity(i);
         finish();
     }

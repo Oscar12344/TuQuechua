@@ -52,8 +52,13 @@ public class Intermedio_Frase_Familia extends AppCompatActivity implements Respo
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int punt = getIntent().getIntExtra("puntaje", 0);
+                char sec = getIntent().getCharExtra("seccion", '0');
+
                 Intent i = new Intent(getApplication(), Intermedio_Ejercicio3_Familia.class);
 
+                i.putExtra("puntaje", punt);
+                i.putExtra("seccion", sec);
                 startActivity(i);
             }
         });
@@ -62,8 +67,8 @@ public class Intermedio_Frase_Familia extends AppCompatActivity implements Respo
         progress = new ProgressDialog(this);
         progress.setMessage("Consultando Comidas");
         progress.show();
-        String url="http://192.168.1.195:85/pregunta/ConsultarListaFraseFamilia.php?";
 
+        String url=getString(R.string.urlIP)+"pregunta/ConsultarListaFraseFamilia.php?";
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
         request.add(jsonObjectRequest);
@@ -105,5 +110,11 @@ public class Intermedio_Frase_Familia extends AppCompatActivity implements Respo
             Toast.makeText(this, "Error servidor", Toast.LENGTH_SHORT).show();
             progress.hide();
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }

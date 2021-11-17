@@ -39,6 +39,7 @@ public class Intermedio_Ejercicio3_Familia extends AppCompatActivity implements 
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +55,7 @@ public class Intermedio_Ejercicio3_Familia extends AppCompatActivity implements 
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+14;
+        String url = getString(R.string.urlIP)+"pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+14;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -66,30 +67,32 @@ public class Intermedio_Ejercicio3_Familia extends AppCompatActivity implements 
         respuesta2 = rpta2.getText().toString();
         respuesta3 = rpta3.getText().toString();
         respuesta4 = rpta4.getText().toString();
-        Intent i = new Intent(this, Intermedio_Frase_Numero.class);
+        int punt = getIntent().getIntExtra("puntaje", 0);
+        char sec = getIntent().getCharExtra("seccion", '0');
+        Intent i = new Intent(this, Intermedio_Ejercicio4_Familia.class);
+
         if((respuesta1.equals("") && respuesta2.equals("") && respuesta3.equals("") && respuesta4.equals("")) ||
                 (respuesta1.equals("") || respuesta2.equals("") || respuesta3.equals("") || respuesta4.equals("")))
         {
-            //que sucede aqui
             Toast.makeText(this,"No debe dejar ningun casillero sin completar",Toast.LENGTH_SHORT).show();
-
-
 
         }else if (respuesta1.equalsIgnoreCase(rptaOp1) && respuesta2.equalsIgnoreCase(rptaOp2) && respuesta3.equalsIgnoreCase(rptaOp3) &&
                 respuesta4.equalsIgnoreCase(rptaOp4)){
-            i.putExtra("puntaje", 5);
             Toast.makeText(this, respuesta1+", Respuesta correcta",Toast.LENGTH_SHORT).show();
             Toast.makeText(this, respuesta2+", Respuesta correcta",Toast.LENGTH_SHORT).show();
             Toast.makeText(this, respuesta3+", Respuesta correcta",Toast.LENGTH_SHORT).show();
             Toast.makeText(this, respuesta4+", Respuesta correcta",Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt+5);
+            i.putExtra("seccion", sec);
             startActivity(i);
             finish();
         }else{
-            i.putExtra("puntaje", 0);
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta1,Toast.LENGTH_SHORT).show();
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta2,Toast.LENGTH_SHORT).show();
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta3,Toast.LENGTH_SHORT).show();
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta4,Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt);
+            i.putExtra("seccion", sec);
             startActivity(i);
             finish();
         }
@@ -117,7 +120,6 @@ public class Intermedio_Ejercicio3_Familia extends AppCompatActivity implements 
             miPregunta.setOp3(jsonObject.optString("op3"));
             miPregunta.setOp4(jsonObject.optString("op4"));
 
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -135,5 +137,9 @@ public class Intermedio_Ejercicio3_Familia extends AppCompatActivity implements 
         }
     }
 
-
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
+    }
 }

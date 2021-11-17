@@ -20,6 +20,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
 import com.example.tuquechua.entidades.Pregunta;
+import com.example.tuquechua.intermedio.comida_intermedio.Intermedio_Ejercicio2;
 import com.example.tuquechua.intermedio.saludo_intermedio.Intermedio_Frase_Saludo;
 
 import org.json.JSONArray;
@@ -144,7 +145,7 @@ public class Intermedio_Ejercicio1_Numero extends AppCompatActivity implements R
         int punt = 0; //getIntent().getIntExtra("puntaje",0);
         char seccion = getIntent().getCharExtra("seccion", '0');
 
-        Intent i = new Intent(this, Intermedio_Frase_Numero.class);
+        Intent i = new Intent(this, Intermedio_Ejercicio2.class);
 
         if(opbutton.equalsIgnoreCase(this.rptaCorrecta)) {
             Toast.makeText(getApplicationContext(), rptaCorrecta + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
@@ -153,7 +154,14 @@ public class Intermedio_Ejercicio1_Numero extends AppCompatActivity implements R
             Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *" + rptaCorrecta, Toast.LENGTH_SHORT).show();
             i.putExtra("puntaje", punt);
         }
+        i.putExtra("seccion", seccion);
         startActivity(i);
         finish();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }

@@ -57,7 +57,7 @@ public class Intermedio_Frase_Numero extends AppCompatActivity implements Respon
                 int punt = getIntent().getIntExtra("puntaje", 0);
                 char sec = getIntent().getCharExtra("seccion", 'n');
 
-                Intent i = new Intent(getApplication(), Intermedio_Ejercicio2.class);
+                Intent i = new Intent(getApplication(), Intermedio_Ejercicio3_Numero.class);
                 i.putExtra("puntaje", punt);
                 i.putExtra("seccion", sec);
                 startActivity(i);

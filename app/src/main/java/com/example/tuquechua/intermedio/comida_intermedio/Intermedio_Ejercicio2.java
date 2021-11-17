@@ -25,11 +25,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
 import com.example.tuquechua.entidades.Pregunta;
-import com.example.tuquechua.intermedio.familia_intermedio.Intermedio_Ejercicio3_Familia;
 import com.example.tuquechua.intermedio.familia_intermedio.Intermedio_Frase_Familia;
-import com.example.tuquechua.intermedio.numero_intermedio.Intermedio_Ejercicio3_Numero;
 import com.example.tuquechua.intermedio.numero_intermedio.Intermedio_Frase_Numero;
-import com.example.tuquechua.intermedio.saludo_intermedio.Intermedio_Ejercicio3_Saludo;
 import com.example.tuquechua.intermedio.saludo_intermedio.Intermedio_Frase_Saludo;
 import com.example.tuquechua.procesar_resultado;
 
@@ -53,7 +50,7 @@ public class Intermedio_Ejercicio2 extends AppCompatActivity implements Response
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_intermedio_ejercicio_r15_comida);
+        setContentView(R.layout.activity_intermedio_ejercicio2);
         txtPre1 = findViewById(R.id.txtPrefixOra1);
         txtPre2 = findViewById(R.id.txtPrefixOra2);
         txtPre3 = findViewById(R.id.txtPrefixOra3);

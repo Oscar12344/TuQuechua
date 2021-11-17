@@ -96,6 +96,7 @@ public class Intermedio_Ejercicio4_Comida extends AppCompatActivity implements  
 
         int punt = getIntent().getIntExtra("puntaje",0);
         char sec = getIntent().getCharExtra("seccion", '0');
+
         Intent i = new Intent(this,  procesar_resultado.class);
 
         if (opcion.equals("Elija una opción")){

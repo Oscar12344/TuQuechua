@@ -62,10 +62,10 @@ public class procesar_resultado extends AppCompatActivity {
         tvCorr.setText(String.valueOf(numCorr));
         tvIncorr.setText(String.valueOf(numIncorrect));
 
-        int referencia = puntTotal/5;
-        if (punt <= referencia*2) {
+        int reference = puntTotal/5;
+        if (punt <= reference*2) {
             tvResultado.setText("¡No te rindas!");
-        }else if (punt <= referencia*4){
+        }else if (punt <= reference*4){
             tvResultado.setText("¡Bien hecho!");
         }else{
             tvResultado.setText("¡Excelente trabajo!");
