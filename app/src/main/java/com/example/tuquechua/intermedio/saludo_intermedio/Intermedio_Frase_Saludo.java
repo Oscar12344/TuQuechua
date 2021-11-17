@@ -53,9 +53,15 @@ public class Intermedio_Frase_Saludo extends AppCompatActivity implements Respon
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int punt = getIntent().getIntExtra("puntaje",0);
+                char seccion = getIntent().getCharExtra("seccion", '0');
+
                 Intent i = new Intent(getApplication(), Intermedio_Ejercicio3_Saludo.class);
 
+                i.putExtra("puntaje", punt);
+                i.putExtra("seccion", seccion);
                 startActivity(i);
+                finish();
             }
         });
     }
@@ -63,8 +69,8 @@ public class Intermedio_Frase_Saludo extends AppCompatActivity implements Respon
         progress = new ProgressDialog(this);
         progress.setMessage("Consultando Comidas");
         progress.show();
-        String url="http://192.168.1.195:85/pregunta/ConsultarListaFraseSaludo.php?";
 
+        String url = getString(R.string.urlIP)+"pregunta/ConsultarListaFraseSaludo.php?";
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
         request.add(jsonObjectRequest);
@@ -77,7 +83,6 @@ public class Intermedio_Frase_Saludo extends AppCompatActivity implements Respon
         Toast.makeText(this, "Error de registro", Toast.LENGTH_SHORT).show();
         Log.i("Error", error.toString());
     }
-
 
     @Override
     public void onResponse(JSONObject response) {
@@ -107,5 +112,11 @@ public class Intermedio_Frase_Saludo extends AppCompatActivity implements Respon
             Toast.makeText(this, "Error servidor", Toast.LENGTH_SHORT).show();
             progress.hide();
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }

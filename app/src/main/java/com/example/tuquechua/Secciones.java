@@ -107,6 +107,7 @@ public class Secciones extends AppCompatActivity implements View.OnClickListener
                 Intent im= new Intent (getApplication(), Niveles.class);
                 im.putExtra("secc_comida",miseccion.getNomsecc1().toString());
                 startActivity(im);
+                finish();
             }
         });
         campoImagen2.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +116,7 @@ public class Secciones extends AppCompatActivity implements View.OnClickListener
                 Intent im= new Intent (getApplication(), Niveles.class);
                 im.putExtra("secc_familia",miseccion.getNomsecc2().toString());
                 startActivity(im);
+                finish();
             }
         });
         campoImagen3.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +125,7 @@ public class Secciones extends AppCompatActivity implements View.OnClickListener
                 Intent im= new Intent (getApplication(), Niveles.class);
                 im.putExtra("secc_numero",miseccion.getNomsecc3().toString());
                 startActivity(im);
+                finish();
             }
         });
         campoImagen4.setOnClickListener(new View.OnClickListener() {
@@ -131,6 +134,7 @@ public class Secciones extends AppCompatActivity implements View.OnClickListener
                 Intent im= new Intent (getApplication(), Niveles.class);
                 im.putExtra("secc_saludo",miseccion.getNomsecc4().toString());
                 startActivity(im);
+                finish();
             }
         });
     }

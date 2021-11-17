@@ -35,6 +35,7 @@ public class Intermedio_Ejercicio1_Saludo extends AppCompatActivity implements R
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -138,7 +139,6 @@ public class Intermedio_Ejercicio1_Saludo extends AppCompatActivity implements R
                 procesar(opbtn4);
             }
         });
-
     }
 
     public void procesar(String opbutton) {
@@ -150,11 +150,11 @@ public class Intermedio_Ejercicio1_Saludo extends AppCompatActivity implements R
         if(opbutton.equalsIgnoreCase(this.rptaCorrecta)) {
             Toast.makeText(getApplicationContext(), rptaCorrecta + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
             i.putExtra("puntaje", punt+5);
-            i.putExtra("seccion", 's');
+            i.putExtra("seccion", seccion);
         }else {
             Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *" + rptaCorrecta, Toast.LENGTH_SHORT).show();
             i.putExtra("puntaje", punt);
-            i.putExtra("seccion", 's');
+            i.putExtra("seccion", seccion);
         }
         startActivity(i);
         finish();
