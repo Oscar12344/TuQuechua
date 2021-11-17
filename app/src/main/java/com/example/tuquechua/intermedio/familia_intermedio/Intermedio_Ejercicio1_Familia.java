@@ -51,7 +51,7 @@ public class Intermedio_Ejercicio1_Familia extends AppCompatActivity implements 
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+2;
+        String url=getString(R.string.urlIntermedio)+2;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);

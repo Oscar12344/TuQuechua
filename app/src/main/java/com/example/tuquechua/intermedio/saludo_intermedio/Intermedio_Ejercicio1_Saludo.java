@@ -10,8 +10,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
 import com.example.tuquechua.entidades.Pregunta;
-import com.example.tuquechua.intermedio.comida_intermedio.Intermedio_Ejercicio4_Comida;
-import com.example.tuquechua.intermedio.numero_intermedio.Intermedio_Frase_Numero;
+import com.example.tuquechua.intermedio.comida_intermedio.Intermedio_Ejercicio2;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -52,7 +51,7 @@ public class Intermedio_Ejercicio1_Saludo extends AppCompatActivity implements R
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+4;
+        String url=getString(R.string.urlIntermedio)+4;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -143,17 +142,27 @@ public class Intermedio_Ejercicio1_Saludo extends AppCompatActivity implements R
     }
 
     public void procesar(String opbutton) {
-        Intent i = new Intent(this, Intermedio_Ejercicio4_Comida.class);
-        int punt = getIntent().getIntExtra("puntaje",0);
+        int punt = 0; //getIntent().getIntExtra("puntaje",0);
+        char seccion = getIntent().getCharExtra("seccion", '0');
+
+        Intent i = new Intent(this, Intermedio_Ejercicio2.class);
 
         if(opbutton.equalsIgnoreCase(this.rptaCorrecta)) {
             Toast.makeText(getApplicationContext(), rptaCorrecta + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
             i.putExtra("puntaje", punt+5);
+            i.putExtra("seccion", 's');
         }else {
             Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *" + rptaCorrecta, Toast.LENGTH_SHORT).show();
             i.putExtra("puntaje", punt);
+            i.putExtra("seccion", 's');
         }
         startActivity(i);
         finish();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }

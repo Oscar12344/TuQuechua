@@ -46,12 +46,13 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
         txtPalabra= (TextView) findViewById(R.id.txtPalabra);
         txtPregunta= (TextView) findViewById(R.id.txtPregunta);
         campoImagen=(ImageView) findViewById(R.id.imagenId);
+
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaImagen.php?id="+13;
+        String url = getString(R.string.urlBasico)+13;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -61,6 +62,8 @@ public class Basico_Ejercicio1_Comida extends AppCompatActivity implements View.
     @Override
     public void onClick(View v) {
         respuestaUsuario = etRespuesta.getText().toString();
+
+        //char seccion = getIntent().getCharExtra("seccion", 'c');
         Intent i = new Intent(this,Basico_Ejercicio2_Comida.class);
         if(respuestaUsuario.equals(""))
         {

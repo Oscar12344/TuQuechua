@@ -26,6 +26,7 @@ import com.example.tuquechua.basico.comida_basico.Basico_Ejercicio4_Comida;
 import com.example.tuquechua.entidades.Pregunta;
 import com.example.tuquechua.intermedio.familia_intermedio.Intermedio_Ejercicio1_Familia;
 import com.example.tuquechua.intermedio.familia_intermedio.Intermedio_Ejercicio4_Familia;
+import com.example.tuquechua.procesar_resultado;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,6 +42,7 @@ public class Intermedio_Ejercicio4_Comida extends AppCompatActivity implements  
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +53,10 @@ public class Intermedio_Ejercicio4_Comida extends AppCompatActivity implements  
         imgsonido= findViewById(R.id.ivSonido);
         spop= findViewById(R.id.spOpc);
         btnSiguiente = findViewById(R.id.btnSiguiente);
+
         request = Volley.newRequestQueue(this);
-        progreso = new ProgressDialog(this);
-        progreso.setMessage("Consultando...");
-        progreso.show();
+
+        llamarWebService();
      /*   btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,13 +73,19 @@ public class Intermedio_Ejercicio4_Comida extends AppCompatActivity implements  
                 procesar(r1);
             }
         });
+    }
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+5;
+    private void llamarWebService(){
+        progreso = new ProgressDialog(this);
+        progreso.setMessage("Consultando...");
+        progreso.show();
+
+        String url = getString(R.string.urlIP)+"pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+5;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
-
     }
+
     public void iniciar(View view) {
 
         MediaPlayer mp= MediaPlayer.create(this, R.raw.cocina_mama);
@@ -86,21 +94,23 @@ public class Intermedio_Ejercicio4_Comida extends AppCompatActivity implements  
 
     public void procesar(String opcion) {
 
-        Intent i = new Intent(this,  Intermedio_Ejercicio4_Familia.class);
         int punt = getIntent().getIntExtra("puntaje",0);
+        char sec = getIntent().getCharExtra("seccion", '0');
+        Intent i = new Intent(this,  procesar_resultado.class);
 
-        if (opcion.equalsIgnoreCase(rptaCorrecta)){
-            Toast.makeText(getApplicationContext(), rptaCorrecta+", Respuesta correcta", Toast.LENGTH_SHORT).show();
-            i.putExtra("puntaje", punt+5);
-            startActivity(i);
-            finish();
-        }
-        else if (opcion.equals("Elija una opción")){
+        if (opcion.equals("Elija una opción")){
             Toast.makeText(getApplicationContext(), "Elija una opción", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(getApplicationContext(), "Respuesta Incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
-            i.putExtra("puntaje", punt);
+        }else{
+            if (opcion.equalsIgnoreCase(rptaCorrecta)){
+                Toast.makeText(getApplicationContext(), rptaCorrecta+", Respuesta correcta", Toast.LENGTH_SHORT).show();
+                i.putExtra("puntaje", punt+5);
+            }else {
+                Toast.makeText(getApplicationContext(), "Respuesta Incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
+                i.putExtra("puntaje", punt);
+            }
+            i.putExtra("puntajeTotal", 35); //estatico por los ejercicios propuestos para este nivel
+            i.putExtra("seccion", sec);
+            i.putExtra("nivel", '2'); //estatico por el nivel de esta activity
             startActivity(i);
             finish();
         }
@@ -115,7 +125,6 @@ public class Intermedio_Ejercicio4_Comida extends AppCompatActivity implements  
 
     @Override
     public void onResponse(JSONObject response) {
-
         progreso.hide();
         Pregunta miPregunta = new Pregunta();
         JSONArray json = response.optJSONArray("intermedios");
@@ -152,5 +161,11 @@ public class Intermedio_Ejercicio4_Comida extends AppCompatActivity implements  
         ArrayAdapter<String> adapter1= new
                 ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,respuestas);
         spop.setAdapter(adapter1);
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }

@@ -57,7 +57,7 @@ public class agregar_pregunta extends AppCompatActivity implements  Response.Err
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultant");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/registroanim.php?id="+edtid.getText().toString()+"&palabra="+edtpalabra.getText().toString()+
+        String url=getString(R.string.urlIP)+"pregunta/registroanim.php?id="+edtid.getText().toString()+"&palabra="+edtpalabra.getText().toString()+
                 "&pregunta="+edtpregunta.getText().toString();
 
         //idserie se debe optener desde el spinner serie

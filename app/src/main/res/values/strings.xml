@@ -19,5 +19,16 @@
     <string name="menu_libros">Libros</string>
     <string name="pruebaramas">Ramas</string>
     <string name="menu_home">Home</string>
+    <string name="urlIP">http://192.168.1.7:80/</string>
+    <string name="urlBasico">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id=</string>
+    <string name="urlIntermedio">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaIntermedio.php?id=</string>
+    <string name="urlAvanzadoVF">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaAvanzadoVF.php?id=</string>
+    <string name="urlAvVid">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaAvanzadoVideo.php?id=</string>
+    <string name="urlAvReord">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaAvanzadoReordenar.php?id=</string>
+    <string name="urlIntOrInc">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaIntermedioOracionesIncompletas.php?id=</string>
+
+    <string name="avanzado_pregunta_oraciones_incompletas">Complete las frases:</string>
+
+    <string name="pregunta_avanzado_ordenar">Traduce y ordene la oración:</string>
 
 </resources>

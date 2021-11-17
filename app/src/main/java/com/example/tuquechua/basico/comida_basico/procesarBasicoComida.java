@@ -53,12 +53,10 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
         irRanking= findViewById(R.id.irRanking);
 
         int puntFinal = getIntent().getIntExtra("puntaje",0);
+
         request= Volley.newRequestQueue(this);
+
         llamarWebService();
-
-
-
-
 
         tvPuntResul.setText(String.valueOf(puntFinal));
 
@@ -75,6 +73,7 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
         }else{
             tvFraseResult.setText("¡Excelente trabajo!");
         }
+
         irRanking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,20 +81,15 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
                 String seccion="COMIDA";
                 int puntFinal = getIntent().getIntExtra("puntaje",0);
 
-
                 i.putExtra("nombre", seccion);
                 i.putExtra("puntaje", puntFinal);
                 startActivity(i);
-
-
             }
         });
+
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
                 Intent i = new Intent(getApplication(), Secciones.class);
                 startActivity(i);
             }
@@ -267,6 +261,7 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
 
     public void llamarWebService() {
         FirebaseUser users =  FirebaseAuth.getInstance().getCurrentUser();
+
         if(users!=null){
             String nombres=users.getDisplayName();
             int puntFinal = getIntent().getIntExtra("puntaje",0);
@@ -274,14 +269,12 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
             progreso = new ProgressDialog(this);
             progreso.setMessage("Consultando");
             progreso.show();
-            String url="http://192.168.1.195:85/pregunta/registroRankingComida.php?nombre="+nombres+"&puntaje="+puntFinal;
+            String url=getString(R.string.urlIP)+"pregunta/registroRankingComida.php?nombre="+nombres+"&puntaje="+puntFinal;
 
-            //idserie se debe optener desde el spinner serie
-            url=url.replace(" ","%20");
+            //idserie se debe obtener desde el spinner serie
+            url = url.replace(" ","%20");
             jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
             request.add(jsonObjectRequest);
-
-
         }else{
             getApplicationContext();
         }

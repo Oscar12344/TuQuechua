@@ -11,14 +11,77 @@ public class Pregunta {
     private String dato;
     private Bitmap imagen;
     private String pregunta;
-    private String op1;
-    private String op2;
-    private String op3;
-    private String op4;
+    private String op1,op2,op3,op4,op5,op6,op7,op8,op9,op10,op11,op12;
     private String dato1, dato2, dato3, dato4;
     private Bitmap op1Imagen, op2Imagen, op3Imagen, op4Imagen;
     private String palabraEsp;
 
+    private String vidUrl;
+    private String avPre1Rpta,avPre2Rpta,avPre3Rpta;
+    private Boolean resp1, resp2, resp3, resp4;
+    private Integer rpta1;
+    private Integer rpta2;
+    private Integer rpta3;
+
+    public Integer getRpta1() {
+        return rpta1;
+    }
+
+    public void setRpta1(Integer rpta1) {
+        this.rpta1 = rpta1;
+    }
+
+    public Integer getRpta2() {
+        return rpta2;
+    }
+
+    public void setRpta2(Integer rpta2) {
+        this.rpta2 = rpta2;
+    }
+
+    public Integer getRpta3() {
+        return rpta3;
+    }
+
+    public void setRpta3(Integer rpta3) {
+        this.rpta3 = rpta3;
+    }
+
+    public Integer getRpta4() {
+        return rpta4;
+    }
+
+    public void setRpta4(Integer rpta4) {
+        this.rpta4 = rpta4;
+    }
+
+    private Integer rpta4;
+
+    public String getVidUrl2() {
+        return vidUrl2;
+    }
+
+    public void setVidUrl2(String vidUrl2) {
+        this.vidUrl2 = vidUrl2;
+    }
+
+    public String getVidUrl3() {
+        return vidUrl3;
+    }
+
+    public void setVidUrl3(String vidUrl3) {
+        this.vidUrl3 = vidUrl3;
+    }
+
+    public String getVidUrl4() {
+        return vidUrl4;
+    }
+
+    public void setVidUrl4(String vidUrl4) {
+        this.vidUrl4 = vidUrl4;
+    }
+
+    private String vidUrl2,vidUrl3,vidUrl4;
 
     public String getOp1() {
         return op1;
@@ -198,4 +261,68 @@ public class Pregunta {
     public void setPalabraEsp(String palabraEsp) {
         this.palabraEsp = palabraEsp;
     }
+
+    public String getVidUrl() { return vidUrl; }
+
+    public void setVidUrl(String vidUrl) {        this.vidUrl = vidUrl;    }
+
+    public String getAvPre1Rpta() {        return avPre1Rpta;    }
+
+    public void setAvPre1Rpta(String avPre1Rpta) {        this.avPre1Rpta = avPre1Rpta;    }
+
+    public String getAvPre2Rpta() {        return avPre2Rpta;    }
+
+    public void setAvPre2Rpta(String avPre2Rpta) {        this.avPre2Rpta = avPre2Rpta;    }
+
+    public String getAvPre3Rpta() {        return avPre3Rpta;    }
+
+    public void setAvPre3Rpta(String avPre3Rpta) {        this.avPre3Rpta = avPre3Rpta;    }
+
+    public String getOp5() {        return op5;    }
+
+    public void setOp5(String op5) {        this.op5 = op5;    }
+
+    public String getOp6() {        return op6;    }
+
+    public void setOp6(String op6) {        this.op6 = op6;    }
+
+    public String getOp7() {        return op7;    }
+
+    public void setOp7(String op7) {        this.op7 = op7;    }
+
+    public String getOp8() {        return op8;    }
+
+    public void setOp8(String op8) {        this.op8 = op8;    }
+
+    public String getOp9() {        return op9;    }
+
+    public void setOp9(String op9) {        this.op9 = op9;    }
+
+    public String getOp10() {        return op10;    }
+
+    public void setOp10(String op10) {        this.op10 = op10;    }
+
+    public String getOp11() {        return op11;    }
+
+    public void setOp11(String op11) {        this.op11 = op11;    }
+
+    public String getOp12() {        return op12;    }
+
+    public void setOp12(String op12) {        this.op12 = op12;    }
+
+    public Boolean getResp1() {return resp1;}
+
+    public void setResp1(Boolean resp1) {this.resp1 = resp1;}
+
+    public Boolean getResp2() {return resp2;}
+
+    public void setResp2(Boolean resp2) {this.resp2 = resp2;}
+
+    public Boolean getResp3() {return resp3;}
+
+    public void setResp3(Boolean resp3) {this.resp3 = resp3;}
+
+    public Boolean getResp4() {return resp4;}
+
+    public void setResp4(Boolean resp4) {this.resp4 = resp4;}
 }

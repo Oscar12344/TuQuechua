@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/tvResultado"
-        android:text="Resultado.."
+        android:text="Resultado"
         style="@style/styleTitulo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

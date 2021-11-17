@@ -51,7 +51,7 @@ public class Intermedio_Ejercicio1_Numero extends AppCompatActivity implements R
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+3;
+        String url=getString(R.string.urlIntermedio)+3;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -141,8 +141,10 @@ public class Intermedio_Ejercicio1_Numero extends AppCompatActivity implements R
     }
 
     public void procesar(String opbutton) {
-        Intent i = new Intent(this, Intermedio_Frase_Saludo.class);
-        int punt = getIntent().getIntExtra("puntaje",0);
+        int punt = 0; //getIntent().getIntExtra("puntaje",0);
+        char seccion = getIntent().getCharExtra("seccion", '0');
+
+        Intent i = new Intent(this, Intermedio_Frase_Numero.class);
 
         if(opbutton.equalsIgnoreCase(this.rptaCorrecta)) {
             Toast.makeText(getApplicationContext(), rptaCorrecta + ", Respuesta correcta", Toast.LENGTH_SHORT).show();

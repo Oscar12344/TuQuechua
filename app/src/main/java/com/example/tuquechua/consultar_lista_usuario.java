@@ -50,7 +50,7 @@ public class consultar_lista_usuario extends AppCompatActivity implements Respon
         progress.setMessage("Consultando...");
         progress.show();
 
-        String url="http://192.168.1.195:85/ejemploBDRemota/wsJSONConsultarLista.php";
+        String url=getString(R.string.urlIP)+"ejemploBDRemota/wsJSONConsultarLista.php";
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);

@@ -44,7 +44,7 @@ public class Secciones extends AppCompatActivity implements View.OnClickListener
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarSeccion.php?idseccion="+1;
+        String url=getString(R.string.urlIP)+"pregunta/wsJSONConsultarSeccion.php?idseccion="+1;
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
     }
