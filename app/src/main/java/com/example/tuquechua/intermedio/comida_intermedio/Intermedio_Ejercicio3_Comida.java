@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
 import com.example.tuquechua.basico.comida_basico.Basico_Ejercicio2_Comida;
 import com.example.tuquechua.entidades.Pregunta;
+import com.example.tuquechua.intermedio.familia_intermedio.Intermedio_Ejercicio4_Familia;
 import com.example.tuquechua.intermedio.familia_intermedio.Intermedio_Frase_Familia;
 
 import org.json.JSONArray;
@@ -40,6 +41,7 @@ public class Intermedio_Ejercicio3_Comida extends AppCompatActivity implements R
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,51 +54,61 @@ public class Intermedio_Ejercicio3_Comida extends AppCompatActivity implements R
         pregunta= findViewById(R.id.tvPregunta);
         btnSiguiente = findViewById(R.id.btnSiguiente);
         request = Volley.newRequestQueue(this);
+
+        llamarWebService();
+
+        btnSiguiente.setOnClickListener(this);
+    }
+
+    private void llamarWebService(){
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+13;
+
+        String url=getString(R.string.urlIP)+"pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+13;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
-        btnSiguiente.setOnClickListener(this);
-
-
     }
+
     @Override
     public void onClick(View v) {
         respuesta1 = rpta1.getText().toString();
         respuesta2 = rpta2.getText().toString();
         respuesta3 = rpta3.getText().toString();
         respuesta4 = rpta4.getText().toString();
-        Intent i = new Intent(this, Intermedio_Frase_Familia.class);
+
+        int punt = getIntent().getIntExtra("puntaje", 0);
+        char sec = getIntent().getCharExtra("seccion", '0');
+        Intent i = new Intent(this, Intermedio_Ejercicio4_Comida.class);
+
         if((respuesta1.equals("") && respuesta2.equals("") && respuesta3.equals("") && respuesta4.equals("")) ||
                 (respuesta1.equals("") || respuesta2.equals("") || respuesta3.equals("") || respuesta4.equals("")))
         {
-            //que sucede aqui
             Toast.makeText(this,"No debe dejar ningun casillero sin completar",Toast.LENGTH_SHORT).show();
 
-
-
-        }else if (respuesta1.equalsIgnoreCase(rptaOp1) && respuesta2.equalsIgnoreCase(rptaOp2) && respuesta3.equalsIgnoreCase(rptaOp3) &&
-                respuesta4.equalsIgnoreCase(rptaOp4)){
-            i.putExtra("puntaje", 5);
+        }else if (respuesta1.equalsIgnoreCase(rptaOp1) && respuesta2.equalsIgnoreCase(rptaOp2) &&
+                respuesta3.equalsIgnoreCase(rptaOp3) && respuesta4.equalsIgnoreCase(rptaOp4)){
+            i.putExtra("puntaje", punt+5);
             Toast.makeText(this, respuesta1+", Respuesta correcta",Toast.LENGTH_SHORT).show();
             Toast.makeText(this, respuesta2+", Respuesta correcta",Toast.LENGTH_SHORT).show();
             Toast.makeText(this, respuesta3+", Respuesta correcta",Toast.LENGTH_SHORT).show();
             Toast.makeText(this, respuesta4+", Respuesta correcta",Toast.LENGTH_SHORT).show();
+            i.putExtra("seccion", sec);
             startActivity(i);
             finish();
         }else{
-            i.putExtra("puntaje", 0);
+            i.putExtra("puntaje", punt);
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta1,Toast.LENGTH_SHORT).show();
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta2,Toast.LENGTH_SHORT).show();
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta3,Toast.LENGTH_SHORT).show();
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta4,Toast.LENGTH_SHORT).show();
+            i.putExtra("seccion", sec);
             startActivity(i);
             finish();
         }
     }
+
     @Override
     public void onErrorResponse(VolleyError error) {
         progreso.hide();
@@ -119,8 +131,6 @@ public class Intermedio_Ejercicio3_Comida extends AppCompatActivity implements R
             miPregunta.setOp2(jsonObject.optString("op2"));
             miPregunta.setOp3(jsonObject.optString("op3"));
             miPregunta.setOp4(jsonObject.optString("op4"));
-
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -137,11 +147,16 @@ public class Intermedio_Ejercicio3_Comida extends AppCompatActivity implements R
             imagen.setImageResource(R.drawable.img_base);
         }
     }
+
     public void IrRecurso(View v)
     {
         Intent i = new Intent(this, Intermedio_Frase_Comida.class);
         startActivity(i);
     }
 
-
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
+    }
 }

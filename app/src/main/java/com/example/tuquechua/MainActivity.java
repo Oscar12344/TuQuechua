@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements  Response.ErrorLi
             progreso = new ProgressDialog(this);
             progreso.setMessage("Consultando");
             progreso.show();
-            String url="http://192.168.1.195:85/pregunta/registroUsuario.php?nombre="+nombres+"&correo="+correos;
+            String url=getString(R.string.urlIP)+"pregunta/registroUsuario.php?nombre="+nombres+"&correo="+correos;
 
             //idserie se debe optener desde el spinner serie
             url=url.replace(" ","%20");

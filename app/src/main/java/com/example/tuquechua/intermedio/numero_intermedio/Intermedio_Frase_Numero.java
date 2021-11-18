@@ -19,10 +19,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
-import com.example.tuquechua.adapter.FamiliaImagenAdapter;
 import com.example.tuquechua.adapter.NumeroImagenAdapter;
 import com.example.tuquechua.entidades.Pregunta;
-import com.example.tuquechua.intermedio.familia_intermedio.Intermedio_Ejercicio1_Familia;
+import com.example.tuquechua.intermedio.comida_intermedio.Intermedio_Ejercicio2;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,6 +37,7 @@ public class Intermedio_Frase_Numero extends AppCompatActivity implements Respon
     ProgressDialog progress;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,22 +48,30 @@ public class Intermedio_Frase_Numero extends AppCompatActivity implements Respon
         btnSiguiente=findViewById(R.id.btnSiguiente);
         recyclerViewNumeros.setHasFixedSize(true);
         request= Volley.newRequestQueue(this);
+
         llamarwebservice();
+
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplication(), Intermedio_Ejercicio3_Numero.class);
+                int punt = getIntent().getIntExtra("puntaje", 0);
+                char sec = getIntent().getCharExtra("seccion", 'n');
 
+                Intent i = new Intent(getApplication(), Intermedio_Ejercicio3_Numero.class);
+                i.putExtra("puntaje", punt);
+                i.putExtra("seccion", sec);
                 startActivity(i);
+                finish();
             }
         });
     }
+
     public void llamarwebservice() {
         progress = new ProgressDialog(this);
         progress.setMessage("Consultando Comidas");
         progress.show();
-        String url="http://192.168.1.195:85/pregunta/ConsultarListaFraseNumero.php?";
 
+        String url=getString(R.string.urlIP)+"pregunta/ConsultarListaFraseNumero.php?";
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
         request.add(jsonObjectRequest);
@@ -105,5 +113,11 @@ public class Intermedio_Frase_Numero extends AppCompatActivity implements Respon
             Toast.makeText(this, "Error servidor", Toast.LENGTH_SHORT).show();
             progress.hide();
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }

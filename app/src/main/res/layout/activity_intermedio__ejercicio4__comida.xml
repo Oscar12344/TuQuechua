@@ -25,10 +25,10 @@
             style="@style/styleTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:gravity="center"
+            android:gravity="left"
             android:text="NIVEL INTERMEDIO"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -39,19 +39,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginEnd="40dp"
-            android:gravity="center"
+            android:layout_marginEnd="16dp"
+            android:gravity="right"
             android:text="5 puntos"
             android:textSize="20sp"
             android:textStyle="bold" />
-
     </LinearLayout>
+
     <TextView
         android:id="@+id/tvPregunta"
         style="@style/styleLabel"
-        android:layout_width="382dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="16dp"
+        android:layout_margin="8dp"
         android:text="Pregunta"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,60 +62,54 @@
 
     <ImageView
         android:id="@+id/ivSonido"
-        android:layout_width="51dp"
-        android:layout_height="337dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
-        android:background="@color/primaryColor"
-
-
+        android:background="@android:color/transparent"
         android:onClick="iniciar"
         android:scrollbarSize="4dp"
         android:src="@drawable/audio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPregunta"
-        app:layout_constraintVertical_bias="0.044" />
+        app:layout_constraintVertical_bias="0.3" />
 
     <TextView
         android:id="@+id/txtPalabra"
         style="@style/styleOracion"
-        android:layout_width="265dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="40dp"
         android:text="oracion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.689"
-        app:layout_constraintStart_toEndOf="@+id/ibIniciar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivSonido"
         app:layout_constraintTop_toBottomOf="@+id/tvPregunta"
-        app:layout_constraintVertical_bias="0.072" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <ImageView
         android:id="@+id/ivImagen"
-        android:layout_width="268dp"
-        android:layout_height="226dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivSonido"
         app:layout_constraintTop_toBottomOf="@+id/txtPalabra"
-        app:layout_constraintVertical_bias="0.12"
+        app:layout_constraintVertical_bias="0.05"
         app:srcCompat="@drawable/img_base" />
 
     <Spinner
         android:id="@+id/spOpc"
         style="@style/spinner_style"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivImagen"
-        app:layout_constraintVertical_bias="0.217" />
+        app:layout_constraintVertical_bias="0.1" />
 
     <Button
         android:id="@+id/btnSiguiente"
@@ -125,8 +117,8 @@
         android:text="Siguiente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spOpc"
-        app:layout_constraintVertical_bias="0.34" />
+        app:layout_constraintTop_toBottomOf="@+id/spOpc"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,7 +32,7 @@ public class Intermedio_Frase_Comida extends AppCompatActivity  implements Respo
     RecyclerView recyclerViewComidas;
     ArrayList<Pregunta> listaComida;
     Button btnSiguiente;
-
+    private Character seccion;
     ProgressDialog progress;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -45,13 +45,18 @@ public class Intermedio_Frase_Comida extends AppCompatActivity  implements Respo
         recyclerViewComidas.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
         btnSiguiente=findViewById(R.id.btnSiguiente);
         recyclerViewComidas.setHasFixedSize(true);
+
+        seccion = getIntent().getCharExtra("seccion", '0');
+
         request= Volley.newRequestQueue(this);
         llamarwebservice();
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int punt = getIntent().getIntExtra("puntaje", 0);
                 Intent i = new Intent(getApplication(), Intermedio_Ejercicio3_Comida.class);
-
+                i.putExtra("seccion", seccion);
+                i.putExtra("puntaje", punt);
                 startActivity(i);
             }
         });
@@ -61,8 +66,7 @@ public class Intermedio_Frase_Comida extends AppCompatActivity  implements Respo
         progress = new ProgressDialog(this);
         progress.setMessage("Consultando Comidas");
         progress.show();
-        String url="http://192.168.1.195:85/pregunta/ConsultarListaFraseComida.php?";
-
+        String url = getString(R.string.urlIP)+"pregunta/ConsultarListaFraseComida.php?";
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
         request.add(jsonObjectRequest);
@@ -104,5 +108,11 @@ public class Intermedio_Frase_Comida extends AppCompatActivity  implements Respo
             Toast.makeText(this, "Error servidor", Toast.LENGTH_SHORT).show();
             progress.hide();
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
     }
 }

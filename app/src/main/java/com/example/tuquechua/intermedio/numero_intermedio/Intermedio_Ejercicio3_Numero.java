@@ -63,32 +63,32 @@ public class Intermedio_Ejercicio3_Numero extends AppCompatActivity implements R
     public void onClick(View v) {
         respuesta1 = rpta1.getText().toString();
         respuesta2 = rpta2.getText().toString();
+        int punt = getIntent().getIntExtra("puntaje", 0);
+        char sec = getIntent().getCharExtra("seccion", '0');
 
-        Intent i = new Intent(this, Intermedio_Frase_Saludo.class);
+        Intent i = new Intent(this, Intermedio_Ejercicio4_Numero.class);
         if((respuesta1.equals("") && respuesta2.equals("")) ||
                 (respuesta1.equals("") || respuesta2.equals("") ))
         {
-            //que sucede aqui
             Toast.makeText(this,"No debe dejar ningun casillero sin completar",Toast.LENGTH_SHORT).show();
 
-
-
         }else if (respuesta1.equalsIgnoreCase(rptaOp1) && respuesta2.equalsIgnoreCase(rptaOp2)){
-            i.putExtra("puntaje", 5);
             Toast.makeText(this, respuesta1+", Respuesta correcta",Toast.LENGTH_SHORT).show();
             Toast.makeText(this, respuesta2+", Respuesta correcta",Toast.LENGTH_SHORT).show();
-
+            i.putExtra("puntaje", punt+5);
+            i.putExtra("seccion", sec);
             startActivity(i);
             finish();
         }else{
-            i.putExtra("puntaje", 0);
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta1,Toast.LENGTH_SHORT).show();
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta2,Toast.LENGTH_SHORT).show();
-           
+            i.putExtra("puntaje", punt);
+            i.putExtra("seccion", sec);
             startActivity(i);
             finish();
         }
     }
+
     @Override
     public void onErrorResponse(VolleyError error) {
         progreso.hide();
@@ -110,8 +110,6 @@ public class Intermedio_Ejercicio3_Numero extends AppCompatActivity implements R
             miPregunta.setOp1(jsonObject.optString("op1"));
             miPregunta.setOp2(jsonObject.optString("op2"));
 
-
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -120,7 +118,6 @@ public class Intermedio_Ejercicio3_Numero extends AppCompatActivity implements R
         this.rptaOp1 = miPregunta.getOp1();
         this.rptaOp2 = miPregunta.getOp2();
 
-
         if (miPregunta.getOp1Imagen()!=null){
             imagen.setImageBitmap(miPregunta.getOp1Imagen());
         }else{
@@ -128,5 +125,9 @@ public class Intermedio_Ejercicio3_Numero extends AppCompatActivity implements R
         }
     }
 
-
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
+    }
 }

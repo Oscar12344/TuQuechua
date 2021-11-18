@@ -51,7 +51,7 @@ public class RankingSaludo extends AppCompatActivity implements Response.Listene
         progress = new ProgressDialog(this);
         progress.setMessage("Consultando Rank Saludos");
         progress.show();
-        String url="http://192.168.1.195:85/pregunta/ConsultarRankingSaludo.php?";
+        String url="http://192.168.1.7:80/pregunta/ConsultarRankingSaludo.php?";
 
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
