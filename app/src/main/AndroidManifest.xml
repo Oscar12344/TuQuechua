@@ -14,19 +14,42 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TuQuechua"
         android:usesCleartextTraffic="true">
+        <activity android:name=".avanzado.procesarAvanzadoSaludo"></activity>
+        <activity android:name=".avanzado.procesarAvanzadoNumero" />
+        <activity android:name=".avanzado.procesarAvanzadoFamilia" />
+        <activity android:name=".avanzado.procesarAvanzadoComida" >
+
+        </activity>
+        <activity android:name=".RankingSaludoAvanzado" />
+        <activity android:name=".RankingNumeroAvanzado" />
+        <activity android:name=".RankingFamiliaAvanzado" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RankingComidaAvanzado" />
+        <activity android:name=".RankingSaludoIntermedio" />
+        <activity android:name=".RankingNumeroIntermedio" />
+        <activity android:name=".RankingFamiliaIntermedio" />
+        <activity android:name=".RankingComidaIntermedio" />
+        <activity android:name=".intermedio.saludo_intermedio.procesarIntermedioSaludo" />
+        <activity android:name=".intermedio.numero_intermedio.procesarIntermedioNumero" />
+        <activity android:name=".intermedio.familia_intermedio.procesarIntermedioFamilia" />
+        <activity android:name=".intermedio.comida_intermedio.procesarIntermedioComida" />
         <activity
             android:name=".procesar_resultado"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio2"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".avanzado.Avanzado_Ejercicio3"
-            android:exported="true"/>
-        <activity android:name=".RankingSaludo"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
+        <activity
+            android:name=".RankingSaludoBasico"
+            android:exported="true" />
         <activity
             android:name=".avanzado.Avanzado_Video_Saludos"
             android:exported="true" />
@@ -38,20 +61,14 @@
             android:exported="true" />
         <activity
             android:name=".avanzado.Avanzado_Ejercicio2_Comida"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".avanzado.Avanzado_Video"
             android:exported="true" />
         <activity android:name=".Loguearse" />
-        <activity android:name=".RankingNumero" >
-
-        </activity>
-        <activity android:name=".RankingFamilia" >
-
-        </activity>
-        <activity android:name=".RankingGeneral" />
+        <activity android:name=".RankingNumeroBasico" />
+        <activity android:name=".RankingFamiliaBasico" />
+        <activity android:name=".RankingComidaBasico" />
         <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio3_Saludo" />
         <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio3_Numero" />
         <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio3_Familia" />
@@ -68,14 +85,11 @@
         <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio1_Numero" />
         <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio1_Familia" />
         <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio1_Comida" />
-
         <activity android:name=".Secciones" />
         <activity android:name=".Niveles" />
         <activity android:name=".basico.saludo_basico.procesarBasicoSaludo" />
         <activity android:name=".basico.numero_basico.procesarBasicoNumero" />
-        <activity android:name=".basico.familia_basico.procesarBasicoFamilia" >
-
-        </activity>
+        <activity android:name=".basico.familia_basico.procesarBasicoFamilia" />
         <activity android:name=".basico.saludo_basico.Basico_Ejercicio2_Saludo" />
         <activity android:name=".basico.numero_basico.Basico_Ejercicio2_Numero" />
         <activity android:name=".basico.comida_basico.Basico_Ejercicio2_Comida" />
@@ -107,9 +121,6 @@
         <activity android:name=".basico.numero_basico.Basico_Ejercicio6_Numero" />
         <activity android:name=".basico.familia_basico.Basico_Ejercicio6_Familia" />
         <activity android:name=".basico.comida_basico.Basico_Ejercicio6_Comida" />
-        <activity android:name=".consultar_lista_usuario_imagen" />
-        <activity android:name=".consultar_lista_usuario" />
-        <activity android:name=".consultar_usuario" />
         <activity android:name=".registrar_usuario" />
         <activity android:name=".agregar_pregunta" />
         <activity android:name=".basico.saludo_basico.Basico_Ejercicio4_Saludo" />
@@ -117,14 +128,10 @@
         <activity android:name=".basico.familia_basico.Basico_Ejercicio4_Familia" />
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.TuQuechua.NoActionBar"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/Theme.TuQuechua.NoActionBar">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <!--
 <activity

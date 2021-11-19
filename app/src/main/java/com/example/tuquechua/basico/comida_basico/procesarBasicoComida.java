@@ -18,7 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
-import com.example.tuquechua.RankingGeneral;
+import com.example.tuquechua.RankingComidaBasico;
 import com.example.tuquechua.Secciones;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -34,12 +34,7 @@ public class procesarBasicoComida extends AppCompatActivity implements  Response
     JsonObjectRequest jsonObjectRequest;
 
 
-/*String r1_comida, r2_comida, r3_comida,r4_comida,r5_comida,r6_comida;
-TextView tv1,tv2,tv3,tv4,tv5,tv6;
-int puntaje1=0, puntaje2=0,puntaje3=0,puntaje4=0,puntaje5=0,puntaje6=0,pacumu;
-int rptacorrecta1=0,rptacorrecta2=0,rptacorrecta3=0,rptacorrecta4=0,rptacorrecta5=0,rptacorrecta6=0, rptacorracumu;
-int rptaincorrecta1=0,rptaincorrecta2=0,rptaincorrecta3=0,rptaincorrecta4=0,rptaincorrecta5=0,rptaincorrecta6=0, rptaincorracumu;
-TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,10 +72,10 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
         irRanking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplication(), RankingGeneral.class);
+                Intent i = new Intent(getApplication(), RankingComidaBasico.class);
 
-                i.putExtra("nombre", seccion);
-                i.putExtra("puntaje", puntFinal);
+               // i.putExtra("nombre", seccion);
+                //i.putExtra("puntaje", puntFinal);
                 startActivity(i);
             }
         });
@@ -106,7 +101,7 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
             progreso = new ProgressDialog(this);
             progreso.setMessage("Consultando");
             progreso.show();
-            String url=getString(R.string.urlIP)+"pregunta/registroRankingComida.php?nombre="+nombres+"&puntaje="+puntFinal;
+            String url=getString(R.string.urlIP)+"pregunta/registroRankingComidaBasico.php?nombre="+nombres+"&puntaje="+puntFinal;
 
             //idserie se debe obtener desde el spinner serie
             url = url.replace(" ","%20");

@@ -101,7 +101,7 @@ public class DiccionarioFragment extends Fragment implements Response.Listener<J
         progress = new ProgressDialog(getContext());
         progress.setMessage("Consultando");
         progress.show();
-        String url="http://192.168.1.7:80/pregunta/ConsultarDiccionario.php?";
+        String url="http://192.168.1.195:80/pregunta/ConsultarDiccionario.php?";
 
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
