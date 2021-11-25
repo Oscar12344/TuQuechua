@@ -52,7 +52,7 @@ public class RankingNumeroAvanzado extends AppCompatActivity implements Response
         progress = new ProgressDialog(this);
         progress.setMessage("Consultando Rank Numeros");
         progress.show();
-        String url="http://192.168.1.195:80/pregunta/ConsultarRankingNumeroAvanzado.php?";
+        String url=getString(R.string.urlIP)+"pregunta/ConsultarRankingNumeroAvanzado.php?";
 
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);

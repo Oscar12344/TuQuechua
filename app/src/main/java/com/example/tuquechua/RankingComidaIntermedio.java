@@ -51,7 +51,7 @@ public class RankingComidaIntermedio extends AppCompatActivity implements Respon
         progress = new ProgressDialog(this);
         progress.setMessage("Consultando Rank Comidas");
         progress.show();
-        String url="http://192.168.1.195:80/pregunta/ConsultarRankingComidaIntermedio.php?";
+        String url=getString(R.string.urlIP)+"pregunta/ConsultarRankingComidaIntermedio.php?";
 
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);

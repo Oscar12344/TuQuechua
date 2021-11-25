@@ -53,7 +53,7 @@ public class RankingFamiliaAvanzado extends AppCompatActivity implements Respons
         progress = new ProgressDialog(this);
         progress.setMessage("Consultando Rank Familias");
         progress.show();
-        String url="http://192.168.1.195:80/pregunta/ConsultarRankingFamiliaAvanzado.php?";
+        String url=getString(R.string.urlIP)+"pregunta/ConsultarRankingFamiliaAvanzado.php?";
 
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);

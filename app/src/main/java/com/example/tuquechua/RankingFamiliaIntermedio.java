@@ -52,7 +52,7 @@ public class RankingFamiliaIntermedio extends AppCompatActivity  implements Resp
         progress = new ProgressDialog(this);
         progress.setMessage("Consultando Rank Familias");
         progress.show();
-        String url="http://192.168.1.195:80/pregunta/ConsultarRankingFamiliaIntermedio.php?";
+        String url=getString(R.string.urlIP)+"pregunta/ConsultarRankingFamiliaIntermedio.php?";
 
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);

@@ -50,7 +50,7 @@ public class RankingNumeroBasico extends AppCompatActivity implements Response.L
         progress = new ProgressDialog(this);
         progress.setMessage("Consultando Rank Numeros");
         progress.show();
-        String url="http://192.168.1.195:80/pregunta/ConsultarRankingNumeroBasico.php?";
+        String url=getString(R.string.urlIP)+"pregunta/ConsultarRankingNumeroBasico.php?";
 
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);

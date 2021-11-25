@@ -53,7 +53,7 @@ public class RankingNumeroIntermedio extends AppCompatActivity  implements Respo
         progress = new ProgressDialog(this);
         progress.setMessage("Consultando Rank Numeros");
         progress.show();
-        String url="http://192.168.1.195:80/pregunta/ConsultarRankingNumeroIntermedio.php?";
+        String url=getString(R.string.urlIP)+"pregunta/ConsultarRankingNumeroIntermedio.php?";
 
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);

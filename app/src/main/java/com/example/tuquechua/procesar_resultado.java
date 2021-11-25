@@ -32,7 +32,6 @@ public class procesar_resultado extends AppCompatActivity {
     private Button ok, btnRanking;
     private Integer punt, puntTotal;
     private Character sec, niv;
-    ProgressDialog progreso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,14 +87,22 @@ public class procesar_resultado extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i;
-                FirebaseUser users =  FirebaseAuth.getInstance().getCurrentUser();
-                RequestQueue requestQ = null;
-                JsonObjectRequest jsonObjectRequest;
-
 
                 switch (sec){
                     case 'c':
-                        i = new Intent(getApplication(), RankingGeneral.class);
+                        switch (niv){
+                            case '1': i = new Intent(getApplication(), RankingComidaBasico.class);
+                                llamarWebServiceRegistro("registroRankingComidaBasico");
+                                break;
+                            case '2': i = new Intent(getApplication(), RankingComidaIntermedio.class);
+                                llamarWebServiceRegistro("registroRankingComidaIntermedio");
+                                break;
+                            case '3': i = new Intent(getApplication(), RankingComidaAvanzado.class);
+                                llamarWebServiceRegistro("registroRankingComidaAvanzado");
+                                break;
+                            default: i = new Intent(getApplication(), Secciones.class);
+                        }
+                        /*i = new Intent(getApplication(), RankingGeneral.class);
 
                         if(users!=null){
 
@@ -125,47 +132,43 @@ public class procesar_resultado extends AppCompatActivity {
                             requestQ.add(jsonObjectRequest);
                         }else{
                             getApplicationContext();
-                        }
-
+                        }*/
                         break;
                     case 's':
-                        i = new Intent(getApplication(), RankingSaludo.class);
-
-                        if(users!=null){
-                            String nombres = users.getDisplayName();
-
-                            //progreso = new ProgressDialog(this);
-                            //progreso.setMessage("Consultando");
-                            //progreso.show();
-                            String url=getString(R.string.urlIP)+"pregunta/registroRankingSaludo.php?nombre="+nombres+"&puntaje="+punt;
-
-                            //idserie se debe obtener desde el spinner serie
-                            url = url.replace(" ","%20");
-                            jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-                                @Override
-                                public void onResponse(JSONObject response) {
-                                    mensajeExito();
-                                    //progreso.hide();
-                                }
-                            }, new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    //progreso.hide();
-                                    mensajeError();
-                                    Log.i("Error", error.toString());
-                                }
-                            });
-                            requestQ.add(jsonObjectRequest);
-                        }else{
-                            getApplicationContext();
+                        switch (niv){
+                            case '1': i = new Intent(getApplication(), RankingSaludoBasico.class);
+                                break;
+                            case '2': i = new Intent(getApplication(), RankingSaludoIntermedio.class);
+                                break;
+                            case '3': i = new Intent(getApplication(), RankingSaludoAvanzado.class);
+                                llamarWebServiceRegistro("registroRankingSaludoAvanzado");
+                                break;
+                            default: i = new Intent(getApplication(), Secciones.class);
                         }
-
                         break;
                     case 'n':
-                        i = new Intent(getApplication(), RankingNumero.class);
+                        switch (niv){
+                            case '1': i = new Intent(getApplication(), RankingNumeroBasico.class);
+                                break;
+                            case '2': i = new Intent(getApplication(), RankingNumeroIntermedio.class);
+                                break;
+                            case '3': i = new Intent(getApplication(), RankingNumeroAvanzado.class);
+                                llamarWebServiceRegistro("registroRankingNumeroAvanzado");
+                                break;
+                            default: i = new Intent(getApplication(), Secciones.class);
+                        }
                         break;
                     case 'f':
-                        i = new Intent(getApplication(), RankingFamilia.class);
+                        switch (niv){
+                            case '1': i = new Intent(getApplication(), RankingFamiliaBasico.class);
+                                break;
+                            case '2': i = new Intent(getApplication(), RankingFamiliaIntermedio.class);
+                                break;
+                            case '3': i = new Intent(getApplication(), RankingFamiliaAvanzado.class);
+                                llamarWebServiceRegistro("registroRankingFamiliaAvanzado");
+                                break;
+                            default: i = new Intent(getApplication(), Secciones.class);
+                        }
                         break;
                     default: i = new Intent(getApplication(), Secciones.class);
                 }
@@ -173,6 +176,42 @@ public class procesar_resultado extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void llamarWebServiceRegistro(String nombreJson) {
+        ProgressDialog progreso;
+        RequestQueue request=null;
+        JsonObjectRequest jsonObjectRequest;
+        FirebaseUser users =  FirebaseAuth.getInstance().getCurrentUser();
+        if(users!=null){
+            String nombres = users.getDisplayName();
+
+            progreso = new ProgressDialog(this);
+            progreso.setMessage("Consultando");
+            progreso.show();
+            String url=getString(R.string.urlIP)+"pregunta/"+nombreJson+".php?nombre="+nombres+"&puntaje="+punt;
+
+
+            //idserie se debe optener desde el spinner serie
+            url=url.replace(" ","%20");
+            jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    mensajeExito();
+                    progreso.hide();
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    progreso.hide();
+                    mensajeError();
+                    Log.i("Error", error.toString());
+                }
+            });
+            request.add(jsonObjectRequest);
+        }else{
+            getApplicationContext();
+        }
     }
 
     private void llamarWebServiceSeccion(){
@@ -329,7 +368,9 @@ public class procesar_resultado extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
-        Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(getApplication(), Secciones.class);
+        startActivity(i);
+        finish();
     }
 
     void mensajeError(){
