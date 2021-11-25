@@ -79,7 +79,7 @@ public class Intermedio_Ejercicio3_Comida extends AppCompatActivity implements R
         respuesta4 = rpta4.getText().toString();
 
         int punt = getIntent().getIntExtra("puntaje", 0);
-        char sec = getIntent().getCharExtra("seccion", '0');
+        //char sec = getIntent().getCharExtra("seccion", '0');
         Intent i = new Intent(this, Intermedio_Ejercicio4_Comida.class);
 
         if((respuesta1.equals("") && respuesta2.equals("") && respuesta3.equals("") && respuesta4.equals("")) ||
@@ -94,7 +94,7 @@ public class Intermedio_Ejercicio3_Comida extends AppCompatActivity implements R
             Toast.makeText(this, respuesta2+", Respuesta correcta",Toast.LENGTH_SHORT).show();
             Toast.makeText(this, respuesta3+", Respuesta correcta",Toast.LENGTH_SHORT).show();
             Toast.makeText(this, respuesta4+", Respuesta correcta",Toast.LENGTH_SHORT).show();
-            i.putExtra("seccion", sec);
+            //i.putExtra("seccion", sec);
             startActivity(i);
             finish();
         }else{
@@ -103,7 +103,7 @@ public class Intermedio_Ejercicio3_Comida extends AppCompatActivity implements R
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta2,Toast.LENGTH_SHORT).show();
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta3,Toast.LENGTH_SHORT).show();
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta4,Toast.LENGTH_SHORT).show();
-            i.putExtra("seccion", sec);
+           // i.putExtra("seccion", sec);
             startActivity(i);
             finish();
         }

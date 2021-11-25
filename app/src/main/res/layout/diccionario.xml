@@ -10,15 +10,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/d_id"
-            android:text="N°"
-            android:textSize="20dp"
-            android:textColor="@color/textoColor4"
-            android:textStyle="bold"
-            android:layout_margin="5dp" />
+
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,16 +21,19 @@
             android:textSize="20dp"
             android:textColor="@color/textoColor4"
             android:textStyle="bold"
-            android:layout_margin="5dp" />
+            android:layout_margin="20dp"
 
-        <TextView
+            />
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="|"
-            android:textSize="20dp"
-            android:textColor="@color/textoColor4"
-            android:textStyle="bold"
-            android:layout_margin="5dp" />
+            android:src="@drawable/ic_igual"
+
+
+
+            android:layout_margin="20dp"
+
+            />
 
         <TextView
             android:id="@+id/d_espanol"
@@ -47,7 +43,9 @@
             android:textSize="20dp"
             android:textColor="@color/textoColor4"
             android:textStyle="bold"
-            android:layout_margin="5dp" />
+            android:layout_margin="20dp"
+            />
+
 
     </LinearLayout>
 

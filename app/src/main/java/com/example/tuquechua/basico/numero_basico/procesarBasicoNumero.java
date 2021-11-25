@@ -18,8 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
-import com.example.tuquechua.RankingGeneral;
-import com.example.tuquechua.RankingNumero;
+import com.example.tuquechua.RankingNumeroBasico;
 import com.example.tuquechua.Secciones;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -65,7 +64,7 @@ public class procesarBasicoNumero extends AppCompatActivity implements  Response
         irRanking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplication(), RankingNumero.class);
+                Intent i = new Intent(getApplication(), RankingNumeroBasico.class);
 
                 startActivity(i);
 
@@ -90,7 +89,7 @@ public class procesarBasicoNumero extends AppCompatActivity implements  Response
             progreso = new ProgressDialog(this);
             progreso.setMessage("Consultando");
             progreso.show();
-            String url="http://192.168.1.195:85/pregunta/registroRankingNumero.php?nombre="+nombres+"&puntaje="+puntFinal;
+            String url="http://192.168.1.195:85/pregunta/registroRankingNumeroBasico.php?nombre="+nombres+"&puntaje="+puntFinal;
 
             //idserie se debe optener desde el spinner serie
             url=url.replace(" ","%20");

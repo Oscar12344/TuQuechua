@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rca_usuario"
+            android:text="Usuario"
+            android:textSize="20dp"
+            android:textColor="@color/textoColor4"
+            android:textStyle="bold"
+            android:layout_margin="7dp"
+
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_flecha"
+            android:layout_margin="7dp"
+            >
+
+        </ImageView>
+        <TextView
+            android:id="@+id/rca_puntaje"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Puntaje "
+            android:textSize="20dp"
+            android:textColor="@color/textoColor4"
+            android:textStyle="bold"
+            android:layout_margin="7dp"
+            />
+
+
+    </LinearLayout>
+</LinearLayout>

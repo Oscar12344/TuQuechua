@@ -4,6 +4,7 @@ public class Diccionario {
     private String dicPalabraQuechua;
     private String dicSignificado;
     private int idDic;
+    private String dicPalabraEspanol;
 
     public String getDicPalabraQuechua() {
         return dicPalabraQuechua;
@@ -27,5 +28,13 @@ public class Diccionario {
 
     public void setIdDic(int idDic) {
         this.idDic = idDic;
+    }
+
+    public String getDicPalabraEspanol() {
+        return dicPalabraEspanol;
+    }
+
+    public void setDicPalabraEspanol(String dicPalabraEspanol) {
+        this.dicPalabraEspanol = dicPalabraEspanol;
     }
 }
