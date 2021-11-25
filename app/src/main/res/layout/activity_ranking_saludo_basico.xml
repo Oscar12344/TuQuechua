@@ -14,17 +14,9 @@
         android:layout_height="wrap_content"
         style="@style/styleTitulo"
         android:text="Ranking-Basico-
-        Saludo(ID/Usuario/Puntaje)"
+        Saludo"
         />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/styleButton"
-        android:text="Regresar"
-        android:id="@+id/btnSiguiente"
-        >
 
-    </Button>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

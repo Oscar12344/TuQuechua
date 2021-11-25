@@ -29,7 +29,7 @@ import java.util.ArrayList;
 public class RankingSaludoAvanzado extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
     RecyclerView recyclerViewRankingAvanzadoSaludos;
     ArrayList<Ranking> listaRankingAvanzadoSaludo;
-    Button btnSiguiente;
+
 
     ProgressDialog progress;
     RequestQueue request;

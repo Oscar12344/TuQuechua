@@ -13,17 +13,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/styleTitulo"
-        android:text="Diccionario
-
-
-
-
-
-
-
-
-        (ID/paQuechua/paEspañol)"
+        android:text="Diccionario"
         />
+
+    <Button
+        android:id="@+id/btnBuscar"
+        style="@style/styleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Buscar">
+
+    </Button>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -14,140 +14,220 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TuQuechua"
         android:usesCleartextTraffic="true">
-        <activity android:name=".avanzado.procesarAvanzadoSaludo"></activity>
-        <activity android:name=".avanzado.procesarAvanzadoNumero" />
-        <activity android:name=".avanzado.procesarAvanzadoFamilia" />
-        <activity android:name=".avanzado.procesarAvanzadoComida" >
+        <activity android:name=".Buscar"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".avanzado.procesarAvanzadoSaludo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".avanzado.procesarAvanzadoNumero"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".avanzado.procesarAvanzadoFamilia"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".avanzado.procesarAvanzadoComida"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".RankingSaludoAvanzado"
+            android:screenOrientation="portrait">
 
         </activity>
-        <activity android:name=".RankingSaludoAvanzado" />
-        <activity android:name=".RankingNumeroAvanzado" />
-        <activity android:name=".RankingFamiliaAvanzado" >
+        <activity android:name=".RankingNumeroAvanzado"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".RankingFamiliaAvanzado"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".RankingComidaAvanzado"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".RankingSaludoIntermedio"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".RankingNumeroIntermedio"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".RankingFamiliaIntermedio"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".RankingComidaIntermedio"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".intermedio.saludo_intermedio.procesarIntermedioSaludo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.numero_intermedio.procesarIntermedioNumero"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.familia_intermedio.procesarIntermedioFamilia"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.comida_intermedio.procesarIntermedioComida"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".procesar_resultado"
+
+            android:exported="true" />
+        <activity
+            android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio2"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity
+            android:name=".avanzado.Avanzado_Ejercicio3"
+            android:screenOrientation="portrait"
+            android:exported="true"></activity>
+        <activity
+            android:name=".RankingSaludoBasico"
+            android:screenOrientation="portrait"
+            android:exported="true" >
+
+        </activity>
+        <activity
+            android:name=".avanzado.Avanzado_Video_Saludos"
+            android:exported="true" />
+        <activity
+            android:name=".avanzado.Avanzado_Video_Familia"
+
+            android:exported="true" />
+        <activity
+            android:name=".avanzado.Avanzado_Video_Numeros"
+
+            android:exported="true" />
+        <activity
+            android:name=".avanzado.Avanzado_Ejercicio2_Comida"
+
+            android:exported="true"></activity>
+        <activity
+            android:name=".avanzado.Avanzado_Video"
+            android:screenOrientation="portrait"
+            android:exported="true"></activity>
+        <activity android:name=".Loguearse"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".RankingNumeroBasico"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".RankingFamiliaBasico"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".RankingComidaBasico"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio3_Saludo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio3_Numero"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio3_Familia"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio3_Comida"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Frase_Saludo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.numero_intermedio.Intermedio_Frase_Numero"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.familia_intermedio.Intermedio_Frase_Familia"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.comida_intermedio.Intermedio_Frase_Comida"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio4_Saludo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio4_Numero"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio4_Familia"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio4_Comida"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio1_Saludo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio1_Numero"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio1_Familia"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio1_Comida"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Secciones"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Niveles"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.saludo_basico.procesarBasicoSaludo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.numero_basico.procesarBasicoNumero"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.familia_basico.procesarBasicoFamilia"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.saludo_basico.Basico_Ejercicio2_Saludo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.numero_basico.Basico_Ejercicio2_Numero"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.comida_basico.Basico_Ejercicio2_Comida"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.familia_basico.Basico_Ejercicio2_Familia"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".basico.familia_basico.Basico_Ejercicio5_Familia"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity
+            android:name=".basico.saludo_basico.Basico_Ejercicio5_Saludo"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity
+            android:name=".basico.comida_basico.Basico_Ejercicio5_Comida"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity
+            android:name=".basico.familia_basico.Basico_Ejercicio3_Familia"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity
+            android:name=".basico.saludo_basico.Basico_Ejercicio3_Saludo"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity
+            android:name=".basico.numero_basico.Basico_Ejercicio3_Numero"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity android:name=".basico.comida_basico.procesarBasicoComida"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".basico.comida_basico.Basico_Ejercicio3_Comida"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity android:name=".basico.numero_basico.Basico_Ejercicio5_Numero"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.saludo_basico.Basico_Ejercicio6_Saludo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.numero_basico.Basico_Ejercicio6_Numero"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.familia_basico.Basico_Ejercicio6_Familia"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.comida_basico.Basico_Ejercicio6_Comida"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".registrar_usuario"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".agregar_pregunta"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.saludo_basico.Basico_Ejercicio4_Saludo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.numero_basico.Basico_Ejercicio4_Numero"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.familia_basico.Basico_Ejercicio4_Familia"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.TuQuechua.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RankingComidaAvanzado" />
-        <activity android:name=".RankingSaludoIntermedio" />
-        <activity android:name=".RankingNumeroIntermedio" />
-        <activity android:name=".RankingFamiliaIntermedio" />
-        <activity android:name=".RankingComidaIntermedio" />
-        <activity android:name=".intermedio.saludo_intermedio.procesarIntermedioSaludo" />
-        <activity android:name=".intermedio.numero_intermedio.procesarIntermedioNumero" />
-        <activity android:name=".intermedio.familia_intermedio.procesarIntermedioFamilia" />
-        <activity android:name=".intermedio.comida_intermedio.procesarIntermedioComida" />
-        <activity
-            android:name=".procesar_resultado"
-            android:exported="true" />
-        <activity
-            android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio2"
-            android:exported="true" />
-        <activity
-            android:name=".avanzado.Avanzado_Ejercicio3"
-            android:exported="true" />
-        <activity
-            android:name=".RankingSaludoBasico"
-            android:exported="true" />
-        <activity
-            android:name=".avanzado.Avanzado_Video_Saludos"
-            android:exported="true" />
-        <activity
-            android:name=".avanzado.Avanzado_Video_Familia"
-            android:exported="true" />
-        <activity
-            android:name=".avanzado.Avanzado_Video_Numeros"
-            android:exported="true" />
-        <activity
-            android:name=".avanzado.Avanzado_Ejercicio2_Comida"
-            android:exported="true" />
-        <activity
-            android:name=".avanzado.Avanzado_Video"
-            android:exported="true" />
-        <activity android:name=".Loguearse" />
-        <activity android:name=".RankingNumeroBasico" />
-        <activity android:name=".RankingFamiliaBasico" />
-        <activity android:name=".RankingComidaBasico" />
-        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio3_Saludo" />
-        <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio3_Numero" />
-        <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio3_Familia" />
-        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio3_Comida" />
-        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Frase_Saludo" />
-        <activity android:name=".intermedio.numero_intermedio.Intermedio_Frase_Numero" />
-        <activity android:name=".intermedio.familia_intermedio.Intermedio_Frase_Familia" />
-        <activity android:name=".intermedio.comida_intermedio.Intermedio_Frase_Comida" />
-        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio4_Saludo" />
-        <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio4_Numero" />
-        <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio4_Familia" />
-        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio4_Comida" />
-        <activity android:name=".intermedio.saludo_intermedio.Intermedio_Ejercicio1_Saludo" />
-        <activity android:name=".intermedio.numero_intermedio.Intermedio_Ejercicio1_Numero" />
-        <activity android:name=".intermedio.familia_intermedio.Intermedio_Ejercicio1_Familia" />
-        <activity android:name=".intermedio.comida_intermedio.Intermedio_Ejercicio1_Comida" />
-        <activity android:name=".Secciones" />
-        <activity android:name=".Niveles" />
-        <activity android:name=".basico.saludo_basico.procesarBasicoSaludo" />
-        <activity android:name=".basico.numero_basico.procesarBasicoNumero" />
-        <activity android:name=".basico.familia_basico.procesarBasicoFamilia" />
-        <activity android:name=".basico.saludo_basico.Basico_Ejercicio2_Saludo" />
-        <activity android:name=".basico.numero_basico.Basico_Ejercicio2_Numero" />
-        <activity android:name=".basico.comida_basico.Basico_Ejercicio2_Comida" />
-        <activity android:name=".basico.familia_basico.Basico_Ejercicio2_Familia" />
-        <activity
-            android:name=".basico.familia_basico.Basico_Ejercicio5_Familia"
-            android:exported="true" />
-        <activity
-            android:name=".basico.saludo_basico.Basico_Ejercicio5_Saludo"
-            android:exported="true" />
-        <activity
-            android:name=".basico.comida_basico.Basico_Ejercicio5_Comida"
-            android:exported="true" />
-        <activity
-            android:name=".basico.familia_basico.Basico_Ejercicio3_Familia"
-            android:exported="true" />
-        <activity
-            android:name=".basico.saludo_basico.Basico_Ejercicio3_Saludo"
-            android:exported="true" />
-        <activity
-            android:name=".basico.numero_basico.Basico_Ejercicio3_Numero"
-            android:exported="true" />
-        <activity android:name=".basico.comida_basico.procesarBasicoComida" />
-        <activity
-            android:name=".basico.comida_basico.Basico_Ejercicio3_Comida"
-            android:exported="true" />
-        <activity android:name=".basico.numero_basico.Basico_Ejercicio5_Numero" />
-        <activity android:name=".basico.saludo_basico.Basico_Ejercicio6_Saludo" />
-        <activity android:name=".basico.numero_basico.Basico_Ejercicio6_Numero" />
-        <activity android:name=".basico.familia_basico.Basico_Ejercicio6_Familia" />
-        <activity android:name=".basico.comida_basico.Basico_Ejercicio6_Comida" />
-        <activity android:name=".registrar_usuario" />
-        <activity android:name=".agregar_pregunta" />
-        <activity android:name=".basico.saludo_basico.Basico_Ejercicio4_Saludo" />
-        <activity android:name=".basico.numero_basico.Basico_Ejercicio4_Numero" />
-        <activity android:name=".basico.familia_basico.Basico_Ejercicio4_Familia" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.TuQuechua.NoActionBar">
 
-        </activity>
-        <!--
-<activity
-            android:name="com.facebook.FacebookActivity"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name" />
 
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
-        -->
-        <activity android:name=".basico.comida_basico.Basico_Ejercicio4_Comida" />
-        <activity android:name=".basico.saludo_basico.Basico_Ejercicio1_Saludo" />
-        <activity android:name=".basico.numero_basico.Basico_Ejercicio1_Numero" />
-        <activity android:name=".basico.familia_basico.Basico_Ejercicio1_Familia" />
-        <activity android:name=".basico.comida_basico.Basico_Ejercicio1_Comida" />
+        <activity android:name=".basico.comida_basico.Basico_Ejercicio4_Comida"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.saludo_basico.Basico_Ejercicio1_Saludo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.numero_basico.Basico_Ejercicio1_Numero"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.familia_basico.Basico_Ejercicio1_Familia"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".basico.comida_basico.Basico_Ejercicio1_Comida"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

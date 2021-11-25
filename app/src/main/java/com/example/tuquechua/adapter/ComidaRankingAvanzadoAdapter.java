@@ -32,7 +32,7 @@ public class ComidaRankingAvanzadoAdapter extends RecyclerView.Adapter<ComidaRan
 
     @Override
     public void onBindViewHolder(@NonNull ComidaRankingAvanzadoAdapter.ComidaRankingAvanzadoHolder holder, int position) {
-        holder.txtid.setText(String.valueOf(listaRankingAvanzadoComidas.get(position).getIdrank()));
+
         holder.txtusuario.setText(String.valueOf(listaRankingAvanzadoComidas.get(position).getNombre()));
         holder.txtpuntaje.setText(String.valueOf(listaRankingAvanzadoComidas.get(position).getPuntaje()));
     }
@@ -43,10 +43,10 @@ public class ComidaRankingAvanzadoAdapter extends RecyclerView.Adapter<ComidaRan
     }
 
     public class ComidaRankingAvanzadoHolder extends RecyclerView.ViewHolder {
-        TextView txtid, txtusuario, txtpuntaje;
+        TextView  txtusuario, txtpuntaje;
         public ComidaRankingAvanzadoHolder(@NonNull View itemView) {
             super(itemView);
-            txtid=itemView.findViewById(R.id.rca_id);
+
             txtusuario=itemView.findViewById(R.id.rca_usuario);
             txtpuntaje=itemView.findViewById(R.id.rca_puntaje);
         }

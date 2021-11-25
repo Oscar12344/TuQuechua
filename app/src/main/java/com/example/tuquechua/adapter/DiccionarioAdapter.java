@@ -33,7 +33,7 @@ public class DiccionarioAdapter extends RecyclerView.Adapter<DiccionarioAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull DiccionarioAdapter.DiccinarioHolder holder, int position) {
-        holder.txtidDi.setText(String.valueOf(listaDiccionarios.get(position).getIdDic()));
+
         holder.txtquechua.setText(String.valueOf(listaDiccionarios.get(position).getDicPalabraQuechua()));
         holder.txtespanol.setText(String.valueOf(listaDiccionarios.get(position).getDicSignificado()));
     }
@@ -44,10 +44,10 @@ public class DiccionarioAdapter extends RecyclerView.Adapter<DiccionarioAdapter.
     }
 
     public class DiccinarioHolder extends RecyclerView.ViewHolder {
-        TextView txtidDi, txtquechua, txtespanol;
+        TextView  txtquechua, txtespanol;
         public DiccinarioHolder(@NonNull View itemView) {
             super(itemView);
-            txtidDi=itemView.findViewById(R.id.d_id);
+
             txtquechua=itemView.findViewById(R.id.d_quechua);
             txtespanol=itemView.findViewById(R.id.d_espanol);
         }

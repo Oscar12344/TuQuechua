@@ -1,6 +1,7 @@
 package com.example.tuquechua.ui.diccionario;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -19,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tuquechua.Buscar;
 import com.example.tuquechua.R;
 import com.example.tuquechua.adapter.DiccionarioAdapter;
 import com.example.tuquechua.adapter.FamiliaImagenAdapter;
@@ -41,6 +44,7 @@ public class DiccionarioFragment extends Fragment implements Response.Listener<J
     ArrayList<Diccionario> listaDiccionario;
     ProgressDialog progress;
     RequestQueue request;
+    Button btnbuscar;
     JsonObjectRequest jsonObjectRequest;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -90,7 +94,14 @@ public class DiccionarioFragment extends Fragment implements Response.Listener<J
         listaDiccionario = new ArrayList<>();
         recyclerViewDiccionarios=(RecyclerView)vista.findViewById(R.id.idRecyclerDiccionario);
         recyclerViewDiccionarios.setLayoutManager(new LinearLayoutManager(this.getContext()));
-
+        btnbuscar=vista.findViewById(R.id.btnBuscar);
+        btnbuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), Buscar.class);
+                startActivity(i);
+            }
+        });
         recyclerViewDiccionarios.setHasFixedSize(true);
         request= Volley.newRequestQueue(getContext());
         llamarwebservice();
@@ -129,7 +140,7 @@ public class DiccionarioFragment extends Fragment implements Response.Listener<J
                 JSONObject jsonObject=null;
                 jsonObject=json.getJSONObject(i);
 
-                diccionario.setIdDic(jsonObject.optInt("idDic"));
+
                 diccionario.setDicPalabraQuechua(jsonObject.optString("dicPalabraQuechua"));
                 diccionario.setDicSignificado(jsonObject.optString("dicSignificado"));
                 listaDiccionario.add(diccionario);

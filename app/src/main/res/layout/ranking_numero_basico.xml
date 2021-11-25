@@ -11,17 +11,7 @@
         android:orientation="horizontal">
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rnb_id"
-            android:text="ID"
-            android:textSize="20dp"
-            android:textColor="@color/textoColor4"
-            android:textStyle="bold"
-            android:layout_margin="5dp"
 
-            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -31,10 +21,16 @@
             android:textSize="20dp"
             android:textColor="@color/textoColor4"
             android:textStyle="bold"
-            android:layout_margin="5dp"
+            android:layout_margin="7dp"
 
             />
-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_flecha"
+            android:layout_margin="7dp"
+            >
+        </ImageView>
         <TextView
             android:id="@+id/rnb_puntaje"
 
@@ -44,7 +40,7 @@
             android:textSize="20dp"
             android:textColor="@color/textoColor4"
             android:textStyle="bold"
-            android:layout_margin="5dp"
+            android:layout_margin="7dp"
             />
 
 

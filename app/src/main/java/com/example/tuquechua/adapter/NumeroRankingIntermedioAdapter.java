@@ -32,7 +32,7 @@ public class NumeroRankingIntermedioAdapter extends RecyclerView.Adapter<NumeroR
 
     @Override
     public void onBindViewHolder(@NonNull NumeroRankingIntermedioAdapter.NumeroRankingIntermedioHolder holder, int position) {
-        holder.txtid.setText(String.valueOf(listaRankingIntermedioNumeros.get(position).getIdrank()));
+
         holder.txtusuario.setText(String.valueOf(listaRankingIntermedioNumeros.get(position).getNombre()));
         holder.txtpuntaje.setText(String.valueOf(listaRankingIntermedioNumeros.get(position).getPuntaje()));
     }
@@ -43,10 +43,10 @@ public class NumeroRankingIntermedioAdapter extends RecyclerView.Adapter<NumeroR
     }
 
     public class NumeroRankingIntermedioHolder extends RecyclerView.ViewHolder {
-        TextView txtid, txtusuario, txtpuntaje;
+        TextView  txtusuario, txtpuntaje;
         public NumeroRankingIntermedioHolder(@NonNull View itemView) {
             super(itemView);
-            txtid=itemView.findViewById(R.id.rni_id);
+
             txtusuario=itemView.findViewById(R.id.rni_usuario);
             txtpuntaje=itemView.findViewById(R.id.rni_puntaje);
         }

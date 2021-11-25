@@ -32,7 +32,7 @@ public class NumeroRankingAvanzadoAdapter extends RecyclerView.Adapter<NumeroRan
 
     @Override
     public void onBindViewHolder(@NonNull NumeroRankingAvanzadoAdapter.NumeroRankingAvanzadoHolder holder, int position) {
-        holder.txtid.setText(String.valueOf(listaRankingAvanzadoNumeros.get(position).getIdrank()));
+
         holder.txtusuario.setText(String.valueOf(listaRankingAvanzadoNumeros.get(position).getNombre()));
         holder.txtpuntaje.setText(String.valueOf(listaRankingAvanzadoNumeros.get(position).getPuntaje()));
     }
@@ -43,10 +43,10 @@ public class NumeroRankingAvanzadoAdapter extends RecyclerView.Adapter<NumeroRan
     }
 
     public class NumeroRankingAvanzadoHolder  extends RecyclerView.ViewHolder{
-        TextView txtid, txtusuario, txtpuntaje;
+        TextView  txtusuario, txtpuntaje;
         public NumeroRankingAvanzadoHolder(@NonNull View itemView) {
             super(itemView);
-            txtid=itemView.findViewById(R.id.rna_id);
+
             txtusuario=itemView.findViewById(R.id.rna_usuario);
             txtpuntaje=itemView.findViewById(R.id.rna_puntaje);
         }

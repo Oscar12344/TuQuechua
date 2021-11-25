@@ -33,7 +33,7 @@ public class ComidaRankingIntermedioAdapter extends RecyclerView.Adapter<ComidaR
 
     @Override
     public void onBindViewHolder(@NonNull ComidaRankingIntermedioAdapter.ComidaRankingIntermedioHolder holder, int position) {
-        holder.txtid.setText(String.valueOf(listaRankingIntermedioComidas.get(position).getIdrank()));
+
         holder.txtusuario.setText(String.valueOf(listaRankingIntermedioComidas.get(position).getNombre()));
         holder.txtpuntaje.setText(String.valueOf(listaRankingIntermedioComidas.get(position).getPuntaje()));
     }
@@ -44,10 +44,10 @@ public class ComidaRankingIntermedioAdapter extends RecyclerView.Adapter<ComidaR
     }
 
     public class ComidaRankingIntermedioHolder extends RecyclerView.ViewHolder {
-        TextView txtid, txtusuario, txtpuntaje;
+        TextView  txtusuario, txtpuntaje;
         public ComidaRankingIntermedioHolder(@NonNull View itemView) {
             super(itemView);
-            txtid=itemView.findViewById(R.id.rci_id);
+
             txtusuario=itemView.findViewById(R.id.rci_usuario);
             txtpuntaje=itemView.findViewById(R.id.rci_puntaje);
         }

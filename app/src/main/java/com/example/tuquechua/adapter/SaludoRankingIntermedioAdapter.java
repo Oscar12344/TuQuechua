@@ -32,7 +32,7 @@ public class SaludoRankingIntermedioAdapter  extends RecyclerView.Adapter<Saludo
 
     @Override
     public void onBindViewHolder(@NonNull SaludoRankingIntermedioAdapter.SaludoRankingIntermedioHolder holder, int position) {
-        holder.txtid.setText(String.valueOf(listaRankingIntermedioSaludos.get(position).getIdrank()));
+
         holder.txtusuario.setText(String.valueOf(listaRankingIntermedioSaludos.get(position).getNombre()));
         holder.txtpuntaje.setText(String.valueOf(listaRankingIntermedioSaludos.get(position).getPuntaje()));
     }
@@ -43,10 +43,10 @@ public class SaludoRankingIntermedioAdapter  extends RecyclerView.Adapter<Saludo
     }
 
     public class SaludoRankingIntermedioHolder extends RecyclerView.ViewHolder {
-        TextView txtid, txtusuario, txtpuntaje;
+        TextView  txtusuario, txtpuntaje;
         public SaludoRankingIntermedioHolder(@NonNull View itemView) {
             super(itemView);
-            txtid=itemView.findViewById(R.id.rsi_id);
+
             txtusuario=itemView.findViewById(R.id.rsi_usuario);
             txtpuntaje=itemView.findViewById(R.id.rsi_puntaje);
         }

@@ -32,7 +32,7 @@ public class FamiliaRankingIntermedioAdapter extends  RecyclerView.Adapter<Famil
 
     @Override
     public void onBindViewHolder(@NonNull FamiliaRankingIntermedioAdapter.FamiliaRankingIntermedioHolder holder, int position) {
-        holder.txtid.setText(String.valueOf(listaRankingIntermedioFamilias.get(position).getIdrank()));
+
         holder.txtusuario.setText(String.valueOf(listaRankingIntermedioFamilias.get(position).getNombre()));
         holder.txtpuntaje.setText(String.valueOf(listaRankingIntermedioFamilias.get(position).getPuntaje()));
     }
@@ -43,10 +43,10 @@ public class FamiliaRankingIntermedioAdapter extends  RecyclerView.Adapter<Famil
     }
 
     public class FamiliaRankingIntermedioHolder extends RecyclerView.ViewHolder {
-        TextView txtid, txtusuario, txtpuntaje;
+        TextView txtusuario, txtpuntaje;
         public FamiliaRankingIntermedioHolder(@NonNull View itemView) {
             super(itemView);
-            txtid=itemView.findViewById(R.id.rfi_id);
+
             txtusuario=itemView.findViewById(R.id.rfi_usuario);
             txtpuntaje=itemView.findViewById(R.id.rfi_puntaje);
         }

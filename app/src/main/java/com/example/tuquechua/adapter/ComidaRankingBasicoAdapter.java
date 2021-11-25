@@ -32,7 +32,7 @@ public class ComidaRankingBasicoAdapter extends RecyclerView.Adapter<ComidaRanki
 
     @Override
     public void onBindViewHolder(@NonNull ComidaRankingBasicoHolder holder, int position) {
-        holder.txtid.setText(String.valueOf(listaRankingBasicoComidas.get(position).getIdrank()));
+
         holder.txtusuario.setText(String.valueOf(listaRankingBasicoComidas.get(position).getNombre()));
          holder.txtpuntaje.setText(String.valueOf(listaRankingBasicoComidas.get(position).getPuntaje()));
 
@@ -45,11 +45,11 @@ public class ComidaRankingBasicoAdapter extends RecyclerView.Adapter<ComidaRanki
     }
 
     public class ComidaRankingBasicoHolder extends RecyclerView.ViewHolder {
-        TextView txtid, txtusuario, txtpuntaje;
+        TextView  txtusuario, txtpuntaje;
 
         public ComidaRankingBasicoHolder(@NonNull View itemView) {
             super(itemView);
-            txtid=itemView.findViewById(R.id.rcb_id);
+
             txtusuario=itemView.findViewById(R.id.rcb_usuario);
             txtpuntaje=itemView.findViewById(R.id.rcb_puntaje);
 

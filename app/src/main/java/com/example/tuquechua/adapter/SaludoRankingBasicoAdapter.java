@@ -33,7 +33,7 @@ public class SaludoRankingBasicoAdapter extends RecyclerView.Adapter<SaludoRanki
 
     @Override
     public void onBindViewHolder(@NonNull SaludoRankingBasicoAdapter.SaludoRankingBasicoHolder holder, int position) {
-        holder.txtid.setText(String.valueOf(listaRankingBasicoSaludos.get(position).getIdrank()));
+
         holder.txtusuario.setText(String.valueOf(listaRankingBasicoSaludos.get(position).getNombre()));
         holder.txtpuntaje.setText(String.valueOf(listaRankingBasicoSaludos.get(position).getPuntaje()));
     }
@@ -44,10 +44,10 @@ public class SaludoRankingBasicoAdapter extends RecyclerView.Adapter<SaludoRanki
     }
 
     public class SaludoRankingBasicoHolder extends RecyclerView.ViewHolder {
-        TextView txtid, txtusuario, txtpuntaje;
+        TextView  txtusuario, txtpuntaje;
         public SaludoRankingBasicoHolder(@NonNull View itemView) {
             super(itemView);
-            txtid=itemView.findViewById(R.id.rsb_id);
+
             txtusuario=itemView.findViewById(R.id.rsb_usuario);
             txtpuntaje=itemView.findViewById(R.id.rsb_puntaje);
         }

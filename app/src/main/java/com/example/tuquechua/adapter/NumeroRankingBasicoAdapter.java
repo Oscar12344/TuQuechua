@@ -34,7 +34,7 @@ public class NumeroRankingBasicoAdapter extends RecyclerView.Adapter<NumeroRanki
 
     @Override
     public void onBindViewHolder(@NonNull NumeroRankingBasicoAdapter.NumeroRankingBasicoHolder holder, int position) {
-        holder.txtid.setText(String.valueOf(listaRankingBasicoNumeros.get(position).getIdrank()));
+
         holder.txtusuario.setText(String.valueOf(listaRankingBasicoNumeros.get(position).getNombre()));
         holder.txtpuntaje.setText(String.valueOf(listaRankingBasicoNumeros.get(position).getPuntaje()));
     }
@@ -45,10 +45,10 @@ public class NumeroRankingBasicoAdapter extends RecyclerView.Adapter<NumeroRanki
     }
 
     public class NumeroRankingBasicoHolder extends RecyclerView.ViewHolder {
-        TextView txtid, txtusuario, txtpuntaje;
+        TextView  txtusuario, txtpuntaje;
         public NumeroRankingBasicoHolder(@NonNull View itemView) {
             super(itemView);
-            txtid=itemView.findViewById(R.id.rnb_id);
+
             txtusuario=itemView.findViewById(R.id.rnb_usuario);
             txtpuntaje=itemView.findViewById(R.id.rnb_puntaje);
         }
