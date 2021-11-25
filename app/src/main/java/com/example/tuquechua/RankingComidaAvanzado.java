@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -52,7 +53,7 @@ public class RankingComidaAvanzado extends AppCompatActivity  implements Respons
         progress = new ProgressDialog(this);
         progress.setMessage("Consultando Rank Comidas");
         progress.show();
-        String url="http://192.168.1.195:80/pregunta/ConsultarRankingComidaAvanzado.php?";
+        String url=getString(R.string.urlIP)+"pregunta/ConsultarRankingComidaAvanzado.php?";
 
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
@@ -96,5 +97,13 @@ public class RankingComidaAvanzado extends AppCompatActivity  implements Respons
             Toast.makeText(this, "Error servidor", Toast.LENGTH_SHORT).show();
             progress.hide();
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent i = new Intent(getApplication(), Secciones.class);
+        startActivity(i);
+        finish();
     }
 }
