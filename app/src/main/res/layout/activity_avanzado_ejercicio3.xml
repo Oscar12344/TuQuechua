@@ -64,19 +64,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp">
+                android:layout_margin="8dp"
+                android:background="@color/secondaryColor">
                 <TextView
                     android:id="@+id/txtPreguntaVF1"
                     style="@style/styleLabel"
                     android:maxLines="2"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@color/secondaryColor"
                     android:text="Pregunta1" />
                 <RadioGroup
                     android:id="@+id/rdg1"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <RadioButton
                         android:id="@+id/rbtnPre1V"
@@ -177,7 +178,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:background="@color/primaryLightColor"
                 android:layout_margin="8dp">
                 <TextView
@@ -212,7 +213,6 @@
                         android:background="#ff8a65"/>
                 </RadioGroup>
             </LinearLayout>
-
         </LinearLayout>
 
         <Button

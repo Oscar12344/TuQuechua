@@ -31,10 +31,12 @@ public class Avanzado_Ejercicio3 extends AppCompatActivity implements Response.E
     private TextView txtOra1, txtOra2, txtOra3, txtOra4;
     private Button btnSiguiente;
     private RadioGroup rdg1, rdg2, rdg3, rdg4;
-    private RadioButton rbtn1V, rbtn1F, rbtn2V, rbtn2F, rbtn3V, rbtn3F, rbtn4V, rbtn4F;
-    private Boolean respCorr1, respCorr2, respCorr3, respCorr4;
+    private RadioButton rbtn1Selected, rbtn2Selected, rbtn3Selected, rbtn4Selected;
     private Integer respUsu1, respUsu2, respUsu3, respUsu4, rpCorr1, rpCorr2, rpCorr3, rpCorr4;
-    private Character vf1, vf2, vf3, vf4, rptaUsu1, rptaUsu2, rptaUsu3, rptaUsu4;
+    private Integer index1, index2, index3, index4;
+    private Character vf1, vf2, vf3, vf4;
+    private Integer urlSec;
+    private Character seccion;
     private ProgressDialog progreso;
     private RequestQueue request;
     private JsonObjectRequest jsonObjectRequest;
@@ -51,22 +53,26 @@ public class Avanzado_Ejercicio3 extends AppCompatActivity implements Response.E
         rdg2 = findViewById(R.id.rdg2);
         rdg3 = findViewById(R.id.rdg3);
         rdg4 = findViewById(R.id.rdg4);
-        rbtn1V = findViewById(R.id.rbtnPre1V);
-        rbtn1F = findViewById(R.id.rbtnPre1F);
-        rbtn2V = findViewById(R.id.rbtnPre2V);
-        rbtn2F = findViewById(R.id.rbtnPre2F);
-        rbtn3V = findViewById(R.id.rbtnPre3V);
-        rbtn3F = findViewById(R.id.rbtnPre3F);
-        rbtn4V = findViewById(R.id.rbtnPre4V);
-        rbtn4F = findViewById(R.id.rbtnPre4F);
         btnSiguiente = findViewById(R.id.btnSiguiente);
+
+        seccion = getIntent().getCharExtra("seccion", '0');
+        switch (seccion){
+            case 'c': urlSec=100;
+                break;
+            case 's': urlSec=200;
+                break;
+            case 'n': urlSec=300;
+                break;
+            case 'f': urlSec=400;
+                break;
+        }
 
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url = getString(R.string.urlAvanzadoVF)+100;
+        String url = getString(R.string.urlAvanzadoVF)+urlSec;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -97,10 +103,10 @@ public class Avanzado_Ejercicio3 extends AppCompatActivity implements Response.E
             miPregunta.setOp2(jsonObject.optString("vfOra2"));
             miPregunta.setOp3(jsonObject.optString("vfOra3"));
             miPregunta.setOp4(jsonObject.optString("vfOra4"));
-            miPregunta.setResp1(jsonObject.optBoolean("vfResp1"));
-            miPregunta.setResp2(jsonObject.optBoolean("vfResp2"));
-            miPregunta.setResp3(jsonObject.optBoolean("vfResp3"));
-            miPregunta.setResp4(jsonObject.optBoolean("vfResp4"));
+            miPregunta.setRpta1(jsonObject.optInt("vfResp1"));
+            miPregunta.setRpta2(jsonObject.optInt("vfResp2"));
+            miPregunta.setRpta3(jsonObject.optInt("vfResp3"));
+            miPregunta.setRpta4(jsonObject.optInt("vfResp4"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -109,73 +115,91 @@ public class Avanzado_Ejercicio3 extends AppCompatActivity implements Response.E
         txtOra2.setText(miPregunta.getOp2());
         txtOra3.setText(miPregunta.getOp3());
         txtOra4.setText(miPregunta.getOp4());
-        respCorr1 = miPregunta.getResp1();
-        respCorr2 = miPregunta.getResp2();
-        respCorr3 = miPregunta.getResp3();
-        respCorr4 = miPregunta.getResp4();
-        rpCorr1 = respCorr1 ? 0 : 1;
-        rpCorr2 = respCorr2 ? 0 : 1;
-        rpCorr3 = respCorr3 ? 0 : 1;
-        rpCorr4 = respCorr4 ? 0 : 1;
+        rpCorr1 = miPregunta.getRpta1();
+        rpCorr2 = miPregunta.getRpta2();
+        rpCorr3 = miPregunta.getRpta3();
+        rpCorr4 = miPregunta.getRpta4();
 
-        if (rpCorr1.equals(1))
-            vf1 = 'V';
-        else
+        if (rpCorr1.equals(0)){
             vf1 = 'F';
+            rpCorr1 = 1;
+        }else{
+            vf1 = 'V';
+            rpCorr1 = 0;
+        }
 
-        if (rpCorr2.equals(1))
-            vf2 = 'V';
-        else
+        if (rpCorr2.equals(0)){
             vf2 = 'F';
+            rpCorr2 = 1;
+        }else{
+            vf2 = 'V';
+            rpCorr2 = 0;
+        }
 
-        if (rpCorr3.equals(1))
-            vf3 = 'V';
-        else
+        if (rpCorr3.equals(0)){
             vf3 = 'F';
+            rpCorr3 = 1;
+        }else{
+            vf3 = 'V';
+            rpCorr3 = 0;
+        }
 
-        if (rpCorr4.equals(1))
-            vf4 = 'V';
-        else
+        if (rpCorr4.equals(0)){
             vf4 = 'F';
+            rpCorr4 = 1;
+        }else{
+            vf4 = 'V';
+            rpCorr4 = 0;
+        }
     }
 
     void procesarRespuesta(){
         respUsu1 = rdg1.getCheckedRadioButtonId();
-        respUsu2 = rdg2.getCheckedRadioButtonId();
-        respUsu3 = rdg3.getCheckedRadioButtonId();
-        respUsu4 = rdg4.getCheckedRadioButtonId();
+        rbtn1Selected = rdg1.findViewById(respUsu1);
+        index1 = rdg1.indexOfChild(rbtn1Selected);
 
-        int punt = getIntent().getIntExtra("puntaje",0);
-        Intent i = new Intent(this, procesar_resultado.class);
+        respUsu2 = rdg2.getCheckedRadioButtonId();
+        rbtn2Selected = rdg2.findViewById(respUsu2);
+        index2 = rdg2.indexOfChild(rbtn2Selected);
+
+        respUsu3 = rdg3.getCheckedRadioButtonId();
+        rbtn3Selected = rdg3.findViewById(respUsu3);
+        index3 = rdg3.indexOfChild(rbtn3Selected);
+
+        respUsu4 = rdg4.getCheckedRadioButtonId();
+        rbtn4Selected = rdg4.findViewById(respUsu4);
+        index4 = rdg4.indexOfChild(rbtn4Selected);
 
         if (respUsu1 == -1 || respUsu2 == -1 || respUsu3 == -1 || respUsu4 == -1)
             Toast.makeText(this, "Elija V o F",Toast.LENGTH_SHORT).show();
         else{
-            //if (rbtn1V.isSelected()) respUsu1=1;
+            int punt = getIntent().getIntExtra("puntaje",0);
+            Intent i = new Intent(this, procesar_resultado.class);
 
-            if (respUsu1 == rpCorr1)
+            if (respUsu1 != rpCorr1)
                 punt = punt + 5;
 
-            if (respUsu2 == rpCorr2)
+            if (respUsu2 != rpCorr2)
                 punt = punt + 5;
 
-            if (respUsu3 == rpCorr3)
+            if (respUsu3 != rpCorr3)
                 punt = punt + 5;
 
-            if (respUsu4 == rpCorr4)
+            if (respUsu4 != rpCorr4)
                 punt = punt + 5;
 
-            if (respUsu1 == rpCorr1 && respUsu2 == rpCorr2 && respUsu3 == rpCorr3 && respUsu4 == rpCorr4){
+            if (respUsu1 != rpCorr1 && respUsu2 != rpCorr2 && respUsu3 != rpCorr3 && respUsu4 != rpCorr4){
                 Toast.makeText(this, vf1+", "+vf2+", "+vf3+", "+vf4+", Respuestas correctas",Toast.LENGTH_SHORT).show();
                 i.putExtra("puntaje", punt);
-                startActivity(i);
-                finish();
             }else {
-                Toast.makeText(this,"Incorrecta, *V, "+vf2+", "+vf3+", F",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Una o más incorrectas, *"+vf1+", "+vf2+", "+vf3+", "+vf4,Toast.LENGTH_SHORT).show();
                 i.putExtra("puntaje", punt);
-                startActivity(i);
-                finish();
             }
+            i.putExtra("puntajeTotal", 40); //estático por el num de ejercicios del nivel
+            i.putExtra("nivel", '3'); //definido por el nivel de esta activity
+            i.putExtra("seccion", seccion);
+            startActivity(i);
+            finish();
         }
     }
 

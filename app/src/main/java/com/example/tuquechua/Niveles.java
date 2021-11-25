@@ -62,6 +62,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
+
         if(secccomida!=null)
         {
             campoImagen1.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +71,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                     Intent i= new Intent(getApplication(), Basico_Ejercicio1_Comida.class);
                     i.putExtra("seccion", 'c');
                     startActivity(i);
+                    finish();
                 }
             });
 
@@ -79,6 +81,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                     Intent i= new Intent(getApplication(), Intermedio_Ejercicio1_Comida.class);
                     i.putExtra("seccion", 'c');
                     startActivity(i);
+                    finish();
                 }
             });
 
@@ -112,6 +115,16 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                     finish();
                 }
             });
+
+            campoImagen3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i= new Intent(getApplication(), Avanzado_Video.class);
+                    i.putExtra("seccion", 'f');
+                    startActivity(i);
+                    finish();
+                }
+            });
         }
         if(seccnumero!=null)
         {
@@ -120,6 +133,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Basico_Ejercicio1_Numero.class);
                     startActivity(i);
+                    finish();
                 }
             });
 
@@ -129,6 +143,17 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                     Intent i= new Intent(getApplication(), Intermedio_Ejercicio1_Numero.class);
                     i.putExtra("seccion", 'n');
                     startActivity(i);
+                    finish();
+                }
+            });
+
+            campoImagen3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i= new Intent(getApplication(), Avanzado_Video.class);
+                    i.putExtra("seccion", 'n');
+                    startActivity(i);
+                    finish();
                 }
             });
         }
@@ -139,6 +164,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Basico_Ejercicio1_Saludo.class);
                     startActivity(i);
+                    finish();
                 }
             });
 
@@ -148,6 +174,17 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                     Intent i= new Intent(getApplication(), Intermedio_Ejercicio1_Saludo.class);
                     i.putExtra("seccion", 's');
                     startActivity(i);
+                    finish();
+                }
+            });
+
+            campoImagen3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i= new Intent(getApplication(), Avanzado_Video.class);
+                    i.putExtra("seccion", 's');
+                    startActivity(i);
+                    finish();
                 }
             });
         }
