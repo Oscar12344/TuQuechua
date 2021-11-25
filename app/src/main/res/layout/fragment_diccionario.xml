@@ -13,24 +13,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/styleTitulo"
-        android:text="Diccionario
+        android:text="Diccionario\n(Quechua | Significado)" />
 
-
-
-
-
-
-
-
-        (ID/paQuechua/paEspañol)"
-        />
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
         android:id="@+id/idRecyclerDiccionario"
-
-        >
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

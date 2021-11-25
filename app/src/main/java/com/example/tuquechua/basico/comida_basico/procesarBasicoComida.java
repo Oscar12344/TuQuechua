@@ -81,8 +81,8 @@ TextView tvpuntaje,tvcorrecta,tvincorrecta, tvresultado;*/
                 String seccion="COMIDA";
                 int puntFinal = getIntent().getIntExtra("puntaje",0);
 
-                i.putExtra("nombre", seccion);
-                i.putExtra("puntaje", puntFinal);
+                //i.putExtra("nombre", seccion);
+                //i.putExtra("puntaje", puntFinal);
                 startActivity(i);
             }
         });

@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,18 +27,19 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.R;
-import com.example.tuquechua.basico.comida_basico.Basico_Ejercicio2_Comida;
 import com.example.tuquechua.entidades.Pregunta;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Avanzado_Ejercicio2_Comida extends AppCompatActivity implements Response.ErrorListener, Response.Listener<JSONObject> {
+public class Avanzado_Ejercicio2 extends AppCompatActivity implements Response.ErrorListener, Response.Listener<JSONObject> {
     private TextView txtPregunta, txtOraCorrEsp, txtOraUsu;
     private ImageView imgOr;
     private String oraCorrQue;
     private Button btnPal1, btnPal2, btnPal3, btnPal4, btnPal5, btnSiguiente;
+    private Integer urlSec;
+    private Character seccion;
     private ProgressDialog progreso;
     private RequestQueue request;
     private JsonObjectRequest jsonObjectRequest;
@@ -47,7 +47,7 @@ public class Avanzado_Ejercicio2_Comida extends AppCompatActivity implements Res
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_avanzado_ejercicio2_comida);
+        setContentView(R.layout.activity_avanzado_ejercicio2);
         txtOraCorrEsp = findViewById(R.id.txtOracionOrdenada);
         txtOraUsu = findViewById(R.id.txtOracionUsuario);
         btnPal1 = findViewById(R.id.btnPalabra1);
@@ -59,12 +59,24 @@ public class Avanzado_Ejercicio2_Comida extends AppCompatActivity implements Res
         txtPregunta = findViewById(R.id.txtPregunta);
         imgOr = findViewById(R.id.imgOra);
 
+        seccion = getIntent().getCharExtra("seccion", '0');
+        switch (seccion){
+            case 'c': urlSec=100;
+                break;
+            case 's': urlSec=200;
+                break;
+            case 'n': urlSec=300;
+                break;
+            case 'f': urlSec=400;
+                break;
+        }
+
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url = getString(R.string.urlAvReord)+100;
+        String url = getString(R.string.urlAvReord)+urlSec;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -242,11 +254,13 @@ public class Avanzado_Ejercicio2_Comida extends AppCompatActivity implements Res
         }else if (rpta.equalsIgnoreCase(oraCorrQue)){
             Toast.makeText(this, oraCorrQue+", Respuesta correcta",Toast.LENGTH_SHORT).show();
             i.putExtra("puntaje", punt+5);
+            i.putExtra("seccion", seccion);
             startActivity(i);
             finish();
         }else {
             Toast.makeText(this,"Respuesta incorrecta, *"+oraCorrQue,Toast.LENGTH_SHORT).show();
             i.putExtra("puntaje", punt);
+            i.putExtra("seccion", seccion);
             startActivity(i);
             finish();
         }

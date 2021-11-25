@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.SparseArray;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -20,7 +19,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.tuquechua.MainActivity;
 import com.example.tuquechua.R;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,32 +31,9 @@ import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.ui.PlayerView;
 
-import com.google.android.exoplayer2.DefaultLoadControl;
-import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayer;
 //import com.google.android.exoplayer2.ExoPlayerFactory;
-import com.google.android.exoplayer2.LoadControl;
-import com.google.android.exoplayer2.PlaybackParameters;
-import com.google.android.exoplayer2.Player.EventListener;
-import com.google.android.exoplayer2.Timeline;
-import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
-import com.google.android.exoplayer2.extractor.ExtractorsFactory;
 //import com.google.android.exoplayer2.source.ExtractorMediaSource;
-import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.source.TrackGroupArray;
-import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
-import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
-import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.upstream.BandwidthMeter;
-import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
-import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
-import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
-import com.google.android.exoplayer2.util.Util;
 
-import at.huber.youtubeExtractor.VideoMeta;
-import at.huber.youtubeExtractor.YouTubeExtractor;
-import at.huber.youtubeExtractor.YtFile;
 
 public class Avanzado_Video extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
     SimpleExoPlayer player;
@@ -70,6 +45,8 @@ public class Avanzado_Video extends AppCompatActivity implements Response.Listen
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
     Pregunta miPregunta;
+    private Integer urlSec, puntaje = 0;
+    private Character seccion;
     private boolean playWhenReady = true, flag = false;
     private int currentWindow;
     private long playbackPosition;
@@ -89,7 +66,19 @@ public class Avanzado_Video extends AppCompatActivity implements Response.Listen
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url = getString(R.string.urlAvVid)+1;
+        seccion = getIntent().getCharExtra("seccion", '0');
+        switch (seccion){
+            case 'c': urlSec=10;
+                break;
+            case 's': urlSec=20;
+                break;
+            case 'n': urlSec=30;
+                break;
+            case 'f': urlSec=40;
+                break;
+        }
+
+        String url = getString(R.string.urlAvVid)+urlSec;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -249,7 +238,6 @@ public class Avanzado_Video extends AppCompatActivity implements Response.Listen
     }
 
     private void procesarRespuesta(String rptaUsu, String parte){
-        Integer puntaje = 0;
 
         switch (parte){
             case "1":
@@ -258,7 +246,7 @@ public class Avanzado_Video extends AppCompatActivity implements Response.Listen
                     Toast.makeText(this, this.rptaCorrecta+", Respuesta correcta",Toast.LENGTH_SHORT).show();
                     puntaje = puntaje + 5;
                     String url = miPregunta.getVidUrl2();
-                    InitializeVideo(url,parte="2");
+                    InitializeVideo(url, "2");
                 } else {
                     Toast.makeText(this, rptaUsu+", Respuesta incorrecta",Toast.LENGTH_SHORT).show();
                 }
@@ -269,7 +257,7 @@ public class Avanzado_Video extends AppCompatActivity implements Response.Listen
                     Toast.makeText(this, this.rptaCorrecta+", Respuesta correcta",Toast.LENGTH_SHORT).show();
                     puntaje = puntaje + 5;
                     String url = miPregunta.getVidUrl3();
-                    InitializeVideo(url,parte="3");
+                    InitializeVideo(url,"3");
                 } else {
                     Toast.makeText(this, rptaUsu+", Respuesta incorrecta",Toast.LENGTH_SHORT).show();
                 }
@@ -280,19 +268,18 @@ public class Avanzado_Video extends AppCompatActivity implements Response.Listen
                     Toast.makeText(this, this.rptaCorrecta+", Respuesta correcta",Toast.LENGTH_SHORT).show();
                     puntaje = puntaje + 5;
                     String url = miPregunta.getVidUrl4();
-                    InitializeVideo(url,parte="4");
+                    InitializeVideo(url,"4");
                 } else {
                     Toast.makeText(this, rptaUsu+", Respuesta incorrecta",Toast.LENGTH_SHORT).show();
                 }
                 break;
             case "4":
                 player.release();
-                this.finish();
-                Intent i = new Intent(this, Avanzado_Ejercicio2_Comida.class);
+                Intent i = new Intent(this, Avanzado_Ejercicio2.class);
                 i.putExtra("puntaje", puntaje);
-                i.putExtra("seccion", '0');
+                i.putExtra("seccion", seccion);
                 startActivity(i);
-                finish();
+                this.finish();
                 break;
         }
     }
@@ -302,10 +289,9 @@ public class Avanzado_Video extends AppCompatActivity implements Response.Listen
     {
         player.release();
         Toast.makeText(this,"No se guardó el progreso",Toast.LENGTH_SHORT).show();
-        this.finish();
         Intent i = new Intent(getApplication(), Secciones.class);
         startActivity(i);
-        finish();
+        this.finish();
     }
 
         /*LoadControl loadControl = new DefaultLoadControl();

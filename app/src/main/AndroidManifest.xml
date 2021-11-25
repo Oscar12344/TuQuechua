@@ -28,16 +28,7 @@
             android:exported="true">
         </activity>
         <activity
-            android:name=".avanzado.Avanzado_Video_Saludos"
-            android:exported="true" />
-        <activity
-            android:name=".avanzado.Avanzado_Video_Familia"
-            android:exported="true" />
-        <activity
-            android:name=".avanzado.Avanzado_Video_Numeros"
-            android:exported="true" />
-        <activity
-            android:name=".avanzado.Avanzado_Ejercicio2_Comida"
+            android:name=".avanzado.Avanzado_Ejercicio2"
             android:exported="true">
 
         </activity>
