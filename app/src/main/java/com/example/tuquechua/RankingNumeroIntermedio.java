@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -98,5 +99,13 @@ public class RankingNumeroIntermedio extends AppCompatActivity  implements Respo
             progress.hide();
         }
 
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent i = new Intent(getApplication(), Secciones.class);
+        startActivity(i);
+        finish();
     }
 }

@@ -259,9 +259,9 @@ public class procesar_resultado extends AppCompatActivity {
                     case 's':
                         tvSeccion.setText(miPregunta.getOp2()+"");
                         if (miPregunta.getOp2Imagen()!=null){
-                            imgvNivel.setImageBitmap(miPregunta.getOp2Imagen());
+                            imgvSeccion.setImageBitmap(miPregunta.getOp2Imagen());
                         }else{
-                            imgvNivel.setImageResource(R.drawable.img_base);
+                            imgvSeccion.setImageResource(R.drawable.img_base);
                         }
                         break;
                     case 'n':

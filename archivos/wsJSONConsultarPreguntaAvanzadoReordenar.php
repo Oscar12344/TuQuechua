@@ -11,15 +11,13 @@ $json=array();
 				
 		$conexion = mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
 
-		$consulta="select * from avanzado where idAvanzado= '{$id}'";
+		$consulta="select * from avanzado_ordenar where idAvanzado= '{$id}'";
 		$resultado=mysqli_query($conexion,$consulta);
 			
 		if($registro=mysqli_fetch_array($resultado)){
 			$result["idAvanzado"]=$registro['idAvanzado'];
-			$result["avPregunta"]=$registro['avPregunta'];
 			$result["avOracionEsp"]=$registro['avOracionEsp'];
 			$result["avOracionQue"]=$registro['avOracionQue'];
-			$result["avImagen"]=base64_encode($registro['avImagen']);
 			$result["avPalabra1"]=$registro['avPalabra1'];
 			$result["avPalabra2"]=$registro['avPalabra2'];
 			$result["avPalabra3"]=$registro['avPalabra3'];
@@ -28,10 +26,8 @@ $json=array();
 			$json['avanOrac'][]=$result;
 		}else{
 			$resultar["idAvanzado"]=0;
-			$resultar["avPregunta"]='no registra';
 			$resultar["avOracionEsp"]='no registra';
 			$resultar["avOracionQue"]='no registra';
-			$resultar["avImagen"]='no registra';
 			$resultar["avPalabra1"]='no registra';
 			$resultar["avPalabra2"]='no registra';
 			$resultar["avPalabra3"]='no registra';
