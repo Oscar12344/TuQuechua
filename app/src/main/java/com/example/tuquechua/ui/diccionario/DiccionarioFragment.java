@@ -114,6 +114,7 @@ public class DiccionarioFragment extends Fragment implements Response.Listener<J
         progress.show();
         String url="http://192.168.1.195:80/pregunta/ConsultarDiccionario.php?";
 
+        String url = getString(R.string.urlIP)+"pregunta/ConsultarDiccionario.php?";
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
         request.add(jsonObjectRequest);

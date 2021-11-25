@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/primaryColor"
     tools:context=".intermedio.numero_intermedio.Intermedio_Ejercicio1_Numero">
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -25,10 +26,10 @@
             style="@style/styleTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:gravity="center"
+            android:gravity="left"
             android:text="NIVEL INTERMEDIO"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -39,8 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginEnd="40dp"
-            android:gravity="center"
+            android:layout_marginEnd="16dp"
+            android:gravity="right"
             android:text="5 puntos"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -52,17 +53,15 @@
         style="@style/styleLabel"
         android:layout_width="382dp"
         android:layout_height="36dp"
-        android:layout_marginStart="16dp"
+        android:layout_margin="8dp"
         android:text="Pregunta"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvPalabraE"
-        app:layout_constraintHorizontal_bias="0.5"
-
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.01" />
 
     <ImageView
         android:id="@+id/ivOp1"

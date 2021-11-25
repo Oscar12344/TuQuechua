@@ -19,6 +19,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tuquechua.entidades.Pregunta;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,9 +29,10 @@ import org.json.JSONObject;
 public class procesar_resultado extends AppCompatActivity {
     private ImageView imgvSeccion, imgvNivel;
     private TextView tvSeccion, tvNivel, tvPuntObt, tvPuntTotal, tvCorr, tvIncorr, tvResultado;
-    private Button ok;
+    private Button ok, btnRanking;
     private Integer punt, puntTotal;
     private Character sec, niv;
+    ProgressDialog progreso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class procesar_resultado extends AppCompatActivity {
         tvCorr = findViewById(R.id.tvCorrectas);
         tvIncorr = findViewById(R.id.tvIncorrectas);
         tvResultado = findViewById(R.id.tvResultado);
+        btnRanking = findViewById(R.id.btnRanking);
 
         punt = getIntent().getIntExtra("puntaje", 0);
         puntTotal = getIntent().getIntExtra("puntajeTotal", 0);
@@ -76,6 +80,97 @@ public class procesar_resultado extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplication(), Secciones.class);
                 startActivity(i);
+                finish();
+            }
+        });
+
+        btnRanking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i;
+                FirebaseUser users =  FirebaseAuth.getInstance().getCurrentUser();
+                RequestQueue requestQ = null;
+                JsonObjectRequest jsonObjectRequest;
+
+
+                switch (sec){
+                    case 'c':
+                        i = new Intent(getApplication(), RankingGeneral.class);
+
+                        if(users!=null){
+
+                            String nombres = users.getDisplayName();
+
+                            //progreso = new ProgressDialog(this);
+                            //progreso.setMessage("Consultando");
+                            //progreso.show();
+                            String url=getString(R.string.urlIP)+"pregunta/registroRankingComida.php?nombre=aeaa&puntaje="+punt;
+
+                            //idserie se debe obtener desde el spinner serie
+                            url = url.replace(" ","%20");
+                            jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    mensajeExito();
+                                    //progreso.hide();
+                                }
+                            }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    //progreso.hide();
+                                    mensajeError();
+                                    Log.i("Error", error.toString());
+                                }
+                            });
+                            requestQ.add(jsonObjectRequest);
+                        }else{
+                            getApplicationContext();
+                        }
+
+                        break;
+                    case 's':
+                        i = new Intent(getApplication(), RankingSaludo.class);
+
+                        if(users!=null){
+                            String nombres = users.getDisplayName();
+
+                            //progreso = new ProgressDialog(this);
+                            //progreso.setMessage("Consultando");
+                            //progreso.show();
+                            String url=getString(R.string.urlIP)+"pregunta/registroRankingSaludo.php?nombre="+nombres+"&puntaje="+punt;
+
+                            //idserie se debe obtener desde el spinner serie
+                            url = url.replace(" ","%20");
+                            jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    mensajeExito();
+                                    //progreso.hide();
+                                }
+                            }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    //progreso.hide();
+                                    mensajeError();
+                                    Log.i("Error", error.toString());
+                                }
+                            });
+                            requestQ.add(jsonObjectRequest);
+                        }else{
+                            getApplicationContext();
+                        }
+
+                        break;
+                    case 'n':
+                        i = new Intent(getApplication(), RankingNumero.class);
+                        break;
+                    case 'f':
+                        i = new Intent(getApplication(), RankingFamilia.class);
+                        break;
+                    default: i = new Intent(getApplication(), Secciones.class);
+                }
+                startActivity(i);
+                finish();
             }
         });
     }
@@ -235,5 +330,13 @@ public class procesar_resultado extends AppCompatActivity {
     public void onBackPressed()
     {
         Toast.makeText(this,"No puedes retroceder",Toast.LENGTH_SHORT).show();
+    }
+
+    void mensajeError(){
+        Toast.makeText(this, "Error de registro", Toast.LENGTH_SHORT).show();
+    }
+
+    void mensajeExito(){
+        Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
     }
 }

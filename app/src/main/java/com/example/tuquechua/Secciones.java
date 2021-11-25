@@ -101,6 +101,7 @@ public class Secciones extends AppCompatActivity implements View.OnClickListener
         }else{
             campoImagen4.setImageResource(R.drawable.img_base);
         }
+
         campoImagen1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
