@@ -84,7 +84,6 @@
             android:exported="true"></activity>
         <activity
             android:name=".avanzado.Avanzado_Video"
-            android:screenOrientation="portrait"
             android:exported="true"></activity>
         <activity android:name=".Loguearse"
             android:screenOrientation="portrait"
@@ -202,7 +201,11 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.TuQuechua.NoActionBar"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 

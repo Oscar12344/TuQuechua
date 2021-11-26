@@ -33,6 +33,7 @@ public class Intermedio_Frase_Comida extends AppCompatActivity  implements Respo
     ArrayList<Pregunta> listaComida;
     Button btnSiguiente;
     private Character seccion;
+    private Integer punt;
     ProgressDialog progress;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -47,17 +48,18 @@ public class Intermedio_Frase_Comida extends AppCompatActivity  implements Respo
         recyclerViewComidas.setHasFixedSize(true);
 
         seccion = getIntent().getCharExtra("seccion", '0');
+        punt = getIntent().getIntExtra("puntaje", 0);
 
         request= Volley.newRequestQueue(this);
         llamarwebservice();
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int punt = getIntent().getIntExtra("puntaje", 0);
                 Intent i = new Intent(getApplication(), Intermedio_Ejercicio3_Comida.class);
                 i.putExtra("seccion", seccion);
                 i.putExtra("puntaje", punt);
                 startActivity(i);
+                finish();
             }
         });
     }

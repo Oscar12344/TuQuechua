@@ -33,9 +33,10 @@ public class Intermedio_Ejercicio3_Numero extends AppCompatActivity implements R
     String rptaOp1,rptaOp2;
     ImageView imagen;
     TextView pregunta;
-    String op1, op2;
     Button btnSiguiente;
     EditText rpta1,rpta2;
+    private Character sec;
+    private Integer punt;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -45,15 +46,19 @@ public class Intermedio_Ejercicio3_Numero extends AppCompatActivity implements R
         setContentView(R.layout.activity_intermedio__ejercicio3__numero);
         rpta1=findViewById(R.id.etRespuesta1);
         rpta2=findViewById(R.id.etRespuesta2);
-
         imagen= findViewById(R.id.ivImagen);
         pregunta= findViewById(R.id.tvPregunta);
         btnSiguiente = findViewById(R.id.btnSiguiente);
+
+        punt = getIntent().getIntExtra("puntaje", 0);
+        sec = getIntent().getCharExtra("seccion", '0');
+
         request = Volley.newRequestQueue(this);
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultando...");
         progreso.show();
-        String url="http://192.168.1.195:85/pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+15;
+
+        String url=getString(R.string.urlIP)+"pregunta/wsJSONConsultarPreguntaIntermedio.php?id="+15;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -63,10 +68,9 @@ public class Intermedio_Ejercicio3_Numero extends AppCompatActivity implements R
     public void onClick(View v) {
         respuesta1 = rpta1.getText().toString();
         respuesta2 = rpta2.getText().toString();
-        int punt = getIntent().getIntExtra("puntaje", 0);
-        char sec = getIntent().getCharExtra("seccion", '0');
 
         Intent i = new Intent(this, Intermedio_Ejercicio4_Numero.class);
+
         if((respuesta1.equals("") && respuesta2.equals("")) ||
                 (respuesta1.equals("") || respuesta2.equals("") ))
         {

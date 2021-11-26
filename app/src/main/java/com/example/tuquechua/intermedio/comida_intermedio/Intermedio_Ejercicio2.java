@@ -41,8 +41,8 @@ public class Intermedio_Ejercicio2 extends AppCompatActivity implements Response
     private String palabraCorr1, palabraCorr2, palabraCorr3, palabraCorr4;
     private Button btnMostrarTrad, btnSiguiente;
     private Pregunta miPregunta;
-    private Integer urlSec;
-    private Character seccion;
+    private Integer urlSec, punt;
+    private Character sec;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -68,8 +68,9 @@ public class Intermedio_Ejercicio2 extends AppCompatActivity implements Response
 
         request= Volley.newRequestQueue(this);
 
-        seccion = getIntent().getCharExtra("seccion", '0');
-        switch (seccion){
+        punt = getIntent().getIntExtra("puntaje", 0);
+        sec = getIntent().getCharExtra("seccion", '0');
+        switch (sec){
             case 'c': urlSec=100;
                 break;
             case 's': urlSec=200;
@@ -101,7 +102,7 @@ public class Intermedio_Ejercicio2 extends AppCompatActivity implements Response
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url = getString(R.string.urlIntOrInc)+urlSec;
+        String url = getString(R.string.urlIP)+"pregunta/wsJSONConsultarPreguntaIntermedioOracionesIncompletas.php?id="+urlSec;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -193,7 +194,6 @@ public class Intermedio_Ejercicio2 extends AppCompatActivity implements Response
         palabraUsu2 = txtPalabra2.getText().toString();
         palabraUsu3 = txtPalabra3.getText().toString();
         palabraUsu4 = txtPalabra4.getText().toString();
-        int punt = getIntent().getIntExtra("puntaje", 0);
 
         if (palabraUsu1.equals("") || palabraUsu2.equals("") || palabraUsu3.equals("") || palabraUsu4.equals("")){
             Toast.makeText(this,"Rellene su respuesta",Toast.LENGTH_SHORT).show();
@@ -230,7 +230,7 @@ public class Intermedio_Ejercicio2 extends AppCompatActivity implements Response
     private void siguienteActivity(int punt){
         Intent i;
 
-        switch (seccion){
+        switch (sec){
             case 'c': i = new Intent(this, Intermedio_Frase_Comida.class);
                 break;
             case 's': i = new Intent(this, Intermedio_Frase_Saludo.class);
@@ -243,7 +243,7 @@ public class Intermedio_Ejercicio2 extends AppCompatActivity implements Response
         }
 
         i.putExtra("puntaje", punt);
-        i.putExtra("seccion", seccion);
+        i.putExtra("seccion", sec);
         startActivity(i);
         finish();
     }

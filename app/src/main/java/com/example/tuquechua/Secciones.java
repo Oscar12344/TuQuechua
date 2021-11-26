@@ -26,7 +26,7 @@ public class Secciones extends AppCompatActivity implements View.OnClickListener
     ProgressDialog progreso;
     RequestQueue request;
     TextView seccion1, seccion2,seccion3,seccion4;
-    JsonObjectRequest jsonObjectRequest, jsonObjectRequest2, jsonObjectRequest3, jsonObjectRequest4;
+    JsonObjectRequest jsonObjectRequest;
     ImageView campoImagen1,campoImagen2,campoImagen3,campoImagen4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

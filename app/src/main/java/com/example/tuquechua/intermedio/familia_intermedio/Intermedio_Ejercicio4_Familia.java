@@ -38,6 +38,8 @@ public class Intermedio_Ejercicio4_Familia extends AppCompatActivity implements 
     Spinner spop;
     Button btnSiguiente;
     String op1, op2, op3, op4;
+    private Character sec;
+    private Integer punt;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -52,6 +54,10 @@ public class Intermedio_Ejercicio4_Familia extends AppCompatActivity implements 
         imgsonido= findViewById(R.id.ivSonido);
         spop= findViewById(R.id.spOpc);
         btnSiguiente = findViewById(R.id.btnSiguiente);
+
+        punt = getIntent().getIntExtra("puntaje", 0);
+        sec = getIntent().getCharExtra("seccion", '0');
+
         request = Volley.newRequestQueue(this);
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultando...");
@@ -85,12 +91,25 @@ public class Intermedio_Ejercicio4_Familia extends AppCompatActivity implements 
     }
 
     public void procesar(String opcion) {
-        int punt = getIntent().getIntExtra("puntaje", 0);
-        char sec = getIntent().getCharExtra("seccion", '0');
-
         Intent i = new Intent(this,  procesar_resultado.class);
 
-        if (opcion.equalsIgnoreCase(rptaCorrecta)){
+        if (opcion.equals("Elija una opción")){
+            Toast.makeText(getApplicationContext(), "Elija una opción", Toast.LENGTH_SHORT).show();
+        }else{
+            if (opcion.equalsIgnoreCase(rptaCorrecta)){
+                Toast.makeText(getApplicationContext(), rptaCorrecta+", Respuesta correcta", Toast.LENGTH_SHORT).show();
+                punt = punt + 5;
+            }else {
+                Toast.makeText(getApplicationContext(), "Respuesta Incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
+            }
+            i.putExtra("puntaje", punt);
+            i.putExtra("puntajeTotal", 35); //estatico por los ejercicios propuestos para este nivel
+            i.putExtra("seccion", sec);
+            i.putExtra("nivel", '2'); //estatico por el nivel de esta activity
+            startActivity(i);
+            finish();
+        }
+        /*if (opcion.equalsIgnoreCase(rptaCorrecta)){
             Toast.makeText(getApplicationContext(), rptaCorrecta+", Respuesta correcta", Toast.LENGTH_SHORT).show();
             i.putExtra("puntaje", punt+5);
             i.putExtra("puntajeTotal", 35); //estatico por los ejercicios propuestos para este nivel
@@ -110,7 +129,7 @@ public class Intermedio_Ejercicio4_Familia extends AppCompatActivity implements 
             i.putExtra("nivel", '2'); //estatico por el nivel de esta activity
             startActivity(i);
             finish();
-        }
+        }*/
     }
 
     @Override

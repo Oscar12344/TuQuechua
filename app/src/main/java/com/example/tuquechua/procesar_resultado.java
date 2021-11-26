@@ -60,6 +60,8 @@ public class procesar_resultado extends AppCompatActivity {
         tvPuntObt.setText(String.valueOf(punt));
         tvPuntTotal.setText(String.valueOf(puntTotal));
 
+        registroRanking();
+
         int numCorr = punt/5;
         int numIncorrect = (puntTotal - punt)/5;
         tvCorr.setText(String.valueOf(numCorr));
@@ -92,13 +94,10 @@ public class procesar_resultado extends AppCompatActivity {
                     case 'c':
                         switch (niv){
                             case '1': i = new Intent(getApplication(), RankingComidaBasico.class);
-                                llamarWebServiceRegistro("registroRankingComidaBasico");
                                 break;
                             case '2': i = new Intent(getApplication(), RankingComidaIntermedio.class);
-                                llamarWebServiceRegistro("registroRankingComidaIntermedio");
                                 break;
                             case '3': i = new Intent(getApplication(), RankingComidaAvanzado.class);
-                                llamarWebServiceRegistro("registroRankingComidaAvanzado");
                                 break;
                             default: i = new Intent(getApplication(), Secciones.class);
                         }
@@ -141,7 +140,6 @@ public class procesar_resultado extends AppCompatActivity {
                             case '2': i = new Intent(getApplication(), RankingSaludoIntermedio.class);
                                 break;
                             case '3': i = new Intent(getApplication(), RankingSaludoAvanzado.class);
-                                llamarWebServiceRegistro("registroRankingSaludoAvanzado");
                                 break;
                             default: i = new Intent(getApplication(), Secciones.class);
                         }
@@ -153,7 +151,6 @@ public class procesar_resultado extends AppCompatActivity {
                             case '2': i = new Intent(getApplication(), RankingNumeroIntermedio.class);
                                 break;
                             case '3': i = new Intent(getApplication(), RankingNumeroAvanzado.class);
-                                llamarWebServiceRegistro("registroRankingNumeroAvanzado");
                                 break;
                             default: i = new Intent(getApplication(), Secciones.class);
                         }
@@ -165,7 +162,6 @@ public class procesar_resultado extends AppCompatActivity {
                             case '2': i = new Intent(getApplication(), RankingFamiliaIntermedio.class);
                                 break;
                             case '3': i = new Intent(getApplication(), RankingFamiliaAvanzado.class);
-                                llamarWebServiceRegistro("registroRankingFamiliaAvanzado");
                                 break;
                             default: i = new Intent(getApplication(), Secciones.class);
                         }
@@ -178,37 +174,82 @@ public class procesar_resultado extends AppCompatActivity {
         });
     }
 
+    private void registroRanking(){
+        switch (sec){
+            case 'c':
+                switch (niv){
+                    case '1': llamarWebServiceRegistro("registroRankingComidaBasico");
+                        break;
+                    case '2': llamarWebServiceRegistro("registroRankingComidaIntermedio");
+                        break;
+                    case '3': llamarWebServiceRegistro("registroRankingComidaAvanzado");
+                        break;
+                }
+                break;
+            case 's':
+                switch (niv){
+                    case '1': ;
+                        break;
+                    case '2': llamarWebServiceRegistro("registroRankingSaludoIntermedio");
+                        break;
+                    case '3': llamarWebServiceRegistro("registroRankingSaludoAvanzado");
+                        break;
+                }
+                break;
+            case 'n':
+                switch (niv){
+                    case '1': ;
+                        break;
+                    case '2': llamarWebServiceRegistro("registroRankingNumeroIntermedio");
+                        break;
+                    case '3': llamarWebServiceRegistro("registroRankingNumeroAvanzado");
+                        break;
+                }
+                break;
+            case 'f':
+                switch (niv){
+                    case '1': ;
+                        break;
+                    case '2': llamarWebServiceRegistro("registroRankingFamiliaIntermedio");
+                        break;
+                    case '3': llamarWebServiceRegistro("registroRankingFamiliaAvanzado");
+                        break;
+                }
+                break;
+        }
+    }
+
     private void llamarWebServiceRegistro(String nombreJson) {
-        ProgressDialog progreso;
-        RequestQueue request=null;
-        JsonObjectRequest jsonObjectRequest;
+        ProgressDialog progresoReg;
+        RequestQueue requestRegistro = Volley.newRequestQueue(this);;
+        JsonObjectRequest jsonObjectRequestReg;
         FirebaseUser users =  FirebaseAuth.getInstance().getCurrentUser();
+
         if(users!=null){
             String nombres = users.getDisplayName();
 
-            progreso = new ProgressDialog(this);
-            progreso.setMessage("Consultando");
-            progreso.show();
-            String url=getString(R.string.urlIP)+"pregunta/"+nombreJson+".php?nombre="+nombres+"&puntaje="+punt;
-
+            progresoReg = new ProgressDialog(this);
+            progresoReg.setMessage("Consultando");
+            progresoReg.show();
+            String url=getString(R.string.urlIP)+"pregunta/"+nombreJson+".php?nombre="+"PruebaIntCom"+"&puntaje="+punt;
 
             //idserie se debe optener desde el spinner serie
             url=url.replace(" ","%20");
-            jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            jsonObjectRequestReg= new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     mensajeExito();
-                    progreso.hide();
+                    progresoReg.hide();
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    progreso.hide();
+                    progresoReg.hide();
                     mensajeError();
                     Log.i("Error", error.toString());
                 }
             });
-            request.add(jsonObjectRequest);
+            requestRegistro.add(jsonObjectRequestReg);
         }else{
             getApplicationContext();
         }
