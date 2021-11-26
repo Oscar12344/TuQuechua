@@ -33,9 +33,10 @@ public class Intermedio_Ejercicio3_Familia extends AppCompatActivity implements 
     String rptaOp1,rptaOp2,rptaOp3,rptaOp4;
     ImageView imagen;
     TextView pregunta;
-    String op1, op2, op3, op4;
     Button btnSiguiente;
     EditText rpta1,rpta2,rpta3,rpta4;
+    private Character sec;
+    private Integer punt;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -51,6 +52,10 @@ public class Intermedio_Ejercicio3_Familia extends AppCompatActivity implements 
         imagen= findViewById(R.id.ivImagen);
         pregunta= findViewById(R.id.tvPregunta);
         btnSiguiente = findViewById(R.id.btnSiguiente);
+
+        punt = getIntent().getIntExtra("puntaje", 0);
+        sec = getIntent().getCharExtra("seccion", '0');
+
         request = Volley.newRequestQueue(this);
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultando...");
@@ -67,8 +72,7 @@ public class Intermedio_Ejercicio3_Familia extends AppCompatActivity implements 
         respuesta2 = rpta2.getText().toString();
         respuesta3 = rpta3.getText().toString();
         respuesta4 = rpta4.getText().toString();
-        int punt = getIntent().getIntExtra("puntaje", 0);
-        char sec = getIntent().getCharExtra("seccion", '0');
+
         Intent i = new Intent(this, Intermedio_Ejercicio4_Familia.class);
 
         if((respuesta1.equals("") && respuesta2.equals("") && respuesta3.equals("") && respuesta4.equals("")) ||
@@ -97,6 +101,7 @@ public class Intermedio_Ejercicio3_Familia extends AppCompatActivity implements 
             finish();
         }
     }
+
     @Override
     public void onErrorResponse(VolleyError error) {
         progreso.hide();

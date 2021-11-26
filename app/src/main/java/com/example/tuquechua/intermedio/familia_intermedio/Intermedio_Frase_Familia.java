@@ -34,7 +34,8 @@ public class Intermedio_Frase_Familia extends AppCompatActivity implements Respo
     RecyclerView recyclerViewFamilias;
     ArrayList<Pregunta> listaFamilia;
     Button btnSiguiente;
-
+    private Character sec;
+    private Integer punt;
     ProgressDialog progress;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -47,14 +48,15 @@ public class Intermedio_Frase_Familia extends AppCompatActivity implements Respo
         recyclerViewFamilias.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
         btnSiguiente=findViewById(R.id.btnSiguiente);
         recyclerViewFamilias.setHasFixedSize(true);
+
+        punt = getIntent().getIntExtra("puntaje", 0);
+        sec = getIntent().getCharExtra("seccion", '0');
+
         request= Volley.newRequestQueue(this);
         llamarwebservice();
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int punt = getIntent().getIntExtra("puntaje", 0);
-                char sec = getIntent().getCharExtra("seccion", '0');
-
                 Intent i = new Intent(getApplication(), Intermedio_Ejercicio3_Familia.class);
 
                 i.putExtra("puntaje", punt);

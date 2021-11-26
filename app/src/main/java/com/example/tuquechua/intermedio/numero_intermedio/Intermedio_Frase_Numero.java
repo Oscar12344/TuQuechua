@@ -33,7 +33,8 @@ public class Intermedio_Frase_Numero extends AppCompatActivity implements Respon
     RecyclerView recyclerViewNumeros;
     ArrayList<Pregunta> listaNumero;
     Button btnSiguiente;
-
+    private Character sec;
+    private Integer punt;
     ProgressDialog progress;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -47,6 +48,10 @@ public class Intermedio_Frase_Numero extends AppCompatActivity implements Respon
         recyclerViewNumeros.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
         btnSiguiente=findViewById(R.id.btnSiguiente);
         recyclerViewNumeros.setHasFixedSize(true);
+
+        punt = getIntent().getIntExtra("puntaje", 0);
+        sec = getIntent().getCharExtra("seccion", 'n');
+
         request= Volley.newRequestQueue(this);
 
         llamarwebservice();
@@ -54,9 +59,6 @@ public class Intermedio_Frase_Numero extends AppCompatActivity implements Respon
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int punt = getIntent().getIntExtra("puntaje", 0);
-                char sec = getIntent().getCharExtra("seccion", 'n');
-
                 Intent i = new Intent(getApplication(), Intermedio_Ejercicio3_Numero.class);
                 i.putExtra("puntaje", punt);
                 i.putExtra("seccion", sec);

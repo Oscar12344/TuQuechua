@@ -236,4 +236,12 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
             campoImagen3.setImageResource(R.drawable.img_base);
         }
     }
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent i = new Intent(getApplication(), Secciones.class);
+        startActivity(i);
+        this.finish();
+    }
 }

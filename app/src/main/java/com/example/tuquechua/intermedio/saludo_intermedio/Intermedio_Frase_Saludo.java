@@ -32,10 +32,10 @@ import java.util.ArrayList;
 
 public class Intermedio_Frase_Saludo extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
     RecyclerView recyclerViewSaludos;
-
     ArrayList<Pregunta> listaSaludo;
     Button btnSiguiente;
-
+    private Integer punt;
+    private Character sec;
     ProgressDialog progress;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -48,18 +48,19 @@ public class Intermedio_Frase_Saludo extends AppCompatActivity implements Respon
         recyclerViewSaludos.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
         btnSiguiente=findViewById(R.id.btnSiguiente);
         recyclerViewSaludos.setHasFixedSize(true);
+
+        punt = getIntent().getIntExtra("puntaje",0);
+        sec = getIntent().getCharExtra("seccion", '0');
+
         request= Volley.newRequestQueue(this);
         llamarwebservice();
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int punt = getIntent().getIntExtra("puntaje",0);
-                char seccion = getIntent().getCharExtra("seccion", '0');
-
                 Intent i = new Intent(getApplication(), Intermedio_Ejercicio3_Saludo.class);
 
                 i.putExtra("puntaje", punt);
-                i.putExtra("seccion", seccion);
+                i.putExtra("seccion", sec);
                 startActivity(i);
                 finish();
             }

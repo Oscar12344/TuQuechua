@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class RankingFamiliaIntermedio extends AppCompatActivity  implements Response.Listener<JSONObject>, Response.ErrorListener{
     RecyclerView recyclerViewRankingIntermedioFamilias;
     ArrayList<Ranking> listaRankingIntermedioFamilia;
-    Button btnSiguiente;
+    Button btnOk;
 
     ProgressDialog progress;
     RequestQueue request;
@@ -103,7 +103,7 @@ public class RankingFamiliaIntermedio extends AppCompatActivity  implements Resp
     public void onBackPressed()
     {
         Intent i = new Intent(getApplication(), Secciones.class);
-        startActivity(i);
         finish();
+        startActivity(i);
     }
 }

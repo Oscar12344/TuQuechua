@@ -54,7 +54,7 @@ public class Avanzado_Video extends AppCompatActivity implements Response.Listen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comida_video1);
+        setContentView(R.layout.activity_avanzado_video);
         btnOp1 = findViewById(R.id.btnOp1);
         btnOp2 = findViewById(R.id.btnOp2);
         btnOp3 = findViewById(R.id.btnOp3);

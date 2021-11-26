@@ -32,9 +32,10 @@ public class Intermedio_Ejercicio3_Saludo extends AppCompatActivity implements R
     String rptaOp1,rptaOp2,rptaOp3,rptaOp4;
     ImageView imagen;
     TextView pregunta;
-    String op1, op2, op3, op4;
     Button btnSiguiente;
     EditText rpta1,rpta2,rpta3,rpta4;
+    private Integer punt;
+    private Character sec;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -50,6 +51,10 @@ public class Intermedio_Ejercicio3_Saludo extends AppCompatActivity implements R
         imagen= findViewById(R.id.ivImagen);
         pregunta= findViewById(R.id.tvPregunta);
         btnSiguiente = findViewById(R.id.btnSiguiente);
+
+        punt = getIntent().getIntExtra("puntaje",0);
+        sec = getIntent().getCharExtra("seccion", '0');
+
         request = Volley.newRequestQueue(this);
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultando...");
@@ -66,8 +71,6 @@ public class Intermedio_Ejercicio3_Saludo extends AppCompatActivity implements R
         respuesta2 = rpta2.getText().toString();
         respuesta3 = rpta3.getText().toString();
         respuesta4 = rpta4.getText().toString();
-        int punt = getIntent().getIntExtra("puntaje",0);
-        char seccion = getIntent().getCharExtra("seccion", '0');
 
         Intent i = new Intent(this, Intermedio_Ejercicio4_Saludo.class);
 
@@ -83,7 +86,7 @@ public class Intermedio_Ejercicio3_Saludo extends AppCompatActivity implements R
             Toast.makeText(this, respuesta3+", Respuesta correcta",Toast.LENGTH_SHORT).show();
             Toast.makeText(this, respuesta4+", Respuesta correcta",Toast.LENGTH_SHORT).show();
             i.putExtra("puntaje", punt+5);
-            i.putExtra("seccion", seccion);
+            i.putExtra("seccion", sec);
             startActivity(i);
             finish();
         }else{
@@ -92,7 +95,7 @@ public class Intermedio_Ejercicio3_Saludo extends AppCompatActivity implements R
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta3,Toast.LENGTH_SHORT).show();
             Toast.makeText(this,"Respuesta incorrecta, *"+respuesta4,Toast.LENGTH_SHORT).show();
             i.putExtra("puntaje", punt);
-            i.putExtra("seccion", seccion);
+            i.putExtra("seccion", sec);
             startActivity(i);
             finish();
         }

@@ -90,7 +90,7 @@ public class procesarIntermedioComida extends AppCompatActivity implements  Resp
             progreso = new ProgressDialog(this);
             progreso.setMessage("Consultando");
             progreso.show();
-            String url="http://192.168.1.195:80/pregunta/registroRankingComidaIntermedio.php?nombre="+nombres+"&puntaje="+puntFinal;
+            String url=getString(R.string.urlIP)+"pregunta/registroRankingComidaIntermedio.php?nombre="+nombres+"&puntaje="+puntFinal;
 
             //idserie se debe optener desde el spinner serie
             url=url.replace(" ","%20");

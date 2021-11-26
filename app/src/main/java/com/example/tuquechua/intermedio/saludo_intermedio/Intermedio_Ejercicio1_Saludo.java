@@ -32,6 +32,8 @@ public class Intermedio_Ejercicio1_Saludo extends AppCompatActivity implements R
     ImageView ivimagen1,ivimagen2;
     RadioButton rbop1,rbop2,rbop3,rbop4;
     String opbtn1, opbtn2, opbtn3, opbtn4;
+    private Character sec;
+    private Integer punt;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -47,6 +49,10 @@ public class Intermedio_Ejercicio1_Saludo extends AppCompatActivity implements R
         rbop2 = findViewById(R.id.rbOp2);
         rbop3 = findViewById(R.id.rbOp3);
         rbop4 = findViewById(R.id.rbOp4);
+
+        punt = 0; //getIntent().getIntExtra("puntaje",0);
+        sec = getIntent().getCharExtra("seccion", '0');
+
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
@@ -142,20 +148,16 @@ public class Intermedio_Ejercicio1_Saludo extends AppCompatActivity implements R
     }
 
     public void procesar(String opbutton) {
-        int punt = 0; //getIntent().getIntExtra("puntaje",0);
-        char seccion = getIntent().getCharExtra("seccion", '0');
-
         Intent i = new Intent(this, Intermedio_Ejercicio2.class);
 
         if(opbutton.equalsIgnoreCase(this.rptaCorrecta)) {
             Toast.makeText(getApplicationContext(), rptaCorrecta + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
-            i.putExtra("puntaje", punt+5);
-            i.putExtra("seccion", seccion);
+            punt = punt + 5;
         }else {
             Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *" + rptaCorrecta, Toast.LENGTH_SHORT).show();
-            i.putExtra("puntaje", punt);
-            i.putExtra("seccion", seccion);
         }
+        i.putExtra("puntaje", punt);
+        i.putExtra("seccion", sec);
         startActivity(i);
         finish();
     }

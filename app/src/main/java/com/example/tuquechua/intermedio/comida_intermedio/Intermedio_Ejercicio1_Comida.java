@@ -151,7 +151,7 @@ public class Intermedio_Ejercicio1_Comida extends AppCompatActivity implements R
         //char seccion = getIntent().getCharExtra("seccion", '0');
 
         Intent i = new Intent(this, Intermedio_Ejercicio2.class);
-        //i.putExtra("seccion", 'c');
+        i.putExtra("seccion", 'c');
 
         if(opbutton.equalsIgnoreCase(this.rptaCorrecta)) {
             Toast.makeText(getApplicationContext(), rptaCorrecta + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
