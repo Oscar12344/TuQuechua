@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements  Response.ErrorLi
         }
         return super.onOptionsItemSelected(item);
     }
+
     public void updateNavHeader() {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
@@ -121,10 +122,8 @@ public class MainActivity extends AppCompatActivity implements  Response.ErrorLi
         }else{
             getApplicationContext();
         }
-
-
-
     }
+
     public void llamarWebService() {
         FirebaseUser users =  FirebaseAuth.getInstance().getCurrentUser();
         if(users!=null){
@@ -140,13 +139,10 @@ public class MainActivity extends AppCompatActivity implements  Response.ErrorLi
             jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
             request.add(jsonObjectRequest);
 
-
         }else{
             getApplicationContext();
         }
-
     }
-
 
     @Override
     public void onErrorResponse(VolleyError error) {

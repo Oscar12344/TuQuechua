@@ -53,7 +53,6 @@ public class HomeFragment extends Fragment  {
             }
         });*/
 
-
         irSeccion=root.findViewById(R.id.btnSeccion);
         irSeccion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,11 +61,6 @@ public class HomeFragment extends Fragment  {
                 startActivity(i);
             }
         });
-
-
         return root;
     }
-
-
-
 }
