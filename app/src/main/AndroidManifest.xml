@@ -16,14 +16,6 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".Buscar"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".avanzado.procesarAvanzadoSaludo"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".avanzado.procesarAvanzadoNumero"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".avanzado.procesarAvanzadoFamilia"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".avanzado.procesarAvanzadoComida"
-            android:screenOrientation="portrait"></activity>
         <activity android:name=".RankingSaludoAvanzado"
             android:screenOrientation="portrait">
 
@@ -86,6 +78,7 @@
         <activity android:name=".Loguearse"
             android:screenOrientation="portrait"
             android:exported="true">
+
         </activity>
         <activity android:name=".RankingNumeroBasico"
             android:screenOrientation="portrait"/>

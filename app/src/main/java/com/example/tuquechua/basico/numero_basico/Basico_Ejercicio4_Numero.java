@@ -35,6 +35,7 @@ public class Basico_Ejercicio4_Numero extends AppCompatActivity implements  Resp
     Button btnSiguiente;
     TextView txtPregunta;
     String op1,op2,op3,op4,rptaCorrecta;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progreso;
     ImageView campoImagen;
     RequestQueue request;
@@ -49,6 +50,12 @@ public class Basico_Ejercicio4_Numero extends AppCompatActivity implements  Resp
         btnSiguiente= findViewById(R.id.btnSiguiente);
         txtPregunta= (TextView) findViewById(R.id.txtPregunta);
         campoImagen=(ImageView) findViewById(R.id.imagenId);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("COMIDA | BÁSICO");
+        txtPuntosEjer.setText("5 puntos");
+
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");

@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,13 +35,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Niveles extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
-    ProgressDialog progreso;
-    RequestQueue request;
-    JsonObjectRequest jsonObjectRequest;
+public class Niveles extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener, View.OnClickListener {
     TextView nivel1, nivel2,nivel3;
     ImageView campoImagen1,campoImagen2,campoImagen3;
     String secccomida, seccfamilia,seccnumero,seccsaludo;
+    private Button btnVolver;
+    private LinearLayout llN1, llN2, llN3;
+    ProgressDialog progreso;
+    RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +55,10 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
         campoImagen1=findViewById(R.id.ivnivel1);
         campoImagen2=findViewById(R.id.ivnivel2);
         campoImagen3=findViewById(R.id.ivnivel3);
+        llN1 = findViewById(R.id.llNivel1);
+        llN2 = findViewById(R.id.llNivel2);
+        llN3 = findViewById(R.id.llNivel3);
+        btnVolver = findViewById(R.id.btnVolver);
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         secccomida= getIntent().getStringExtra("secc_comida");
@@ -65,7 +75,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
 
         if(secccomida!=null)
         {
-            campoImagen1.setOnClickListener(new View.OnClickListener() {
+            llN1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Basico_Ejercicio1_Comida.class);
@@ -75,7 +85,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                 }
             });
 
-            campoImagen2.setOnClickListener(new View.OnClickListener() {
+            llN2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Intermedio_Ejercicio1_Comida.class);
@@ -85,7 +95,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                 }
             });
 
-            campoImagen3.setOnClickListener(new View.OnClickListener() {
+            llN3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Avanzado_Video.class);
@@ -98,7 +108,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
 
         if(seccfamilia!=null)
         {
-            campoImagen1.setOnClickListener(new View.OnClickListener() {
+            llN1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Basico_Ejercicio1_Familia.class);
@@ -106,7 +116,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                     finish();
                 }
             });
-            campoImagen2.setOnClickListener(new View.OnClickListener() {
+            llN2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Intermedio_Ejercicio1_Familia.class);
@@ -116,7 +126,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                 }
             });
 
-            campoImagen3.setOnClickListener(new View.OnClickListener() {
+            llN3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Avanzado_Video.class);
@@ -128,7 +138,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
         }
         if(seccnumero!=null)
         {
-            campoImagen1.setOnClickListener(new View.OnClickListener() {
+            llN1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Basico_Ejercicio1_Numero.class);
@@ -137,7 +147,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                 }
             });
 
-            campoImagen2.setOnClickListener(new View.OnClickListener() {
+            llN2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Intermedio_Ejercicio1_Numero.class);
@@ -147,7 +157,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                 }
             });
 
-            campoImagen3.setOnClickListener(new View.OnClickListener() {
+            llN3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Avanzado_Video.class);
@@ -159,7 +169,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
         }
         if(seccsaludo!=null)
         {
-            campoImagen1.setOnClickListener(new View.OnClickListener() {
+            llN1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Basico_Ejercicio1_Saludo.class);
@@ -168,7 +178,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                 }
             });
 
-            campoImagen2.setOnClickListener(new View.OnClickListener() {
+            llN2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Intermedio_Ejercicio1_Saludo.class);
@@ -178,7 +188,7 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                 }
             });
 
-            campoImagen3.setOnClickListener(new View.OnClickListener() {
+            llN3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i= new Intent(getApplication(), Avanzado_Video.class);
@@ -188,6 +198,8 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
                 }
             });
         }
+
+        btnVolver.setOnClickListener(this);
     }
 
     @Override
@@ -217,8 +229,8 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
         }
 
         nivel1.setText(minivel.getNomnivel1()+"");
-        nivel2.setText(minivel.getNomnivel2()+"");
-        nivel3.setText(minivel.getNomnivel3()+"");
+        nivel2.setText(minivel.getNomnivel2());
+        nivel3.setText(minivel.getNomnivel3());
 
         if (minivel.getImagennivel1()!=null){
             campoImagen1.setImageBitmap(minivel.getImagennivel1());
@@ -240,6 +252,13 @@ public class Niveles extends AppCompatActivity implements Response.Listener<JSON
     @Override
     public void onBackPressed()
     {
+        Intent i = new Intent(getApplication(), Secciones.class);
+        startActivity(i);
+        this.finish();
+    }
+
+    @Override
+    public void onClick(View v) {
         Intent i = new Intent(getApplication(), Secciones.class);
         startActivity(i);
         this.finish();

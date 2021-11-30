@@ -277,13 +277,13 @@ public class procesar_resultado extends AppCompatActivity {
                 try {
                     jsonObject=json.getJSONObject(0);
                     miPregunta.setDato1(jsonObject.optString("imagensecc1"));
-                    miPregunta.setDato2(jsonObject.optString("imagensecc2"));
+                    miPregunta.setDato2(jsonObject.optString("imagensecc4")); //cambio con imagensecc2 por el orden en la BD
                     miPregunta.setDato3(jsonObject.optString("imagensecc3"));
-                    miPregunta.setDato4(jsonObject.optString("imagensecc4"));
+                    miPregunta.setDato4(jsonObject.optString("imagensecc2"));
                     miPregunta.setOp1(jsonObject.optString("nomsecc1"));
-                    miPregunta.setOp2(jsonObject.optString("nomsecc2"));
+                    miPregunta.setOp2(jsonObject.optString("nomsecc4")); //cambio con imagensecc2 por el orden en la BD
                     miPregunta.setOp3(jsonObject.optString("nomsecc3"));
-                    miPregunta.setOp4(jsonObject.optString("nomsecc4"));
+                    miPregunta.setOp4(jsonObject.optString("nomsecc2"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

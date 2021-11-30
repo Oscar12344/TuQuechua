@@ -7,84 +7,65 @@
     tools:context=".basico.comida_basico.Basico_Ejercicio4_Comida"
     android:background="@color/primaryColor">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
+    <include android:id="@+id/include2"
+        layout="@layout/titulo_seccion_nivel_puntos"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/imagenId"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/img_base"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ibIniciar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include2"
+        app:layout_constraintVertical_bias="0.075" />
 
-            <TextView
-                style="@style/styleTitulo"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:text="NIVEL BASICO"
-                android:textSize="20sp" />
+    <ImageButton
+        android:id="@+id/ibIniciar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:onClick="iniciar"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/imagenId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imagenId"
+        app:layout_constraintTop_toTopOf="@+id/imagenId"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/audio"
+        tools:ignore="VectorDrawableCompat" />
 
-            <TextView
-                style="@style/styleTitulo"
-                android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="5 puntos"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+    <TextView
+        android:id="@+id/txtPregunta"
+        style="@style/styleLabel"
+        android:layout_margin="16dp"
+        android:text="pregunta"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/spRespuesta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagenId" />
 
-        </LinearLayout>
+    <Spinner
+        android:id="@+id/spRespuesta"
+        style="@style/spinner_style"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSiguiente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPregunta" />
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imagenId"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="left"
-            android:layout_below="@+id/linearLayout"
-            android:src="@drawable/img_base"
-            android:layout_centerHorizontal="true"
-            android:background="@color/primaryColor" />
-
-           <ImageButton
-               android:id="@+id/ibIniciar"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_gravity="center"
-
-               android:background="@color/primaryColor"
-               android:onClick="iniciar"
-               app:srcCompat="@drawable/ic_audio"
-               tools:ignore="VectorDrawableCompat" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/txtPregunta"
-            android:text="pregunta"
-            android:textSize="20dp"
-            style="@style/styleLabel"
-            android:layout_marginTop="10dp"/>
-
-        <Spinner
-            android:id="@+id/spRespuesta"
-            style="@style/spinner_style"
-            android:layout_marginTop="10dp"/>
-
-        <Button
-            android:id="@+id/btnSiguiente"
-            android:text="Siguiente"
-            style="@style/styleButton"
-            android:layout_marginTop="10dp"/>
-    </LinearLayout>
+    <Button
+        android:id="@+id/btnSiguiente"
+        style="@style/styleButton"
+        android:layout_marginBottom="16dp"
+        android:text="Siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spRespuesta"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

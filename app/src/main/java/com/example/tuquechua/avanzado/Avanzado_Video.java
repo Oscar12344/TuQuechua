@@ -78,7 +78,7 @@ public class Avanzado_Video extends AppCompatActivity implements Response.Listen
                 break;
         }
 
-        String url = getString(R.string.urlAvVid)+urlSec;
+        String url = getString(R.string.urlIP)+"pregunta/wsJSONConsultarPreguntaAvanzadoVideo.php?id="+urlSec;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);

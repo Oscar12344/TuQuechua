@@ -29,6 +29,7 @@ public class Basico_Ejercicio5_Saludo extends AppCompatActivity implements Respo
     TextView tvPregunta, tvPalabraENum, tvOp1, tvOp2, tvOp3, tvOp4;
     ImageButton ibtnOp1, ibtnOp2, ibtnOp3, ibtnOp4;
     String respuesta, rptaCorrecta;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -47,6 +48,11 @@ public class Basico_Ejercicio5_Saludo extends AppCompatActivity implements Respo
         tvOp4 = findViewById(R.id.tvOp4);
         tvPregunta = findViewById(R.id.tvPregunta);
         tvPalabraENum = findViewById(R.id.tvPalabraE);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("COMIDA | BÁSICO");
+        txtPuntosEjer.setText("5 puntos");
 
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);

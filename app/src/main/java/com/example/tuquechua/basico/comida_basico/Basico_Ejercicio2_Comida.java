@@ -29,12 +29,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.PrivateKey;
+
 public class Basico_Ejercicio2_Comida extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener, View.OnClickListener {
     ImageButton ibIniciar;
     Button btnSiguiente;
     TextView txtPregunta;
     String respuestaUsuario, rptaCorrecta;
     EditText edtrespuesta;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progreso;
     ImageView campoImagen;
     RequestQueue request;
@@ -49,6 +52,12 @@ public class Basico_Ejercicio2_Comida extends AppCompatActivity implements Respo
         btnSiguiente=findViewById(R.id.btnSiguiente);
         campoImagen=findViewById(R.id.imagenId);
         edtrespuesta=findViewById(R.id.etRespuesta);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("COMIDA | BÁSICO");
+        txtPuntosEjer.setText("5 puntos");
+
         request= Volley.newRequestQueue(this);
         //rpta1anterior= getIntent().getStringExtra("rpta1Comida");
         progreso=new ProgressDialog(this);

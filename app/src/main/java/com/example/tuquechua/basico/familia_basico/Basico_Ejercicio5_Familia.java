@@ -25,12 +25,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Basico_Ejercicio5_Familia extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
-        TextView tvPregunta, tvPalabraENum, tvOp1, tvOp2, tvOp3, tvOp4;
-        ImageButton ibtnOp1, ibtnOp2, ibtnOp3, ibtnOp4;
-        String respuesta, rptaCorrecta;
-        ProgressDialog progreso;
-        RequestQueue request;
-        JsonObjectRequest jsonObjectRequest;
+    TextView tvPregunta, tvPalabraENum, tvOp1, tvOp2, tvOp3, tvOp4;
+    ImageButton ibtnOp1, ibtnOp2, ibtnOp3, ibtnOp4;
+    String respuesta, rptaCorrecta;
+    private TextView txtSecYNiv, txtPuntosEjer;
+    ProgressDialog progreso;
+    RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,11 @@ public class Basico_Ejercicio5_Familia extends AppCompatActivity implements Resp
         tvOp4 = findViewById(R.id.tvOp4);
         tvPregunta = findViewById(R.id.tvPregunta);
         tvPalabraENum = findViewById(R.id.tvPalabraE);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("FAMILIA | BÁSICO");
+        txtPuntosEjer.setText("5 puntos");
 
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);

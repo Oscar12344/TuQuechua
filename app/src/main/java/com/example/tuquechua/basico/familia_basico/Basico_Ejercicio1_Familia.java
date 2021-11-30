@@ -34,6 +34,7 @@ public class Basico_Ejercicio1_Familia extends AppCompatActivity implements View
     Button btnSiguiente;
     String respuestaUsuario, rptaCorrecta;
     TextView txtPalabra,txtPregunta;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progreso;
     ImageView campoImagen;
     RequestQueue request;
@@ -48,6 +49,11 @@ public class Basico_Ejercicio1_Familia extends AppCompatActivity implements View
         txtPalabra= (TextView) findViewById(R.id.txtPalabra);
         txtPregunta= (TextView) findViewById(R.id.txtPregunta);
         campoImagen=(ImageView) findViewById(R.id.imagenId);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("FAMILIA | BÁSICO");
+        txtPuntosEjer.setText("5 puntos");
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,11 +24,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Secciones extends AppCompatActivity implements View.OnClickListener, Response.Listener<JSONObject>, Response.ErrorListener {
+    ImageView campoImagen1,campoImagen2,campoImagen3,campoImagen4;
+    TextView seccion1, seccion2,seccion3,seccion4;
+    private LinearLayout llS1, llS2, llS3, llS4;
     ProgressDialog progreso;
     RequestQueue request;
-    TextView seccion1, seccion2,seccion3,seccion4;
     JsonObjectRequest jsonObjectRequest;
-    ImageView campoImagen1,campoImagen2,campoImagen3,campoImagen4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,10 @@ public class Secciones extends AppCompatActivity implements View.OnClickListener
         seccion2=findViewById(R.id.tvseccion2);
         seccion3=findViewById(R.id.tvseccion3);
         seccion4=findViewById(R.id.tvseccion4);
+        llS1 = findViewById(R.id.llSec1);
+        llS2 = findViewById(R.id.llSec2);
+        llS3 = findViewById(R.id.llSec3);
+        llS4 = findViewById(R.id.llSec4);
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");
@@ -102,7 +109,7 @@ public class Secciones extends AppCompatActivity implements View.OnClickListener
             campoImagen4.setImageResource(R.drawable.img_base);
         }
 
-        campoImagen1.setOnClickListener(new View.OnClickListener() {
+        llS1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent im= new Intent (getApplication(), Niveles.class);
@@ -111,7 +118,7 @@ public class Secciones extends AppCompatActivity implements View.OnClickListener
                 finish();
             }
         });
-        campoImagen2.setOnClickListener(new View.OnClickListener() {
+        llS2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent im= new Intent (getApplication(), Niveles.class);
@@ -120,7 +127,7 @@ public class Secciones extends AppCompatActivity implements View.OnClickListener
                 finish();
             }
         });
-        campoImagen3.setOnClickListener(new View.OnClickListener() {
+        llS3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent im= new Intent (getApplication(), Niveles.class);
@@ -129,7 +136,7 @@ public class Secciones extends AppCompatActivity implements View.OnClickListener
                 finish();
             }
         });
-        campoImagen4.setOnClickListener(new View.OnClickListener() {
+        llS4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent im= new Intent (getApplication(), Niveles.class);
@@ -145,5 +152,13 @@ public class Secciones extends AppCompatActivity implements View.OnClickListener
         progreso.hide();
         Toast.makeText(this, "No se pudo consultar "+error.toString(), Toast.LENGTH_SHORT).show();
         Log.i("Error", error.toString());
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent i = new Intent(this, MainActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
     }
 }
