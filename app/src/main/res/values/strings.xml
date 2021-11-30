@@ -11,7 +11,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_diccionario">Diccionario</string>
     <string name="menu_perfil">Perfil</string>
@@ -21,10 +20,6 @@
     <string name="urlIP">http://192.168.1.7:80/</string>
     <string name="urlBasico">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaImagen.php?id=</string>
     <string name="urlIntermedio">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaIntermedio.php?id=</string>
-    <string name="urlAvanzadoVF">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaAvanzadoVF.php?id=</string>
-    <string name="urlAvVid">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaAvanzadoVideo.php?id=</string>
-    <string name="urlAvReord">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaAvanzadoReordenar.php?id=</string>
-    <string name="urlIntOrInc">http://192.168.1.7:80/pregunta/wsJSONConsultarPreguntaIntermedioOracionesIncompletas.php?id=</string>
 
     <string name="avanzado_pregunta_oraciones_incompletas">Complete las frases:</string>
 

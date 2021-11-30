@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Secciones"
-    android:background="@color/primaryColor">
+    android:background="@color/primaryColor"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,42 +18,46 @@
         <TextView
             android:text="Bienvenido"
             style="@style/styleTitulo"
-            android:layout_margin="8dp"/>
+            android:layout_margin="8dp"
+            android:layout_weight="0.5"/>
+        <TextView
+            android:text="Elija una sección:"
+            style="@style/styleLabel"
+            android:layout_weight="0.25"/>
 
         <LinearLayout
+            android:id="@+id/llSec1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1">
             <ImageView
                 android:id="@+id/ivseccion1"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_margin="10dp"
-                app:srcCompat="@drawable/img_base" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center"
-                android:layout_margin="10dp">
-                <TextView
-                    style="@style/styleSubtitulo"
-                    android:id="@+id/tvseccion1"
-                    android:text="Seccion1"
-                    android:layout_marginEnd="10dp"/>
-            </LinearLayout>
+                android:layout_marginStart="20dp"
+                app:srcCompat="@drawable/img_base"
+                android:layout_gravity="center"/>
+            <TextView
+                style="@style/styleSubtitulo"
+                android:id="@+id/tvseccion1"
+                android:text="Seccion1"
+                android:layout_marginEnd="20dp"/>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/llSec2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1">
             <ImageView
                 android:id="@+id/ivseccion2"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_margin="10dp"
-                app:srcCompat="@drawable/img_base" />
+                android:layout_marginStart="20dp"
+                app:srcCompat="@drawable/img_base"
+                android:layout_gravity="center"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,20 +67,23 @@
                     style="@style/styleSubtitulo"
                     android:id="@+id/tvseccion2"
                     android:text="Seccion2"
-                    android:layout_marginEnd="10dp"/>
+                    android:layout_marginEnd="20dp"/>
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/llSec3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1">
             <ImageView
                 android:id="@+id/ivseccion3"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_margin="10dp"
-                app:srcCompat="@drawable/img_base" />
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/img_base"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,31 +93,29 @@
                     style="@style/styleSubtitulo"
                     android:id="@+id/tvseccion3"
                     android:text="Seccion3"
-                    android:layout_marginEnd="10dp"/>
+                    android:layout_marginEnd="20dp"/>
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/llSec4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
             <ImageView
                 android:id="@+id/ivseccion4"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_margin="10dp"
-                app:srcCompat="@drawable/img_base" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center">
-                <TextView
-                    style="@style/styleSubtitulo"
-                    android:id="@+id/tvseccion4"
-                    android:text="Seccion4"
-                    android:layout_marginEnd="10dp"/>
-            </LinearLayout>
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/img_base"/>
+            <TextView
+                style="@style/styleSubtitulo"
+                android:id="@+id/tvseccion4"
+                android:text="Seccion4"
+                android:layout_marginEnd="20dp"/>
         </LinearLayout>
 
     </LinearLayout>

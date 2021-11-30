@@ -38,6 +38,7 @@ public class Basico_Ejercicio2_Familia extends AppCompatActivity implements Resp
     TextView txtPregunta;
     String respuestaUsuario, rptaCorrecta;
     EditText edtrespuesta;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progreso;
     ImageView campoImagen;
     RequestQueue request;
@@ -52,6 +53,12 @@ public class Basico_Ejercicio2_Familia extends AppCompatActivity implements Resp
         btnSiguiente=findViewById(R.id.btnSiguiente);
         campoImagen=findViewById(R.id.imagenId);
         edtrespuesta=findViewById(R.id.etRespuesta);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("FAMILIA | BÁSICO");
+        txtPuntosEjer.setText("5 puntos");
+
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");

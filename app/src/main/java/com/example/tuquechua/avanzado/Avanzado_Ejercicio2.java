@@ -76,7 +76,7 @@ public class Avanzado_Ejercicio2 extends AppCompatActivity implements Response.E
         progreso.setMessage("Consultando...");
         progreso.show();
 
-        String url = getString(R.string.urlAvReord)+urlSec;
+        String url = getString(R.string.urlIP)+"pregunta/wsJSONConsultarPreguntaAvanzadoReordenar.php?id="+urlSec;
 
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,79 +11,88 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="16dp">
         <TextView
             style="@style/styleTitulo"
-            android:layout_margin="8dp"
-            android:text="Niveles"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/ivnivel1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="20dp"
-            app:srcCompat="@drawable/img_base" />
+            android:layout_margin="10dp"
+            android:text="Niveles"
+            android:layout_weight="0.25"/>
+
+        <TextView
+            android:text="Elija un nivel:"
+            style="@style/styleLabel"
+            android:layout_weight="0.25"/>
+
         <LinearLayout
+            android:id="@+id/llNivel1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:layout_margin="20dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/ivnivel1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/img_base" />
             <TextView
                 style="@style/styleSubtitulo"
                 android:id="@+id/tvnivel1"
                 android:text="Nivel1"
                 android:layout_marginEnd="20dp"/>
         </LinearLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/ivnivel2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="20dp"
-            app:srcCompat="@drawable/img_base" />
         <LinearLayout
+            android:id="@+id/llNivel2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:layout_margin="20dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/ivnivel2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/img_base" />
             <TextView
                 style="@style/styleSubtitulo"
                 android:id="@+id/tvnivel2"
                 android:text="Nivel2"
                 android:layout_marginEnd="20dp"/>
         </LinearLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/ivnivel3"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="20dp"
-            app:srcCompat="@drawable/img_base" />
         <LinearLayout
+            android:id="@+id/llNivel3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:layout_margin="20dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/ivnivel3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/img_base" />
             <TextView
                 style="@style/styleSubtitulo"
                 android:id="@+id/tvnivel3"
                 android:text="Nivel3"
                 android:layout_marginEnd="20dp"/>
         </LinearLayout>
-    </LinearLayout>
+
+        <Button
+            android:id="@+id/btnVolver"
+            style="@style/styleButton"
+            android:text="Volver"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"/>
 
     </LinearLayout>
 

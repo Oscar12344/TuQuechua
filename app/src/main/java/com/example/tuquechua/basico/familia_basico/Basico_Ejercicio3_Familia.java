@@ -32,6 +32,7 @@ public class Basico_Ejercicio3_Familia extends AppCompatActivity implements Resp
     Button btnSiguiente;
     TextView txtPregunta, txtPalabraQ;
     String op1, op2, op3, op4, rptaCorrecta;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progreso;
     ImageView campoImagen;
     RequestQueue request;
@@ -46,6 +47,12 @@ public class Basico_Ejercicio3_Familia extends AppCompatActivity implements Resp
         txtPregunta = findViewById(R.id.tvPregunta);
         txtPalabraQ = findViewById(R.id.tvPalabraQ);
         campoImagen = findViewById(R.id.imgView);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("FAMILIA | BÁSICO");
+        txtPuntosEjer.setText("5 puntos");
+
         request = Volley.newRequestQueue(this);
         progreso = new ProgressDialog(this);
         progreso.setMessage("Consultando...");

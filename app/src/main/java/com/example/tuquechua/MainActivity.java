@@ -54,14 +54,14 @@ public class MainActivity extends AppCompatActivity implements  Response.ErrorLi
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         request= Volley.newRequestQueue(this);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setBackgroundColor(getResources().getColor(R.color.fondoColor2));
@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements  Response.ErrorLi
         }
         return super.onOptionsItemSelected(item);
     }
+
     public void updateNavHeader() {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
@@ -121,10 +122,8 @@ public class MainActivity extends AppCompatActivity implements  Response.ErrorLi
         }else{
             getApplicationContext();
         }
-
-
-
     }
+
     public void llamarWebService() {
         FirebaseUser users =  FirebaseAuth.getInstance().getCurrentUser();
         if(users!=null){
@@ -140,13 +139,10 @@ public class MainActivity extends AppCompatActivity implements  Response.ErrorLi
             jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this, this);
             request.add(jsonObjectRequest);
 
-
         }else{
             getApplicationContext();
         }
-
     }
-
 
     @Override
     public void onErrorResponse(VolleyError error) {

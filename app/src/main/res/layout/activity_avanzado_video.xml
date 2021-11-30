@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,35 +13,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            android:background="@color/secondaryDarkColor">
-
-            <TextView
-                style="@style/styleTitulo"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:text="NIVEL AVANZADO"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/txtPuntos"
-                style="@style/styleTitulo"
-                android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="FAMILIA"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
+        <include layout="@layout/titulo_seccion_nivel_puntos"/>
 
         <com.google.android.exoplayer2.ui.PlayerView
             android:id="@+id/player"
@@ -51,13 +24,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp">
 
             <Button
                 android:id="@+id/btnOp1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_marginEnd="4dp"
                 style="@style/styleButtonOpciones"
                 android:background="@drawable/rounded_layout"
                 android:layout_weight="1"
@@ -66,7 +42,9 @@
                 android:id="@+id/btnOp2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
                 style="@style/styleButtonOpciones"
+                android:background="@drawable/rounded_layout"
                 android:layout_weight="1"
                 android:text="OPCION 2"/>
         </LinearLayout>
@@ -74,20 +52,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp">
 
             <Button
                 android:id="@+id/btnOp3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
                 style="@style/styleButtonOpciones"
+                android:background="@drawable/rounded_layout"
                 android:layout_weight="1"
                 android:text="OPCION 3"/>
             <Button
                 android:id="@+id/btnOp4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
                 style="@style/styleButtonOpciones"
+                android:background="@drawable/rounded_layout"
                 android:layout_weight="1"
                 android:text="OPCION 4"/>
         </LinearLayout>
