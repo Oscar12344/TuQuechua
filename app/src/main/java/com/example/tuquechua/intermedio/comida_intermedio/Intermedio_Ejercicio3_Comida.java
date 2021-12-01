@@ -38,6 +38,7 @@ public class Intermedio_Ejercicio3_Comida extends AppCompatActivity implements R
     String op1, op2, op3, op4;
     Button btnSiguiente;
     EditText rpta1,rpta2,rpta3,rpta4;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -53,6 +54,12 @@ public class Intermedio_Ejercicio3_Comida extends AppCompatActivity implements R
         imagen= findViewById(R.id.ivImagen);
         pregunta= findViewById(R.id.tvPregunta);
         btnSiguiente = findViewById(R.id.btnSiguiente);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("COMIDA | INTERMEDIO");
+        txtPuntosEjer.setText("5 puntos");
+
         request = Volley.newRequestQueue(this);
 
         llamarWebService();

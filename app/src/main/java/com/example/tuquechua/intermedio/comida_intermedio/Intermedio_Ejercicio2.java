@@ -43,6 +43,7 @@ public class Intermedio_Ejercicio2 extends AppCompatActivity implements Response
     private Pregunta miPregunta;
     private Integer urlSec, punt;
     private Character sec;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -65,6 +66,10 @@ public class Intermedio_Ejercicio2 extends AppCompatActivity implements Response
         txtPalabra4 = findViewById(R.id.palabra4);
         btnSiguiente = findViewById(R.id.btnSiguiente);
         btnMostrarTrad = findViewById(R.id.btnMostrarTraduc);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtPuntosEjer.setText("20 puntos");
 
         request= Volley.newRequestQueue(this);
 
@@ -72,12 +77,16 @@ public class Intermedio_Ejercicio2 extends AppCompatActivity implements Response
         sec = getIntent().getCharExtra("seccion", '0');
         switch (sec){
             case 'c': urlSec=100;
+                txtSecYNiv.setText("COMIDA | INTERMEDIO");
                 break;
             case 's': urlSec=200;
+                txtSecYNiv.setText("SALUDOS | INTERMEDIO");
                 break;
             case 'n': urlSec=300;
+                txtSecYNiv.setText("NÚMEROS | INTERMEDIO");
                 break;
             case 'f': urlSec=400;
+                txtSecYNiv.setText("FAMILIA | INTERMEDIO");
                 break;
         }
 

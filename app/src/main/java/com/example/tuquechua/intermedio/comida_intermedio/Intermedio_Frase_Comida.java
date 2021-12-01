@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -34,6 +35,7 @@ public class Intermedio_Frase_Comida extends AppCompatActivity  implements Respo
     Button btnSiguiente;
     private Character seccion;
     private Integer punt;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progress;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -41,6 +43,12 @@ public class Intermedio_Frase_Comida extends AppCompatActivity  implements Respo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intermedio__frase__comida);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("COMIDA | INTERMEDIO");
+        txtPuntosEjer.setText("");
+
         listaComida = new ArrayList<>();
         recyclerViewComidas=(RecyclerView)findViewById(R.id.idRecyclerListaComidaImagen);
         recyclerViewComidas.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));

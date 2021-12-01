@@ -7,60 +7,21 @@
     android:background="@color/primaryColor"
     tools:context=".basico.familia_basico.Basico_Ejercicio5_Familia">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-        <TextView
-            style="@style/styleTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:text="NIVEL BÁSICO"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            style="@style/styleTitulo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:text="5 puntos"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+    <include android:id="@+id/include2"
+        layout="@layout/titulo_seccion_nivel_puntos"/>
 
     <TextView
         android:id="@+id/tvPregunta"
         style="@style/styleLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cuál de estos es"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Cuál de estos es: "
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/llOp1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvPalabraE"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.02" />
+        app:layout_constraintTop_toBottomOf="@+id/include2"/>
 
     <TextView
         android:id="@+id/tvPalabraE"
@@ -68,125 +29,116 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ejemplo"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/llOp2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@+id/tvPregunta"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.02" />
+        app:layout_constraintTop_toBottomOf="@+id/include2"/>
 
-    <ImageButton
-        android:id="@+id/ibOp1"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ibOp2"
-        app:layout_constraintHorizontal_bias="0.5"
+    <LinearLayout
+        android:id="@+id/llOp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/llOp3"
+        app:layout_constraintEnd_toStartOf="@+id/llOp2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPregunta"
-        app:layout_constraintVertical_bias="0.025"
-        app:srcCompat="@drawable/img_base" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPregunta">
+        <ImageButton
+            android:id="@+id/ibOp1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/img_base" />
+        <TextView
+            android:id="@+id/tvOp1"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvOp1"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:id="@+id/llOp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/llOp4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvOp2"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/llOp1"
+        app:layout_constraintTop_toBottomOf="@+id/tvPregunta">
+        <ImageButton
+            android:id="@+id/ibOp2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/img_base" />
+        <TextView
+            android:id="@+id/tvOp2"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llOp3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/llOp4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ibOp1"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/llOp1">
+        <ImageButton
+            android:id="@+id/ibOp3"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/img_base" />
+        <TextView
+            android:id="@+id/tvOp3"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/ibOp2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:background="#00FFFFFF"
+    <LinearLayout
+        android:id="@+id/llOp4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ibOp1"
-        app:layout_constraintTop_toBottomOf="@+id/tvPregunta"
-        app:layout_constraintVertical_bias="0.025"
-        app:srcCompat="@drawable/img_base" />
-
-    <TextView
-        android:id="@+id/tvOp2"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvOp1"
-        app:layout_constraintTop_toBottomOf="@+id/ibOp2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageButton
-        android:id="@+id/ibOp4"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ibOp3"
-        app:layout_constraintTop_toBottomOf="@+id/tvOp2"
-        app:layout_constraintVertical_bias="0.1"
-        app:srcCompat="@drawable/img_base" />
-
-    <TextView
-        android:id="@+id/tvOp4"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvOp3"
-        app:layout_constraintTop_toBottomOf="@+id/ibOp4"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/tvOp3"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvOp4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ibOp3"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageButton
-        android:id="@+id/ibOp3"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ibOp4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvOp1"
-        app:layout_constraintVertical_bias="0.1"
-        app:srcCompat="@drawable/img_base" />
+        app:layout_constraintStart_toEndOf="@+id/llOp3"
+        app:layout_constraintTop_toBottomOf="@+id/llOp2">
+        <ImageButton
+            android:id="@+id/ibOp4"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/img_base" />
+        <TextView
+            android:id="@+id/tvOp4"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,6 +40,7 @@ public class Avanzado_Ejercicio2 extends AppCompatActivity implements Response.E
     private Button btnPal1, btnPal2, btnPal3, btnPal4, btnPal5, btnSiguiente;
     private Integer urlSec;
     private Character seccion;
+    private TextView txtSecYNiv, txtPuntosEjer;
     private ProgressDialog progreso;
     private RequestQueue request;
     private JsonObjectRequest jsonObjectRequest;
@@ -58,16 +59,24 @@ public class Avanzado_Ejercicio2 extends AppCompatActivity implements Response.E
         btnSiguiente = findViewById(R.id.btnSiguiente);
         txtPregunta = findViewById(R.id.txtPregunta);
         imgOr = findViewById(R.id.imgOra);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtPuntosEjer.setText("20 puntos");
 
         seccion = getIntent().getCharExtra("seccion", '0');
         switch (seccion){
             case 'c': urlSec=100;
+                txtSecYNiv.setText("COMIDA | AVANZADO");
                 break;
             case 's': urlSec=200;
+                txtSecYNiv.setText("SALUDOS | AVANZADO");
                 break;
             case 'n': urlSec=300;
+                txtSecYNiv.setText("NÚMEROS | AVANZADO");
                 break;
             case 'f': urlSec=400;
+                txtSecYNiv.setText("FAMILIA | AVANZADO");
                 break;
         }
 

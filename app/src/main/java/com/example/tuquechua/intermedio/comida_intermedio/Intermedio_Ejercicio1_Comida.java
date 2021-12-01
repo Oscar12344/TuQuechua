@@ -29,10 +29,11 @@ import org.json.JSONObject;
 
 public class Intermedio_Ejercicio1_Comida extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
     TextView tvPregunta;
- String rptaCorrecta;
+    String rptaCorrecta;
     ImageView ivimagen1,ivimagen2;
     RadioButton rbop1,rbop2,rbop3,rbop4;
     String opbtn1, opbtn2, opbtn3, opbtn4;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -48,6 +49,12 @@ public class Intermedio_Ejercicio1_Comida extends AppCompatActivity implements R
         rbop2 = findViewById(R.id.rbOp2);
         rbop3 = findViewById(R.id.rbOp3);
         rbop4 = findViewById(R.id.rbOp4);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("COMIDA | INTERMEDIO");
+        txtPuntosEjer.setText("5 puntos");
+
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
         progreso.setMessage("Consultando...");

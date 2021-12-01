@@ -8,44 +8,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
-
+        android:orientation="horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginVertical="4dp" >
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/d_quechua"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
             android:text="Quechua"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textColor="@color/textoColor4"
-            android:textStyle="bold"
-            android:layout_margin="20dp"
-
-            />
+            android:textStyle="bold"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_igual"
-
-
-
-            android:layout_margin="20dp"
-
-            />
-
+            android:src="@drawable/ic_igual" />
         <TextView
             android:id="@+id/d_espanol"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Español "
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textColor="@color/textoColor4"
             android:textStyle="bold"
-            android:layout_margin="20dp"
-            />
-
+            android:layout_marginHorizontal="4dp" />
 
     </LinearLayout>
 

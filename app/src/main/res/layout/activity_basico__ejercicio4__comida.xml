@@ -35,8 +35,7 @@
         app:layout_constraintStart_toEndOf="@+id/imagenId"
         app:layout_constraintTop_toTopOf="@+id/imagenId"
         app:layout_constraintVertical_bias="0.5"
-        app:srcCompat="@drawable/audio"
-        tools:ignore="VectorDrawableCompat" />
+        app:srcCompat="@drawable/audio" />
 
     <TextView
         android:id="@+id/txtPregunta"

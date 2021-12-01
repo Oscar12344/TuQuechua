@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -35,6 +36,7 @@ public class Intermedio_Frase_Numero extends AppCompatActivity implements Respon
     Button btnSiguiente;
     private Character sec;
     private Integer punt;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progress;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -43,6 +45,12 @@ public class Intermedio_Frase_Numero extends AppCompatActivity implements Respon
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intermedio__frase__numero);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("NÚMEROS | INTERMEDIO");
+        txtPuntosEjer.setText("");
+
         listaNumero = new ArrayList<>();
         recyclerViewNumeros=(RecyclerView)findViewById(R.id.idRecyclerListaNumeroImagen);
         recyclerViewNumeros.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));

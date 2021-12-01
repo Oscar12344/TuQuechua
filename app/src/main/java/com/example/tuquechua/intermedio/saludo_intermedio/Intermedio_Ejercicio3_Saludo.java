@@ -36,6 +36,7 @@ public class Intermedio_Ejercicio3_Saludo extends AppCompatActivity implements R
     EditText rpta1,rpta2,rpta3,rpta4;
     private Integer punt;
     private Character sec;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -51,6 +52,11 @@ public class Intermedio_Ejercicio3_Saludo extends AppCompatActivity implements R
         imagen= findViewById(R.id.ivImagen);
         pregunta= findViewById(R.id.tvPregunta);
         btnSiguiente = findViewById(R.id.btnSiguiente);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("SALUDOS | INTERMEDIO");
+        txtPuntosEjer.setText("5 puntos");
 
         punt = getIntent().getIntExtra("puntaje",0);
         sec = getIntent().getCharExtra("seccion", '0');

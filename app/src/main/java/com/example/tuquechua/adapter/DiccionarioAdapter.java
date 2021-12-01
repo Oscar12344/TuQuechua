@@ -16,9 +16,24 @@ import java.util.List;
 
 public class DiccionarioAdapter extends RecyclerView.Adapter<DiccionarioAdapter.DiccinarioHolder> {
     List<Diccionario> listaDiccionarios;
+    private String[] mDataSet; //prueba
 
     public DiccionarioAdapter(List<Diccionario> listaDiccionarios) {
         this.listaDiccionarios = listaDiccionarios;
+    }
+
+    public class DiccinarioHolder extends RecyclerView.ViewHolder {
+        TextView  txtquechua, txtespanol;
+        public DiccinarioHolder(@NonNull View itemView) {
+            super(itemView);
+
+            txtquechua=itemView.findViewById(R.id.d_quechua);
+            txtespanol=itemView.findViewById(R.id.d_espanol);
+        }
+
+        /*public TextView getTextView() {
+            return textView;
+        }*/
     }
 
     @NonNull
@@ -41,15 +56,5 @@ public class DiccionarioAdapter extends RecyclerView.Adapter<DiccionarioAdapter.
     @Override
     public int getItemCount() {
         return listaDiccionarios.size();
-    }
-
-    public class DiccinarioHolder extends RecyclerView.ViewHolder {
-        TextView  txtquechua, txtespanol;
-        public DiccinarioHolder(@NonNull View itemView) {
-            super(itemView);
-
-            txtquechua=itemView.findViewById(R.id.d_quechua);
-            txtespanol=itemView.findViewById(R.id.d_espanol);
-        }
     }
 }

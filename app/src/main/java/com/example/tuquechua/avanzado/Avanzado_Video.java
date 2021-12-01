@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -38,18 +39,19 @@ import com.google.android.exoplayer2.ui.PlayerView;
 public class Avanzado_Video extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
     SimpleExoPlayer player;
     PlayerView playerView;
-    ProgressBar progressBar;
     Button btnOp1, btnOp2, btnOp3, btnOp4;
     String op1,op2,op3,op4,rptaCorrecta,rpta;
-    ProgressDialog progreso;
-    RequestQueue request;
-    JsonObjectRequest jsonObjectRequest;
-    Pregunta miPregunta;
     private Integer urlSec, puntaje = 0;
     private Character seccion;
     private boolean playWhenReady = true, flag = false;
     private int currentWindow;
     private long playbackPosition;
+    private TextView txtSecYNiv, txtPuntosEjer;
+    ProgressDialog progreso;
+    ProgressBar progressBar;
+    RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
+    Pregunta miPregunta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,10 @@ public class Avanzado_Video extends AppCompatActivity implements Response.Listen
         btnOp3 = findViewById(R.id.btnOp3);
         btnOp4 = findViewById(R.id.btnOp4);
         playerView = findViewById(R.id.player);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtPuntosEjer.setText("5 puntos");
 
         request= Volley.newRequestQueue(this);
         progreso=new ProgressDialog(this);
@@ -69,12 +75,16 @@ public class Avanzado_Video extends AppCompatActivity implements Response.Listen
         seccion = getIntent().getCharExtra("seccion", '0');
         switch (seccion){
             case 'c': urlSec=10;
+                txtSecYNiv.setText("COMIDA | AVANZADO");
                 break;
             case 's': urlSec=20;
+                txtSecYNiv.setText("SALUDOS | AVANZADO");
                 break;
             case 'n': urlSec=30;
+                txtSecYNiv.setText("NÚMEROS | AVANZADO");
                 break;
             case 'f': urlSec=40;
+                txtSecYNiv.setText("FAMILIA | AVANZADO");
                 break;
         }
 
