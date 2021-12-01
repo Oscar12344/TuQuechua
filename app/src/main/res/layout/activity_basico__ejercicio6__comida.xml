@@ -39,48 +39,58 @@
         app:srcCompat="@drawable/audio"
         app:layout_constraintVertical_bias="0.1" />
 
-    <Button
-        android:id="@+id/btnOp1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/llOp1y2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        style="@style/styleButtonOpciones"
+        android:orientation="horizontal"
+        android:layout_margin="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnOp2"
-        app:layout_constraintTop_toBottomOf="@+id/ibIniciar"
-        app:layout_constraintBottom_toTopOf="@+id/btnOp3"/>
-
-    <Button
-        android:id="@+id/btnOp2"
-        style="@style/styleButtonOpciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        app:layout_constraintStart_toEndOf="@+id/btnOp1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ibIniciar"
-        app:layout_constraintBottom_toTopOf="@+id/btnOp4"/>
+        app:layout_constraintBottom_toTopOf="@+id/llOp3y4">
+        <Button
+            android:id="@+id/btnOp1"
+            style="@style/styleButtonOpciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"/>
 
-    <Button
-        android:id="@+id/btnOp3"
-        style="@style/styleButtonOpciones"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btnOp2"
+            style="@style/styleButtonOpciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llOp3y4"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:orientation="horizontal"
+        android:layout_margin="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnOp4"
-        app:layout_constraintTop_toBottomOf="@+id/btnOp1"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <Button
-        android:id="@+id/btnOp4"
-        style="@style/styleButtonOpciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        app:layout_constraintStart_toEndOf="@+id/btnOp3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnOp2"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/llOp1y2"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <Button
+            android:id="@+id/btnOp3"
+            style="@style/styleButtonOpciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btnOp4"
+            style="@style/styleButtonOpciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -36,13 +37,21 @@ public class Intermedio_Frase_Saludo extends AppCompatActivity implements Respon
     Button btnSiguiente;
     private Integer punt;
     private Character sec;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progress;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intermedio__frase__saludo);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("SALUDOS | INTERMEDIO");
+        txtPuntosEjer.setText("");
+
         listaSaludo = new ArrayList<>();
         recyclerViewSaludos=(RecyclerView)findViewById(R.id.idRecyclerListaSaludoImagen);
         recyclerViewSaludos.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));

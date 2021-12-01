@@ -139,7 +139,7 @@ public class Basico_Ejercicio6_Comida extends AppCompatActivity implements  Resp
         int punt = getIntent().getIntExtra("puntaje",0);
 
         if(opbutton.equalsIgnoreCase(this.rptaCorrecta)) {
-            Toast.makeText(getApplicationContext(), rptaCorrecta + ", Respuesta correcta", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), rptaCorrecta + " = carne, Respuesta correcta", Toast.LENGTH_SHORT).show();
             i.putExtra("puntaje", punt+5);
         }else {
             Toast.makeText(getApplicationContext(), "Respuesta incorrecta, *" + rptaCorrecta, Toast.LENGTH_SHORT).show();

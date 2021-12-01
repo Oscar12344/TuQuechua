@@ -12,17 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/styleTitulo"
-        android:text="Ranking-Basico-
-        Familia"
-        />
-
+        android:text="Ranking\nBasico - Familia" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:id="@+id/idRecyclerListaRankingFamiliaBasico"
-
-        >
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_margin="8dp"/>
 </LinearLayout>

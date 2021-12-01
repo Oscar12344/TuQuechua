@@ -11,17 +11,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/styleTitulo"
-        android:text="Ranking-Avanzado-
-        Numero"
-        />
-
+        android:text="Ranking\nAvanzado - Numero"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:id="@+id/idRecyclerListaRankingNumeroAvanzado"
+        android:layout_margin="8dp"/>
 
-        >
-    </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>

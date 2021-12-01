@@ -1,51 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".intermedio.comida_intermedio.Intermedio_Ejercicio2"
-    android:background="@color/primaryColor">
+    android:background="@color/primaryColor"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <include layout="@layout/titulo_seccion_nivel_puntos"/>
+
+    <TextView
+        android:id="@+id/txtPreguntaOraciones"
+        style="@style/styleSubtitulo"
+        android:textSize="28sp"
+        android:text="@string/avanzado_pregunta_oraciones_incompletas"
+        android:layout_margin="8dp"/>
+
+    <Button
+        android:id="@+id/btnMostrarTraduc"
+        style="@style/styleButton"
+        android:text="Mostrar traducción"
+        android:layout_margin="8dp"/>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/styleTitulo"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:text="NIVEL INTERMEDIO"
-                android:textSize="20sp" />
-
-            <TextView
-                style="@style/styleTitulo"
-                android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="5 puntos"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/txtPreguntaOraciones"
-            style="@style/styleSubtitulo"
-            android:textSize="28sp"
-            android:text="@string/avanzado_pregunta_oraciones_incompletas"
-            android:layout_margin="8dp"/>
+        android:layout_height="wrap_content" >
 
         <LinearLayout
             android:id="@+id/contenedorOraciones"
@@ -66,7 +47,8 @@
                     android:layout_height="match_parent"
                     android:text="1."
                     android:textStyle="bold"
-                    android:textSize="50sp"/>
+                    android:textSize="50sp"
+                    android:layout_marginStart="8dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -118,7 +100,8 @@
                     android:layout_height="match_parent"
                     android:text="2."
                     android:textStyle="bold"
-                    android:textSize="50sp"/>
+                    android:textSize="50sp"
+                    android:layout_marginStart="8dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -161,14 +144,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginVertical="16dp"
-                android:background="@color/primaryLightColor">
+                android:background="@color/secondaryLightColor">
                 <TextView
                     android:id="@+id/txtNumeroOrden3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="3."
                     android:textStyle="bold"
-                    android:textSize="50sp"/>
+                    android:textSize="50sp"
+                    android:layout_marginStart="8dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -211,14 +195,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginVertical="16dp"
-                android:background="@color/secondaryLightColor">
+                android:background="@color/secondaryDarkColor">
                 <TextView
                     android:id="@+id/txtNumeroOrden4"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="4."
                     android:textStyle="bold"
-                    android:textSize="50sp"/>
+                    android:textSize="50sp"
+                    android:layout_marginStart="8dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -257,18 +242,12 @@
             </LinearLayout>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnMostrarTraduc"
-            style="@style/styleButton"
-            android:text="Mostrar traducción"
-            android:layout_margin="8dp"/>
+    </ScrollView>
 
-        <Button
-            android:id="@+id/btnSiguiente"
-            style="@style/styleButton"
-            android:text="Siguiente"
-            android:layout_margin="8dp"/>
+    <Button
+        android:id="@+id/btnSiguiente"
+        style="@style/styleButton"
+        android:text="Siguiente"
+        android:layout_margin="8dp"/>
 
-    </LinearLayout>
-
-</androidx.core.widget.NestedScrollView>
+</LinearLayout>

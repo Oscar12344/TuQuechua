@@ -35,6 +35,7 @@ public class Intermedio_Ejercicio1_Familia extends AppCompatActivity implements 
     String opbtn1, opbtn2, opbtn3, opbtn4;
     private Integer punt;
     private Character sec;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -50,6 +51,11 @@ public class Intermedio_Ejercicio1_Familia extends AppCompatActivity implements 
         rbop2 = findViewById(R.id.rbOp2);
         rbop3 = findViewById(R.id.rbOp3);
         rbop4 = findViewById(R.id.rbOp4);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("FAMILIA | INTERMEDIO");
+        txtPuntosEjer.setText("5 puntos");
 
         punt = 0;
         sec = getIntent().getCharExtra("seccion", '0');

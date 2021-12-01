@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -36,13 +37,21 @@ public class Intermedio_Frase_Familia extends AppCompatActivity implements Respo
     Button btnSiguiente;
     private Character sec;
     private Integer punt;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progress;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intermedio__frase__familia);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("FAMILIA | INTERMEDIO");
+        txtPuntosEjer.setText("");
+
         listaFamilia = new ArrayList<>();
         recyclerViewFamilias=(RecyclerView)findViewById(R.id.idRecyclerListaFamiliaImagen);
         recyclerViewFamilias.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));

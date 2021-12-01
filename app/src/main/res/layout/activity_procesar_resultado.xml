@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -43,101 +44,98 @@
         android:text="Puntaje:"
         style="@style/styleSubtitulo"
         android:background="@color/primaryLightColor"
-        app:layout_constraintBottom_toTopOf="@+id/textView15"
+        app:layout_constraintBottom_toTopOf="@+id/llPuntajeOracion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgvNivel"/>
 
-    <TextView
-        android:id="@+id/tvPuntajeObtenido"
-        style="@style/styleLabel"
-        android:text="x"
-        android:textColor="#FD0500"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView16"
-        app:layout_constraintEnd_toStartOf="@+id/textView15"
-        app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:text=" puntos de "
-        android:textColor="#FD0500"
-        style="@style/styleLabel"
+    <LinearLayout
+        android:id="@+id/llPuntajeOracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/textView16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"/>
-
-    <TextView
-        android:id="@+id/tvPuntajeTotal"
-        android:text="total"
-        android:textColor="#FD0500"
-        style="@style/styleLabel"
-        app:layout_constraintBottom_toTopOf="@+id/textView16"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView13">
+        <TextView
+            android:id="@+id/tvPuntajeObtenido"
+            style="@style/styleLabel"
+            android:text="x"
+            android:textColor="#FD0500"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/textView15"
+            android:text=" puntos de "
+            android:textColor="#FD0500"
+            style="@style/styleLabel"/>
+        <TextView
+            android:id="@+id/tvPuntajeTotal"
+            android:text="total"
+            android:textColor="#FD0500"
+            style="@style/styleLabel"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView16"
         android:text="Respuestas:"
         style="@style/styleSubtitulo"
         android:background="@color/primaryLightColor"
-        app:layout_constraintBottom_toTopOf="@+id/textView17"
+        app:layout_constraintBottom_toTopOf="@+id/llResp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/llPuntajeOracion"
         app:layout_constraintVertical_bias="0.02" />
 
-    <TextView
-        android:id="@+id/textView17"
-        android:text="Correcta: "
-        android:textColor="#FD0500"
-        style="@style/styleLabel"
-        app:layout_constraintBottom_toTopOf="@+id/textView19"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16"
-        app:layout_constraintHorizontal_bias="0.4"/>
-
-    <TextView
-        android:id="@+id/tvCorrectas"
-        android:text="x corr"
-        android:textColor="#FD0500"
-        android:textStyle="bold"
-        style="@style/styleLabel"
-        app:layout_constraintBottom_toTopOf="@+id/tvIncorrectas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/textView16"
-        app:layout_constraintVertical_bias="0.02"
-        app:layout_constraintHorizontal_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:text="Incorrecta: "
-        android:textColor="#FD0500"
-        style="@style/styleLabel"
+    <LinearLayout
+        android:id="@+id/llResp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/btnOk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17"
-        app:layout_constraintHorizontal_bias="0.375"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView16">
+        <LinearLayout
+            android:id="@+id/llRespCorrIncorr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView17"
+                android:text="Correctas: "
+                android:textColor="#FD0500"
+                style="@style/styleLabel"
+                android:layout_gravity="right"/>
+            <TextView
+                android:id="@+id/textView19"
+                android:text="Incorrectas: "
+                android:textColor="#FD0500"
+                style="@style/styleLabel"
+                android:layout_gravity="right"/>
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvIncorrectas"
-        style="@style/styleLabel"
-        android:text="x incorr"
-        android:textColor="#FD0500"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnOk"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView19"
-        app:layout_constraintTop_toBottomOf="@+id/tvCorrectas"/>
+        <LinearLayout
+            android:id="@+id/llCorrIncorrCant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvCorrectas"
+                android:text="x corr"
+                android:textColor="#FD0500"
+                android:textStyle="bold"
+                style="@style/styleLabel"
+                android:layout_gravity="left"/>
+            <TextView
+                android:id="@+id/tvIncorrectas"
+                style="@style/styleLabel"
+                android:text="x incorr"
+                android:textColor="#FD0500"
+                android:textStyle="bold"
+                android:layout_gravity="left"/>
+        </LinearLayout>
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/imgvSeccion"
@@ -190,8 +188,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnRanking"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19"
-        app:layout_constraintHorizontal_bias="0.5"/>
+        app:layout_constraintTop_toBottomOf="@+id/llResp" />
 
     <Button
         android:id="@+id/btnRanking"
@@ -200,6 +197,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnOk"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+        app:layout_constraintTop_toBottomOf="@+id/llResp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

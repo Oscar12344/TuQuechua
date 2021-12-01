@@ -27,6 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textColor="@color/primaryTextColor"
+        android:textStyle="bold"
         android:text="palabra"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@id/imgView"

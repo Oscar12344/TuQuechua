@@ -7,130 +7,94 @@
     android:background="@color/primaryColor"
     tools:context=".intermedio.familia_intermedio.Intermedio_Ejercicio1_Familia">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-        <TextView
-            style="@style/styleTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:text="NIVEL INTERMEDIO"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            style="@style/styleTitulo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="16dp"
-            android:gravity="right"
-            android:text="5 puntos"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+    <include android:id="@+id/include2"
+        layout="@layout/titulo_seccion_nivel_puntos"/>
 
     <TextView
         android:id="@+id/tvPregunta"
         style="@style/styleLabel"
-        android:layout_width="350dp"
-        android:layout_height="36dp"
-        android:layout_margin="8dp"
+        android:layout_margin="16dp"
         android:text="Pregunta"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/include2"
         app:layout_constraintVertical_bias="0.01" />
 
     <ImageView
         android:id="@+id/ivOp1"
-        android:layout_width="197dp"
-        android:layout_height="96dp"
-        android:layout_marginStart="32dp"
-        android:background="#00FFFFFF"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPregunta"
-        app:layout_constraintVertical_bias="0.029"
+        app:layout_constraintVertical_bias="0.025"
         app:srcCompat="@drawable/img_base" />
 
     <ImageView
         android:id="@+id/ivOp2"
-        android:layout_width="197dp"
-        android:layout_height="96dp"
-        android:layout_marginEnd="24dp"
-        android:background="#00FFFFFF"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toEndOf="@+id/ivOp1"
         app:layout_constraintTop_toBottomOf="@+id/tvPregunta"
-        app:layout_constraintVertical_bias="0.245"
+        app:layout_constraintVertical_bias="0.25"
         app:srcCompat="@drawable/img_base" />
 
     <LinearLayout
+        android:id="@+id/llOpciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivOp2">
+        app:layout_constraintTop_toBottomOf="@+id/ivOp2"
+        android:weightSum="4">
 
         <RadioButton
             android:id="@+id/rbOp1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Opcion 1"
-            android:layout_margin="10dp"
-            android:textSize="20dp" />
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:layout_weight="1" />
 
         <RadioButton
             android:id="@+id/rbOp2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Opcion 2"
-            android:layout_margin="10dp"
-            android:textSize="20dp" />
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:layout_weight="1" />
 
         <RadioButton
             android:id="@+id/rbOp3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Opcion 3"
-            android:layout_margin="10dp"
-            android:textSize="20dp"
-
-
-            />
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:layout_weight="1" />
 
         <RadioButton
             android:id="@+id/rbOp4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Opcion 4"
-            android:layout_margin="10dp"
-            android:textSize="20dp" />
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:layout_weight="1" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

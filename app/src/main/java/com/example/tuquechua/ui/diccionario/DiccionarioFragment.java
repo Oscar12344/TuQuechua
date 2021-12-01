@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,6 +43,7 @@ import java.util.ArrayList;
 public class DiccionarioFragment extends Fragment implements Response.Listener<JSONObject>, Response.ErrorListener{
     RecyclerView recyclerViewDiccionarios;
     ArrayList<Diccionario> listaDiccionario;
+    protected RecyclerView.LayoutManager mLayoutManager;
     ProgressDialog progress;
     RequestQueue request;
     Button btnbuscar;
@@ -81,6 +83,7 @@ public class DiccionarioFragment extends Fragment implements Response.Listener<J
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
@@ -90,10 +93,12 @@ public class DiccionarioFragment extends Fragment implements Response.Listener<J
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View  vista= inflater.inflate(R.layout.fragment_diccionario, container, false);
+        View vista= inflater.inflate(R.layout.fragment_diccionario, container, false);
         listaDiccionario = new ArrayList<>();
-        recyclerViewDiccionarios=(RecyclerView)vista.findViewById(R.id.idRecyclerDiccionario);
-        recyclerViewDiccionarios.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        recyclerViewDiccionarios = (RecyclerView) vista.findViewById(R.id.idRecyclerDiccionario);
+        mLayoutManager = new LinearLayoutManager(getActivity()); //prueba
+        recyclerViewDiccionarios.setLayoutManager(mLayoutManager);//(this.getContext()));
+
         btnbuscar=vista.findViewById(R.id.btnBuscar);
         btnbuscar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +107,7 @@ public class DiccionarioFragment extends Fragment implements Response.Listener<J
                 startActivity(i);
             }
         });
+
         recyclerViewDiccionarios.setHasFixedSize(true);
         request= Volley.newRequestQueue(getContext());
         llamarwebservice();
@@ -129,29 +135,27 @@ public class DiccionarioFragment extends Fragment implements Response.Listener<J
 
     @Override
     public void onResponse(JSONObject response) {
-        Diccionario diccionario=null;
-
-        JSONArray json=response.optJSONArray("diccc");
+        Diccionario diccionario = null;
+        JSONArray json = response.optJSONArray("diccc");
 
         try {
 
             for (int i=0;i<json.length();i++){
-                diccionario=new Diccionario();
-                JSONObject jsonObject=null;
-                jsonObject=json.getJSONObject(i);
-
+                diccionario = new Diccionario();
+                JSONObject jsonObject = null;
+                jsonObject = json.getJSONObject(i);
 
                 diccionario.setDicPalabraQuechua(jsonObject.optString("dicPalabraQuechua"));
                 diccionario.setDicSignificado(jsonObject.optString("dicSignificado"));
                 listaDiccionario.add(diccionario);
             }
             progress.hide();
-            DiccionarioAdapter adapter=new DiccionarioAdapter(listaDiccionario);
+            DiccionarioAdapter adapter = new DiccionarioAdapter(listaDiccionario);
             recyclerViewDiccionarios.setAdapter(adapter);
 
         } catch ( JSONException e) {
             e.printStackTrace();
-            Toast.makeText(getContext(), "Error servidor", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Error de servidor", Toast.LENGTH_SHORT).show();
             progress.hide();
         }
     }

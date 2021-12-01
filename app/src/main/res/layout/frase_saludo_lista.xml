@@ -13,16 +13,14 @@
             android:layout_height="200dp"
             android:id="@+id/fcl_imagen"
             android:src="@drawable/img_base"
-            android:layout_margin="10dp"
+            android:layout_margin="10dp"/>
 
-            />
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-
-            >
-
+            android:layout_marginEnd="8dp"
+            android:weightSum="2">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -30,14 +28,14 @@
                 android:id="@+id/fcl_palabra"
                 android:text="Palabra Quechua"
                 style="@style/styleSubtitulo"
-                android:layout_marginTop="30dp"/>
+                android:layout_weight="1"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/fcl_palabraEspanol"
                 android:text="Palabra Español"
                 style="@style/styleSubtitulo"
-                android:layout_marginTop="30dp"/>
+                android:layout_weight="1"/>
         </LinearLayout>
 
     </LinearLayout>

@@ -40,6 +40,7 @@ public class Intermedio_Ejercicio4_Numero extends AppCompatActivity implements  
     String op1, op2, op3, op4;
     private Character sec;
     private Integer punt;
+    private TextView txtSecYNiv, txtPuntosEjer;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -54,6 +55,11 @@ public class Intermedio_Ejercicio4_Numero extends AppCompatActivity implements  
         imgsonido= findViewById(R.id.ivSonido);
         spop= findViewById(R.id.spOpc);
         btnSiguiente = findViewById(R.id.btnSiguiente);
+        txtSecYNiv = findViewById(R.id.txtSecNiv);
+        txtPuntosEjer = findViewById(R.id.txtPuntos);
+
+        txtSecYNiv.setText("NÚMEROS | INTERMEDIO");
+        txtPuntosEjer.setText("5 puntos");
 
         punt = getIntent().getIntExtra("puntaje", 0);
         sec = getIntent().getCharExtra("seccion", '0');

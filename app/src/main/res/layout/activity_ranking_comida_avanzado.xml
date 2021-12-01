@@ -7,22 +7,17 @@
     tools:context=".RankingComidaAvanzado"
     android:orientation="vertical"
     android:background="@color/primaryColor">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/styleTitulo"
-        android:text="Ranking-Avanzado-
-        Comida"
-        />
-
+        android:text="Ranking\nAvanzado - Comida" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:id="@+id/idRecyclerListaRankingComidaAvanzado"
-
-        >
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_margin="8dp"/>
 
 </LinearLayout>

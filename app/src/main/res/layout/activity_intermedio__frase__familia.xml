@@ -7,28 +7,25 @@
     android:orientation="vertical"
     android:background="@color/primaryColor"
     tools:context=".intermedio.familia_intermedio.Intermedio_Frase_Familia">
+
+    <include layout="@layout/titulo_seccion_nivel_puntos"/>
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         style="@style/styleTitulo"
-        android:text="Frases de amor"
-        />
+        android:text="Lista de comidas"
+        android:layout_margin="8dp" />
+
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         style="@style/styleButton"
         android:text="Siguiente"
         android:id="@+id/btnSiguiente"
-        >
-
-    </Button>
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="8dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:id="@+id/idRecyclerListaFamiliaImagen"
-
-        >
+        android:id="@+id/idRecyclerListaFamiliaImagen">
     </androidx.recyclerview.widget.RecyclerView>
+
 </LinearLayout>
