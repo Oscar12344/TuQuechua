@@ -121,14 +121,18 @@ public class Basico_Ejercicio3_Saludo extends AppCompatActivity implements Respo
 
     public void procesar(String opcion) {
         Intent i = new Intent(this, Basico_Ejercicio4_Saludo.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
+
         if (opcion.equals(rptaCorrecta)) {
             Toast.makeText(getApplicationContext(), rptaCorrecta+", Respuesta correcta", Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt+5);
             startActivity(i);
             finish();
         } else if (opcion.equals("Elija una opción")) {
             Toast.makeText(getApplicationContext(), "Elija una opción", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(getApplicationContext(), "Respuesta Incorrecta, *"+rptaCorrecta, Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt);
             startActivity(i);
             finish();
         }

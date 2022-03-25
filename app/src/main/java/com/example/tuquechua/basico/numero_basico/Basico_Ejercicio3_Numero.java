@@ -121,8 +121,11 @@ public class Basico_Ejercicio3_Numero extends AppCompatActivity implements Respo
     public void procesar(String opcion)
     {
         Intent i = new Intent(this, Basico_Ejercicio4_Numero.class);
+        int punt = getIntent().getIntExtra("puntaje",0);
+
         if (opcion.equals(rptaCorrecta)){
             Toast.makeText(getApplicationContext(), opcion+", Respuesta correcta", Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt+5);
             startActivity(i);
             finish();
         }
@@ -131,6 +134,7 @@ public class Basico_Ejercicio3_Numero extends AppCompatActivity implements Respo
         }
         else {
             Toast.makeText(getApplicationContext(), "Respuesta Incorrecta, *"+opcion, Toast.LENGTH_SHORT).show();
+            i.putExtra("puntaje", punt);
             startActivity(i);
             finish();
         }
