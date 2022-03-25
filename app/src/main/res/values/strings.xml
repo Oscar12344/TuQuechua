@@ -17,9 +17,9 @@
     <string name="menu_libros">Libros</string>
     <string name="pruebaramas">Ramas</string>
     <string name="menu_home">Home</string>
-    <string name="urlIP">http://129.151.124.165/</string>
-    <string name="urlBasico">http://129.151.124.165/pregunta/wsJSONConsultarPreguntaImagen.php?id=</string>
-    <string name="urlIntermedio">http://129.151.124.165/pregunta/wsJSONConsultarPreguntaIntermedio.php?id=</string>
+    <string name="urlIP">http://192.168.1.20:80/</string>
+    <string name="urlBasico">http://192.168.1.20:80/pregunta/wsJSONConsultarPreguntaImagen.php?id=</string>
+    <string name="urlIntermedio">http://192.168.1.20:80/pregunta/wsJSONConsultarPreguntaIntermedio.php?id=</string>
 
     <string name="avanzado_pregunta_oraciones_incompletas">Complete las frases:</string>
 

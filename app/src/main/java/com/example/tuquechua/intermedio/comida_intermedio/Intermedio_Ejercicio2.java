@@ -144,10 +144,10 @@ public class Intermedio_Ejercicio2 extends AppCompatActivity implements Response
             miPregunta.setOp10(jsonObject.optString("aoiPrefijo4"));
             miPregunta.setOp11(jsonObject.optString("aoiPalabra4"));
             miPregunta.setOp12(jsonObject.optString("aoiSufijo4"));
-            miPregunta.setDato1(jsonObject.optString("aoiFraseEsp1"));
-            miPregunta.setDato2(jsonObject.optString("aoiFraseEsp2"));
-            miPregunta.setDato3(jsonObject.optString("aoiFraseEsp3"));
-            miPregunta.setDato4(jsonObject.optString("aoiFraseEsp4"));
+            miPregunta.setFraseEsp1(jsonObject.optString("aoiFraseEsp1"));
+            miPregunta.setFraseEsp2(jsonObject.optString("aoiFraseEsp2"));
+            miPregunta.setFraseEsp3(jsonObject.optString("aoiFraseEsp3"));
+            miPregunta.setFraseEsp4(jsonObject.optString("aoiFraseEsp4"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -274,10 +274,10 @@ public class Intermedio_Ejercicio2 extends AppCompatActivity implements Response
         txtFrase2 = popupView.findViewById(R.id.txtFrase2Esp);
         txtFrase3 = popupView.findViewById(R.id.txtFrase3Esp);
         txtFrase4 = popupView.findViewById(R.id.txtFrase4Esp);
-        txtFrase1.setText("1. "+miPregunta.getDato1());
-        txtFrase2.setText("2. "+miPregunta.getDato2());
-        txtFrase3.setText("3. "+miPregunta.getDato3());
-        txtFrase4.setText("4. "+miPregunta.getDato4());
+        txtFrase1.setText("1. "+miPregunta.getFraseEsp1());
+        txtFrase2.setText("2. "+miPregunta.getFraseEsp2());
+        txtFrase3.setText("3. "+miPregunta.getFraseEsp3());
+        txtFrase4.setText("4. "+miPregunta.getFraseEsp4());
 
         // show the popup window
         // which view you pass in doesn't matter, it is only used for the window tolken
