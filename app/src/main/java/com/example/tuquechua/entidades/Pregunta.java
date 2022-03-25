@@ -12,6 +12,7 @@ public class Pregunta {
     private Bitmap imagen;
     private String pregunta;
     private String op1,op2,op3,op4,op5,op6,op7,op8,op9,op10,op11,op12;
+    private String fraseEsp1, fraseEsp2, fraseEsp3, fraseEsp4;
     private String dato1, dato2, dato3, dato4;
     private Bitmap op1Imagen, op2Imagen, op3Imagen, op4Imagen;
     private String palabraEsp;
@@ -189,9 +190,7 @@ public class Pregunta {
         }
     }
 
-    public String getDato3() {
-        return dato3;
-    }
+    public String getDato3() { return dato3; }
 
     public void setDato3(String dato3) {
         this.dato3 = dato3;
@@ -304,4 +303,20 @@ public class Pregunta {
     public String getOp12() {        return op12;    }
 
     public void setOp12(String op12) {        this.op12 = op12;    }
+
+    public String getFraseEsp1() { return fraseEsp1; }
+
+    public void setFraseEsp1(String frase1) { this.fraseEsp1 = frase1; }
+
+    public String getFraseEsp2() { return fraseEsp2; }
+
+    public void setFraseEsp2(String frase2) { this.fraseEsp2 = frase2; }
+
+    public String getFraseEsp3() { return fraseEsp3; }
+
+    public void setFraseEsp3(String frase3) { this.fraseEsp3 = frase3; }
+
+    public String getFraseEsp4() { return fraseEsp4; }
+
+    public void setFraseEsp4(String frase4) { this.fraseEsp4 = frase4; }
 }
