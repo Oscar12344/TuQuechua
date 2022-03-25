@@ -152,6 +152,7 @@ public class Intermedio_Ejercicio1_Comida extends AppCompatActivity implements R
 
     }
 
+    //
     public void procesar(String opbutton) {
 
         int punt = 0;
